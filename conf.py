@@ -53,6 +53,10 @@ html_theme_options = {
 	'style_external_links': True
 }
 
+html_css_files = [
+    'css/overrides.css',
+]
+
 html_copy_source = False
 
 html_show_sourcelink = False

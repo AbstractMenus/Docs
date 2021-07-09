@@ -1,21 +1,21 @@
 How to create menu
-=========================================
+==================
 
 .. contents:: Contents
    :depth: 3
 
 In this brief tour of some plugin features, you will learn how to create simple menus using the AbstractMenus plugin.
 
-.. tip:: We recommend to use the `Sublime Text 3 <https://www.sublimetext.com/3>`_ editor to edit menu files. This will greatly facilitate your work with the configuration in the HOCON format. Optionally, you could install `plugin for HOCON syntax highlighting <https://packagecontrol.io/packages/HOCON%20Syntax%20Highlighting>`_
+.. tip:: Many peoples have problems with menu writing through bad and not smart text editor. We recommend to use the `Sublime Text <https://www.sublimetext.com>`_ or any other smart text editor to convenient edit menu files. This will greatly facilitate your work with the configuration in the HOCON format. Optionally, you could install `plugin for HOCON syntax highlighting <https://packagecontrol.io/packages/HOCON%20Syntax%20Highlighting>`_.
 
 Create a header
 ---------------
 
-Each menu is a file with the extension ``.conf``. All menu files must be located in the ``plugins/AbstractMenus/menus`` folder. When you run plugin first time, this folder will be created automatically. This folder will also contain the simple menu in ``menu.conf`` file.
+Each menu is a file with ``.conf`` extension. All menu files must be located in the ``plugins/AbstractMenus/menus`` folder. When you run plugin first time, this folder will be created automatically. This folder will also contain the simple menu in ``menu.conf`` file.
 
 .. note:: You could create additional folders in the ``plugins/AbstractMenus/menus`` folder and put menu files in them. No matter how many folders are nested, the plugin will find and load all menus from them. This will allow you to sort related menus.
 
-To create your first menu, create a file with any name but `.conf` extension. Note that file name is an unique name of your menu. In our case this is ``menu.conf``, so menu name is just ``menu``. To create a menu header, you need to specify only two parameters - ``title`` and ``size``.
+To create your first menu, create a file with any name but ``.conf`` extension. Note that file name is an unique name of your menu. In our case this is ``menu.conf``, so menu name is just ``menu``. To create a menu header, you need to specify only two parameters - ``title`` and ``size``.
 
 ::
 
@@ -23,6 +23,7 @@ To create your first menu, create a file with any name but `.conf` extension. No
 	size: 6
 
 These two parameters mean the following:
+
 :title: Menu title.
 :size: The number of inventory rows. The horizontal size cannot be changed without mods, so it's ignored.
 
@@ -198,7 +199,7 @@ Rules can be used at the time of clicking on the button. Suppose we want to sell
 	      actions { // Actions block. It will performed if the player complies with the rules above.
 	        itemAdd {
 	          material: DIAMOND_SWORD
-	          name: "& 6Excalibur"
+	          name: "&6Excalibur"
 	        }
 	        takeMoney: 100
 	      }

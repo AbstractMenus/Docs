@@ -1,0 +1,14 @@
+.wy-nav-top {
+	background: #8261BC;
+}
+
+.wy-nav-content-wrap {
+	background: #fcfcfc;
+}
+
+@media screen and (min-width: 1400px) {
+	.wy-nav-content {
+    margin: auto !important;
+    max-width: 850px !important;
+	}
+}

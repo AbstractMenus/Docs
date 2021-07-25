@@ -1,15 +1,21 @@
 AbstractMenus Wiki
 ==================
 
-.. toctree::
-  :maxdepth: 3
-  :caption: Getting Started
-  
-  how_to
-  data_types
+The original version of AbstractMenus you could buy `here <https://www.spigotmc.org/resources/75107>`_
+
+.. meta::
+   :description: Documentation for AbstractMenus plugin
+   :keywords: abstract, menus, am, docs, gui, plugin
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 1
+  :caption: Getting Started
+  
+  start/how_to
+  start/hocon
+
+.. toctree::
+  :maxdepth: 1
   :caption: General Features
 
   general/menu_structure
@@ -18,23 +24,24 @@ AbstractMenus Wiki
   general/actions
   general/rules
   general/variables
+  general/text_colors
+  general/placeholders
   general/examples
-  general/api
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 1
   :caption: Advanced Features
 
-  advanced/complex
+  advanced/logical
+  advanced/templates
   advanced/animations
   advanced/generation
 
 .. toctree::
-  :maxdepth: 3
-  :caption: Text Formatting
+  :maxdepth: 1
+  :caption: For Developers
 
-  text/text_colors
-  text/placeholders
+  dev/api
 
 General
 -------

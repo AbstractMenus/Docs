@@ -1,5 +1,4 @@
 Variables
-=========================================
+=========
 
-.. contents:: Contents
-   :depth: 3
+.. include:: ../_includes/contents.rst

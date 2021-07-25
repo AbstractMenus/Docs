@@ -20,8 +20,6 @@
 project = 'AbstractMenus'
 copyright = '2021, Nanit'
 author = 'Nanit'
-version = '1.10'
-release = '1.10.1'
 
 # -- General configuration ---------------------------------------------------
 

@@ -60,7 +60,7 @@ Now this block is empty. We will use some kind of activator from the list of act
 
 After plugin reloading (``/am reload``), try to enter the ``/mymenu`` command in the chat. You will see an empty menu with a given size and **My first menu** title.
 
-.. figure:: ./_static/howto_empty.png
+.. figure:: ../_static/howto_empty.png
 	:align: center
 
 	Empty menu we created
@@ -70,7 +70,7 @@ If all works for you, that’s great! Now we have an empty menu that does nothin
 Add a button
 ------------
 
-A button is just an item, placed in the menu's inventory. You can learn about all features of the buttons on :doc:`general/item_format` page. In this lesson we will just show the simplest buttons usage.
+A button is just an item, placed in the menu's inventory. You can learn about all features of the buttons on :doc:`../general/item_format` page. In this lesson we will just show the simplest buttons usage.
 
 So, to add buttons, we need to add a special list of the menu items (buttons).
 
@@ -100,7 +100,7 @@ Now our list is empty. Let's add the first button. Suppose we want to add a diam
 	  }
 	]
 
-So we've added a new button in our menu. We'll briefly describe the parameters used in this item. For a detailed description of items, visit :doc:`general/item_format` page.
+So we've added a new button in our menu. We'll briefly describe the parameters used in this item. For a detailed description of items, visit :doc:`../general/item_format` page.
 
 :slot: Button position, specified by the ordinal number of the inventory cell. You can learn about other ways to specify a slot [here] (Item format#slot).
 :material: Id of the item. On Spigot ``1.13+`` only materials by name supported. You can find them `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_. Numeric ids only works on Spigot ``1.12.2`` and lower.
@@ -108,7 +108,7 @@ So we've added a new button in our menu. We'll briefly describe the parameters u
 
 Okay, we have a button. If you reload the plugin and open the menu, you will see the created button inside.
 
-.. figure:: ./_static/howto_excalibur.png
+.. figure:: ../_static/howto_excalibur.png
 	:align: center
 
 	Menu with button we created
@@ -118,7 +118,7 @@ Now it does nothing if we click it. Let's add some action for our button.
 Add actions to button
 ~~~~~~~~~~~~~~~~~~~~~
  
-To make our button perform some action, there is special ``click`` block for buttons. Now we will show its simplest use. More details about button click processing written on :doc:`general/menu_structure` page.
+To make our button perform some action, there is special ``click`` block for buttons. Now we will show its simplest use. More details about button click processing written on :doc:`../general/menu_structure` page.
 
 ::
 
@@ -138,7 +138,7 @@ To make our button perform some action, there is special ``click`` block for but
 	  }
 	]
 
-The ``click`` block is an actions block. We've added one simple ``closeMenu`` action that just closes the menu. This action will work for any type of click on the button. If you want to add different actions for different types of click, you could add them. All types of clicks are described on :doc:`general/menu_structure` page.
+The ``click`` block is an actions block. We've added one simple ``closeMenu`` action that just closes the menu. This action will work for any type of click on the button. If you want to add different actions for different types of click, you could add them. All types of clicks are described on :doc:`../general/menu_structure` page.
 
 Add rules to display a button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -210,7 +210,7 @@ Rules can be used at the time of clicking on the button. Suppose we want to sell
 	  },
 	]
 
-Here, our click block has expanded a bit. We added a ``rules``, ``actions`` and ``denyActions`` blocks. You can read more about logical structures on :doc:`advanced/complex` page. Now we will briefly explain what happens if player click on this button:
+Here, our click block has expanded a bit. We added a ``rules``, ``actions`` and ``denyActions`` blocks. You can read more about logical structures on :doc:`../advanced/logical` page. Now we will briefly explain what happens if player click on this button:
 
 #. The player's balance will check for 100 coins.
 #. If player have enough money, an item with the same name and material as button will be added to the player’s inventory. This possible with ``itemAdd`` action, and at the same time, 100 coins will be removed from the player's balance.

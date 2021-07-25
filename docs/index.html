@@ -4,10 +4,12 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta content="Documentation for AbstractMenus plugin" name="description" />
+<meta content="abstract, menus, am, docs, gui, plugin" name="keywords" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>AbstractMenus Wiki &mdash; AbstractMenus 1.10.1 documentation</title>
+  <title>AbstractMenus Wiki &mdash; AbstractMenus  documentation</title>
   
 
   
@@ -44,7 +46,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to create menu" href="how_to.html" /> 
+    <link rel="next" title="How to create menu" href="start/how_to.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -66,10 +68,6 @@
 
           
             
-            
-              <div class="version">
-                1.10
-              </div>
             
           
 
@@ -95,8 +93,8 @@
             
               <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to create menu</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/how_to.html">How to create menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/hocon.html">HOCON format</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul>
@@ -106,19 +104,20 @@
 <li class="toctree-l1"><a class="reference internal" href="general/actions.html">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/rules.html">Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/text_colors.html">Colorizing text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/placeholders.html">Placeholders</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/api.html">Developers API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Advanced Features</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="advanced/complex.html">Complex logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced/logical.html">Logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced/templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/generation.html">Menu generator</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Text Formatting</span></p>
+<p class="caption"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="text/text_colors.html">Colorizing text</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text/placeholders.html">Placeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/api.html">Developers API</a></li>
 </ul>
 
             
@@ -186,34 +185,12 @@
             
   <div class="section" id="abstractmenus-wiki">
 <h1>AbstractMenus Wiki<a class="headerlink" href="#abstractmenus-wiki" title="Permalink to this headline">¶</a></h1>
+<p>The original version of AbstractMenus you could buy <a class="reference external" href="https://www.spigotmc.org/resources/75107">here</a></p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to create menu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to.html#create-a-header">Create a header</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.html#add-an-activator">Add an activator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.html#add-a-button">Add a button</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="how_to.html#add-actions-to-button">Add actions to button</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how_to.html#add-rules-to-display-a-button">Add rules to display a button</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how_to.html#add-actions-for-button-click">Add actions for button click</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="how_to.html#add-a-rule-for-menu-opening">Add a rule for menu opening</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="data_types.html">Data types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="data_types.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_types.html#hocon-data-types">HOCON data types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#string">String</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#number">Number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#boolean">Boolean</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#object">Object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#list">List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="data_types.html#useful-feature-of-the-lists">Useful feature of the lists</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="start/how_to.html">How to create menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start/hocon.html">HOCON format</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -225,23 +202,24 @@
 <li class="toctree-l1"><a class="reference internal" href="general/actions.html">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/rules.html">Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/text_colors.html">Colorizing text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/placeholders.html">Placeholders</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/api.html">Developers API</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Advanced Features</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="advanced/complex.html">Complex logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced/logical.html">Logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced/templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advanced/generation.html">Menu generator</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Text Formatting</span></p>
+<p class="caption"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="text/text_colors.html">Colorizing text</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text/placeholders.html">Placeholders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/api.html">Developers API</a></li>
 </ul>
 </div>
 <div class="section" id="general">
@@ -342,7 +320,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="how_to.html" class="btn btn-neutral float-right" title="How to create menu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="start/how_to.html" class="btn btn-neutral float-right" title="How to create menu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

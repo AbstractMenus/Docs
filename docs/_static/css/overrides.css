@@ -8,7 +8,11 @@
 
 @media screen and (min-width: 1400px) {
 	.wy-nav-content {
-    margin: auto !important;
-    max-width: 850px !important;
+	    margin: auto !important;
+	    max-width: 850px !important;
 	}
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+	white-space: normal !important;
 }

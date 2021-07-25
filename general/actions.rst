@@ -263,7 +263,7 @@ Parameter ``name`` required. All params are optional.
 :volume: Volume of the sound. Value between ``0.0`` and ``1.0``.
 :pitch: Pitch of the sound. Value between ``0.0`` and ``10.0``.
 :public: Is this sound will be played for all near players.
-:location: Location in which sound will play. Location format same as in action-tp_ action.
+:location: Location in which sound will play. Location format same as in :ref:`action-tp` action.
 
 You can also use short format:
 
@@ -381,7 +381,7 @@ If you want to protect created variable from rewriting, just add ``replace: fals
 	  value: "Some data"
 	}
 
-If you want to set several variables at once, you can specify them as a `objects list <hocon-list-obj>`_, where each object is a block, similar to single ``setVar``.
+If you want to set several variables at once, you can specify them as an :ref:`objects list <hocon-list-obj>`, where each object is a block, similar to single ``setVar``.
 
 ::
 

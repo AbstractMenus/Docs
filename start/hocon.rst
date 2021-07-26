@@ -147,6 +147,8 @@ Each object can contain other objects inside and so on ad infinitum. For example
 
 Here we specified the ``color`` object inside the ``item`` object. This is just an example. There is a separate lesson on how to describe items in the plugin - :doc:`../general/item_format`.
 
+.. _hocon-list:
+
 List
 ~~~~
 

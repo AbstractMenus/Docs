@@ -327,6 +327,7 @@ Action to open written book. Format of this action similar to :ref:`prop-book` i
 	  ]
 	}
 
+.. _action-vars:
 
 Variables
 ---------

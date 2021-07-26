@@ -3,12 +3,12 @@ Logical structures
 
 .. include:: ../_includes/contents.rst
 
-In general, all logical structures in AbstractMenus works as **if -> then -> else**. these strustures can be nested.
+In general, all logical structures in AbstractMenus works as **if -> then -> else**. These strustures can be nested.
 
 Actions block
 -------------
 
-Each actions block is a complex object that can contains rules and other actions. Below is a real actions block structure:
+Each actions block is a complex object that can contains rules and other actions. Below is a real structure of actions block:
 
 .. csv-table::
 	:header: "Param", "Type", "Destination"
@@ -18,7 +18,7 @@ Each actions block is a complex object that can contains rules and other actions
 	"actions", "Actions block", "Actions that performs if player matches all rules"
 	"denyActions", "Actions block", "Actions that performs if player **doesn't matches** all rules"
 
-You can imagine this block as infinite tree where enery branch is a rule or actions block.
+You can imagine this block as infinite tree where every branch is a rule or actions block.
 
 .. figure:: ../_static/logical_actions.jpg
 	:align: center
@@ -59,16 +59,15 @@ Here is an order of all actions that will be performed when player opens the men
 #. If he does, withdraw them.
 #. If he doesn't, then add 1000 money to his balance.
 
-.. note:: The rules inside the actions block do not affect on the parent actions blocks. In case of instance above, checking for the permission and availability of money will not affect on menu opening.
+.. note:: The rules inside the actions block doesn't affect on the parent actions blocks. In case of instance above, checking for the permission and availability of money will not affect on menu opening.
 
 Rules block
 -----------
 
-
 Local actions
 ~~~~~~~~~~~~~
 
-In each rules block you can specofy locl actions block. This useful in case when you cannot use ``actions`` and ``denyActions`` blocks outside. Example:
+In each rules block you can specify local actions. This useful in case when you cannot use ``actions`` and ``denyActions`` blocks outside. Example:
 
 ::
 
@@ -88,7 +87,7 @@ In each rules block you can specofy locl actions block. This useful in case when
 	  }
 	]
 
-As always, actions described in the ``actions`` block will be executeds if the player matches all rules in the ``rules`` block. And ``denyActions`` block will be executed if the player doesn't matches at least one of the rules in the current scope.
+As always, actions described in the ``actions`` block will be executed if the player matches all rules in the ``rules`` block. And ``denyActions`` block will be executed if the player doesn't matches at least one of the rules in the current scope.
 
 In the example above, the message "Nope" will send to the player if the player doesn't have the ``am.admin`` permission. The ``actions`` block, if it specified, will work oppositely, that is, if the player matches the rules.
 
@@ -133,7 +132,7 @@ Since rules block is a list of other rules block, you can specify similar rules 
 	  }
 	}
 
-In this example we used the rules block as a list. Consider in order what happens when you click on an item:
+In this example we used the rules block as a list. Let see what happens when you click on an item in order:
 
 #. The message "You clicked on a pebble."
 #. The player will be checked for "my.perm" permission.

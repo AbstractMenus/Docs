@@ -27,6 +27,8 @@ By default, variable exists infinite time, while not be deleted by some action. 
 
 Also you can get a remain lifetime of the variable. For this you have to use special placeholders, more information aboit this in table below.
 
+.. _vars-access:
+
 Access to variables
 -------------------
 

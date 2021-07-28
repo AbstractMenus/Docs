@@ -33,7 +33,7 @@ All item properties
 	"unbreakable", |t_bool|, ``unbreakable: true``, "Make item unbreakable (works on ``1.9+``)", "No"
 	"potionData", |t_list_obj|, |ex_below| :ref:`prop-potion`, "Add various potion effects for item, if this item is potion", "No"
 	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_", "Yes"
-	"fireworkData", |t_list_obj|, |ex_below| :ref:`prop-firework`, "If material is ``FIREWORK_ROCKET``, or ``FIREWORK``, it sets various settings of the fireworks", "No"
+	"fireworkData", |t_obj|, |ex_below| :ref:`prop-firework`, "If material is ``FIREWORK_ROCKET``, or ``FIREWORK``, it sets various settings of the fireworks", "No"
 	"bookData", |t_obj|, |ex_below| :ref:`prop-book`, "Add book's content and metadata (author, title) for writable book", "No"
 	"model", |t_int|, ``model: 1234567``, "Custom model data", "No"
 	"enchantStore", |t_obj|, Same as :ref:`prop-ench`, "Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (``1.12+``). Works with ``ENCHANTED_BOOK`` material", "No"
@@ -280,22 +280,27 @@ To create a colored firework, use ``fireworkData`` property. Example:
 
 ::
 
-	fireworkData: [
-	  {
-	    type: BALL
-	    trail: false
-	    colors: [
-	      "#FFFFFF",
-	      "#FF0000"
-	    ]
-	    fadeColors: [
-	      "#000000",
-	      "#00FF00"
-	    ]
-	  },
-	]
+	fireworkData {
+	  power: 2
+	  effects: [
+	    {
+	      type: BALL
+	      trail: false
+	      colors: [
+	        "#FFFFFF",
+	        "#FF0000"
+	      ]
+	      fadeColors: [
+	        "#000000",
+	        "#00FF00"
+	      ]
+	    }
+	  ]
+	}
 
-The ``fireworkData`` property is a :ref:`list of objects <hocon-list-obj>`. Each object is a firework effect and has several parameters:
+The ``power`` param set the lifetime of firework. This is optional parameter. By default its ``1``.
+
+The ``effects`` param is a :ref:`list of objects <hocon-list-obj>`. Each object is a firework effect and has several parameters:
 
 :type: Type of the shape when firework explodes. You can find all firework types `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/FireworkEffect.Type.html>`_.
 :trail: Is firework has trail while launched.

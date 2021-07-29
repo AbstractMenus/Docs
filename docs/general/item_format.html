@@ -38,6 +38,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/links.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -373,7 +374,7 @@
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-odd"><td><p>fireworkData</p></td>
-<td><p>Objects list</p></td>
+<td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-firework"><span class="std std-ref">Firework</span></a></p></td>
 <td><p>If material is <code class="docutils literal notranslate"><span class="pre">FIREWORK_ROCKET</span></code>, or <code class="docutils literal notranslate"><span class="pre">FIREWORK</span></code>, it sets various settings of the fireworks</p></td>
 <td><p>No</p></td>
@@ -631,23 +632,27 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 <div class="section" id="firework">
 <span id="prop-firework"></span><h2><a class="toc-backref" href="#id25">Firework</a><a class="headerlink" href="#firework" title="Permalink to this headline">¶</a></h2>
 <p>To create a colored firework, use <code class="docutils literal notranslate"><span class="pre">fireworkData</span></code> property. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fireworkData</span><span class="p">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="n">BALL</span>
-    <span class="n">trail</span><span class="p">:</span> <span class="n">false</span>
-    <span class="n">colors</span><span class="p">:</span> <span class="p">[</span>
-      <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;#FF0000&quot;</span>
-    <span class="p">]</span>
-    <span class="n">fadeColors</span><span class="p">:</span> <span class="p">[</span>
-      <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;#00FF00&quot;</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-<span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fireworkData</span> <span class="p">{</span>
+  <span class="n">power</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="n">effects</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">BALL</span>
+      <span class="n">trail</span><span class="p">:</span> <span class="n">false</span>
+      <span class="n">colors</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;#FF0000&quot;</span>
+      <span class="p">]</span>
+      <span class="n">fadeColors</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;#00FF00&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">fireworkData</span></code> property is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a>. Each object is a firework effect and has several parameters:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">power</span></code> param set the lifetime of firework. This is optional parameter. By default its <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">effects</span></code> param is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a>. Each object is a firework effect and has several parameters:</p>
 <dl class="field-list simple">
 <dt class="field-odd">type</dt>
 <dd class="field-odd"><p>Type of the shape when firework explodes. You can find all firework types <a class="reference external" href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/FireworkEffect.Type.html">here</a>.</p>

@@ -38,6 +38,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/links.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -115,7 +116,26 @@
 </ul>
 <p class="caption"><span class="caption-text">For Developers</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Developers API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developers API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#add-api-to-the-project">Add API to the project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gradle">Gradle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maven">Maven</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#typetoken-class-and-serialization">TypeToken class and serialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-registration">Data registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-action">Create Action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-rule">Create rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-activator">Create activator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-catalog">Create catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-item-property">Create item property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils">Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#replace-color-codes">Replace color codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#replace-placeholders">Replace placeholders</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -186,8 +206,415 @@
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#developers-api" id="id1">Developers API</a></p></li>
+<li><p><a class="reference internal" href="#developers-api" id="id1">Developers API</a></p>
+<ul>
+<li><p><a class="reference internal" href="#add-api-to-the-project" id="id2">Add API to the project</a></p>
+<ul>
+<li><p><a class="reference internal" href="#gradle" id="id3">Gradle</a></p></li>
+<li><p><a class="reference internal" href="#maven" id="id4">Maven</a></p></li>
 </ul>
+</li>
+<li><p><a class="reference internal" href="#typetoken-class-and-serialization" id="id5">TypeToken class and serialization</a></p></li>
+<li><p><a class="reference internal" href="#data-registration" id="id6">Data registration</a></p></li>
+<li><p><a class="reference internal" href="#create-action" id="id7">Create Action</a></p></li>
+<li><p><a class="reference internal" href="#create-rule" id="id8">Create rule</a></p></li>
+<li><p><a class="reference internal" href="#create-activator" id="id9">Create activator</a></p></li>
+<li><p><a class="reference internal" href="#create-catalog" id="id10">Create catalog</a></p></li>
+<li><p><a class="reference internal" href="#create-item-property" id="id11">Create item property</a></p></li>
+<li><p><a class="reference internal" href="#utils" id="id12">Utils</a></p>
+<ul>
+<li><p><a class="reference internal" href="#replace-color-codes" id="id13">Replace color codes</a></p></li>
+<li><p><a class="reference internal" href="#replace-placeholders" id="id14">Replace placeholders</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="add-api-to-the-project">
+<h2><a class="toc-backref" href="#id2">Add API to the project</a><a class="headerlink" href="#add-api-to-the-project" title="Permalink to this headline">¶</a></h2>
+<p>If you are not using any build system, just add AbtractMenus jar file in the project in your IDE.
+If you are using a build system, you can use this artifacts:</p>
+<div class="section" id="gradle">
+<h3><a class="toc-backref" href="#id3">Gradle</a><a class="headerlink" href="#gradle" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="o">{</span>
+    <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">&#39;https://jitpack.io&#39;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compileOnly</span> <span class="s1">&#39;com.github.AbstractMenus:api:main-SNAPSHOT&#39;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="maven">
+<h3><a class="toc-backref" href="#id4">Maven</a><a class="headerlink" href="#maven" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>jitpack<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://jitpack.io<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.github.AbstractMenus<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>api<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>main-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+<p>You also need to add <code class="docutils literal notranslate"><span class="pre">AbstractMenus</span></code> dependency in <code class="docutils literal notranslate"><span class="pre">depend</span></code> list of your <code class="docutils literal notranslate"><span class="pre">plugin.yml</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">depend</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;AbstractMenus&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="typetoken-class-and-serialization">
+<h2><a class="toc-backref" href="#id5">TypeToken class and serialization</a><a class="headerlink" href="#typetoken-class-and-serialization" title="Permalink to this headline">¶</a></h2>
+<p>To get data from the menu file, you need to use serializer classes. The serializer receives a <code class="docutils literal notranslate"><span class="pre">ConfigurationNode</span></code> object (a block from a config file) at the input and returns an object of a certain class.</p>
+<p>Serializer is a class that implements the <code class="docutils literal notranslate"><span class="pre">TypeSerializer</span></code> interface. It has only two methods for deserialize and serialize objects. To register our data in the plugin, you only need the <code class="docutils literal notranslate"><span class="pre">deserialize</span></code> method, since there is no writing operation to the menu file in the plugin.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySerializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyClasss</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">MyClasss</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">node</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ObjectMappingException</span> <span class="p">{</span>
+        <span class="c1">// TODO deserialize node to MyClass object</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyClasss</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">ObjectMappingException</span> <span class="p">{</span>
+        <span class="c1">// Not used</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To learn more about using serializers in the HOCON library, which is used in the plugin, you can follow the link: <a class="reference external" href="https://docs.spongepowered.org/stable/en/plugin/configuration/serialization.html">https://docs.spongepowered.org/stable/en/plugin/configuration/serialization.html</a></p>
+<p>To associate the serializer with the data type, we use <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> class. To get an instance of <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> which will represent your data type, just call the static method <code class="docutils literal notranslate"><span class="pre">of</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">String</span><span class="p">.</span><span class="na">class</span><span class="p">);</span> <span class="c1">// TypeToken for the String class</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-registration">
+<h2><a class="toc-backref" href="#id6">Data registration</a><a class="headerlink" href="#data-registration" title="Permalink to this headline">¶</a></h2>
+<p>All data for the plugin must be registered in the <code class="docutils literal notranslate"><span class="pre">onLoad()</span></code> method. You need to use this method because all data must be registered before loading the menu, which occurs at the stage of calling the <code class="docutils literal notranslate"><span class="pre">onEnable()</span></code> method.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Tokens</span></code> class is used to register data. In order to add your activator, action, etc. it is necessary to create:</p>
+<ol class="arabic simple">
+<li><p>A class that inherits or implements one of the classes described below.</p></li>
+<li><p>Serializer for this class</p></li>
+<li><p>TypeToken of this class</p></li>
+</ol>
+<p>After you have created all this, it remains to call the corresponding static method of the <code class="docutils literal notranslate"><span class="pre">Tokens</span></code> class to register the data.</p>
+</div>
+<div class="section" id="create-action">
+<h2><a class="toc-backref" href="#id7">Create Action</a><a class="headerlink" href="#create-action" title="Permalink to this headline">¶</a></h2>
+<p>Every action classe must implement the <code class="docutils literal notranslate"><span class="pre">ru.nanit.abstractmenus.api.Action</span></code> interface.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAction</span> <span class="kd">implements</span> <span class="n">Action</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activate</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">,</span> <span class="n">Item</span> <span class="n">clickedItem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;Hello! This is my action!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is the simplest example. Note that <code class="docutils literal notranslate"><span class="pre">clickedItem</span></code> can be <code class="docutils literal notranslate"><span class="pre">null</span></code>. It depends on what triggered the action call - a click on an item, or something else.</p>
+<p>As mentioned earlier, each action must have its own serializer. Let’s add it.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAction</span> <span class="kd">implements</span> <span class="n">Action</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">text</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="nf">MyAction</span><span class="p">(</span><span class="n">String</span> <span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">activate</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">,</span> <span class="n">Item</span> <span class="n">clickedItem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">player</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyAction</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyAction</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyAction</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">getString</span> <span class="p">());</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyAction</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now our action can take a string parameter and send it in a message to the player. To register our action, create a <code class="docutils literal notranslate"><span class="pre">TypeToken</span></code> for it and give it a key (unique name).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">.</span><span class="na">registerAction</span><span class="p">(</span><span class="s">&quot;myAction&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyAction</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyAction</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">myAction</span></code> is the key of our action. It will be used in the menu file. This is how it might be used in a menu file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="n">slot</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="n">material</span><span class="p">:</span> <span class="n">STONE</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;My item&quot;</span>
+    <span class="n">click</span> <span class="p">{</span>
+      <span class="n">myAction</span><span class="p">:</span> <span class="s2">&quot;Hello! This is my action!&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-rule">
+<h2><a class="toc-backref" href="#id8">Create rule</a><a class="headerlink" href="#create-rule" title="Permalink to this headline">¶</a></h2>
+<p>Every rule implements the <code class="docutils literal notranslate"><span class="pre">ru.nanit.abstractmenus.api.Rule</span> <span class="pre">interface</span></code>. It contains one method, which, depending on the check, can return <code class="docutils literal notranslate"><span class="pre">true</span></code> (the player matches the rule) or <code class="docutils literal notranslate"><span class="pre">false</span></code> (the player doesn’t matches the rule).</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRule</span> <span class="kd">implements</span> <span class="n">Rule</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">,</span> <span class="n">Item</span> <span class="n">clickedItem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">player</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this case, the rule will return <code class="docutils literal notranslate"><span class="pre">false</span></code> if player’s name is not <code class="docutils literal notranslate"><span class="pre">Bob</span></code>. The creation of a serializer is exactly the same.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRule</span> <span class="kd">implements</span> <span class="n">Rule</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">check</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">,</span> <span class="n">Item</span> <span class="n">clickedItem</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">player</span><span class="p">.</span><span class="na">getName</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyRule</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyRule</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyRule</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyRule</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here we decided not to avoid parameters. Our rule is to still check the player’s nickname.</p>
+<p>Registration is similar to an action’s.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">.</span><span class="na">registerRule</span><span class="p">(</span><span class="s">&quot;myRule&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyRule</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyRule</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Since our rule does not accept any parameters, when specifying it in the menu file, we can simply specify <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
+  <span class="n">myRule</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This applies to all registered actions, rules, etc., which have no parameters.</p>
+</div>
+<div class="section" id="create-activator">
+<h2><a class="toc-backref" href="#id9">Create activator</a><a class="headerlink" href="#create-activator" title="Permalink to this headline">¶</a></h2>
+<p>Each activator inherits from the abstract class <code class="docutils literal notranslate"><span class="pre">ru.nanit.abstractmenus.api.Activator</span></code>. It has no abstract methods to implement. This class is implemented from the Bukkit’s <code class="docutils literal notranslate"><span class="pre">Listener</span></code> interface, so inside you can listen to events, the calling of which opens the menu.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not register activator as listener manually. The plugin will do it automatically.</p>
+</div>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivator</span> <span class="kd">extends</span> <span class="n">Activator</span> <span class="p">{</span>
+
+    <span class="nd">@EventHandler</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSneak</span><span class="p">(</span><span class="n">PlayerToggleSneakEvent</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">isSneaking</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">openMenu</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">getPlayer</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyActivator</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyActivator</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span> <span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyActivator</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyActivator</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">openMenu</span></code> method is a method of the <code class="docutils literal notranslate"><span class="pre">Activator</span></code> class. It opens the menu in which this activator is located. In this case, we open the menu if the player toggles sneak on.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">.</span><span class="na">registerActivator</span><span class="p">(</span><span class="s">&quot;myActivator&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyActivator</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyActivator</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-catalog">
+<h2><a class="toc-backref" href="#id10">Create catalog</a><a class="headerlink" href="#create-catalog" title="Permalink to this headline">¶</a></h2>
+<p>A catalog is a collection of objects. Each object of the collection has its own placeholders, in order to add them when generating a menu from a template. To create a catalog, we need to inherit two classes - <code class="docutils literal notranslate"><span class="pre">Catalog</span></code> and <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> class represents a collection of objects already received. An object of this class is created each time the menu is opened.</p>
+<p>Each catalog should also have its own serializer. Optionally, you can take additional parameters and pass them to your <code class="docutils literal notranslate"><span class="pre">Snapshot</span></code> instance. In our example, we won’t do this.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCatalog</span> <span class="kd">extends</span> <span class="n">Catalog</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Snapshot</span><span class="o">&lt;?&gt;</span> <span class="n">snapshot</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">CatalogSnapshot</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">CatalogSnapshot</span> <span class="kd">extends</span> <span class="n">Snapshot</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="kd">public</span> <span class="nf">CatalogSnapshot</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">super</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="nf">parseElements</span><span class="p">()</span> <span class="p">{</span>
+            <span class="c1">// TODO return some collection of your objects</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">parsePlaceholders</span><span class="p">(</span><span class="n">MyObject</span> <span class="n">element</span><span class="p">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">&quot;my_placeholder&quot;</span><span class="p">,</span> <span class="n">element</span><span class="p">.</span><span class="na">getValue</span><span class="p">());</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyCatalog</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyCatalog</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyCatalog</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyCatalog</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">parseElements</span></code> method, we simply return the collection from our objects.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">parsePlaceholders</span></code> method, we can specify placeholders, which will be replaced with the specified values ​​during the menu generation. This method is passed an instance of the object and <code class="docutils literal notranslate"><span class="pre">Map</span></code> for adding placeholders.</p>
+<p>Registration is the same as always.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">.</span><span class="na">registerCatalog</span><span class="p">(</span><span class="s">&quot;my_catalog&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyCatalog</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyCatalog</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Now we can use our catalog when generating the menu^</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nl">title:</span> <span class="s">&quot;Menu&quot;</span>
+<span class="nl">size:</span> <span class="mi">4</span>
+
+<span class="n">catalog</span> <span class="p">{</span>
+  <span class="n">type</span><span class="p">:</span> <span class="n">my_catalog</span>
+<span class="p">}</span>
+
+<span class="n">matrix</span> <span class="p">{</span>
+  <span class="n">cells</span><span class="p">:</span> <span class="o">[</span>
+    <span class="s">&quot;_x_x_x_x_&quot;</span><span class="p">,</span>
+    <span class="s">&quot;_x_x_x_x_&quot;</span><span class="p">,</span>
+    <span class="s">&quot;_x_x_x_x_&quot;</span>
+  <span class="o">]</span>
+  <span class="n">templates</span> <span class="p">{</span>
+    <span class="s">&quot;x&quot;</span> <span class="p">{</span>
+      <span class="n">material</span><span class="p">:</span> <span class="n">STONE</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s">&quot;My placeholder: %ctg_my_placeholder%&quot;</span> <span class="c1">// Display your placeholder</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-item-property">
+<h2><a class="toc-backref" href="#id11">Create item property</a><a class="headerlink" href="#create-item-property" title="Permalink to this headline">¶</a></h2>
+<p>An item property is a parameter that determines its appearance and metadata.</p>
+<p>To create an item, two types of properties are used:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Regular property</dt>
+<dd class="field-odd"><p>This property works with already exists <code class="docutils literal notranslate"><span class="pre">ItemMeta</span></code> and just modify it. Optionally, regular property can return new <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>.</p>
+</dd>
+<dt class="field-even">Material relacer</dt>
+<dd class="field-even"><p>These are properties that in the process of work assign their material to an object. This makes it possible not to indicate the material in the properties of the object when the material is known from the context. Such a property, for example, is the <code class="docutils literal notranslate"><span class="pre">skullOwner</span></code> property, which immediately assigns the <code class="docutils literal notranslate"><span class="pre">PLAYER_SKULL</span></code> material to the item.</p>
+</dd>
+</dl>
+<p>An example with a regular property. Here we take a regular string and assign it as a name. Note that you can return an item. If the method returns an item, then in the process of building the final item, the changed meta parameter will not be taken. Instead, the item will be replaced with the item you returned. This is useful for dynamically changing an item, including its material, depending on the parameters received.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">Optional.EMPTY</span></code> is returned, the item keeps the same, and the modified metadata is assigned to it.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProperty</span> <span class="kd">implements</span> <span class="n">SimpleProperty</span> <span class="p">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="nf">MyProperty</span> <span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">apply</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">itemStack</span><span class="p">,</span> <span class="n">ItemMeta</span> <span class="n">meta</span><span class="p">,</span> <span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">meta</span><span class="p">.</span><span class="na">setDisplayName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyProperty</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyProperty</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyProperty</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">getString</span><span class="p">());</span>
+
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyProperty</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example with a material replacer. Here we give out the creeper head. This property has no parameters. Therefore, when using this property, you can simply specify <code class="docutils literal notranslate"><span class="pre">true</span></code> when using this property.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMaterialProperty</span> <span class="kd">implements</span> <span class="n">MaterialProperty</span> <span class="p">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">getItem</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ItemStack</span><span class="p">(</span><span class="n">Material</span><span class="p">.</span><span class="na">CREEPER_HEAD</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyMaterialProperty</span><span class="o">&gt;</span> <span class="p">{</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">MyMaterialProperty</span> <span class="nf">deserialize</span> <span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">MyMaterialProperty</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">serialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">MyMaterialProperty</span> <span class="n">obj</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Registration properties is no different from what has already been shown above.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Tokens</span><span class="p">.</span><span class="na">registerItemProperty</span><span class="p">(</span><span class="s">&quot;myProperty&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyProperty</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyProperty</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+<span class="n">Tokens</span><span class="p">.</span><span class="na">registerItemProperty</span><span class="p">(</span><span class="s">&quot;myMaterialProperty&quot;</span><span class="p">,</span> <span class="n">TypeToken</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">MyMaterialProperty</span><span class="p">.</span><span class="na">class</span><span class="p">),</span> <span class="k">new</span> <span class="n">MyMaterialProperty</span><span class="p">.</span><span class="na">Serializer</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="utils">
+<h2><a class="toc-backref" href="#id12">Utils</a><a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<p>The API contains various utilities for replacing colors, placeholders, etc.</p>
+<div class="section" id="replace-color-codes">
+<h3><a class="toc-backref" href="#id13">Replace color codes</a><a class="headerlink" href="#replace-color-codes" title="Permalink to this headline">¶</a></h3>
+<p>To replace color codes in a string or list of strings, use the <code class="docutils literal notranslate"><span class="pre">Colors</span></code> util.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Colors</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;&amp;aHello!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="replace-placeholders">
+<h3><a class="toc-backref" href="#id14">Replace placeholders</a><a class="headerlink" href="#replace-placeholders" title="Permalink to this headline">¶</a></h3>
+<p>To replace placeholders in some string, use one of the handlers that can be obtained using the <code class="docutils literal notranslate"><span class="pre">Handlers</span></code> class. The placeholder handler works with both default placeholders and PAPI.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">Handlers</span><span class="p">.</span><span class="na">getPlaceholderHandler</span><span class="p">().</span><span class="na">replace</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">menu</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

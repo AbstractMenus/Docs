@@ -38,6 +38,7 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/js/links.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -208,10 +209,10 @@
 </li>
 </ul>
 </div>
-<p>In general, all logical structures in AbstractMenus works as <strong>if -&gt; then -&gt; else</strong>. these strustures can be nested.</p>
+<p>In general, all logical structures in AbstractMenus works as <strong>if -&gt; then -&gt; else</strong>. These strustures can be nested.</p>
 <div class="section" id="actions-block">
 <h2><a class="toc-backref" href="#id3">Actions block</a><a class="headerlink" href="#actions-block" title="Permalink to this headline">¶</a></h2>
-<p>Each actions block is a complex object that can contains rules and other actions. Below is a real actions block structure:</p>
+<p>Each actions block is a complex object that can contains rules and other actions. Below is a real structure of actions block:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -239,7 +240,7 @@
 </tr>
 </tbody>
 </table>
-<p>You can imagine this block as infinite tree where enery branch is a rule or actions block.</p>
+<p>You can imagine this block as infinite tree where every branch is a rule or actions block.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/logical_actions.jpg" src="../_images/logical_actions.jpg" />
 <p class="caption"><span class="caption-text">Actions block structure</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -278,14 +279,14 @@
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The rules inside the actions block do not affect on the parent actions blocks. In case of instance above, checking for the permission and availability of money will not affect on menu opening.</p>
+<p>The rules inside the actions block doesn’t affect on the parent actions blocks. In case of instance above, checking for the permission and availability of money will not affect on menu opening.</p>
 </div>
 </div>
 <div class="section" id="rules-block">
 <h2><a class="toc-backref" href="#id4">Rules block</a><a class="headerlink" href="#rules-block" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="local-actions">
 <h3><a class="toc-backref" href="#id5">Local actions</a><a class="headerlink" href="#local-actions" title="Permalink to this headline">¶</a></h3>
-<p>In each rules block you can specofy locl actions block. This useful in case when you cannot use <code class="docutils literal notranslate"><span class="pre">actions</span></code> and <code class="docutils literal notranslate"><span class="pre">denyActions</span></code> blocks outside. Example:</p>
+<p>In each rules block you can specify local actions. This useful in case when you cannot use <code class="docutils literal notranslate"><span class="pre">actions</span></code> and <code class="docutils literal notranslate"><span class="pre">denyActions</span></code> blocks outside. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
@@ -303,7 +304,7 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>As always, actions described in the <code class="docutils literal notranslate"><span class="pre">actions</span></code> block will be executeds if the player matches all rules in the <code class="docutils literal notranslate"><span class="pre">rules</span></code> block. And <code class="docutils literal notranslate"><span class="pre">denyActions</span></code> block will be executed if the player doesn’t matches at least one of the rules in the current scope.</p>
+<p>As always, actions described in the <code class="docutils literal notranslate"><span class="pre">actions</span></code> block will be executed if the player matches all rules in the <code class="docutils literal notranslate"><span class="pre">rules</span></code> block. And <code class="docutils literal notranslate"><span class="pre">denyActions</span></code> block will be executed if the player doesn’t matches at least one of the rules in the current scope.</p>
 <p>In the example above, the message “Nope” will send to the player if the player doesn’t have the <code class="docutils literal notranslate"><span class="pre">am.admin</span></code> permission. The <code class="docutils literal notranslate"><span class="pre">actions</span></code> block, if it specified, will work oppositely, that is, if the player matches the rules.</p>
 </div>
 <div class="section" id="list-of-rule-blocks">
@@ -342,7 +343,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this example we used the rules block as a list. Consider in order what happens when you click on an item:</p>
+<p>In this example we used the rules block as a list. Let see what happens when you click on an item in order:</p>
 <ol class="arabic simple">
 <li><p>The message “You clicked on a pebble.”</p></li>
 <li><p>The player will be checked for “my.perm” permission.</p></li>

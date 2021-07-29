@@ -13,32 +13,37 @@ All item properties
 -------------------
 
 .. csv-table::
-	:header: "Name", "Data type", "Example", "Description", "Replace material"
-	:widths: 5, 5, 10, 30, 5
+	:header: "Name", "Data type", "Example", "Description"
+	:widths: 5, 5, 10, 30
 
-	"slot", |t_mult|, |ex_below| :ref:`prop-slot`, "Set slot for item. Not a regular item's property. Can be used only for menu items or in some actions and rules", "No"
-	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material. On MC ``1.12`` and lower, numerical ids are supported", "Yes"
-	"name", |t_str|, ``name: "Peter Piper"``, "Set display name", "No"
-	"data", |t_int|, ``data: 2``, "Material data (deprecated since MC ``1.13``, full material names are used instead)", "No"
-	"count", |t_int|, ``count: 64``, "Amount of item stack", "No"
-	"damage", |t_int|, ``damage: 100``, "Set damage (bar under item) for damageable items. The higher the number, the lower the durability of the item", "No"
-	"lore", |t_list_str|, |ex_below| :ref:`prop-lore`, "Set item lore (text under name)", "No"
-	"hdb", |t_str|, ``hdb: "2853"``, "Set the head by the identifier from the `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_", "Yes"
-	"glow", |t_bool|, ``glow: true``, "Set glowing effect (via invisible enchantment)", "No"
-	"texture", |t_str|, ``texture: "<texture_id>"``, "Sha-1 hash of the skin from the server ``http://textures.minecraft.net/texture/<texture_id>``. You can find this hash, for example, on the https://minecraft-heads.com", "Yes"
-	"skullOwner", |t_str|, ``damage: 100``, "Set player's skin on head", "Yes"
-	"enchantments", |t_obj|, |ex_below| :ref:`prop-ench`, "Add enchantment to item", "No"
-	"color", |t_str|, |ex_below|, "Colorize armor or potion", "No"
-	"flags", |t_list_str|, |ex_below| :ref:`prop-flags`, "Add item flags", "No"
-	"unbreakable", |t_bool|, ``unbreakable: true``, "Make item unbreakable (works on ``1.9+``)", "No"
-	"potionData", |t_list_obj|, |ex_below| :ref:`prop-potion`, "Add various potion effects for item, if this item is potion", "No"
-	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_", "Yes"
-	"fireworkData", |t_obj|, |ex_below| :ref:`prop-firework`, "If material is ``FIREWORK_ROCKET``, or ``FIREWORK``, it sets various settings of the fireworks", "No"
-	"bookData", |t_obj|, |ex_below| :ref:`prop-book`, "Add book's content and metadata (author, title) for writable book", "No"
-	"model", |t_int|, ``model: 1234567``, "Custom model data", "No"
-	"enchantStore", |t_obj|, Same as :ref:`prop-ench`, "Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (``1.12+``). Works with ``ENCHANTED_BOOK`` material", "No"
-	"recipes", |t_list_obj|, "Same as recipe format", "Create a book with custom recipes (knowledge book). Works with ``KNOWLEDGE_BOOK`` material", "No"
-	"nbt", |t_obj|, |ex_below| :ref:`prop-nbt`, "Add NBT tags to the item", "No"
+	"slot", |t_mult|, |ex_below| :ref:`prop-slot`, "Set slot for item. Not a regular item's property. Can be used only for menu items or in some actions and rules"
+	"**Material installers**"
+	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material by name. On MC ``1.12`` and lower, numerical ids are supported"
+	"texture", |t_str|, ``texture: "<texture_id>"``, "Sha-1 hash of the skin from the server ``http://textures.minecraft.net/texture/<texture_id>``. You can find this hash, for example, on the https://minecraft-heads.com"
+	"skullOwner", |t_str|, ``damage: 100``, "Set player's skin on head"
+	"hdb", |t_str|, ``hdb: "2853"``, "Set the head by the identifier from the `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_"
+	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
+	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Takes a custom stack declared in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
+	"**Other properties**"
+	"name", |t_str|, ``name: "Peter Piper"``, "Set display name"
+	"data", |t_int|, ``data: 2``, "Material data (deprecated since MC ``1.13``, full material names are used instead)"
+	"count", |t_int|, ``count: 64``, "Amount of item stack"
+	"damage", |t_int|, ``damage: 100``, "Set damage (bar under item) for damageable items. The higher the number, the lower the durability of the item"
+	"lore", |t_list_str|, |ex_below| :ref:`prop-lore`, "Set item lore (text under name)"
+	"glow", |t_bool|, ``glow: true``, "Set glowing effect (via invisible enchantment)"
+	"enchantments", |t_obj|, |ex_below| :ref:`prop-ench`, "Add enchantment to item"
+	"color", |t_str|, |ex_below|, "Colorize armor or potion"
+	"flags", |t_list_str|, |ex_below| :ref:`prop-flags`, "Add item flags"
+	"unbreakable", |t_bool|, ``unbreakable: true``, "Make item unbreakable (works on ``1.9+``)"
+	"potionData", |t_list_obj|, |ex_below| :ref:`prop-potion`, "Add various potion effects for item, if this item is potion"
+	"fireworkData", |t_obj|, |ex_below| :ref:`prop-firework`, "If material is ``FIREWORK_ROCKET``, or ``FIREWORK``, it sets various settings of the fireworks"
+	"bookData", |t_obj|, |ex_below| :ref:`prop-book`, "Add book's content and metadata (author, title) for writable book"
+	"model", |t_int|, ``model: 1234567``, "Custom model data"
+	"enchantStore", |t_obj|, Same as :ref:`prop-ench`, "Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (``1.12+``). Works with ``ENCHANTED_BOOK`` material"
+	"recipes", |t_list_obj|, "Same as recipe format", "Create a book with custom recipes (knowledge book). Works with ``KNOWLEDGE_BOOK`` material"
+	"nbt", |t_obj|, |ex_below| :ref:`prop-nbt`, "Add NBT tags to the item"
+
+.. note:: Material installer is a property that set the item's material and optionally other parameters. You should use only one material installer property for an item.
 
 .. _prop-slot:
 

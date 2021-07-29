@@ -55,6 +55,10 @@ html_css_files = [
     'css/overrides.css',
 ]
 
+html_js_files = [
+    'js/links.js'
+]
+
 html_copy_source = False
 
 html_show_sourcelink = False

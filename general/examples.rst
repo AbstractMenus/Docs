@@ -14,32 +14,41 @@ We prepared some examples of menus. They are sorted by difficult:
 Simple menus
 ------------
 
-+---------------------------------------------+-------------------------------------------+-------------------------------------------+
-| .. figure:: ../_static/examples/servers.gif | .. figure:: ../_static/items_slots_xy.png | .. figure:: ../_static/items_slots_xy.png |
-|   :alt: map to buried treasure              |   :alt: map to buried treasure            |   :alt: map to buried treasure            |
-|                                             |                                           |                                           |
-|   This is the caption of the figure (a      |   This is the caption of the figure (a    |   This is the caption of the figure (a    |
-|   simple paragraph).                        |   simple paragraph).                      |   simple paragraph).                      |
-+-------------------------------------------+-------------------------------------------+---------------------------------------------+
+.. |preview-stats| image:: ../_static/examples/stats.gif
+.. |preview-servers| image:: ../_static/examples/servers.gif
+.. |preview-cakes| image:: ../_static/examples/cakes.gif
+
+.. csv-table::
+	:header: "Name", "Depends", "Preview"
+	:widths: 5, 5, 10
+
+	"`Player stats <https://github.com/AbstractMenus/examples/blob/main/simple/stats.conf>`_", "PlaceholderAPI with Player and Statistic expansions", |preview-stats|
+	"`BungeeCord servers selector <https://github.com/AbstractMenus/examples/blob/main/simple/servers.conf>`_", "BungeeCord, PlaceholderAPI with Player and Bungee expansions", |preview-servers|
+	"`Cake shop <https://github.com/AbstractMenus/examples/blob/main/simple/cake_shop.conf>`_", "Vault and any Economy plugin", |preview-cakes|
 
 Medium menus
 ------------
 
-+-------------------------------------------+-------------------------------------------+-------------------------------------------+
-| .. figure:: ../_static/items_slots_xy.png | .. figure:: ../_static/items_slots_xy.png | .. figure:: ../_static/items_slots_xy.png |
-|   :alt: map to buried treasure            |   :alt: map to buried treasure            |   :alt: map to buried treasure            |
-|                                           |                                           |                                           |
-|   This is the caption of the figure (a    |   This is the caption of the figure (a    |   This is the caption of the figure (a    |
-|   simple paragraph).                      |   simple paragraph).                      |   simple paragraph).                      |
-+-------------------------------------------+-------------------------------------------+-------------------------------------------+
+
+.. |preview-kits| image:: ../_static/examples/kits.gif
+.. |preview-craft| image:: ../_static/examples/craft.gif
+.. |preview-shop| image:: ../_static/examples/shop.gif
+
+.. csv-table::
+	:header: "Name", "Depends", "Preview"
+	:widths: 5, 5, 10
+
+	"`Daily kits <https://github.com/AbstractMenus/examples/blob/main/medium/kits.conf>`_", "LuckPerms", |preview-kits|
+	"`Crafting <https://github.com/AbstractMenus/examples/blob/main/medium/craft.conf>`_", "Nothing", |preview-craft|
+	"`Shop <https://github.com/AbstractMenus/examples/blob/main/medium/shop.conf>`_", "Vault and any Economy plugin", |preview-shop|
 
 Advanced menus
 --------------
 
-+-------------------------------------------+-------------------------------------------+-------------------------------------------+
-| .. figure:: ../_static/items_slots_xy.png | .. figure:: ../_static/items_slots_xy.png | .. figure:: ../_static/items_slots_xy.png |
-|   :alt: map to buried treasure            |   :alt: map to buried treasure            |   :alt: map to buried treasure            |
-|                                           |                                           |                                           |
-|   This is the caption of the figure (a    |   This is the caption of the figure (a    |   This is the caption of the figure (a    |
-|   simple paragraph).                      |   simple paragraph).                      |   simple paragraph).                      |
-+-------------------------------------------+-------------------------------------------+-------------------------------------------+
+.. |preview-casino| image:: ../_static/examples/casino.gif
+
+.. csv-table::
+	:header: "Name", "Depends", "Preview"
+	:widths: 5, 5, 10
+
+	"`Casino <https://github.com/AbstractMenus/examples/blob/main/advanced/casino>`_", "Vault and any Economy plugin", |preview-casino|

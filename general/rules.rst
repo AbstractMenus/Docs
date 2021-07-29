@@ -159,11 +159,11 @@ Rule to compare some data (for example, placeholder from PAPI) with another data
 Parameter ``param`` is required. All other are optional.
 
 :param: The parameter which you compare (``%player_name%`` is a placeholder which replaces to player name who opened menu).
-:equals: Check param with list of strings. **Case sensitivity**.
-:equalsIgnoreCase: Check param with list of strings. **Case insensitivity**
-:contains: Check param to contains one of the specified substring.
-:less: Does the param less than the specified number. For numeric params only.
-:more: Does the param greater than the specified number For numeric params only.
+:equals: Check parameter with list of strings. **Case sensitivity**.
+:equalsIgnoreCase: Check parameter with list of strings. **Case insensitivity**
+:contains: Check parameter to contains one of the specified substring.
+:less: Does the parameter less than the specified number. For numeric parameters only.
+:more: Does the parameter greater than the specified number For numeric parameters only.
 
 .. _rule-js:
 
@@ -174,7 +174,7 @@ JavaScript
 
 The plugin allows you to use JavaScript code. Code inside must always return the result - ``true`` or ``false``. If the code returns something else, the plugin will suppose this is a ``false``. This rule can be used as a replacement for the ``if`` rule because of its greater versatility. But you should understand that interpreting JavaScript will take longer than the ``if`` rule.
 
-The js rule supports placeholders. This will allow you to compare them, and manipulate them using JavaScript syntax. Example:
+The ``js`` rule supports placeholders. This will allow you to compare them, and manipulate them using JavaScript syntax. Example:
 
 ::
 

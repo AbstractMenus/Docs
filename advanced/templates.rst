@@ -8,7 +8,7 @@ Thanks to the flexible HOCON format you can create templates for anything. A tem
 Templates basics
 ----------------
 
-For example, in each of the bunch of menus the "Close menu" button has the same look and paremeters. Lets create this button, but not outside of default ``items`` list. Example:
+For example, in each of the bunch of menus the "Close menu" button has the same look and parameters. Lets create this button, but not outside of default ``items`` list. Example:
 
 ::
 
@@ -24,7 +24,7 @@ For example, in each of the bunch of menus the "Close menu" button has the same 
 
 Since this item outside of items list, this is a template.
 
-Now you can include this template in any place of the menu. For this, you need a special placeholders. This palcehodler has format:
+Now you can include this template in any place of the menu. For this, you need a special placeholders. This placeholder has format:
 
 ::
 

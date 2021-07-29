@@ -159,7 +159,7 @@ Enchantments
 
 Enchantments has format ``<enchantment>: <level>`` where:
 
-:<enchantment>: Bukkit's ehcnantment name. You can find it `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html>`_
+:<enchantment>: Bukkit's enchantment name. You can find it `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/enchantments/Enchantment.html>`_
 :<level>: Level of the enchantment. Minimal level is ``1``.
 
 Example:
@@ -298,9 +298,9 @@ To create a colored firework, use ``fireworkData`` property. Example:
 	  ]
 	}
 
-The ``power`` param set the lifetime of firework. This is optional parameter. By default its ``1``.
+The ``power`` parameter set the lifetime of firework. This is optional parameter. By default its ``1``.
 
-The ``effects`` param is a :ref:`list of objects <hocon-list-obj>`. Each object is a firework effect and has several parameters:
+The ``effects`` parameter is a :ref:`list of objects <hocon-list-obj>`. Each object is a firework effect and has several parameters:
 
 :type: Type of the shape when firework explodes. You can find all firework types `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/FireworkEffect.Type.html>`_.
 :trail: Is firework has trail while launched.
@@ -335,7 +335,7 @@ This property has several parameters:
 :title: The displayed book's title.
 :pages: The :ref:`list of strings <hocon-list-str>`. Each new line is a new page content.
 
-.. note:: The ``bookData`` porperty will only work for ``WRITTEN_BOOK`` material.
+.. note:: The ``bookData`` property will only work for ``WRITTEN_BOOK`` material.
 
 .. _prop-banner:
 

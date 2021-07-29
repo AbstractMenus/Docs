@@ -7,7 +7,7 @@ Placeholders
 
 Placeholder is a part of text concluded between ``%`` chars.
 
-The plugin supports placeholders in any parameter of the item, action, rule, and activator. It doesn’t matter what data type the parameter accepts. 
+The plugin supports placeholders in any parameter of the item, action, rule, and activator. It doesn’t matter what data type the parameter accepts.
 
 If the parameter accepts a number, and a placeholder inserted instead of it also returns a number, this will work. Therefore, if you use placeholders for numeric types, make sure that it is replaced with a number, otherwise, there will be an error.
 

@@ -143,7 +143,7 @@ The ``click`` block is an actions block. We've added one simple ``closeMenu`` ac
 Add rules to display a button
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can add the display rules for any button. If player who opened the menu match the rules, the button will be showed in inventory. Otherwise, it will be ignored. Suppose we want our excalibur to look different for different players. It will depend on the player's level. Then our menu file will looks like this:
+You can add the display rules for any button. If player who opened the menu match the rules, the button will be showed in inventory. Otherwise, it will be ignored. Suppose we want our Excalibur to look different for different players. It will depend on the player's level. Then our menu file will looks like this:
 
 ::
 
@@ -225,7 +225,7 @@ The last thing we want to talk about in this lesson is how to add rules to open 
 #. If player matches, menu will open.
 #. If it does not match, menu won't be opened and the actions in the ``denyActions`` block will be executed, if they was specified.
 
-Below is an example of this behaviour.
+Below is an example of this behavior.
 
 ::
 

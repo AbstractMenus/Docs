@@ -7,13 +7,13 @@ Variable in AbstractMenus is any data stored in memory and can be accessed throu
 
 Plugin allows you to save and edit variables through actions or admin commands. Variables can be **global** or **personal**.
 
-:Global variable: Variables accesible from any place.
+:Global variable: Variables accessible from any place.
 :Personal variable: Variable binded to player. Variable with same name may has different values for different players.
 
 Variables naming
 ----------------
 
-You should only use latin symbols and ``_`` when you naming variables, because using any other symbols may call an errors when using in placeholder.
+You should only use Latin symbols and ``_`` when you naming variables, because using any other symbols may call an errors when using in placeholder.
 
 Variable operations
 -------------------
@@ -25,7 +25,7 @@ Temporal variables
 
 By default, variable exists infinite time, while not be deleted by some action. But you can also create a temporal variables. Temporal variables will be deleted automatically after some time. Read :ref:`this <action-setvar>` topic to know how to create temporal variables.
 
-Also you can get a remain lifetime of the variable. For this you have to use special placeholders, more information aboit this in table below.
+Also you can get a remain lifetime of the variable. For this you have to use special placeholders, more information about this in table below.
 
 .. _vars-access:
 

@@ -3,7 +3,7 @@ Logical structures
 
 .. include:: ../_includes/contents.rst
 
-In general, all logical structures in AbstractMenus works as **if -> then -> else**. These strustures can be nested.
+In general, all logical structures in AbstractMenus works as **if -> then -> else**. These structures can be nested.
 
 Actions block
 -------------
@@ -11,7 +11,7 @@ Actions block
 Each actions block is a complex object that can contains rules and other actions. Below is a real structure of actions block:
 
 .. csv-table::
-	:header: "Param", "Type", "Destination"
+	:header: "Parameter", "Type", "Destination"
 	:widths: 10, 10, 10
 
 	"rules", "Rules block", "Regular rules"

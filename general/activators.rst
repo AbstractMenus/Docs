@@ -191,7 +191,7 @@ The ``clickEntity`` activator is a :ref:`list of objects <hocon-list-obj>`. Each
 
 Each object have parameters:
 
-:type: Bukkit type of the entity.
+:type: Bukkit's type of the entity.
 :name: [Optional]. Display name of the entity.
 
 In this example we specified ``PLAYER`` entity and ``ZOMBIE`` entity with ``&eZombie`` name. If player clicked on any player or zombie named ``&eZombie``, menu will be opened. 

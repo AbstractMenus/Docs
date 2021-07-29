@@ -12,7 +12,7 @@ As in most plugins, AM replaces ``&`` char to native Minecraft ``§`` color pref
 
 	message: "&aSome &etext"
 
-You can use this cheatsheet to get required color code.
+You can use this cheat sheet to get required color code.
 
 .. figure:: ../_static/colors.png
 	:align: center

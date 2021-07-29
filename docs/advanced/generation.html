@@ -45,7 +45,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Developers API" href="../dev/api.html" />
+    <link rel="next" title="Plugin API" href="../dev/api.html" />
     <link rel="prev" title="Animations" href="animations.html" /> 
 </head>
 
@@ -130,7 +130,7 @@
 </ul>
 <p class="caption"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Developers API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
 </ul>
 
             
@@ -228,7 +228,7 @@
 <li><p>Specify item templates. It is in these items that the necessary placeholders from the catalog are indicated.</p></li>
 <li><p>The generated menu might have several pages. Special actions can be used to navigate between them.</p></li>
 </ol>
-<p>The catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. We will use the <code class="docutils literal notranslate"><span class="pre">PLAYERS</span></code> catalog, that generates a list of all players on the server.</p>
+<p>All catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. We will use the <code class="docutils literal notranslate"><span class="pre">PLAYERS</span></code> catalog, that generates a list of all players on the server.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;Generated Menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">4</span>
 
@@ -255,13 +255,13 @@
 <p>Here we have created a menu with 4 rows. Once we have specified the <code class="docutils literal notranslate"><span class="pre">catalog</span></code> parameter, the plugin will assume that our menu is auto-generated.</p>
 <dl class="field-list simple">
 <dt class="field-odd">catalog</dt>
-<dd class="field-odd"><p>Catalog configuration. It always has <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">type</span></code> is a name of the catalog. It can also contains other params, depends on the catalog type.</p>
+<dd class="field-odd"><p>Catalog configuration. It always has <code class="docutils literal notranslate"><span class="pre">type</span></code> parameter. The <code class="docutils literal notranslate"><span class="pre">type</span></code> is a name of the catalog. It can also contains other parameters, depends on the catalog type.</p>
 </dd>
 <dt class="field-even">cells</dt>
 <dd class="field-even"><p>This is a list of strings, represents a matrix of cells. Each line of this list is ​​a menu row. Each symbol in the line represents an inventory slot. The <code class="docutils literal notranslate"><span class="pre">_</span></code> character (or any other character that absent in the <code class="docutils literal notranslate"><span class="pre">templates</span></code> block) means an empty slot, that is, no item will be added to that slot. The <code class="docutils literal notranslate"><span class="pre">x</span></code> character is the tag which we added before. This means that only the item of the template <code class="docutils literal notranslate"><span class="pre">x</span></code> and no other item can be added to this inventory slot.</p>
 </dd>
 <dt class="field-odd">templates</dt>
-<dd class="field-odd"><p>Binding items to some tag. Each matrix template must have its own tag. A tag is any Latin character from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">z</span></code>, or a special character. After we have created the tag, we can bind any item to it. Note you don’t need to specofy slot for item, since a slot is automatically computes while generating menu.</p>
+<dd class="field-odd"><p>Binding items to some tag. Each matrix template must have its own tag. A tag is any Latin character from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">z</span></code>, or a special character. After we have created the tag, we can bind any item to it. Note you don’t need to specify slot for item, since a slot is automatically computes while generating menu.</p>
 </dd>
 </dl>
 <p>As a result, with enough players on the server, we will get menu looks like this:</p>
@@ -325,7 +325,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">ctg_</span><span class="o">&lt;</span><span class="n">placeholder</span><span class="o">&gt;%</span>
 </pre></div>
 </div>
-<p>Here <code class="docutils literal notranslate"><span class="pre">ctg</span></code> is a prefix, short for <code class="docutils literal notranslate"><span class="pre">catalog</span></code>. A <code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;</span></code> is a specific placeholder, which usually woule be written as <code class="docutils literal notranslate"><span class="pre">%&lt;placeholder&gt;%</span></code>, between the characters <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">ctg</span></code> is a prefix, short for <code class="docutils literal notranslate"><span class="pre">catalog</span></code>. A <code class="docutils literal notranslate"><span class="pre">&lt;placeholder&gt;</span></code> is a specific placeholder, which usually would be written as <code class="docutils literal notranslate"><span class="pre">%&lt;placeholder&gt;%</span></code>, between the characters <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
 <p>Each catalog has its own placeholders. You can find them under the description of each one in the end of this page. However, there are also common placeholders that exist outside some catalog. They are described below.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -568,7 +568,7 @@ Each catalog has its own placeholders. They can be used almost anywhere in the m
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../dev/api.html" class="btn btn-neutral float-right" title="Developers API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../dev/api.html" class="btn btn-neutral float-right" title="Plugin API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="animations.html" class="btn btn-neutral float-left" title="Animations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

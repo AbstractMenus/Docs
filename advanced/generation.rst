@@ -15,7 +15,7 @@ Generated menu can be created in few steps:
 #. Specify item templates. It is in these items that the necessary placeholders from the catalog are indicated.
 #. The generated menu might have several pages. Special actions can be used to navigate between them.
 
-The catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. We will use the ``PLAYERS`` catalog, that generates a list of all players on the server.
+All catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. We will use the ``PLAYERS`` catalog, that generates a list of all players on the server.
 
 ::
 
@@ -43,9 +43,9 @@ The catalogs are listed in the end of this page. Here we will show you how to cr
 
 Here we have created a menu with 4 rows. Once we have specified the ``catalog`` parameter, the plugin will assume that our menu is auto-generated.
 
-:catalog: Catalog configuration. It always has ``type`` parameter. The ``type`` is a name of the catalog. It can also contains other params, depends on the catalog type.
+:catalog: Catalog configuration. It always has ``type`` parameter. The ``type`` is a name of the catalog. It can also contains other parameters, depends on the catalog type.
 :cells: This is a list of strings, represents a matrix of cells. Each line of this list is ​​a menu row. Each symbol in the line represents an inventory slot. The ``_`` character (or any other character that absent in the ``templates`` block) means an empty slot, that is, no item will be added to that slot. The ``x`` character is the tag which we added before. This means that only the item of the template ``x`` and no other item can be added to this inventory slot.
-:templates: Binding items to some tag. Each matrix template must have its own tag. A tag is any Latin character from ``a`` to ``z``, or a special character. After we have created the tag, we can bind any item to it. Note you don't need to specofy slot for item, since a slot is automatically computes while generating menu.
+:templates: Binding items to some tag. Each matrix template must have its own tag. A tag is any Latin character from ``a`` to ``z``, or a special character. After we have created the tag, we can bind any item to it. Note you don't need to specify slot for item, since a slot is automatically computes while generating menu.
 
 As a result, with enough players on the server, we will get menu looks like this:
 
@@ -117,7 +117,7 @@ Catalog placeholders look like this:
 
 	%ctg_<placeholder>%
 
-Here ``ctg`` is a prefix, short for ``catalog``. A ``<placeholder>`` is a specific placeholder, which usually woule be written as ``%<placeholder>%``, between the characters ``%``.
+Here ``ctg`` is a prefix, short for ``catalog``. A ``<placeholder>`` is a specific placeholder, which usually would be written as ``%<placeholder>%``, between the characters ``%``.
 
 Each catalog has its own placeholders. You can find them under the description of each one in the end of this page. However, there are also common placeholders that exist outside some catalog. They are described below.
 

@@ -148,7 +148,7 @@
 </ul>
 <p class="caption"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Developers API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
 </ul>
 
             
@@ -292,7 +292,7 @@
 <tr class="row-odd"><td><p>message</p></td>
 <td><p>Object or String</p></td>
 <td><p>See example <a class="reference internal" href="#action-msg"><span class="std std-ref">Message</span></a></p></td>
-<td><p>Send message to player. There is ability to send simple text, json text, title, etc.</p></td>
+<td><p>Send message to player. There is ability to send simple text, JSON text, title, etc.</p></td>
 </tr>
 <tr class="row-even"><td><p>playerChat</p></td>
 <td><p>Strings list</p></td>
@@ -551,7 +551,7 @@
 <tbody>
 <tr class="row-even"><td><p>chat</p></td>
 <td><p>Strings list</p></td>
-<td><p>Send personal messge to chat</p></td>
+<td><p>Send personal message to chat</p></td>
 </tr>
 <tr class="row-odd"><td><p>actionbar</p></td>
 <td><p>String</p></td>
@@ -561,7 +561,7 @@
 <td><p>String</p></td>
 <td><p>Send personal JSON message to chat. Works on MC 1.9+</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Title params</strong></p></td>
+<tr class="row-odd"><td><p><strong>Title parameters</strong></p></td>
 <td></td>
 <td></td>
 </tr>
@@ -673,12 +673,12 @@
 <p>Items without <code class="docutils literal notranslate"><span class="pre">slot</span></code> will be added in the first empty slot in inventory</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Dont forget about HOCON <a class="reference internal" href="../start/hocon.html#hocon-list-feature"><span class="std std-ref">Useful feature of the lists</span></a>, where you can specify single list element as just single param.</p>
+<p>Don’t forget about HOCON <a class="reference internal" href="../start/hocon.html#hocon-list-feature"><span class="std std-ref">Useful feature of the lists</span></a>, where you can specify single list element as just single parameter.</p>
 </div>
 </div>
 <div class="section" id="remove-item">
 <span id="action-itemrem"></span><h2><a class="toc-backref" href="#id9">Remove item</a><a class="headerlink" href="#remove-item" title="Permalink to this headline">¶</a></h2>
-<p>This action same as <code class="docutils literal notranslate"><span class="pre">itemAdd</span></code>. But items will be removed in specified slot. If <code class="docutils literal notranslate"><span class="pre">slot</span></code> is not specified, item will be removed by comparing with specified params. Example:</p>
+<p>This action same as <code class="docutils literal notranslate"><span class="pre">itemAdd</span></code>. But items will be removed in specified slot. If <code class="docutils literal notranslate"><span class="pre">slot</span></code> is not specified, item will be removed by comparing with specified parameters. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">itemRemove</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
@@ -695,7 +695,7 @@
 </div>
 <div class="section" id="sound">
 <span id="action-sound"></span><h2><a class="toc-backref" href="#id10">Sound</a><a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h2>
-<p>Action to play sound. Below all params that can be specified:</p>
+<p>Action to play sound. Below all parameters that can be specified:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sound</span> <span class="p">{</span>
     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;SOUND_NAME&quot;</span>
     <span class="n">volume</span><span class="p">:</span> <span class="mf">1.0</span>
@@ -710,7 +710,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> required. All params are optional.</p>
+<p>Parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> required. All parameters are optional.</p>
 <dl class="field-list simple">
 <dt class="field-odd">name</dt>
 <dd class="field-odd"><p>Bukkit’s name of the sound. See all sound names <a class="reference external" href="https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html">here</a></p>
@@ -862,7 +862,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>There is only two params:</p>
+<p>There is only two parameters:</p>
 <dl class="field-list simple">
 <dt class="field-odd">name</dt>
 <dd class="field-odd"><p>Name of the variable</p>
@@ -992,12 +992,12 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>After performing this action several times player will se different messages.</p>
+<p>After performing this action several times player will see different messages.</p>
 </div>
 <div class="section" id="set-skin">
 <span id="action-setskin"></span><h2><a class="toc-backref" href="#id21">Set skin</a><a class="headerlink" href="#set-skin" title="Permalink to this headline">¶</a></h2>
 <p>To manipulate skins, AbstractMenus uses the <a class="reference external" href="https://www.spigotmc.org/resources/2124/">SkinsRestorer</a> plugin.</p>
-<p>To set the skin to the player, you need to have its <strong>texture</strong> and <strong>signature</strong>. You can get them, for example, by uploading an image to <a class="reference external" href="https://mineskin.org">MineSkin</a>. Next, copy the data from the fields “Texture Data” and “Texture Signature” into the corresponding params of <code class="docutils literal notranslate"><span class="pre">setSkin</span></code> action.</p>
+<p>To set the skin to the player, you need to have its <strong>texture</strong> and <strong>signature</strong>. You can get them, for example, by uploading an image to <a class="reference external" href="https://mineskin.org">MineSkin</a>. Next, copy the data from the fields “Texture Data” and “Texture Signature” into the corresponding parameters of <code class="docutils literal notranslate"><span class="pre">setSkin</span></code> action.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setSkin</span> <span class="p">{</span>
   <span class="n">texture</span><span class="p">:</span> <span class="s2">&quot;ewogICJ0aW1lc3RhbXAiIDogMTU4ODQxODUwNjMzOSwKICAicHJvZmlsZUlkIiA6ICJiMGQ0YjI4YmMxZDc0ODg5YWYwZTg2NjFjZWU5NmFhYiIsCiAgInByb2ZpbGVOYW1lIiA6ICJNaW5lU2tpbl9vcmciLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmQxNWQxNmE5OTU3NmRiZGE5NWIxMjA3ZmU1NGQ0MjE0Njg4MGMzNzkwNTMwOWViOTg4ODIxMDRhYzcwZjFkNSIKICAgIH0KICB9Cn0=&quot;</span>
   <span class="n">signature</span><span class="p">:</span> <span class="s2">&quot;dHlo+kNagxVCC5CscZrQB5iyQvCBSvG+onsB+cl2qSChe+mILMLWdLi8+stVYo7+X4mjJ9n6F7REW0ndf4fYR72x8xOdOhqgwwtFaA7dyb+NI5AtTQNoch0Tz91FqKWznTWVHBaRQB/eiBpjQz6X1H/dJDAvuN5O6gVLvHcBoBNnQ/ZLVYGrVoK3vOykbEW9NECVCu62bsroVZ0mRMaK35wVP6Wh7srkXGOoyiWuX/gqFf1W/Gpum2SsBx06166Itbu1DNs99ST+Uqx3Vv2THA+CKEpYG7tXPZZ1JSw7Pgk6KzIKyQKmIgL3SphEbzNT6XcUQlpsdzp8q3LECeWLqqk1rQwNqWmduUdsbIiRT4YSwNLyFeClE3NcPGxrPgWXCSfg+u5kHt4+n+u3s469R6DdTGXmtz+Tx06iUzwAgBAd4iNN/rDTranVZ9JokOgrNOQc/uUV4HFxYbrDAh4/LnFP4m/V7HSp5VGZye/Z1yzHtECKZFhId4iTQacckD9HT6vzvT7kH7aM7pkOzG12WkVPYBJBObgXoBUTYlAbCj18DUerT7Fx3m0vi0ThWU/fYmj8XqUFOgmzUFXeq165I0wQhpAv3JiCA0+tVCpndzD6J4MQloBRFHS1gJmI9XYGlK8G24FP8GLljW5RLfHDc672UVzdwI3m4vuFeraLjl4=&quot;</span>
@@ -1032,7 +1032,7 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>There is several required params:</p>
+<p>There is several required parameters:</p>
 <dl class="field-list simple">
 <dt class="field-odd">key</dt>
 <dd class="field-odd"><p>Unique id (name) of the recipe.</p>

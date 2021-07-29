@@ -11,7 +11,7 @@ To configure menus, AbstactMenus uses **HOCON** (`.conf` files) instead of **YAM
 Basic HOCON syntax
 ------------------
 
-In general, HOCON is a modified and optimized for configs JSON format. So if you know JSON, then HOCON will seem familiar for you.
+In general, HOCON is a modified and optimized for configs a JSON format. So if you know JSON, then HOCON will seem familiar for you.
 
 Key-value
 ~~~~~~~~~
@@ -219,7 +219,7 @@ Useful feature of the lists
 
 If you have only one element inside list, you can specify it as regular parameter.
 
-For example, you have list of strigns and only strign inside. Then this:
+For example, you have list of strigns and only string inside. Then this:
 
 ::
 

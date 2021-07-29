@@ -50,7 +50,7 @@ You may be already met with single menu file though :doc:`../start/how_to` lesso
 	  }
 	]
 
-Menu structure may seem difficult at first sight, but don't be afraid, as you will move forward through the wiki you will learn how each part of the plugin works.
+Menu structure may seem difficult at first sight, but don't be afraid, as you will move forward through the docs you will learn how each part of the plugin works.
 
 Multiple menu file
 ~~~~~~~~~~~~~~~~~~
@@ -96,7 +96,7 @@ The table below contains all the properties of menu which you can specify in men
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
 	"iRules", |t_list_obj|, "No", "Inverted rules to open menu. If even one of those rule is ``true`` then menu won't be opened. This can be combined with ``rules`` block to make specific logic"
 	"openActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** the menu opened"
-	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will execute if atleast one rule is ``false``"
+	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will execute if at least one rule is ``false``"
 	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** menu closed"
 	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu won't update"
 
@@ -118,7 +118,7 @@ A bit more detailed about the ``updateInterval`` property. If you want to create
 	  }
 	]
 
-The menu above will refres every 2 seconds. Along with this, the item that display the number of players on the server will be refreshed along with the placeholder ``%server_players%``.
+The menu above will be refreshed every 2 seconds. Along with this, the item that display the number of players on the server will be refreshed along with the placeholder ``%server_players%``.
 
 In the example above we used the default placeholders. More about placeholders you can find on :doc:`placeholders` page.
 

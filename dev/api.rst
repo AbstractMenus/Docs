@@ -1,5 +1,5 @@
-Developers API
-==============
+Plugin API
+==========
 
 .. include:: ../_includes/contents.rst
 
@@ -96,7 +96,7 @@ After you have created all this, it remains to call the corresponding static met
 Create Action
 -------------
 
-Every action classe must implement the ``ru.nanit.abstractmenus.api.Action`` interface.
+Every action class must implement the ``ru.nanit.abstractmenus.api.Action`` interface.
 
 .. code-block:: java
 
@@ -240,7 +240,7 @@ Each activator inherits from the abstract class ``ru.nanit.abstractmenus.api.Act
 	    public static class Serializer implements TypeSerializer<MyActivator> {
 
 	        @Override
-	        public MyActivator deserialize(TypeToken <?> type, ConfigurationNode value) {
+	        public MyActivator deserialize(TypeToken<?> type, ConfigurationNode value) {
 	            return new MyActivator();
 	        }
 
@@ -351,7 +351,7 @@ An item property is a parameter that determines its appearance and metadata.
 To create an item, two types of properties are used:
 
 :Regular property: This property works with already exists ``ItemMeta`` and just modify it. Optionally, regular property can return new ``ItemStack``.
-:Material relacer: These are properties that in the process of work assign their material to an object. This makes it possible not to indicate the material in the properties of the object when the material is known from the context. Such a property, for example, is the ``skullOwner`` property, which immediately assigns the ``PLAYER_SKULL`` material to the item.
+:Material replacer: These are properties that in the process of work assign their material to an object. This makes it possible not to indicate the material in the properties of the object when the material is known from the context. Such a property, for example, is the ``skullOwner`` property, which immediately assigns the ``PLAYER_SKULL`` material to the item.
 
 An example with a regular property. Here we take a regular string and assign it as a name. Note that you can return an item. If the method returns an item, then in the process of building the final item, the changed meta parameter will not be taken. Instead, the item will be replaced with the item you returned. This is useful for dynamically changing an item, including its material, depending on the parameters received.
 

@@ -19,7 +19,7 @@ All actions
 	"openMenu", |t_str|, ``openMenu: "my_super_menu"``, "Open a menu with the specified name"
 	"closeMenu", |t_bool| or |t_int|, ``closeMenu: true`` ``closeMenu: 30``, "Close current menu. If there is number instead of boolean, menu will be closed after delay in specified ticks"
 	"refreshMenu", |t_bool| or |t_int|, ``refreshMenu: true`` ``refreshMenu: 20``, "Update all menu content except the title. If there is number instead of boolean, menu will be updated after delay in specified ticks"
-	"message", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to player. There is ability to send simple text, json text, title, etc."
+	"message", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to player. There is ability to send simple text, JSON text, title, etc."
 	"playerChat", |t_list_str|, ``playerChat: "Hello!"``, "Send a message on behalf of the player who opened the menu"
 	"command", |t_obj|, |ex_below| :ref:`action-cmd`, "Execute a list of commands on behalf of a player or server"
 	"teleport", |t_obj|, |ex_below| :ref:`action-tp`, "Teleport player to location"
@@ -94,10 +94,10 @@ This block has many parameters that can be used separately.
 	:header: "Name", "Data type", "Description"
 	:widths: 5, 5, 30
 
-	"chat", |t_list_str|, "Send personal messge to chat"
+	"chat", |t_list_str|, "Send personal message to chat"
 	"actionbar", |t_str|, "Send text to player's action bar"
 	"json", |t_str|, "Send personal JSON message to chat. Works on MC 1.9+"
-	"**Title params**"
+	"**Title parameters**"
 	"title", |t_str|, "Send title"
 	"subtitle", |t_str|, "Send subtitle"
 	"fadeIn", |t_int|, "Fade in time in ticks"
@@ -212,14 +212,14 @@ Add item or items to player's inventory. Item has format described on :doc:`item
 
 Items without ``slot`` will be added in the first empty slot in inventory
 
-.. tip:: Dont forget about HOCON :ref:`hocon-list-feature`, where you can specify single list element as just single param.
+.. tip:: Don't forget about HOCON :ref:`hocon-list-feature`, where you can specify single list element as just single parameter.
 
 .. _action-itemrem:
 
 Remove item
 -----------
 
-This action same as ``itemAdd``. But items will be removed in specified slot. If ``slot`` is not specified, item will be removed by comparing with specified params. Example:
+This action same as ``itemAdd``. But items will be removed in specified slot. If ``slot`` is not specified, item will be removed by comparing with specified parameters. Example:
 
 ::
 
@@ -240,7 +240,7 @@ This action same as ``itemAdd``. But items will be removed in specified slot. If
 Sound
 -----
 
-Action to play sound. Below all params that can be specified:
+Action to play sound. Below all parameters that can be specified:
 
 ::
 
@@ -257,7 +257,7 @@ Action to play sound. Below all params that can be specified:
 	    }
 	}
 
-Parameter ``name`` required. All params are optional.
+Parameter ``name`` required. All parameters are optional.
 
 :name: Bukkit's name of the sound. See all sound names `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html>`_
 :volume: Volume of the sound. Value between ``0.0`` and ``1.0``.
@@ -415,7 +415,7 @@ Action to remove personal or global variable. Example:
 	  player: "%player_name%"
 	}
 
-There is only two params:
+There is only two parameters:
 
 :name: Name of the variable
 :player: **[Optional]** For personal variables
@@ -548,7 +548,7 @@ Actions wrapper to perform one, randomly selected actions block. When the time c
 	  }
 	]
 
-After performing this action several times player will se different messages.
+After performing this action several times player will see different messages.
 
 .. _action-setskin:
 
@@ -557,7 +557,7 @@ Set skin
 
 To manipulate skins, AbstractMenus uses the `SkinsRestorer <https://www.spigotmc.org/resources/2124/>`_ plugin.
 
-To set the skin to the player, you need to have its **texture** and **signature**. You can get them, for example, by uploading an image to `MineSkin <https://mineskin.org>`_. Next, copy the data from the fields "Texture Data" and "Texture Signature" into the corresponding params of ``setSkin`` action.
+To set the skin to the player, you need to have its **texture** and **signature**. You can get them, for example, by uploading an image to `MineSkin <https://mineskin.org>`_. Next, copy the data from the fields "Texture Data" and "Texture Signature" into the corresponding parameters of ``setSkin`` action.
 
 ::
 
@@ -596,7 +596,7 @@ Action to add recipe to player. This is a `list of objects <hocon-list-obj>`_ wh
 	  }
 	]
 
-There is several required params:
+There is several required parameters:
 
 :key: Unique id (name) of the recipe.
 :shape: Workbench cells. It shows in which shape you want to layout the objects.

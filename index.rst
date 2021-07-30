@@ -120,3 +120,21 @@ Commands
   Multiply numeric personal variable.
 ``/varp div <player> <name> <number>``
   Divide numeric personal variable.
+
+Permissions
+-----------
+
+``am.admin`` - Allow use all commands, described above.
+
+External plugins support
+------------------------
+
+* `Vault <https://www.spigotmc.org/resources/34315/>`_ - Support of any Economy plugin on server. Required for actions and rules to manipulate with player's balance.
+* `PlaceholderAPI <https://www.spigotmc.org/resources/6245/>`_ - Many placeholders instead of defaults.
+* `LuckPerms <https://www.spigotmc.org/resources/28140/>`_ - For all actions and rules, which use permissions and groups.
+* `WorldGuard <https://dev.bukkit.org/projects/worldguard>`_ - Required for activators, which use WG regions.
+* `Citizens <https://dev.bukkit.org/projects/citizens>`_ - Required for correct NPC activators working.
+* `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_ - Allows you to get any custom head from large database as an item.
+* `MMOItems <https://www.spigotmc.org/resources/60876/>`_ - You can get any item from this plugin.
+* `SkinsRestorer <https://www.spigotmc.org/resources/2124/>`_ - For actions to change/reset a player's skin.
+* `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ - Takes a custom stack declared in plugin's registry by their namespaced id

@@ -48,7 +48,7 @@ An activator is an event that must happen to open menu. To add an activator, you
 
 	}
 
-Now this block is empty. We will use some kind of activator from the list of activators. For example we will use the ``command`` activator. Add it to the ``activators`` block, as shown below.
+Now this block is empty. We will use some kind of activator from the :ref:`list of activators <activators-all>`. For example we will use the ``command`` activator. Add it to the ``activators`` block, as shown below.
 
 ::
 
@@ -102,7 +102,7 @@ Now our list is empty. Let's add the first button. Suppose we want to add a diam
 
 So we've added a new button in our menu. We'll briefly describe the parameters used in this item. For a detailed description of items, visit :doc:`../general/item_format` page.
 
-:slot: Button position, specified by the ordinal number of the inventory cell. You can learn about other ways to specify a slot [here] (Item format#slot).
+:slot: Button position, specified by the ordinal number of the inventory cell. You can learn about other ways to specify a slot :ref:`here <prop-slot>`.
 :material: Id of the item. On Spigot ``1.13+`` only materials by name supported. You can find them `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_. Numeric ids only works on Spigot ``1.12.2`` and lower.
 :name: Display name of the item. As other string values, it supports color codes, placeholders, etc.
 

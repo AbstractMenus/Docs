@@ -26,7 +26,6 @@ You may be already met with single menu file though :doc:`../start/how_to` lesso
 	}
 	items: [
 	  {
-	    rules { permission: "some.permission" }
 	    slot: 0
 	    texture: "783db86bb86dc2ec494e2ffca77765810ed11a52efef4e5c85252ec39a26c0"
 	    name: "Purple-head dwarf"
@@ -35,17 +34,22 @@ You may be already met with single menu file though :doc:`../start/how_to` lesso
 	      ""
 	      ">> Click to say \"Hello!\""
 	    ]
+	    rules {
+	      permission: "some.permission"
+	    }
 	    click {
-	      rules { money: 100 }
-          actions {
-            command {
-              player: "me Hello!"
-            }
-          }
-          denyActions {
-            message: "You don't have enough money"
-            sound: "ENTITY_VILLAGER_NO"
-          }
+	      rules {
+	        money: 100
+	      }
+	      actions {
+	        command {
+	          player: "me Hello!"
+	        }
+	      }
+	      denyActions {
+	        message: "You don't have enough money"
+	        sound: "ENTITY_VILLAGER_NO"
+	      }
 	    }
 	  }
 	]

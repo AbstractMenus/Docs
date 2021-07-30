@@ -236,7 +236,6 @@
 <span class="p">}</span>
 <span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
-    <span class="n">rules</span> <span class="p">{</span> <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;some.permission&quot;</span> <span class="p">}</span>
     <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
     <span class="n">texture</span><span class="p">:</span> <span class="s2">&quot;783db86bb86dc2ec494e2ffca77765810ed11a52efef4e5c85252ec39a26c0&quot;</span>
     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Purple-head dwarf&quot;</span>
@@ -245,17 +244,22 @@
       <span class="s2">&quot;&quot;</span>
       <span class="s2">&quot;&gt;&gt; Click to say </span><span class="se">\&quot;</span><span class="s2">Hello!</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
     <span class="p">]</span>
-    <span class="n">click</span> <span class="p">{</span>
-      <span class="n">rules</span> <span class="p">{</span> <span class="n">money</span><span class="p">:</span> <span class="mi">100</span> <span class="p">}</span>
-  <span class="n">actions</span> <span class="p">{</span>
-    <span class="n">command</span> <span class="p">{</span>
-      <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;me Hello!&quot;</span>
+    <span class="n">rules</span> <span class="p">{</span>
+      <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;some.permission&quot;</span>
     <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="n">denyActions</span> <span class="p">{</span>
-    <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;You don&#39;t have enough money&quot;</span>
-    <span class="n">sound</span><span class="p">:</span> <span class="s2">&quot;ENTITY_VILLAGER_NO&quot;</span>
-  <span class="p">}</span>
+    <span class="n">click</span> <span class="p">{</span>
+      <span class="n">rules</span> <span class="p">{</span>
+        <span class="n">money</span><span class="p">:</span> <span class="mi">100</span>
+      <span class="p">}</span>
+      <span class="n">actions</span> <span class="p">{</span>
+        <span class="n">command</span> <span class="p">{</span>
+          <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;me Hello!&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="n">denyActions</span> <span class="p">{</span>
+        <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;You don&#39;t have enough money&quot;</span>
+        <span class="n">sound</span><span class="p">:</span> <span class="s2">&quot;ENTITY_VILLAGER_NO&quot;</span>
+      <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">]</span>

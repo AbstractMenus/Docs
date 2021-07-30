@@ -23,6 +23,8 @@ All activators must be inside the ``activators`` block in menu root. You can spe
 
 In this example, the menu will open when you join to the server, or when you enter ``/menu`` or ``/game`` command.
 
+.. _activators-all:
+
 All activators
 --------------
 

@@ -1,4 +1,4 @@
-AbstractMenus Wiki
+AbstractMenus Docs
 ==================
 
 The original version of AbstractMenus you could buy `here <https://www.spigotmc.org/resources/75107>`_
@@ -46,7 +46,7 @@ The original version of AbstractMenus you could buy `here <https://www.spigotmc.
 General
 -------
 
-**Abstract Menus** - it's a Spigot plugin, with the one you can create somple and complex interactive menus. The main difference between this plugin and other similar ones in large opportunities for customization and menu optimization and a large number of tools for creating complex GUI. This plugin can easily replace most plugins for GUI creation, as well as some other simple plugins with GUI only.
+**Abstract Menus** - it's a Spigot plugin, with the one you can create simple or complex interactive menus. The main difference between this plugin and other similar ones in large opportunities for customization and menu optimization and a large number of tools for creating complex GUI. This plugin can easily replace most plugins for GUI creation, as well as some other simple plugins with GUI only.
 
 Basic concepts
 --------------
@@ -65,7 +65,7 @@ Basic concepts
 
 :Placeholder: The part of the text enclosed between ``%``, which is replaced to some data, for example, to the player nickname.
 
-:Variable: Any text or numeric value, saved in plugin's database with the opportunity to change or use it via placehodlers.
+:Variable: Any text or numeric value, saved in plugin's database with the opportunity to change or use it via placeholders.
 
 :Template: Any block or parameter in a file that can be inserted anywhere in the menu file. Templates exist primarily to exclude the copying of entire blocks, such as items, and for convenient menu editing in the future.
 

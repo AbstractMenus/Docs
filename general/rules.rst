@@ -17,7 +17,7 @@ Rules has simple format. Example:
 	  permission: "some.perm"
 	}
 
-You can specify one or several rules, similar to activators and actions. Every new rule must be on the new line. Fpr example:
+You can specify one or several rules, similar to activators and actions. Every new rule must be on the new line. For example:
 
 ::
 

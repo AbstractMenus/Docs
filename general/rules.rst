@@ -27,7 +27,7 @@ You can specify one or several rules, similar to activators and actions. Every n
 	  money: 3000
 	}
 
-In this example, we check a player for permission "some.perm", a group "default" and money amount in 3000. All next actions will be executed only if player matcher all of these rules.
+In this example, we check a player for permission "some.perm", a group "default" and money amount in 3000. All next actions will be executed only if player matches all of these rules.
 
 All rules
 ---------
@@ -126,8 +126,8 @@ Rule to check players count on some BungeeCord server. Example:
 	  online: 20
 	}
 
-:server: BungeeCord server name
-:online: Required players count
+:server: BungeeCord server name.
+:online: Required players count.
 
 .. _rule-if:
 

@@ -42,11 +42,11 @@ All activators
 	"clickNPC", |t_list_int|, |ex_below| :ref:`activ-npc`, "Open when RMB click on NPC (from Citizens)"
 	"clickEntity", |t_list_obj|, |ex_below| :ref:`activ-entity`, "Open when RMB click on entity"
 	"shiftClickEntity", |t_list_obj|, |ex_below| :ref:`activ-entity`, "Open when Shift-RMB click on entity"
-	"button", |t_obj|, |ex_below| :ref:`activ-btn`, "Open when button clicked"
-	"lever", |t_obj|, |ex_below| :ref:`activ-btn`, "Open when lever shifted"
-	"plate", |t_obj|, |ex_below| :ref:`activ-btn`, "Open when plate activated"
+	"clickBlock", |t_list_obj|, |ex_below| :ref:`activ-block`, "Open when some block clicked"
+	"button", |t_list_obj|, |ex_below| :ref:`activ-btn`, "Open when button clicked"
+	"lever", |t_list_obj|, |ex_below| :ref:`activ-btn`, "Open when lever shifted"
+	"plate", |t_list_obj|, |ex_below| :ref:`activ-btn`, "Open when plate activated"
 	"table", |t_list_str|, |ex_below| :ref:`activ-sign`, "Open when sign with some text clicked"
-	"clickBlock", |t_obj|, |ex_below| :ref:`activ-block`, "Open when some block clicked"
 
 .. _activ-cmd:
 
@@ -200,6 +200,45 @@ In this example we specified ``PLAYER`` entity and ``ZOMBIE`` entity with ``&eZo
 
 .. tip:: All entity types can be found `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html>`_.
 
+.. _activ-block:
+
+Block click
+-----------
+
+In this code block you can specify location of some world's block. If player click on this block, menu will be opened.
+
+::
+
+	clickBlock {
+	  world: "world"
+	  x: 0.0
+	  y: 0.0
+	  z: 0.0
+	  yaw: 0.0
+	  pitch: 0.0
+	}
+
+And short version:
+
+::
+
+	clickBlock: "world, 0.0, 0.0, 0.0, 0.0, 0.0"
+
+This version has format:
+
+::
+
+	clickBlock: "<world>, <x>, <y>, <z>, <yaw>, <pitch>"
+
+There is ability to specify several locations, since ``clickBlock`` is a list.
+
+::
+
+	clickBlock: [
+	  "world, 0, 0, 0",
+	  "world, 1, 1, 1",
+	]
+
 .. _activ-btn:
 
 Buttons, levers, plates
@@ -223,6 +262,15 @@ The location, as in other places, can be specified in one line:
 ``button: "world, <x>, <y>, <z>"`` - Yaw and Pitch are zero.
 
 ``button: "world, <x>, <y>, <z>, <yaw>, <pitch>"`` - Includes all location parameters.
+
+There is ability to specify several locations, since ``button``, ``lever`` and ``plate`` is a lists.
+
+::
+
+	plate: [
+	  "world, 0, 0, 0",
+	  "world, 3, 1, 8",
+	]
 
 .. _activ-sign:
 
@@ -248,33 +296,3 @@ In this example, the label in the first line should be the text ``[OPEN]``.
 	]
 
 In this example, the label in the first line should be the text ``[OPEN]``, and on the third a ``menu``.
-
-.. _activ-block:
-
-Block click
------------
-
-In this code block you can specify location of some world's block. If player click on this block, menu will be opened.
-
-::
-
-	clickBlock{
-	  world: "world"
-	  x: 0.0
-	  y: 0.0
-	  z: 0.0
-	  yaw: 0.0
-	  pitch: 0.0
-	}
-
-And short version:
-
-::
-
-	clickBlock: "world, 0.0, 0.0, 0.0, 0.0, 0.0"
-
-This version has format:
-
-::
-
-	clickBlock: "<world>, <x>, <y>, <z>, <yaw>, <pitch>"

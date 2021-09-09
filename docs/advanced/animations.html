@@ -116,6 +116,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#frame-by-frame-animation">Frame-by-frame animation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#frame-format">Frame format</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#create-simple-animation">Create simple animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-items">Static items</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#head-animation">Head animation</a><ul>
@@ -206,12 +207,13 @@
 <ul>
 <li><p><a class="reference internal" href="#frame-format" id="id6">Frame format</a></p></li>
 <li><p><a class="reference internal" href="#create-simple-animation" id="id7">Create simple animation</a></p></li>
+<li><p><a class="reference internal" href="#static-items" id="id8">Static items</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#head-animation" id="id8">Head animation</a></p>
+<li><p><a class="reference internal" href="#head-animation" id="id9">Head animation</a></p>
 <ul>
-<li><p><a class="reference internal" href="#add-head-animation" id="id9">Add head animation</a></p></li>
-<li><p><a class="reference internal" href="#using-added-animation" id="id10">Using added animation</a></p></li>
+<li><p><a class="reference internal" href="#add-head-animation" id="id10">Add head animation</a></p></li>
+<li><p><a class="reference internal" href="#using-added-animation" id="id11">Using added animation</a></p></li>
 </ul>
 </li>
 </ul>
@@ -255,6 +257,11 @@
 <td><p>Objects list</p></td>
 <td><p>Yes</p></td>
 <td><p>List of animation frames</p></td>
+</tr>
+<tr class="row-even"><td><p>items</p></td>
+<td><p>Objects list</p></td>
+<td><p>No</p></td>
+<td><p>List of static items</p></td>
 </tr>
 </tbody>
 </table>
@@ -409,9 +416,35 @@ someItem {
 <p>Here, our <code class="docutils literal notranslate"><span class="pre">someItem</span></code> item was placed in 9 different frames. In each next frame, we’ve set the item position to the next slot. Since the <code class="docutils literal notranslate"><span class="pre">clear</span></code> parameter was set to <code class="docutils literal notranslate"><span class="pre">true</span></code> by default, the inventory clears before each frame.</p>
 <p>This is just the the simplest example of animation. If you wish, you can create truly complex and beautiful animations.</p>
 </div>
+<div class="section" id="static-items">
+<h3><a class="toc-backref" href="#id8">Static items</a><a class="headerlink" href="#static-items" title="Permalink to this headline">¶</a></h3>
+<p>Each animated menu can contains static items which won’t be changed while animation plays.
+This useful for static backgrounds or other purposes.</p>
+<p>Static items should be defined inside <code class="docutils literal notranslate"><span class="pre">items</span></code> block, as you do it for regular menus. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span><span class="p">:</span> <span class="p">[</span>
+  <span class="c1"># Some frames here</span>
+<span class="p">]</span>
+
+<span class="n">items</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Exit item&quot;</span>
+    <span class="n">click</span> <span class="p">{</span>
+      <span class="n">closeMenu</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>In this example we created static item to exit from menu. While animation plays, this item won’t be changed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Static items puts into inventory in two cases - once when menu opened or if some frame cleared inventory.</p>
+</div>
+</div>
 </div>
 <div class="section" id="head-animation">
-<h2><a class="toc-backref" href="#id8">Head animation</a><a class="headerlink" href="#head-animation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Head animation</a><a class="headerlink" href="#head-animation" title="Permalink to this headline">¶</a></h2>
 <p>The plugin allows you to create head animations using pre-created textures. Animation for the head can be created in two stages:</p>
 <ol class="arabic simple">
 <li><p>Create the head textures and add these textures as animation frames.</p></li>
@@ -422,7 +455,7 @@ someItem {
 <p>Head animations will only work if the menu has the <code class="docutils literal notranslate"><span class="pre">updateInterval</span></code> parameter. Each head frame plays along with a menu update.</p>
 </div>
 <div class="section" id="add-head-animation">
-<h3><a class="toc-backref" href="#id9">Add head animation</a><a class="headerlink" href="#add-head-animation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Add head animation</a><a class="headerlink" href="#add-head-animation" title="Permalink to this headline">¶</a></h3>
 <p>Each frame of the head animation is a separate head. To create an animation, you first need to generate each head (frame) for the animation. It is best to use the <a class="reference external" href="https://mineskin.org">MineSkin</a> service for this. After generation, you need to copy the link to the texture. The texture field is located as shown in the screenshot below.</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/anim_tex_upload.png" src="../_images/anim_tex_upload.png" />
@@ -433,7 +466,7 @@ someItem {
 <p>To add your animation, create a <a class="reference internal" href="../start/hocon.html#hocon-list-str"><span class="std std-ref">list of strings</span></a> anywhere in the config, similar to the <code class="docutils literal notranslate"><span class="pre">anim_eye</span></code> block. Each next element in the list is the next frame. Head animation always looped. You should know it when you creating animation frames. After you’ve added all frames to the file, save it. The animation is created, now it needs to be added to the item.</p>
 </div>
 <div class="section" id="using-added-animation">
-<h3><a class="toc-backref" href="#id10">Using added animation</a><a class="headerlink" href="#using-added-animation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Using added animation</a><a class="headerlink" href="#using-added-animation" title="Permalink to this headline">¶</a></h3>
 <p>Any item has a <code class="docutils literal notranslate"><span class="pre">texture</span></code> parameter. Thanks to a special placeholder, this parameter can be used in a new way. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>

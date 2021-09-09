@@ -307,99 +307,104 @@
 <tr class="row-odd"><td><p>itemsAdder</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">itemsAdder:</span> <span class="pre">&quot;&lt;namespaced</span> <span class="pre">id&gt;&quot;</span></code></p></td>
-<td><p>Takes a custom stack declared in <a class="reference external" href="https://www.spigotmc.org/resources/73355/">ItemsAdder</a> registry by their namespaced id</p></td>
+<td><p>Takes a custom stack defined in <a class="reference external" href="https://www.spigotmc.org/resources/73355/">ItemsAdder</a> registry by their namespaced id</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Other properties</strong></p></td>
+<tr class="row-even"><td><p>oraxen</p></td>
+<td><p>String</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">oraxen:</span> <span class="pre">&quot;my_sword&quot;</span></code></p></td>
+<td><p>Takes a custom stack defined in <a class="reference external" href="https://www.spigotmc.org/resources/72448/">Oraxen</a> plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Other properties</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>name</p></td>
+<tr class="row-even"><td><p>name</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">name:</span> <span class="pre">&quot;Peter</span> <span class="pre">Piper&quot;</span></code></p></td>
 <td><p>Set display name</p></td>
 </tr>
-<tr class="row-even"><td><p>data</p></td>
+<tr class="row-odd"><td><p>data</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">data:</span> <span class="pre">2</span></code></p></td>
 <td><p>Material data (deprecated since MC <code class="docutils literal notranslate"><span class="pre">1.13</span></code>, full material names are used instead)</p></td>
 </tr>
-<tr class="row-odd"><td><p>count</p></td>
+<tr class="row-even"><td><p>count</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">count:</span> <span class="pre">64</span></code></p></td>
 <td><p>Amount of item stack</p></td>
 </tr>
-<tr class="row-even"><td><p>damage</p></td>
+<tr class="row-odd"><td><p>damage</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">damage:</span> <span class="pre">100</span></code></p></td>
 <td><p>Set damage (bar under item) for damageable items. The higher the number, the lower the durability of the item</p></td>
 </tr>
-<tr class="row-odd"><td><p>lore</p></td>
+<tr class="row-even"><td><p>lore</p></td>
 <td><p>Strings list</p></td>
 <td><p>See example <a class="reference internal" href="#prop-lore"><span class="std std-ref">Lore</span></a></p></td>
 <td><p>Set item lore (text under name)</p></td>
 </tr>
-<tr class="row-even"><td><p>glow</p></td>
+<tr class="row-odd"><td><p>glow</p></td>
 <td><p>Boolean</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">glow:</span> <span class="pre">true</span></code></p></td>
 <td><p>Set glowing effect (via invisible enchantment)</p></td>
 </tr>
-<tr class="row-odd"><td><p>enchantments</p></td>
+<tr class="row-even"><td><p>enchantments</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-ench"><span class="std std-ref">Enchantments</span></a></p></td>
 <td><p>Add enchantment to item</p></td>
 </tr>
-<tr class="row-even"><td><p>color</p></td>
+<tr class="row-odd"><td><p>color</p></td>
 <td><p>String</p></td>
 <td><p>See example</p></td>
 <td><p>Colorize armor or potion</p></td>
 </tr>
-<tr class="row-odd"><td><p>flags</p></td>
+<tr class="row-even"><td><p>flags</p></td>
 <td><p>Strings list</p></td>
 <td><p>See example <a class="reference internal" href="#prop-flags"><span class="std std-ref">Flag</span></a></p></td>
 <td><p>Add item flags</p></td>
 </tr>
-<tr class="row-even"><td><p>unbreakable</p></td>
+<tr class="row-odd"><td><p>unbreakable</p></td>
 <td><p>Boolean</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">unbreakable:</span> <span class="pre">true</span></code></p></td>
 <td><p>Make item unbreakable (works on <code class="docutils literal notranslate"><span class="pre">1.9+</span></code>)</p></td>
 </tr>
-<tr class="row-odd"><td><p>potionData</p></td>
+<tr class="row-even"><td><p>potionData</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#prop-potion"><span class="std std-ref">Potion effect</span></a></p></td>
 <td><p>Add various potion effects for item, if this item is potion</p></td>
 </tr>
-<tr class="row-even"><td><p>fireworkData</p></td>
+<tr class="row-odd"><td><p>fireworkData</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-firework"><span class="std std-ref">Firework</span></a></p></td>
 <td><p>If material is <code class="docutils literal notranslate"><span class="pre">FIREWORK_ROCKET</span></code>, or <code class="docutils literal notranslate"><span class="pre">FIREWORK</span></code>, it sets various settings of the fireworks</p></td>
 </tr>
-<tr class="row-odd"><td><p>bookData</p></td>
+<tr class="row-even"><td><p>bookData</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-book"><span class="std std-ref">Book</span></a></p></td>
 <td><p>Add book’s content and metadata (author, title) for writable book</p></td>
 </tr>
-<tr class="row-even"><td><p>bannerData</p></td>
+<tr class="row-odd"><td><p>bannerData</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-banner"><span class="std std-ref">Banner</span></a></p></td>
 <td><p>Set banner data to item</p></td>
 </tr>
-<tr class="row-odd"><td><p>model</p></td>
+<tr class="row-even"><td><p>model</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">model:</span> <span class="pre">1234567</span></code></p></td>
 <td><p>Custom model data</p></td>
 </tr>
-<tr class="row-even"><td><p>enchantStore</p></td>
+<tr class="row-odd"><td><p>enchantStore</p></td>
 <td><p>Object</p></td>
 <td><p>Same as <a class="reference internal" href="#prop-ench"><span class="std std-ref">Enchantments</span></a></p></td>
 <td><p>Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (<code class="docutils literal notranslate"><span class="pre">1.12+</span></code>). Works with <code class="docutils literal notranslate"><span class="pre">ENCHANTED_BOOK</span></code> material</p></td>
 </tr>
-<tr class="row-odd"><td><p>recipes</p></td>
+<tr class="row-even"><td><p>recipes</p></td>
 <td><p>Objects list</p></td>
 <td><p>Same as recipe format</p></td>
 <td><p>Create a book with custom recipes (knowledge book). Works with <code class="docutils literal notranslate"><span class="pre">KNOWLEDGE_BOOK</span></code> material</p></td>
 </tr>
-<tr class="row-even"><td><p>nbt</p></td>
+<tr class="row-odd"><td><p>nbt</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#prop-nbt"><span class="std std-ref">NBT tags</span></a></p></td>
 <td><p>Add NBT tags to the item</p></td>

@@ -18,6 +18,7 @@ Any menu with frame-by-frame animation should have a ``frames`` block in the roo
 	"onAnimEnd", |t_obj|, "No", "Actions after animation finished (won't work for looped animations)"
 	"loop", |t_bool|, "No", "Loop the animation. By default is ``false``"
 	"frames", |t_list_obj|, "Yes", "List of animation frames"
+	"items", |t_list_obj|, "No", "List of static items"
 
 Below you can see an example of an empty menu, prepared for adding frames.
 
@@ -148,6 +149,34 @@ In the game, it looks like this:
 Here, our ``someItem`` item was placed in 9 different frames. In each next frame, we've set the item position to the next slot. Since the ``clear`` parameter was set to ``true`` by default, the inventory clears before each frame.
 
 This is just the the simplest example of animation. If you wish, you can create truly complex and beautiful animations.
+
+Static items
+~~~~~~~~~~~~
+
+Each animated menu can contains static items which won't be changed while animation plays. 
+This useful for static backgrounds or other purposes.
+
+Static items should be defined inside ``items`` block, as you do it for regular menus. Example:
+
+::
+
+	frames: [
+	  # Some frames here
+	]
+
+	items: [
+	  {
+	    slot: 0
+	    name: "Exit item"
+	    click {
+	      closeMenu: true
+	    }
+	  }
+	]
+
+In this example we created static item to exit from menu. While animation plays, this item won't be changed.
+
+.. note:: Static items puts into inventory in two cases - once when menu opened or if some frame cleared inventory.
 
 Head animation
 --------------

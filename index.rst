@@ -137,4 +137,5 @@ External plugins support
 * `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_ - Allows you to get any custom head from large database as an item.
 * `MMOItems <https://www.spigotmc.org/resources/60876/>`_ - You can get any item from this plugin.
 * `SkinsRestorer <https://www.spigotmc.org/resources/2124/>`_ - For actions to change/reset a player's skin.
-* `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ - Takes a custom stack declared in plugin's registry by their namespaced id
+* `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ - Takes a custom item stack, defined in plugin's registry by their namespaced id
+* `Oraxen <https://www.spigotmc.org/resources/73355/>`_ - Takes a custom item stack, defined by Oraxen plugin

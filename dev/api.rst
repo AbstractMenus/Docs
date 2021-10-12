@@ -346,32 +346,39 @@ Now we can use our catalog when generating the menu^
 Create item property
 --------------------
 
-An item property is a parameter that determines its appearance and metadata.
+An item property is an object that determines its appearance and metadata.
 
-To create an item, two types of properties are used:
+To create new item property, you need implement ``ru.nanit.abstractmenus.api.inventory.ItemProperty`` interface. There is several methods to implement:
 
-:Regular property: This property works with already exists ``ItemMeta`` and just modify it. Optionally, regular property can return new ``ItemStack``.
-:Material replacer: These are properties that in the process of work assign their material to an object. This makes it possible not to indicate the material in the properties of the object when the material is known from the context. Such a property, for example, is the ``skullOwner`` property, which immediately assigns the ``PLAYER_SKULL`` material to the item.
+:canReplaceMaterial: Does this property modify item type (material installer). If ``true``, then plugin will apply this property first, to generate valid item meta.
+:isApplyMeta: If returns false, plugin won't apply saved meta after exiting from ``apply`` method. Return true if you don't set own meta to provided ItemStack.
+:apply: Apply properties to ItemStack or ItemMeta.
 
-An example with a regular property. Here we take a regular string and assign it as a name. Note that you can return an item. If the method returns an item, then in the process of building the final item, the changed meta parameter will not be taken. Instead, the item will be replaced with the item you returned. This is useful for dynamically changing an item, including its material, depending on the parameters received.
-
-If ``Optional.EMPTY`` is returned, the item keeps the same, and the modified metadata is assigned to it.
+Example:
 
 .. code-block:: java
 
-	public class MyProperty implements SimpleProperty {
+	public class MyProperty implements ItemProperty {
 
 	    private final String name;
 	 
 	    private MyProperty (String name) {
 	        this.name = name;
-
 	    }
 
 	    @Override
-	    public Optional<ItemStack> apply(ItemStack itemStack, ItemMeta meta, Player player, Menu menu) {
+	    public boolean canReplaceMaterial() {
+	        return false;
+	    }
+
+	    @Override
+	    public boolean isApplyMeta() {
+	        return true;
+	    }
+
+	    @Override
+	    public void apply(ItemStack item, ItemMeta meta, Player player, Menu menu) {
 	        meta.setDisplayName(name);
-	        return Optional.empty();
 	    }
 
 	    public static class Serializer implements TypeSerializer<MyProperty> {
@@ -379,7 +386,6 @@ If ``Optional.EMPTY`` is returned, the item keeps the same, and the modified met
 	        @Override
 	        public MyProperty deserialize(TypeToken<?> type, ConfigurationNode value) {
 	            return new MyProperty(value.getString());
-
 	        }
 
 	        @Override
@@ -389,16 +395,26 @@ If ``Optional.EMPTY`` is returned, the item keeps the same, and the modified met
 	    }
 	}
 
-Example with a material replacer. Here we give out the creeper head. This property has no parameters. Therefore, when using this property, you can simply specify ``true`` when using this property.
+Another example with a material replacer. Here we give out the creeper head. This property has no parameters. Therefore, when using this property, you can simply specify ``true`` when using this property.
 
 .. code-block:: java
 
-	public class MyMaterialProperty implements MaterialProperty {
+	public class MyMaterialProperty implements ItemProperty {
 
 	    @Override
-	    public ItemStack getItem(Player player, Menu menu) {
-	        return new ItemStack(Material.CREEPER_HEAD);
-	    } 
+	    public boolean canReplaceMaterial() {
+	        return true;
+	    }
+
+	    @Override
+	    public boolean isApplyMeta() {
+	        return false;
+	    }
+
+	    @Override
+	    public void apply(ItemStack item, ItemMeta meta, Player player, Menu menu) {
+	        item.setType(Material.CREEPER_HEAD);
+	    }
 
 	    public static class Serializer implements TypeSerializer<MyMaterialProperty> {
 

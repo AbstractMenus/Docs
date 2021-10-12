@@ -1,7 +1,7 @@
 AbstractMenus Docs
 ==================
 
-The original version of AbstractMenus you could buy `here <https://www.spigotmc.org/resources/75107>`_
+The original version of AbstractMenus you can buy `here <https://www.spigotmc.org/resources/75107>`_ or `here <https://www.mc-market.org/resources/20739/>`_
 
 .. meta::
    :description: Documentation for AbstractMenus plugin
@@ -13,6 +13,7 @@ The original version of AbstractMenus you could buy `here <https://www.spigotmc.
   
   start/how_to
   start/hocon
+  start/faq
 
 .. toctree::
   :maxdepth: 1
@@ -125,6 +126,8 @@ Permissions
 -----------
 
 ``am.admin`` - Allow use all commands, described above.
+
+.. _external-plugins-support:
 
 External plugins support
 ------------------------

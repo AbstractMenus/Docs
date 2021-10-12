@@ -84,6 +84,8 @@ All menus listed in the main ``menus`` block. In the example above you can see 2
 
 .. important:: All menus names inside ``menus`` block must be unique. If you have several menus with same name, even in different files, plugin will use only last one.
 
+.. _menu-properties:
+
 Menu properties
 ---------------
 
@@ -98,11 +100,13 @@ The table below contains all the properties of menu which you can specify in men
 	"items", |t_list_obj|, "No", "Menu items (buttons)"
 	"activators", |t_obj|, "No", "An :doc:`activators` to open menu"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
-	"iRules", |t_list_obj|, "No", "Inverted rules to open menu. If even one of those rule is ``true`` then menu won't be opened. This can be combined with ``rules`` block to make specific logic"
+	"iRules", |t_list_obj|, "No", "(**Deprecated!** Use :ref:`operator 'NOT' <logical-not>` for regular rules) Inverted rules to open menu. If even one of those rule is ``true`` then menu won't be opened. This can be combined with ``rules`` block to make specific logic"
 	"openActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** the menu opened"
 	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will execute if at least one rule is ``false``"
 	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** menu closed"
 	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu won't update"
+
+.. _struct-auto-refresh:
 
 Auto refresh
 ------------
@@ -139,7 +143,7 @@ The button in the menu is an ordinary item (see :doc:`item_format`) with advance
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to display buttons in the menu"
 	"iRules", |t_list_obj|, "No", "An inverted :doc:`rules` to display buttons in the menu"
 	"mrules", |t_list_obj|, "No", "Additional :doc:`rules` block, existing only inside the button. These rules have no effect on whether the button is displayed. They are needed only for independent checks and performing actions"
-	"imrules", |t_list_obj|, "No", "Additional **inverted** :doc:`rules`. Similar to ``mrules``"
+	"imrules", |t_list_obj|, "No", "(**Deprecated!** Use :ref:`operator 'NOT' <logical-not>` inside ``mrules`` to achieve the same) Additional **inverted** :doc:`rules`. Similar to ``mrules``"
 	"click", |t_obj|, "No", "Contains actions which will execute when player click on item"
 
 As you can see, only the ``slot`` property required for the button, because the menu item always must be in a specific slot or slots.
@@ -165,45 +169,7 @@ A buttons can be displayed without any rules. But you can also add rules for dis
 	  }
 	]
 
-In this example, the menu has two items. The first (Iron Sword) will be always displayed in slot 0. The second (Diamond Sword) will be displayed in slot 0 and will replace the first item only if the player has permission ``some.perm``.
-Look at a the similar example, but using ``iRules``.
-
-::
-
-	items: [
-	  {
-	    slot: 0
-	    material: IRON_SWORD
-	  },
-	  {
-	    slot: 0
-	    material: DIAMOND_SWORD
-	    iRules {
-	      permission: "some.perm"
-	    }
-	  },
-	]
-
-In this example, the menu contains the same items. The first one will still be displayed in slot 0. The second one will be displayed in slot 0 and will replace the first item only if the player **hasn't** the ``some.perm`` permission.
-
-The ``rules`` and ``iRules`` blocks can be combined, which is writing both in the same item. In this case, the item will be removed if player matches with the rules specified inside ``rules`` block and at the same time **doesn't matches** the rules described inside ``iRules``. For example:
-
-::
-
-	items: [
-	  {
-	    slot: 0
-	    material: DIAMOND_SWORD
-	    rules {
-	      permission: "some.perm"
-	    }
-	    iRules {
-	      permission: "another.perm"
-	    }
-	  },
-	]
-
-In this example, the diamond sword will appear on the menu only if the player has ``some.perm`` permission and hasn't ``another.perm`` permission.
+In this example, the menu has two items. The first (Iron Sword) will be always displayed in slot 0. The second (Diamond Sword) will be displayed in slot 0 and will replace the first item only if the player have permission ``some.perm``.
 
 Click processing
 ~~~~~~~~~~~~~~~~
@@ -259,3 +225,72 @@ Any of these types can be used inside ``click`` block either individually or tog
 	    }
 	  }
 	]
+
+.. _struct-bindings:
+
+Binding button properties to rules
+----------------------------------
+
+You can bind some button properties to rules. If player matches specified rules, then this property will be applied to final item.
+For this, AbstractMenus has special item property called ``bindings``. Example:
+
+::
+
+	items: [
+	  {
+	    slot: 0
+	    material: CAKE
+	    bindings {
+	      props { material: LEATHER_LEGGINGS }
+	      rules { gamemode: CREATIVE }
+	    }
+	  }
+	]
+
+In this example, if player has CREATIVE gamemode, then item's material will be changed to ``LEATHER_LEGGINGS``.
+
+The ``bindings`` block has next format:
+
+:props: Item properties to apply
+:rules: Regular rules to check player
+
+Inside ``props`` block you can specify one or multiple :ref:`item properties <prop-all>`, as you do it just inside item. All these properties will be added to item only if player matches rules, specified inside ``rules`` block.
+
+Inside ``rules`` block you can specify any rules, like in any other ``rules`` block.
+
+.. note:: Item must have a default :ref:`material installer <prop-all>`. If you use bindings with material installer property, you just owerwrite it.
+
+.. warning:: In AbstractMenus order of item properties is matter. Since ``bindings`` block is just special item property, you should add bindings to end of all properties, if it exists. Then this will work correctly.
+
+Multiple bindings
+~~~~~~~~~~~~~~~~~
+
+You can add multiple bindings to one item. For this, just change the ``bindings`` block to :ref:`list of objects <hocon-list-obj>`. Example:
+
+::
+
+	items: [
+	  {
+	    slot: 0
+	    material: CAKE
+	    bindings: [
+	      {
+	        props { material: LEATHER_LEGGINGS }
+	        rules { gamemode: CREATIVE }
+	      },
+	      {
+	        props {
+	          lore: [
+	            ""
+	            "You are VIP!"
+	          ]
+	        }
+	        rules { permission: "group.vip" }
+	      }
+	    ]
+	  }
+	]
+
+Here, we changed ``bindings`` block to list and added new binding. Now, if player has ``group.vip`` permission, then new lore will be applied to item.
+
+.. note:: Inside one item, a similar properties in different bindings will be owerwritten by last one. For example, if you use two ``material`` properties for two item bindings, then only last material will be applied (if player matches both).

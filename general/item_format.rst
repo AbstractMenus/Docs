@@ -9,6 +9,8 @@ Item format
 
 An item can be specified not only as a button in a menu. This :ref:`object <hocon-obj>` can be used in rules, actions and activators. However, item always has one format.
 
+.. _prop-all:
+
 All item properties
 -------------------
 
@@ -20,7 +22,7 @@ All item properties
 	"**Material installers**"
 	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material by name. On MC ``1.12`` and lower, numerical ids are supported"
 	"texture", |t_str|, ``texture: "<texture_id>"``, "Sha-1 hash of the skin from the server ``http://textures.minecraft.net/texture/<texture_id>``. You can find this hash, for example, on the https://minecraft-heads.com"
-	"skullOwner", |t_str|, ``damage: 100``, "Set player's skin on head"
+	"skullOwner", |t_str|, ``skullOwner: "Notch"``, "Set player's skin on head"
 	"hdb", |t_str|, ``hdb: "2853"``, "Set the head by the identifier from the `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_"
 	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
 	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Takes a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
@@ -44,6 +46,8 @@ All item properties
 	"enchantStore", |t_obj|, Same as :ref:`prop-ench`, "Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (``1.12+``). Works with ``ENCHANTED_BOOK`` material"
 	"recipes", |t_list_obj|, "Same as recipe format", "Create a book with custom recipes (knowledge book). Works with ``KNOWLEDGE_BOOK`` material"
 	"nbt", |t_obj|, |ex_below| :ref:`prop-nbt`, "Add NBT tags to the item"
+	"**Special properties**"
+	"bindings", |t_list_obj|, |ex_below| :ref:`struct-bindings`, "Binds some properties to rules. If player matches specified rules, then these properties will be applied to item"
 
 .. note:: Material installer is a property that set the item's material and optionally other parameters. You should use only one material installer property for an item.
 

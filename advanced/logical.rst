@@ -91,10 +91,12 @@ As always, actions described in the ``actions`` block will be executed if the pl
 
 In the example above, the message "Nope" will send to the player if the player doesn't have the ``am.admin`` permission. The ``actions`` block, if it specified, will work oppositely, that is, if the player matches the rules.
 
-List of rule blocks
+.. logical-rules-list:
+
+Rules block as list
 ~~~~~~~~~~~~~~~~~~~
 
-Actually, any rules block is a :ref:`list of objects <hocon-list-obj>`, where each object is a rules block. Before that, always when we described the rules we just opened the ``rules`` block and wrote the rules there like this:
+Actually, any ``rules`` block is a :ref:`list of objects <hocon-list-obj>`, where each object is a rules block. Before that, always when we described the rules, we just opened the ``rules`` block and wrote the rules there like this:
 
 ::
 
@@ -143,3 +145,142 @@ In this example we used the rules block as a list. Let see what happens when you
 #. If both checks on the permission and money amount were successful, the message "You have enough money and the right permission!" will be displayed.
 
 .. note:: When using rules as a list, each next element of the list performed independ of the result of checking the previous one. In example above, even if the player doesn't have ``my.perm`` permission, the check for the amount of money will still be performed. But in a global sense, the entire ``rules`` block will no longer be considered successful. So, the message "The player has the right and money!" will not be displayed if at least one of the rules block was not successful.
+
+.. _logical-not:
+
+Inverting rule (operator "NOT")
+-------------------------------
+
+You can invert result of any rule. For this, just add ``-`` before the rule name. Char ``-`` means "NOT". When you added this "NOT" char before rule name, result of rule will be inverted. If rule returns ``true``, it will return ``false`` and vice versa.
+
+Example:
+
+::
+
+	rules {
+	  -permission: "group.admin"
+	}
+	actions {
+	  message: "You are not Admin :("
+	}
+	denyActions {
+	  message: "You are Admin!"
+	}
+
+In this example, ``actions`` block will be executed if player have no permission ``group.admin``. This means that ``permission`` rule result was inverted.
+
+.. note:: Unfortunatelly, traditional "NOT" char (``!``) reserved by HOCON, so we decided to use ``-``.
+
+You can use this notation for any rule, even for logical wrappers. About logical wrappers in the next part.
+
+Logical rule wrappers
+---------------------
+
+By default, ``rules`` block works with "AND" condition. Even when you use ``rules`` block as list, this rules works with "AND" condition.
+Logical wrappers created to add ability to create more complex conditions. You can combine rules ``and``, ``or``, and operator "NOT".
+Technically, logical wrappers is just a rules which can contain other rules. So this wrappers must be specified inside ``rules`` block.
+
+.. _logical-and:
+
+Wrapper "AND"
+~~~~~~~~~~~~~
+
+Since ``rules`` block works with "AND" condition, this wrapper exists to use it inside ``or`` wrapper.
+But anyway we will show example of using this wrapper.
+
+::
+
+	rules {
+	  and {
+	    permission: "group.vip"
+	    gamemode: CREATIVE
+	  }
+	}
+
+In example above, rule ``and`` will return ``true`` if player have permission ``group.vip`` **AND** gamemode CREATIVE.
+
+Another example with using wrapper as list of rules groups. This format similar to format described `above <logical-rules-list>`_
+
+::
+
+	rules {
+	  and: [
+	    {
+	      permission: "group.vip"
+	      gamemode: CREATIVE
+	    },
+	    {
+	      permission: "group.helper"
+	    }
+	  ]
+	}
+
+In this example, rule ``and`` will return ``true`` if player have permission ``group.vip`` **AND** gamemode CREATIVE **AND** permission ``group.helper``.
+
+.. _logical-or:
+
+Wrapper "OR"
+~~~~~~~~~~~~
+
+This logical wrapper will return true if **at least one** of the rules inside return true.
+
+::
+
+	rules {
+	  or {
+	    permission: "group.vip"
+	    gamemode: CREATIVE
+	  }
+	}
+
+In this example, rule ``or`` will return ``true`` if player have permission ``group.vip`` **OR** gamemode CREATIVE.
+
+This behaviour also works when you use ``or`` rule as list of rules groups. Example:
+
+::
+
+	rules {
+	  or: [
+	    {
+	      permission: "group.vip"
+	      gamemode: CREATIVE
+	    },
+	    {
+	      permission: "group.helper"
+	    }
+	  ]
+	}
+
+In this example, rule ``or`` will return ``true`` if player have permission ``group.vip`` **OR** gamemode CREATIVE **OR** permission ``group.helper``.
+
+Combining logical wrappers
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can combine logical wrappers and make more complex conditions. Example:
+
+::
+
+	rules {
+	  or: [
+	    {
+	      and {
+	        permission: "vip"
+	        gamemode: CREATIVE
+	      }
+	    },
+	    {
+	      and {
+	        permission: "premium"
+	        gamemode: SURVIVAL
+	      }
+	    }
+	  ]
+	}
+
+In this example, rule ``or`` will return ``true`` if:
+
+Player have permission ``vip`` AND gamemode CREATIVE
+
+**OR**
+
+Player have permission ``premium`` AND gamemode SURVIVAL

@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Item format" href="item_format.html" />
-    <link rel="prev" title="HOCON format" href="../start/hocon.html" /> 
+    <link rel="prev" title="FAQ" href="../start/faq.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,6 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul class="current">
@@ -109,6 +110,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#buttons">Buttons</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#display-rules">Display rules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#click-processing">Click processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#binding-button-properties-to-rules">Binding button properties to rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-bindings">Multiple bindings</a></li>
 </ul>
 </li>
 </ul>
@@ -198,24 +203,29 @@
            <div itemprop="articleBody">
             
   <div class="section" id="menu-structure">
-<h1><a class="toc-backref" href="#id1">Menu structure</a><a class="headerlink" href="#menu-structure" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2">Menu structure</a><a class="headerlink" href="#menu-structure" title="Permalink to this headline">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#menu-structure" id="id1">Menu structure</a></p>
+<li><p><a class="reference internal" href="#menu-structure" id="id2">Menu structure</a></p>
 <ul>
-<li><p><a class="reference internal" href="#menu-file" id="id2">Menu file</a></p>
+<li><p><a class="reference internal" href="#menu-file" id="id3">Menu file</a></p>
 <ul>
-<li><p><a class="reference internal" href="#single-menu-file" id="id3">Single menu file</a></p></li>
-<li><p><a class="reference internal" href="#multiple-menu-file" id="id4">Multiple menu file</a></p></li>
+<li><p><a class="reference internal" href="#single-menu-file" id="id4">Single menu file</a></p></li>
+<li><p><a class="reference internal" href="#multiple-menu-file" id="id5">Multiple menu file</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#menu-properties" id="id5">Menu properties</a></p></li>
-<li><p><a class="reference internal" href="#auto-refresh" id="id6">Auto refresh</a></p></li>
-<li><p><a class="reference internal" href="#buttons" id="id7">Buttons</a></p>
+<li><p><a class="reference internal" href="#menu-properties" id="id6">Menu properties</a></p></li>
+<li><p><a class="reference internal" href="#auto-refresh" id="id7">Auto refresh</a></p></li>
+<li><p><a class="reference internal" href="#buttons" id="id8">Buttons</a></p>
 <ul>
-<li><p><a class="reference internal" href="#display-rules" id="id8">Display rules</a></p></li>
-<li><p><a class="reference internal" href="#click-processing" id="id9">Click processing</a></p></li>
+<li><p><a class="reference internal" href="#display-rules" id="id9">Display rules</a></p></li>
+<li><p><a class="reference internal" href="#click-processing" id="id10">Click processing</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#binding-button-properties-to-rules" id="id11">Binding button properties to rules</a></p>
+<ul>
+<li><p><a class="reference internal" href="#multiple-bindings" id="id12">Multiple bindings</a></p></li>
 </ul>
 </li>
 </ul>
@@ -224,10 +234,10 @@
 </div>
 <p>If you already know <a class="reference internal" href="../start/how_to.html"><span class="doc">How to create menu</span></a>, so here you will learn in details about menu structure and other useful features of the plugin.</p>
 <div class="section" id="menu-file">
-<h2><a class="toc-backref" href="#id2">Menu file</a><a class="headerlink" href="#menu-file" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Menu file</a><a class="headerlink" href="#menu-file" title="Permalink to this headline">¶</a></h2>
 <p>Each menu file can contain only menu or several related menus.</p>
 <div class="section" id="single-menu-file">
-<h3><a class="toc-backref" href="#id3">Single menu file</a><a class="headerlink" href="#single-menu-file" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Single menu file</a><a class="headerlink" href="#single-menu-file" title="Permalink to this headline">¶</a></h3>
 <p>You may be already met with single menu file though <a class="reference internal" href="../start/how_to.html"><span class="doc">How to create menu</span></a> lesson. Below an example of single-file menu.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;&amp;8Menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
@@ -268,7 +278,7 @@
 <p>Menu structure may seem difficult at first sight, but don’t be afraid, as you will move forward through the docs you will learn how each part of the plugin works.</p>
 </div>
 <div class="section" id="multiple-menu-file">
-<h3><a class="toc-backref" href="#id4">Multiple menu file</a><a class="headerlink" href="#multiple-menu-file" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Multiple menu file</a><a class="headerlink" href="#multiple-menu-file" title="Permalink to this headline">¶</a></h3>
 <p>If you are making a small sub-menu, this may has sense to do it in a single file with other related menus. To do this, the plugin has a design that allows you to create several menus in a single file. In this case, the menu name will be considered the name of the block in which it is created. Here is an example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">menus</span> <span class="p">{</span>
   <span class="n">my_awesome_menu</span> <span class="p">{</span> <span class="o">//</span> <span class="n">Unique</span> <span class="n">menu</span> <span class="n">name</span>
@@ -296,7 +306,7 @@
 </div>
 </div>
 <div class="section" id="menu-properties">
-<h2><a class="toc-backref" href="#id5">Menu properties</a><a class="headerlink" href="#menu-properties" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2><a class="toc-backref" href="#id6">Menu properties</a><a class="headerlink" href="#menu-properties" title="Permalink to this headline">¶</a></h2>
 <p>The table below contains all the properties of menu which you can specify in menu root.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -341,7 +351,7 @@
 <tr class="row-odd"><td><p>iRules</p></td>
 <td><p>Objects list</p></td>
 <td><p>No</p></td>
-<td><p>Inverted rules to open menu. If even one of those rule is <code class="docutils literal notranslate"><span class="pre">true</span></code> then menu won’t be opened. This can be combined with <code class="docutils literal notranslate"><span class="pre">rules</span></code> block to make specific logic</p></td>
+<td><p>(<strong>Deprecated!</strong> Use <a class="reference internal" href="../advanced/logical.html#logical-not"><span class="std std-ref">operator ‘NOT’</span></a> for regular rules) Inverted rules to open menu. If even one of those rule is <code class="docutils literal notranslate"><span class="pre">true</span></code> then menu won’t be opened. This can be combined with <code class="docutils literal notranslate"><span class="pre">rules</span></code> block to make specific logic</p></td>
 </tr>
 <tr class="row-even"><td><p>openActions</p></td>
 <td><p>Object</p></td>
@@ -367,7 +377,7 @@
 </table>
 </div>
 <div class="section" id="auto-refresh">
-<h2><a class="toc-backref" href="#id6">Auto refresh</a><a class="headerlink" href="#auto-refresh" title="Permalink to this headline">¶</a></h2>
+<span id="struct-auto-refresh"></span><h2><a class="toc-backref" href="#id7">Auto refresh</a><a class="headerlink" href="#auto-refresh" title="Permalink to this headline">¶</a></h2>
 <p>A bit more detailed about the <code class="docutils literal notranslate"><span class="pre">updateInterval</span></code> property. If you want to create a menu with auto refresh of items, placeholders and any other dynamic data, you can specify the interval for updating the menu. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;Dynamic menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">1</span>
@@ -385,7 +395,7 @@
 <p>In the example above we used the default placeholders. More about placeholders you can find on <a class="reference internal" href="placeholders.html"><span class="doc">Placeholders</span></a> page.</p>
 </div>
 <div class="section" id="buttons">
-<h2><a class="toc-backref" href="#id7">Buttons</a><a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Buttons</a><a class="headerlink" href="#buttons" title="Permalink to this headline">¶</a></h2>
 <p>The button in the menu is an ordinary item (see <a class="reference internal" href="item_format.html"><span class="doc">Item format</span></a>) with advanced functionality. Below are all parameters that may be specified in addition to the standard parameters of an item.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -425,7 +435,7 @@
 <tr class="row-even"><td><p>imrules</p></td>
 <td><p>Objects list</p></td>
 <td><p>No</p></td>
-<td><p>Additional <strong>inverted</strong> <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a>. Similar to <code class="docutils literal notranslate"><span class="pre">mrules</span></code></p></td>
+<td><p>(<strong>Deprecated!</strong> Use <a class="reference internal" href="../advanced/logical.html#logical-not"><span class="std std-ref">operator ‘NOT’</span></a> inside <code class="docutils literal notranslate"><span class="pre">mrules</span></code> to achieve the same) Additional <strong>inverted</strong> <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a>. Similar to <code class="docutils literal notranslate"><span class="pre">mrules</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>click</p></td>
 <td><p>Object</p></td>
@@ -436,7 +446,7 @@
 </table>
 <p>As you can see, only the <code class="docutils literal notranslate"><span class="pre">slot</span></code> property required for the button, because the menu item always must be in a specific slot or slots.</p>
 <div class="section" id="display-rules">
-<h3><a class="toc-backref" href="#id8">Display rules</a><a class="headerlink" href="#display-rules" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Display rules</a><a class="headerlink" href="#display-rules" title="Permalink to this headline">¶</a></h3>
 <p>A buttons can be displayed without any rules. But you can also add rules for displaying a button in the menu’s inventory. These rules will limit showing some buttons if the player doesn’t matches with the rules.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -453,43 +463,10 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>In this example, the menu has two items. The first (Iron Sword) will be always displayed in slot 0. The second (Diamond Sword) will be displayed in slot 0 and will replace the first item only if the player has permission <code class="docutils literal notranslate"><span class="pre">some.perm</span></code>.
-Look at a the similar example, but using <code class="docutils literal notranslate"><span class="pre">iRules</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="n">material</span><span class="p">:</span> <span class="n">IRON_SWORD</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="n">material</span><span class="p">:</span> <span class="n">DIAMOND_SWORD</span>
-    <span class="n">iRules</span> <span class="p">{</span>
-      <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;some.perm&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<p>In this example, the menu contains the same items. The first one will still be displayed in slot 0. The second one will be displayed in slot 0 and will replace the first item only if the player <strong>hasn’t</strong> the <code class="docutils literal notranslate"><span class="pre">some.perm</span></code> permission.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">rules</span></code> and <code class="docutils literal notranslate"><span class="pre">iRules</span></code> blocks can be combined, which is writing both in the same item. In this case, the item will be removed if player matches with the rules specified inside <code class="docutils literal notranslate"><span class="pre">rules</span></code> block and at the same time <strong>doesn’t matches</strong> the rules described inside <code class="docutils literal notranslate"><span class="pre">iRules</span></code>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="n">material</span><span class="p">:</span> <span class="n">DIAMOND_SWORD</span>
-    <span class="n">rules</span> <span class="p">{</span>
-      <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;some.perm&quot;</span>
-    <span class="p">}</span>
-    <span class="n">iRules</span> <span class="p">{</span>
-      <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;another.perm&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-<span class="p">]</span>
-</pre></div>
-</div>
-<p>In this example, the diamond sword will appear on the menu only if the player has <code class="docutils literal notranslate"><span class="pre">some.perm</span></code> permission and hasn’t <code class="docutils literal notranslate"><span class="pre">another.perm</span></code> permission.</p>
+<p>In this example, the menu has two items. The first (Iron Sword) will be always displayed in slot 0. The second (Diamond Sword) will be displayed in slot 0 and will replace the first item only if the player have permission <code class="docutils literal notranslate"><span class="pre">some.perm</span></code>.</p>
 </div>
 <div class="section" id="click-processing">
-<h3><a class="toc-backref" href="#id9">Click processing</a><a class="headerlink" href="#click-processing" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Click processing</a><a class="headerlink" href="#click-processing" title="Permalink to this headline">¶</a></h3>
 <p>Almost any menu is useless without processing button clicks. The plugin provides a convenient system for processing clicks on buttons.</p>
 <p>Let’s take a look at the <code class="docutils literal notranslate"><span class="pre">click</span></code> block. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
@@ -558,6 +535,75 @@ Look at a the similar example, but using <code class="docutils literal notransla
 </div>
 </div>
 </div>
+<div class="section" id="binding-button-properties-to-rules">
+<span id="struct-bindings"></span><h2><a class="toc-backref" href="#id11">Binding button properties to rules</a><a class="headerlink" href="#binding-button-properties-to-rules" title="Permalink to this headline">¶</a></h2>
+<p>You can bind some button properties to rules. If player matches specified rules, then this property will be applied to final item.
+For this, AbstractMenus has special item property called <code class="docutils literal notranslate"><span class="pre">bindings</span></code>. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">material</span><span class="p">:</span> <span class="n">CAKE</span>
+    <span class="n">bindings</span> <span class="p">{</span>
+      <span class="n">props</span> <span class="p">{</span> <span class="n">material</span><span class="p">:</span> <span class="n">LEATHER_LEGGINGS</span> <span class="p">}</span>
+      <span class="n">rules</span> <span class="p">{</span> <span class="n">gamemode</span><span class="p">:</span> <span class="n">CREATIVE</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>In this example, if player has CREATIVE gamemode, then item’s material will be changed to <code class="docutils literal notranslate"><span class="pre">LEATHER_LEGGINGS</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">bindings</span></code> block has next format:</p>
+<dl class="field-list simple">
+<dt class="field-odd">props</dt>
+<dd class="field-odd"><p>Item properties to apply</p>
+</dd>
+<dt class="field-even">rules</dt>
+<dd class="field-even"><p>Regular rules to check player</p>
+</dd>
+</dl>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">props</span></code> block you can specify one or multiple <a class="reference internal" href="item_format.html#prop-all"><span class="std std-ref">item properties</span></a>, as you do it just inside item. All these properties will be added to item only if player matches rules, specified inside <code class="docutils literal notranslate"><span class="pre">rules</span></code> block.</p>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">rules</span></code> block you can specify any rules, like in any other <code class="docutils literal notranslate"><span class="pre">rules</span></code> block.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Item must have a default <a class="reference internal" href="item_format.html#prop-all"><span class="std std-ref">material installer</span></a>. If you use bindings with material installer property, you just owerwrite it.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In AbstractMenus order of item properties is matter. Since <code class="docutils literal notranslate"><span class="pre">bindings</span></code> block is just special item property, you should add bindings to end of all properties, if it exists. Then this will work correctly.</p>
+</div>
+<div class="section" id="multiple-bindings">
+<h3><a class="toc-backref" href="#id12">Multiple bindings</a><a class="headerlink" href="#multiple-bindings" title="Permalink to this headline">¶</a></h3>
+<p>You can add multiple bindings to one item. For this, just change the <code class="docutils literal notranslate"><span class="pre">bindings</span></code> block to <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a>. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">material</span><span class="p">:</span> <span class="n">CAKE</span>
+    <span class="n">bindings</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="n">props</span> <span class="p">{</span> <span class="n">material</span><span class="p">:</span> <span class="n">LEATHER_LEGGINGS</span> <span class="p">}</span>
+        <span class="n">rules</span> <span class="p">{</span> <span class="n">gamemode</span><span class="p">:</span> <span class="n">CREATIVE</span> <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="n">props</span> <span class="p">{</span>
+          <span class="n">lore</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;&quot;</span>
+            <span class="s2">&quot;You are VIP!&quot;</span>
+          <span class="p">]</span>
+        <span class="p">}</span>
+        <span class="n">rules</span> <span class="p">{</span> <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;group.vip&quot;</span> <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Here, we changed <code class="docutils literal notranslate"><span class="pre">bindings</span></code> block to list and added new binding. Now, if player has <code class="docutils literal notranslate"><span class="pre">group.vip</span></code> permission, then new lore will be applied to item.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inside one item, a similar properties in different bindings will be owerwritten by last one. For example, if you use two <code class="docutils literal notranslate"><span class="pre">material</span></code> properties for two item bindings, then only last material will be applied (if player matches both).</p>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -567,7 +613,7 @@ Look at a the similar example, but using <code class="docutils literal notransla
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="item_format.html" class="btn btn-neutral float-right" title="Item format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../start/hocon.html" class="btn btn-neutral float-left" title="HOCON format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../start/faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

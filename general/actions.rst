@@ -34,6 +34,7 @@ All actions
 	"removePermission", |t_list_str|, ``removePermission: "some.perm"``, "Remove player's permission. **LuckPerms** required for correct working"
 	"addGroup", |t_str|, ``addGroup: "vip"``, "Add player to permission group. **LuckPerms** required"
 	"removeGroup", |t_str|, ``removeGroup: "admin"``, "Remove player from permission group. **LuckPerms** required"
+	"setGamemode", |t_str|, ``setGamemode: CREATIVE``, "Set new game mode for player. All available modes names can be found `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/GameMode.html>`_"
 	"setHealth", |t_int|, ``setHealth: 20``, "Set player health level"
 	"setFoodLevel", |t_int|, ``setFoodLevel: 20``, "Set player food level"
 	"giveXp", |t_int|, ``giveXp: 1000``, "Give XP points for player"
@@ -633,28 +634,6 @@ Action to add property to the menu item. Example:
 	]
 
 After click the item will glow.
-
-This action can also be used in the block of actions after some rules checking. Since we do not want the result of the rule check to affect the display of the item, we will use the ``mrules`` block, which does not affect this, but simply does an independent rule check. Example:
-
-::
-
-	items: [
-	  {
-	    slot: 0
-	    material: STONE
-	    name: "Properties test"
-	    mrules {
-	      gamemode: CREATIVE
-	      actions {
-	        setProperty {
-	          glow: true
-	        }
-	      }
-	    }
-	  }
-	]
-
-Now, when you open the menu, the item will glow only if the player has the ``CREATIVE`` mode.
 
 This action also allows you to change the properties of other items in the opened menu. To do this, you need to specify the slot in which it is located. Example:
 

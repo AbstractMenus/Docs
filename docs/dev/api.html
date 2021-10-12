@@ -94,6 +94,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul>
@@ -526,31 +527,41 @@ If you are using a build system, you can use this artifacts:</p>
 </div>
 <div class="section" id="create-item-property">
 <h2><a class="toc-backref" href="#id11">Create item property</a><a class="headerlink" href="#create-item-property" title="Permalink to this headline">¶</a></h2>
-<p>An item property is a parameter that determines its appearance and metadata.</p>
-<p>To create an item, two types of properties are used:</p>
+<p>An item property is an object that determines its appearance and metadata.</p>
+<p>To create new item property, you need implement <code class="docutils literal notranslate"><span class="pre">ru.nanit.abstractmenus.api.inventory.ItemProperty</span></code> interface. There is several methods to implement:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Regular property</dt>
-<dd class="field-odd"><p>This property works with already exists <code class="docutils literal notranslate"><span class="pre">ItemMeta</span></code> and just modify it. Optionally, regular property can return new <code class="docutils literal notranslate"><span class="pre">ItemStack</span></code>.</p>
+<dt class="field-odd">canReplaceMaterial</dt>
+<dd class="field-odd"><p>Does this property modify item type (material installer). If <code class="docutils literal notranslate"><span class="pre">true</span></code>, then plugin will apply this property first, to generate valid item meta.</p>
 </dd>
-<dt class="field-even">Material replacer</dt>
-<dd class="field-even"><p>These are properties that in the process of work assign their material to an object. This makes it possible not to indicate the material in the properties of the object when the material is known from the context. Such a property, for example, is the <code class="docutils literal notranslate"><span class="pre">skullOwner</span></code> property, which immediately assigns the <code class="docutils literal notranslate"><span class="pre">PLAYER_SKULL</span></code> material to the item.</p>
+<dt class="field-even">isApplyMeta</dt>
+<dd class="field-even"><p>If returns false, plugin won’t apply saved meta after exiting from <code class="docutils literal notranslate"><span class="pre">apply</span></code> method. Return true if you don’t set own meta to provided ItemStack.</p>
+</dd>
+<dt class="field-odd">apply</dt>
+<dd class="field-odd"><p>Apply properties to ItemStack or ItemMeta.</p>
 </dd>
 </dl>
-<p>An example with a regular property. Here we take a regular string and assign it as a name. Note that you can return an item. If the method returns an item, then in the process of building the final item, the changed meta parameter will not be taken. Instead, the item will be replaced with the item you returned. This is useful for dynamically changing an item, including its material, depending on the parameters received.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">Optional.EMPTY</span></code> is returned, the item keeps the same, and the modified metadata is assigned to it.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProperty</span> <span class="kd">implements</span> <span class="n">SimpleProperty</span> <span class="p">{</span>
+<p>Example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProperty</span> <span class="kd">implements</span> <span class="n">ItemProperty</span> <span class="p">{</span>
 
     <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
 
     <span class="kd">private</span> <span class="nf">MyProperty</span> <span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
-
     <span class="p">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">Optional</span><span class="o">&lt;</span><span class="n">ItemStack</span><span class="o">&gt;</span> <span class="nf">apply</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">itemStack</span><span class="p">,</span> <span class="n">ItemMeta</span> <span class="n">meta</span><span class="p">,</span> <span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canReplaceMaterial</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isApplyMeta</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">item</span><span class="p">,</span> <span class="n">ItemMeta</span> <span class="n">meta</span><span class="p">,</span> <span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">meta</span><span class="p">.</span><span class="na">setDisplayName</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
-        <span class="k">return</span> <span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyProperty</span><span class="o">&gt;</span> <span class="p">{</span>
@@ -558,7 +569,6 @@ If you are using a build system, you can use this artifacts:</p>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="n">MyProperty</span> <span class="nf">deserialize</span><span class="p">(</span><span class="n">TypeToken</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="p">,</span> <span class="n">ConfigurationNode</span> <span class="n">value</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="k">new</span> <span class="n">MyProperty</span><span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="na">getString</span><span class="p">());</span>
-
         <span class="p">}</span>
 
         <span class="nd">@Override</span>
@@ -569,12 +579,22 @@ If you are using a build system, you can use this artifacts:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Example with a material replacer. Here we give out the creeper head. This property has no parameters. Therefore, when using this property, you can simply specify <code class="docutils literal notranslate"><span class="pre">true</span></code> when using this property.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMaterialProperty</span> <span class="kd">implements</span> <span class="n">MaterialProperty</span> <span class="p">{</span>
+<p>Another example with a material replacer. Here we give out the creeper head. This property has no parameters. Therefore, when using this property, you can simply specify <code class="docutils literal notranslate"><span class="pre">true</span></code> when using this property.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyMaterialProperty</span> <span class="kd">implements</span> <span class="n">ItemProperty</span> <span class="p">{</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="n">ItemStack</span> <span class="nf">getItem</span><span class="p">(</span><span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="n">ItemStack</span><span class="p">(</span><span class="n">Material</span><span class="p">.</span><span class="na">CREEPER_HEAD</span><span class="p">);</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">canReplaceMaterial</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isApplyMeta</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="p">(</span><span class="n">ItemStack</span> <span class="n">item</span><span class="p">,</span> <span class="n">ItemMeta</span> <span class="n">meta</span><span class="p">,</span> <span class="n">Player</span> <span class="n">player</span><span class="p">,</span> <span class="n">Menu</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">item</span><span class="p">.</span><span class="na">setType</span><span class="p">(</span><span class="n">Material</span><span class="p">.</span><span class="na">CREEPER_HEAD</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Serializer</span> <span class="kd">implements</span> <span class="n">TypeSerializer</span><span class="o">&lt;</span><span class="n">MyMaterialProperty</span><span class="o">&gt;</span> <span class="p">{</span>

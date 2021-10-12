@@ -11,7 +11,7 @@ To configure menus, AbstactMenus uses **HOCON** (`.conf` files) instead of **YAM
 Basic HOCON syntax
 ------------------
 
-In general, HOCON is a modified and optimized for configs a JSON format. So if you know JSON, then HOCON will seem familiar for you.
+In general, HOCON is a JSON, but modified and optimized for configs. So if you know JSON, then HOCON will seem familiar for you.
 
 Key-value
 ~~~~~~~~~
@@ -147,6 +147,14 @@ Each object can contain other objects inside and so on ad infinitum. For example
 
 Here we specified the ``color`` object inside the ``item`` object. This is just an example. There is a separate lesson on how to describe items in the plugin - :doc:`../general/item_format`.
 
+All values inside objects can be specified in one line with separating it by comma. Example:
+
+::
+
+	object1 { param1: "value1" }
+
+	object2 { param1: "value1", param2: 12, param3: true }
+
 .. _hocon-list:
 
 List
@@ -211,6 +219,15 @@ As we already learned, the object must be specified between braces ``{}``. This 
 	]
 
 This is a list of items. Each object, as written earlier, is enclosed between braces. As list requires, each element inside should be separated by comma.
+
+Inline lists
+""""""""""""
+
+Like objects, you can also make list in one line. Example:
+
+::
+
+	list: [ "line1", "line2", "line3" ]
 
 .. _hocon-list-feature:
 

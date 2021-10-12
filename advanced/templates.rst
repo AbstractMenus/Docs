@@ -24,7 +24,7 @@ For example, in each of the bunch of menus the "Close menu" button has the same 
 
 Since this item outside of items list, this is a template.
 
-Now you can include this template in any place of the menu. For this, you need a special placeholders. This placeholder has format:
+Now you can include this template in any place of the menu. For this, you need a special placeholder. This placeholder has format:
 
 ::
 
@@ -40,7 +40,33 @@ Replace ``<template_name>`` to name of the your template block. In our case this
 
 Now after plugin reload, this item will appear in menu.
 
-The main feature of templates if that you can use them multiple times. But now our template has static slot. To change slot we need to override this in place where we include it.
+Note, that path to template always begid from file's root, mo matter where you use placeholder to include it. For example, you have template inside another block:
+
+::
+
+    templates {
+      items {
+        closeButton {
+          slot: 5
+          texture: "5a6787ba32564e7c2f3a0ce64498ecbb23b89845e5a66b5cec7736f729ed37"
+          name: "&cClose"
+          lore: "&7Click to close the menu"
+          click {
+            closeMenu: true
+          }
+        }
+      }
+    }
+
+Then, if ``templates`` block placed in file's root (doesn't has parent blocks), placeholder to include ``closeButton`` block will be like this:
+
+::
+
+	${templates.items.closeButton}
+
+.. hint:: Path to template contains all parent blocks names start from first and must be separated by dots.
+
+The main feature of templates if that you can use them multiple times. But our button template has static slot. To change slot we need to override it in place where we include it.
 
 Expand or override template
 ---------------------------

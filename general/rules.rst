@@ -60,6 +60,9 @@ All rules
 	"**Complex rules**"
 	"if", |t_list_obj|, |ex_below| :ref:`rule-if`, "Checks some text and numeric parameters"
 	"js", |t_str|, |ex_below| :ref:`rule-js`, "Execute JavaScript script and check the result"
+	"**Special rules**"
+	"and", |t_list_obj|, |ex_below| :ref:`here <logical-and>`, "Logical wrapper for rules implemented with 'AND' operator"
+	"or", |t_list_obj|, |ex_below| :ref:`here <logical-or>`, "Logical wrapper for rules implemented with 'OR' operator"
 
 .. _rule-items:
 
@@ -134,7 +137,54 @@ Rule to check players count on some BungeeCord server. Example:
 "If" rule
 ---------
 
-Rule to compare some data (for example, placeholder from PAPI) with another data. Example:
+Rule to compare some data (for example, placeholder from PAPI) with another data.
+
+Since AbstarctMenus v1.13 ``if`` rule has two formats: modern and legacy (deprecated).
+
+Modern "If" format
+~~~~~~~~~~~~~~~~~~
+
+.. |example_or| replace:: ``%player_level% > 5 || %player_name% == Notch``
+
+This format similar to ``js`` rule. But unlike ``js``, modern ``if`` works much faster, around 8-10 times. Example:
+
+::
+
+	if: "%player_name% == Notch"
+
+Here we compare placeholder with some value. Modern ``if`` has no math expressions, only logical. Below are all logical operators which you can use for your expressions.
+
+.. csv-table::
+	:header: "Operator", "Example", "Means", "Priority"
+	:widths: 5, 10, 20, 1
+
+	">", ``%player_level% > 5``, "More", "3"
+	"<", ``%player_level% < 8``, "Less", "3"
+	">=", ``%player_level% >= 5``, "More or equals", "3"
+	"<=", ``%player_level% <= 8``, "More or equals", "3"
+	"==", ``%player_level% == 9``, "Equals", "2"
+	"!=", ``%player_level% != 9``, "Not equals", "2"
+	"===", ``%player_name% === nOtCh``, "Equals ignore case", "2"
+	"!==", ``%player_name% !== nOtCh``, "Not equals ignore case", "2"
+	"&&", ``%player_level% > 5 && %player_name% == Notch``, "And", "1"
+	"||", |example_or|, "Or", "0"
+
+Unlike ``js`` rule, inside ``if`` you don't need to use quotes (``''``, ``""``) to define strings. There are also logical brackets ``()`` to define logical groups and increase priority of some operations. Example:
+
+::
+
+	if: "(%player_lvl% == 5 || %player_lvl% == 10) && (%player_name% == Notch || %player_name% == Nanit)"
+
+This expression will return true if player has level 5 or 10 AND if has username "Notch" or "Nanit".
+
+If you need math operations or more complex conditions, then you can use ``js`` rule. But if not, we recommend use modern ``if`` rule to speed up you menus.
+
+Legacy "If" format
+~~~~~~~~~~~~~~~~~~
+
+.. warning:: We don't recommend use this format since modern ``if`` more brief, uderstandable and has more abilities to build complex logical expressions.
+
+Example:
 
 ::
 

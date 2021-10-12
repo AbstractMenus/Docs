@@ -95,6 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul class="current">
@@ -108,7 +109,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#held-item">Held item</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#var-existing">Var existing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bungeecord-online">BungeeCord online</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#if-rule">“If” rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-rule">“If” rule</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modern-if-format">Modern “If” format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#legacy-if-format">Legacy “If” format</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#javascript">JavaScript</a></li>
 </ul>
 </li>
@@ -204,8 +209,13 @@
 <li><p><a class="reference internal" href="#held-item" id="id4">Held item</a></p></li>
 <li><p><a class="reference internal" href="#var-existing" id="id5">Var existing</a></p></li>
 <li><p><a class="reference internal" href="#bungeecord-online" id="id6">BungeeCord online</a></p></li>
-<li><p><a class="reference internal" href="#if-rule" id="id7">“If” rule</a></p></li>
-<li><p><a class="reference internal" href="#javascript" id="id8">JavaScript</a></p></li>
+<li><p><a class="reference internal" href="#if-rule" id="id7">“If” rule</a></p>
+<ul>
+<li><p><a class="reference internal" href="#modern-if-format" id="id8">Modern “If” format</a></p></li>
+<li><p><a class="reference internal" href="#legacy-if-format" id="id9">Legacy “If” format</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#javascript" id="id10">JavaScript</a></p></li>
 </ul>
 </li>
 </ul>
@@ -363,6 +373,21 @@
 <td><p>See example <a class="reference internal" href="#rule-js"><span class="std std-ref">JavaScript</span></a></p></td>
 <td><p>Execute JavaScript script and check the result</p></td>
 </tr>
+<tr class="row-even"><td><p><strong>Special rules</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>and</p></td>
+<td><p>Objects list</p></td>
+<td><p>See example <a class="reference internal" href="../advanced/logical.html#logical-and"><span class="std std-ref">here</span></a></p></td>
+<td><p>Logical wrapper for rules implemented with ‘AND’ operator</p></td>
+</tr>
+<tr class="row-even"><td><p>or</p></td>
+<td><p>Objects list</p></td>
+<td><p>See example <a class="reference internal" href="../advanced/logical.html#logical-or"><span class="std std-ref">here</span></a></p></td>
+<td><p>Logical wrapper for rules implemented with ‘OR’ operator</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -430,7 +455,96 @@
 </div>
 <div class="section" id="if-rule">
 <span id="rule-if"></span><h2><a class="toc-backref" href="#id7">“If” rule</a><a class="headerlink" href="#if-rule" title="Permalink to this headline">¶</a></h2>
-<p>Rule to compare some data (for example, placeholder from PAPI) with another data. Example:</p>
+<p>Rule to compare some data (for example, placeholder from PAPI) with another data.</p>
+<p>Since AbstarctMenus v1.13 <code class="docutils literal notranslate"><span class="pre">if</span></code> rule has two formats: modern and legacy (deprecated).</p>
+<div class="section" id="modern-if-format">
+<h3><a class="toc-backref" href="#id8">Modern “If” format</a><a class="headerlink" href="#modern-if-format" title="Permalink to this headline">¶</a></h3>
+<p>This format similar to <code class="docutils literal notranslate"><span class="pre">js</span></code> rule. But unlike <code class="docutils literal notranslate"><span class="pre">js</span></code>, modern <code class="docutils literal notranslate"><span class="pre">if</span></code> works much faster, around 8-10 times. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">:</span> <span class="s2">&quot;%player_name% == Notch&quot;</span>
+</pre></div>
+</div>
+<p>Here we compare placeholder with some value. Modern <code class="docutils literal notranslate"><span class="pre">if</span></code> has no math expressions, only logical. Below are all logical operators which you can use for your expressions.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 28%" />
+<col style="width: 56%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Means</p></th>
+<th class="head"><p>Priority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&gt;</span> <span class="pre">5</span></code></p></td>
+<td><p>More</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&lt;</span> <span class="pre">8</span></code></p></td>
+<td><p>Less</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt;=</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&gt;=</span> <span class="pre">5</span></code></p></td>
+<td><p>More or equals</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;=</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&lt;=</span> <span class="pre">8</span></code></p></td>
+<td><p>More or equals</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>==</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">==</span> <span class="pre">9</span></code></p></td>
+<td><p>Equals</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>!=</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">!=</span> <span class="pre">9</span></code></p></td>
+<td><p>Not equals</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>===</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_name%</span> <span class="pre">===</span> <span class="pre">nOtCh</span></code></p></td>
+<td><p>Equals ignore case</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>!==</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_name%</span> <span class="pre">!==</span> <span class="pre">nOtCh</span></code></p></td>
+<td><p>Not equals ignore case</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>&amp;&amp;</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&gt;</span> <span class="pre">5</span> <span class="pre">&amp;&amp;</span> <span class="pre">%player_name%</span> <span class="pre">==</span> <span class="pre">Notch</span></code></p></td>
+<td><p>And</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>||</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%player_level%</span> <span class="pre">&gt;</span> <span class="pre">5</span> <span class="pre">||</span> <span class="pre">%player_name%</span> <span class="pre">==</span> <span class="pre">Notch</span></code></p></td>
+<td><p>Or</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">js</span></code> rule, inside <code class="docutils literal notranslate"><span class="pre">if</span></code> you don’t need to use quotes (<code class="docutils literal notranslate"><span class="pre">''</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) to define strings. There are also logical brackets <code class="docutils literal notranslate"><span class="pre">()</span></code> to define logical groups and increase priority of some operations. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">:</span> <span class="s2">&quot;(%player_lvl% == 5 || %player_lvl% == 10) &amp;&amp; (%player_name% == Notch || %player_name% == Nanit)&quot;</span>
+</pre></div>
+</div>
+<p>This expression will return true if player has level 5 or 10 AND if has username “Notch” or “Nanit”.</p>
+<p>If you need math operations or more complex conditions, then you can use <code class="docutils literal notranslate"><span class="pre">js</span></code> rule. But if not, we recommend use modern <code class="docutils literal notranslate"><span class="pre">if</span></code> rule to speed up you menus.</p>
+</div>
+<div class="section" id="legacy-if-format">
+<h3><a class="toc-backref" href="#id9">Legacy “If” format</a><a class="headerlink" href="#legacy-if-format" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We don’t recommend use this format since modern <code class="docutils literal notranslate"><span class="pre">if</span></code> more brief, uderstandable and has more abilities to build complex logical expressions.</p>
+</div>
+<p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">{</span>
   <span class="n">param</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
   <span class="n">equals</span><span class="p">:</span> <span class="p">[</span>
@@ -472,8 +586,9 @@
 </dd>
 </dl>
 </div>
+</div>
 <div class="section" id="javascript">
-<span id="rule-js"></span><h2><a class="toc-backref" href="#id8">JavaScript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<span id="rule-js"></span><h2><a class="toc-backref" href="#id10">JavaScript</a><a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>JavaScript engine was removed from official JVM since Java 15. To continue using <code class="docutils literal notranslate"><span class="pre">js</span></code> rule, plugin loads this engine at server startup. This possible only for Spigot 1.16.5 and higher. If you use Java 15+ with Spigot less than 1.16.5, the <code class="docutils literal notranslate"><span class="pre">js</span></code> rule won’t work.</p>

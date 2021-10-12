@@ -95,6 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul class="current">
@@ -119,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#block-click">Block click</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#buttons-levers-plates">Buttons, levers, plates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sign">Sign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#swap-items-f-key">Swap items (F key)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
@@ -230,6 +232,7 @@
 <li><p><a class="reference internal" href="#block-click" id="id13">Block click</a></p></li>
 <li><p><a class="reference internal" href="#buttons-levers-plates" id="id14">Buttons, levers, plates</a></p></li>
 <li><p><a class="reference internal" href="#sign" id="id15">Sign</a></p></li>
+<li><p><a class="reference internal" href="#swap-items-f-key" id="id16">Swap items (F key)</a></p></li>
 </ul>
 </li>
 </ul>
@@ -337,6 +340,11 @@
 <td><p>Strings list</p></td>
 <td><p>See example <a class="reference internal" href="#activ-sign"><span class="std std-ref">Sign</span></a></p></td>
 <td><p>Open when sign with some text clicked</p></td>
+</tr>
+<tr class="row-odd"><td><p>swapItems</p></td>
+<td><p>None</p></td>
+<td><p>See example <a class="reference internal" href="#activ-swap-items"><span class="std std-ref">Swap items (F key)</span></a></p></td>
+<td><p>Open when player swaps item. By default it’s ‘F’ key</p></td>
 </tr>
 </tbody>
 </table>
@@ -534,6 +542,20 @@
 </pre></div>
 </div>
 <p>In this example, the label in the first line should be the text <code class="docutils literal notranslate"><span class="pre">[OPEN]</span></code>, and on the third a <code class="docutils literal notranslate"><span class="pre">menu</span></code>.</p>
+</div>
+<div class="section" id="swap-items-f-key">
+<span id="activ-swap-items"></span><h2><a class="toc-backref" href="#id16">Swap items (F key)</a><a class="headerlink" href="#swap-items-f-key" title="Permalink to this headline">¶</a></h2>
+<p>This activator opens menu if player press key to swap items. By default this key is <code class="docutils literal notranslate"><span class="pre">F</span></code>.
+Since this activator has no any arguments, we will use just <code class="docutils literal notranslate"><span class="pre">true</span></code> value. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activators</span> <span class="p">{</span>
+  <span class="n">swapItems</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This activator works only for MC 1.9+</p>
+</div>
 </div>
 </div>
 

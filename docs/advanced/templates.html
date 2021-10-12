@@ -95,6 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
 <p class="caption"><span class="caption-text">General Features</span></p>
 <ul>
@@ -227,7 +228,7 @@
 </pre></div>
 </div>
 <p>Since this item outside of items list, this is a template.</p>
-<p>Now you can include this template in any place of the menu. For this, you need a special placeholders. This placeholder has format:</p>
+<p>Now you can include this template in any place of the menu. For this, you need a special placeholder. This placeholder has format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>${&lt;template_name&gt;}
 </pre></div>
 </div>
@@ -238,7 +239,31 @@
 </pre></div>
 </div>
 <p>Now after plugin reload, this item will appear in menu.</p>
-<p>The main feature of templates if that you can use them multiple times. But now our template has static slot. To change slot we need to override this in place where we include it.</p>
+<p>Note, that path to template always begid from file’s root, mo matter where you use placeholder to include it. For example, you have template inside another block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">templates</span> <span class="p">{</span>
+  <span class="n">items</span> <span class="p">{</span>
+    <span class="n">closeButton</span> <span class="p">{</span>
+      <span class="n">slot</span><span class="p">:</span> <span class="mi">5</span>
+      <span class="n">texture</span><span class="p">:</span> <span class="s2">&quot;5a6787ba32564e7c2f3a0ce64498ecbb23b89845e5a66b5cec7736f729ed37&quot;</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;&amp;cClose&quot;</span>
+      <span class="n">lore</span><span class="p">:</span> <span class="s2">&quot;&amp;7Click to close the menu&quot;</span>
+      <span class="n">click</span> <span class="p">{</span>
+        <span class="n">closeMenu</span><span class="p">:</span> <span class="n">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, if <code class="docutils literal notranslate"><span class="pre">templates</span></code> block placed in file’s root (doesn’t has parent blocks), placeholder to include <code class="docutils literal notranslate"><span class="pre">closeButton</span></code> block will be like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>${templates.items.closeButton}
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Path to template contains all parent blocks names start from first and must be separated by dots.</p>
+</div>
+<p>The main feature of templates if that you can use them multiple times. But our button template has static slot. To change slot we need to override it in place where we include it.</p>
 </div>
 <div class="section" id="expand-or-override-template">
 <h2><a class="toc-backref" href="#id3">Expand or override template</a><a class="headerlink" href="#expand-or-override-template" title="Permalink to this headline">¶</a></h2>

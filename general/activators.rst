@@ -47,6 +47,7 @@ All activators
 	"lever", |t_list_obj|, |ex_below| :ref:`activ-btn`, "Open when lever shifted"
 	"plate", |t_list_obj|, |ex_below| :ref:`activ-btn`, "Open when plate activated"
 	"table", |t_list_str|, |ex_below| :ref:`activ-sign`, "Open when sign with some text clicked"
+	"swapItems", None, |ex_below| :ref:`activ-swap-items`, "Open when player swaps item. By default it's 'F' key"
 
 .. _activ-cmd:
 
@@ -296,3 +297,19 @@ In this example, the label in the first line should be the text ``[OPEN]``.
 	]
 
 In this example, the label in the first line should be the text ``[OPEN]``, and on the third a ``menu``.
+
+.. _activ-swap-items:
+
+Swap items (F key)
+------------------
+
+This activator opens menu if player press key to swap items. By default this key is ``F``. 
+Since this activator has no any arguments, we will use just ``true`` value. Example:
+
+::
+
+	activators {
+	  swapItems: true
+	}
+
+.. note:: This activator works only for MC 1.9+

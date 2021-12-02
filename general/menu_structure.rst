@@ -101,9 +101,9 @@ The table below contains all the properties of menu which you can specify in men
 	"activators", |t_obj|, "No", "An :doc:`activators` to open menu"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
 	"iRules", |t_list_obj|, "No", "(**Deprecated!** Use :ref:`operator 'NOT' <logical-not>` for regular rules) Inverted rules to open menu. If even one of those rule is ``true`` then menu won't be opened. This can be combined with ``rules`` block to make specific logic"
-	"openActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** the menu opened"
-	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will execute if at least one rule is ``false``"
-	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will execute **after** menu closed"
+	"openActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **before** the menu opened, but **after** open rules successfully checked"
+	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will be executed if at least one rule is ``false``"
+	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **after** menu closed"
 	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu won't update"
 
 .. _struct-auto-refresh:

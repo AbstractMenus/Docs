@@ -1,77 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Item format &mdash; AbstractMenus  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/js/links.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Activators" href="activators.html" />
     <link rel="prev" title="Menu structure" href="menu_structure.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #8261BC" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> AbstractMenus
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,25 +38,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Getting Started</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/hocon.html">HOCON format</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../start/faq.html">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">General Features</span></p>
+<p class="caption" role="heading"><span class="caption-text">General Features</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="menu_structure.html">Menu structure</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Item format</a><ul>
@@ -122,7 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#firework">Firework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#book">Book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#banner">Banner</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#way-1-json">Way 1. JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#way-1-nbt">Way 1. NBT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#way-2-hocon">Way 2. HOCON</a></li>
 </ul>
 </li>
@@ -133,87 +81,47 @@
 <li class="toctree-l1"><a class="reference internal" href="actions.html">Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rules.html">Rules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text_colors.html">Colorizing text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text_colors.html">Text formatting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="placeholders.html">Placeholders</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Advanced Features</span></p>
+<p class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/logical.html">Logical structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/generation.html">Menu generator</a></li>
 </ul>
-<p class="caption"><span class="caption-text">For Developers</span></p>
+<p class="caption" role="heading"><span class="caption-text">For Developers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #8261BC" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content style-external-links">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Item format</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="item-format">
-<h1><a class="toc-backref" href="#id10">Item format</a><a class="headerlink" href="#item-format" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id10">Item format</a><a class="headerlink" href="#item-format" title="Permalink to this headline"></a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -243,7 +151,7 @@
 <li><p><a class="reference internal" href="#book" id="id26">Book</a></p></li>
 <li><p><a class="reference internal" href="#banner" id="id27">Banner</a></p>
 <ul>
-<li><p><a class="reference internal" href="#way-1-json" id="id28">Way 1. JSON</a></p></li>
+<li><p><a class="reference internal" href="#way-1-nbt" id="id28">Way 1. NBT</a></p></li>
 <li><p><a class="reference internal" href="#way-2-hocon" id="id29">Way 2. HOCON</a></p></li>
 </ul>
 </li>
@@ -254,7 +162,7 @@
 </div>
 <p>An item can be specified not only as a button in a menu. This <a class="reference internal" href="../start/hocon.html#hocon-obj"><span class="std std-ref">object</span></a> can be used in rules, actions and activators. However, item always has one format.</p>
 <div class="section" id="all-item-properties">
-<span id="prop-all"></span><h2><a class="toc-backref" href="#id11">All item properties</a><a class="headerlink" href="#all-item-properties" title="Permalink to this headline">¶</a></h2>
+<span id="prop-all"></span><h2><a class="toc-backref" href="#id11">All item properties</a><a class="headerlink" href="#all-item-properties" title="Permalink to this headline"></a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -428,32 +336,32 @@
 </div>
 </div>
 <div class="section" id="slot">
-<span id="prop-slot"></span><h2><a class="toc-backref" href="#id12">Slot</a><a class="headerlink" href="#slot" title="Permalink to this headline">¶</a></h2>
+<span id="prop-slot"></span><h2><a class="toc-backref" href="#id12">Slot</a><a class="headerlink" href="#slot" title="Permalink to this headline"></a></h2>
 <p>The item’s slot is the cell in the inventory (of the menu or player’s) where the item will be placed. The slot can be specified in several ways:</p>
 <div class="section" id="way-1-x-y-coordinates">
-<h3><a class="toc-backref" href="#id13">Way 1. X, Y coordinates</a><a class="headerlink" href="#way-1-x-y-coordinates" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Way 1. X, Y coordinates</a><a class="headerlink" href="#way-1-x-y-coordinates" title="Permalink to this headline"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slot</span><span class="p">:</span> <span class="s2">&quot;4,3&quot;</span> <span class="o">//</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>
 </pre></div>
 </div>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> means the horizontal and vertical position of the item, respectively. The countdown starts from 1. The image below can be useful to understanding this.</p>
 <div class="figure align-center" id="id6">
 <img alt="../_images/items_slots_xy.png" src="../_images/items_slots_xy.png" />
-<p class="caption"><span class="caption-text">How XY slots works</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">How XY slots works</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </div>
 </div>
 <div class="section" id="way-2-index">
-<h3><a class="toc-backref" href="#id14">Way 2. Index</a><a class="headerlink" href="#way-2-index" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">Way 2. Index</a><a class="headerlink" href="#way-2-index" title="Permalink to this headline"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>You can specify slot just by a real index. To find out the number of the desired slot, you can use this cheat sheet:</p>
 <div class="figure align-center" id="id7">
 <img alt="../_images/items_slots_id.png" src="../_images/items_slots_id.png" />
-<p class="caption"><span class="caption-text">Slots indexes</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Slots indexes</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </div>
 </div>
 <div class="section" id="way-3-range">
-<h3><a class="toc-backref" href="#id15">Way 3. Range</a><a class="headerlink" href="#way-3-range" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Way 3. Range</a><a class="headerlink" href="#way-3-range" title="Permalink to this headline"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slot</span><span class="p">:</span> <span class="s2">&quot;0-6&quot;</span>
 </pre></div>
 </div>
@@ -461,7 +369,7 @@
 This format can be useful to fill menu with some background item without manual putting them in every slot.</p>
 </div>
 <div class="section" id="way-4-matrix">
-<h3><a class="toc-backref" href="#id16">Way 4. Matrix</a><a class="headerlink" href="#way-4-matrix" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Way 4. Matrix</a><a class="headerlink" href="#way-4-matrix" title="Permalink to this headline"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
     <span class="n">slot</span><span class="p">:</span> <span class="p">[</span>
@@ -480,7 +388,7 @@ This format can be useful to fill menu with some background item without manual 
 <p>If you need more complex positioning, you can specify slot as cells matrix. For example, you need set a border for your menu. You can make something like above. Then this will look like this:</p>
 <div class="figure align-center" id="id8">
 <img alt="../_images/items_slots_matrix_1.png" src="../_images/items_slots_matrix_1.png" />
-<p class="caption"><span class="caption-text">Result of using cells matrix</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Result of using cells matrix</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </div>
 <p>Every char of this matrix is a some slot.</p>
 <p>Char <code class="docutils literal notranslate"><span class="pre">-</span></code> is always empty slot.
@@ -496,7 +404,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 <p>And menu will looks like this:</p>
 <div class="figure align-center" id="id9">
 <img alt="../_images/items_slots_matrix_2.png" src="../_images/items_slots_matrix_2.png" />
-<p class="caption"><span class="caption-text">Result of using lesser cells matrix</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Result of using lesser cells matrix</span><a class="headerlink" href="#id9" title="Permalink to this image"></a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -509,7 +417,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="lore">
-<span id="prop-lore"></span><h2><a class="toc-backref" href="#id17">Lore</a><a class="headerlink" href="#lore" title="Permalink to this headline">¶</a></h2>
+<span id="prop-lore"></span><h2><a class="toc-backref" href="#id17">Lore</a><a class="headerlink" href="#lore" title="Permalink to this headline"></a></h2>
 <p>The lore is a <a class="reference internal" href="../start/hocon.html#hocon-list-str"><span class="std std-ref">list of strings</span></a>. Each new line in the list is a line in the item’s lore. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lore</span><span class="p">:</span> <span class="p">[</span>
   <span class="s2">&quot;Line 1&quot;</span><span class="p">,</span>
@@ -520,7 +428,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="enchantments">
-<span id="prop-ench"></span><h2><a class="toc-backref" href="#id18">Enchantments</a><a class="headerlink" href="#enchantments" title="Permalink to this headline">¶</a></h2>
+<span id="prop-ench"></span><h2><a class="toc-backref" href="#id18">Enchantments</a><a class="headerlink" href="#enchantments" title="Permalink to this headline"></a></h2>
 <p>Enchantments has format <code class="docutils literal notranslate"><span class="pre">&lt;enchantment&gt;:</span> <span class="pre">&lt;level&gt;</span></code> where:</p>
 <dl class="field-list simple">
 <dt class="field-odd">&lt;enchantment&gt;</dt>
@@ -539,17 +447,17 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="color">
-<span id="prop-color"></span><h2><a class="toc-backref" href="#id19">Color</a><a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h2>
+<span id="prop-color"></span><h2><a class="toc-backref" href="#id19">Color</a><a class="headerlink" href="#color" title="Permalink to this headline"></a></h2>
 <p>Color used to paint items that support it, such as leather armor or potion. Color can be specified in one of 3 ways. In the examples, we will show a way to specify white color.</p>
 <div class="section" id="way-1-rgb">
-<h3><a class="toc-backref" href="#id20">Way 1. RGB</a><a class="headerlink" href="#way-1-rgb" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Way 1. RGB</a><a class="headerlink" href="#way-1-rgb" title="Permalink to this headline"></a></h3>
 <p>RGB values (0-255) separated by comma.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">:</span> <span class="s2">&quot;255,255,255&quot;</span> <span class="o">//</span> <span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="way-1-spigot-color-name">
-<h3><a class="toc-backref" href="#id21">Way 1. Spigot color name</a><a class="headerlink" href="#way-1-spigot-color-name" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Way 1. Spigot color name</a><a class="headerlink" href="#way-1-spigot-color-name" title="Permalink to this headline"></a></h3>
 <p>Use a native Spigot color names.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">:</span> <span class="n">WHITE</span>
 </pre></div>
@@ -560,7 +468,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="way-1-hex">
-<h3><a class="toc-backref" href="#id22">Way 1. HEX</a><a class="headerlink" href="#way-1-hex" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Way 1. HEX</a><a class="headerlink" href="#way-1-hex" title="Permalink to this headline"></a></h3>
 <p>Hexadecimal format like in CSS.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">:</span> <span class="s2">&quot;#FFFFFF&quot;</span>
 </pre></div>
@@ -572,7 +480,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="flag">
-<span id="prop-flags"></span><h2><a class="toc-backref" href="#id23">Flag</a><a class="headerlink" href="#flag" title="Permalink to this headline">¶</a></h2>
+<span id="prop-flags"></span><h2><a class="toc-backref" href="#id23">Flag</a><a class="headerlink" href="#flag" title="Permalink to this headline"></a></h2>
 <p>Flags are used to add new properties to item. The list of flags is a <a class="reference internal" href="../start/hocon.html#hocon-list-str"><span class="std std-ref">strings list</span></a> like <code class="docutils literal notranslate"><span class="pre">lore</span></code>. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flags</span><span class="p">:</span> <span class="p">[</span>
   <span class="s2">&quot;HIDE_UNBREAKABLE&quot;</span><span class="p">,</span>
@@ -611,7 +519,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="potion-effect">
-<span id="prop-potion"></span><h2><a class="toc-backref" href="#id24">Potion effect</a><a class="headerlink" href="#potion-effect" title="Permalink to this headline">¶</a></h2>
+<span id="prop-potion"></span><h2><a class="toc-backref" href="#id24">Potion effect</a><a class="headerlink" href="#potion-effect" title="Permalink to this headline"></a></h2>
 <p>This property is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a> containing effects of the potion. Each item in the list is a potion effect. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">potionData</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -645,7 +553,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="firework">
-<span id="prop-firework"></span><h2><a class="toc-backref" href="#id25">Firework</a><a class="headerlink" href="#firework" title="Permalink to this headline">¶</a></h2>
+<span id="prop-firework"></span><h2><a class="toc-backref" href="#id25">Firework</a><a class="headerlink" href="#firework" title="Permalink to this headline"></a></h2>
 <p>To create a colored firework, use <code class="docutils literal notranslate"><span class="pre">fireworkData</span></code> property. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fireworkData</span> <span class="p">{</span>
   <span class="n">power</span><span class="p">:</span> <span class="mi">2</span>
@@ -689,7 +597,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="book">
-<span id="prop-book"></span><h2><a class="toc-backref" href="#id26">Book</a><a class="headerlink" href="#book" title="Permalink to this headline">¶</a></h2>
+<span id="prop-book"></span><h2><a class="toc-backref" href="#id26">Book</a><a class="headerlink" href="#book" title="Permalink to this headline"></a></h2>
 <p>This property can be used to create a written book with pages. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bookData</span> <span class="p">{</span>
   <span class="n">author</span><span class="p">:</span> <span class="s2">&quot;Peter Piper&quot;</span>
@@ -719,17 +627,17 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="banner">
-<span id="prop-banner"></span><h2><a class="toc-backref" href="#id27">Banner</a><a class="headerlink" href="#banner" title="Permalink to this headline">¶</a></h2>
+<span id="prop-banner"></span><h2><a class="toc-backref" href="#id27">Banner</a><a class="headerlink" href="#banner" title="Permalink to this headline"></a></h2>
 <p>To create a decorated banner, use the <code class="docutils literal notranslate"><span class="pre">bannerData</span></code> property. There are two ways to use it:</p>
-<div class="section" id="way-1-json">
-<h3><a class="toc-backref" href="#id28">Way 1. JSON</a><a class="headerlink" href="#way-1-json" title="Permalink to this headline">¶</a></h3>
-<p>You can generate a banner in any banner designer, for example in <a class="reference external" href="https://www.needcoolshoes.com/banner">this</a>, and paste the result JSON as a string parameter. Example:</p>
+<div class="section" id="way-1-nbt">
+<h3><a class="toc-backref" href="#id28">Way 1. NBT</a><a class="headerlink" href="#way-1-nbt" title="Permalink to this headline"></a></h3>
+<p>You can generate a banner in any banner designer, for example in <a class="reference external" href="https://www.needcoolshoes.com/banner">this</a>, and paste the result NBT as a string parameter. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bannerData</span><span class="p">:</span> <span class="s2">&quot;{BlockEntityTag: {Base: 12, Patterns: [{Pattern: hh, Color: 6}, {Pattern: vh, Color: 6}, {Pattern: lud, Color: 7}, {Pattern: tts, Color : 6}, {Pattern: vh, Color: 14}, {Pattern: cre, Color: 2}]}}&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="way-2-hocon">
-<h3><a class="toc-backref" href="#id29">Way 2. HOCON</a><a class="headerlink" href="#way-2-hocon" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">Way 2. HOCON</a><a class="headerlink" href="#way-2-hocon" title="Permalink to this headline"></a></h3>
 <p>A more complicated, but affordable way is to specify patterns as <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a>. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bannerData</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -755,7 +663,7 @@ Char <code class="docutils literal notranslate"><span class="pre">x</span></code
 </div>
 </div>
 <div class="section" id="nbt-tags">
-<span id="prop-nbt"></span><h2><a class="toc-backref" href="#id30">NBT tags</a><a class="headerlink" href="#nbt-tags" title="Permalink to this headline">¶</a></h2>
+<span id="prop-nbt"></span><h2><a class="toc-backref" href="#id30">NBT tags</a><a class="headerlink" href="#nbt-tags" title="Permalink to this headline"></a></h2>
 <p>Using NBT, you can add properties for items that has not yet been added to the plugin. NBT tags can be specified here using HOCON and not a regular string. For example, you can add a name to an item via NBT tag. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
@@ -812,42 +720,30 @@ One more example. Let’s add two enchantments to the item:</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="activators.html" class="btn btn-neutral float-right" title="Activators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="menu_structure.html" class="btn btn-neutral float-left" title="Menu structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="activators.html" class="btn btn-neutral float-right" title="Activators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Nanit.
+    <p>&#169; Copyright 2021, Nanit.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

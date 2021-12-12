@@ -20,6 +20,8 @@ All actions
 	"closeMenu", |t_bool| or |t_int|, ``closeMenu: true`` ``closeMenu: 30``, "Close current menu. If there is number instead of boolean, menu will be closed after delay in specified ticks"
 	"refreshMenu", |t_bool| or |t_int|, ``refreshMenu: true`` ``refreshMenu: 20``, "Update all menu content except the title. If there is number instead of boolean, menu will be updated after delay in specified ticks"
 	"message", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to player. There is ability to send simple text, JSON text, title, etc."
+	"broadcast", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to all players on server. Format similar to ``message`` action"
+	"miniMessage", |t_str|, |ex_below| :ref:`mini-message`, "Send message with :ref:`mini-message`"
 	"playerChat", |t_list_str|, ``playerChat: "Hello!"``, "Send a message on behalf of the player who opened the menu"
 	"command", |t_obj|, |ex_below| :ref:`action-cmd`, "Execute a list of commands on behalf of a player or server"
 	"teleport", |t_obj|, |ex_below| :ref:`action-tp`, "Teleport player to location"
@@ -574,7 +576,7 @@ To set the skin to the player, you need to have its **texture** and **signature*
 Add recipe
 ----------
 
-Action to add recipe to player. This is a `list of objects <hocon-list-obj>`_ where each object is a recipe.
+Action to add recipe to player. This is a :ref:`list of objects <hocon-list-obj>` where each object is a recipe.
 
 ::
 

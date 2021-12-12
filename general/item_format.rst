@@ -355,10 +355,10 @@ Banner
 
 To create a decorated banner, use the ``bannerData`` property. There are two ways to use it:
 
-Way 1. JSON
-~~~~~~~~~~~
+Way 1. NBT
+~~~~~~~~~~
 
-You can generate a banner in any banner designer, for example in `this <https://www.needcoolshoes.com/banner>`_, and paste the result JSON as a string parameter. Example:
+You can generate a banner in any banner designer, for example in `this <https://www.needcoolshoes.com/banner>`_, and paste the result NBT as a string parameter. Example:
 ::
 
 	bannerData: "{BlockEntityTag: {Base: 12, Patterns: [{Pattern: hh, Color: 6}, {Pattern: vh, Color: 6}, {Pattern: lud, Color: 7}, {Pattern: tts, Color : 6}, {Pattern: vh, Color: 14}, {Pattern: cre, Color: 2}]}}"

@@ -34,6 +34,7 @@ The original version of AbstractMenus you can buy `here <https://www.spigotmc.or
   :caption: Advanced Features
 
   advanced/logical
+  advanced/input
   advanced/templates
   advanced/animations
   advanced/generation
@@ -42,7 +43,12 @@ The original version of AbstractMenus you can buy `here <https://www.spigotmc.or
   :maxdepth: 1
   :caption: For Developers
 
-  dev/api
+  dev/general
+  dev/serializers
+  dev/own_types
+  dev/handlers
+  dev/variables
+  dev/utils
 
 General
 -------
@@ -66,11 +72,19 @@ Basic concepts
 
 :Placeholder: The part of the text enclosed between ``%``, which is replaced to some data, for example, to the player nickname.
 
+:Bindings: Special item property that allows to bind some other properties to rules. If player complies with rules, propertu will be applied to item.
+
 :Variable: Any text or numeric value, saved in plugin's database with the opportunity to change or use it via placeholders.
 
 :Template: Any block or parameter in a file that can be inserted anywhere in the menu file. Templates exist primarily to exclude the copying of entire blocks, such as items, and for convenient menu editing in the future.
 
 :Animation frame: Animation unit, that contains frame-specified items and other useful parameters.
+
+:Catalog: Dynamic collection of some objects which used to generate menu.
+
+:Value Extractor: Value provider that accepts context object placeholder and returns some value of this object. Using usually by activators and catalogs.
+
+:Context placeholder: Special placeholders that uses one of the Value Extractors to provide some properties of context objects through placeholders. For example, Activator placeholders (``%activator_<extractor_placeholder>%``).
 
 Commands
 --------

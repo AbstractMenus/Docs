@@ -47,8 +47,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-	'style_nav_header_background': '#8261BC',
-	'style_external_links': True
+	'style_nav_header_background': '#F05454',
+	'style_external_links': True,
 }
 
 html_css_files = [

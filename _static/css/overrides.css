@@ -1,9 +1,18 @@
+.toctree-wrapper {
+	display: none;
+}
+
 .wy-nav-top {
-	background: #8261BC;
+	background: #F05454 !important;
 }
 
 .wy-nav-content-wrap {
 	background: #fcfcfc;
+}
+
+.wy-side-nav-search input[type="text"] {
+	border-color: transparent !important;
+	border-radius: 0;
 }
 
 @media screen and (min-width: 1400px) {

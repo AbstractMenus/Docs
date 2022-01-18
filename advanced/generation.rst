@@ -12,10 +12,11 @@ Generated menu can be created in few steps:
 
 #. Specify the catalog of objects. It can contain additional parameters for filtering objects, etc.
 #. Create a matrix of cells, into which items from the catalog will be placed according to the template. The matrix should have as many rows as the menu itself.
-#. Specify item templates. It is in these items that the necessary placeholders from the catalog are indicated.
+#. Specify item templates. It is these items that the necessary placeholders from the catalog are indicated.
 #. The generated menu might have several pages. Special actions can be used to navigate between them.
 
-All catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. We will use the ``PLAYERS`` catalog, that generates a list of all players on the server.
+All catalogs are listed in the end of this page. Here we will show you how to create a simple generated menu. 
+For example we will use the ``PLAYERS`` catalog, that generates a list of all players on the server.
 
 ::
 
@@ -77,6 +78,7 @@ To add buttons for pages switching, you need to define a list of static buttons,
 	    "_xxxxxxx_",
 	    "_________"
 	  ]
+
 	  templates {
 	    "x" {
 	      skullOwner: "%ctg_player_name%"
@@ -109,17 +111,17 @@ Here we have specified the static items with actions for switching the pages of 
 Placeholders
 ------------
 
-The important part of the auto-generated menus is special placeholders. During menu generation, placeholders are generated for each catalog's object that can be used almost anywhere in the menu.
+The important part of the auto-generated menus is a context placeholders. Each catalog uses one of the :ref:`Value Extractors <value-extractors>`. The usage of these extractor similar to how they uses for :ref:`Activators <input-how-to>`. The only difference is different prefix: ``ctg_``, and not ``activator_``.
 
-Catalog placeholders look like this:
+During menu generation, placeholders are generated for each catalog's object and can be used almost anywhere in the menu.
+
+Catalog placeholders looks like this:
 
 ::
 
 	%ctg_<placeholder>%
 
-Here ``ctg`` is a prefix, short for ``catalog``. A ``<placeholder>`` is a specific placeholder, which usually would be written as ``%<placeholder>%``, between the characters ``%``.
-
-Each catalog has its own placeholders. You can find them under the description of each one in the end of this page. However, there are also common placeholders that exist outside some catalog. They are described below.
+Here ``ctg_`` is a prefix, short for ``catalog``. The ``<placeholder>`` is a specific placeholder from value extractor which catalog uses, or one of the common catalog's placeholders, which described in table below.
 
 .. csv-table::
 	:header: "Placeholder", "Type", "Description"
@@ -138,16 +140,19 @@ Catalogs
 
 A catalog is a dynamic collection of objects of the same type. Each catalog has its own unique name.
 The catalog can also have additional parameters that you can specify in the same ``catalog`` block.
-Each catalog has its own placeholders. They can be used almost anywhere in the menu, including templates for generation. Below are the default catalogs available in AbstractMenus.
+
+Each catalog provides own palceholders due one of the :ref:`Value Extractor <value-extractors>`. To know that placeholders you can use with some catalog, just look at the placeholders which provides extractor which catalog uses. Then just add ``ctg_`` prefix. These placeholders can be used in templates for generation. Below are the default catalogs currently available in AbstractMenus.
 
 .. tip:: You can create your own catalogs, using an API.
 
 Players
 ~~~~~~~
 
-Type: ``PLAYERS``
+**Type**: ``PLAYERS``
 
-Returns all online players on the server. Unlike other catalogs, it has no placeholders. Instead, you can use any placeholders, but in the format of catalog placeholders, that is, with the ``ctg_`` prefix. During the generation of the menu, the placeholder will be replaced according to the player's object from the catalog, not the player who opened the menu. Example:
+**Extractor type**: :ref:`extractor-entity`
+
+Returns all online players on the server. Since this catalog uses :ref:`extractor-entity` and all objects in provided collection are Players, you can use any regular placehodler with ``ctg_`` prefix when you use this catalog type. Example:
 
 ::
 
@@ -172,52 +177,36 @@ Returns all online players on the server. Unlike other catalogs, it has no place
 
 That is, after the ``ctg_`` prefix, we can write any placeholder (without the ``%`` chars), and this will be replaced in the context of the player from the catalog. 
 
-In this case, we used ``player_name`` placeholder from PlaceholderAPI.
+In this case, we used ``player_name`` placeholder (it exists in PlaceholderAPI and bundled placeholders).
 
 Worlds
 ~~~~~~
 
-Type: ``WORLDS``
+**Type**: ``WORLDS``
 
-Returns all worlds of the server. Has the following placeholders:
+**Extractor type**: :ref:`extractor-world`
 
-.. csv-table::
-	:header: "Placeholder", "Type", "Description"
-	:widths: 5, 5, 30
-
-	"world_name", |t_str|, "The name of the world"
-	"world_type", |t_str|, "World type (default, flat, etc.)"
-	"world_time", |t_int|, "Time in the world"
-	"world_difficulty", |t_str|, "Difficulty of the World"
-	"world_players", |t_int|, "Number of players in the world"
-	"world_entities", |t_int|, "Number of entities in the world"
+Returns all worlds of the server.
 
 Entities
 ~~~~~~~~
 
-Type: ``ENTITIES``
+**Type**: ``ENTITIES``
+
+**Extractor type**: :ref:`extractor-entity`
 
 Returns all entities of the player's world. Has an additional parameter to search for entities of a certain type only.
 
 :allowedTypes: List of strings. If this parameter is specified, only entities of the specified types are returned. See all entity types `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html>`_
 
-.. csv-table::
-	:header: "Placeholder", "Type", "Description"
-	:widths: 5, 5, 30
-
-	"entity_name", |t_str|, "Entity name"
-	"entity_custom_name", |t_str|, "Entity custom name"
-	"entity_location", |t_str|, "Entity location"
-	"entity_uuid", |t_str|, "Unique identifier of the entity"
-	"entity_world", |t_str|, "The name of the world in which the entity is located"
-	"entity_type", |t_str|, "Entity type"
-
 BungeeCord servers
 ~~~~~~~~~~~~~~~~~~
 
-Type: ``BUNGEE_SERVERS``
+**Type**: ``BUNGEE_SERVERS``
 
-Returns all BungeeCord servers. Works only if ``bungeecord: true`` is set in the plugin configuration.
+**Extractor type**: *Own extractor. See placeholder below*
+
+Returns all BungeeCord servers. Works only if ``bungeecord: true`` is set in the plugin configuration. This catalog uses own extractor with that placeholders:
 
 .. csv-table::
 	:header: "Placeholder", "Type", "Description"
@@ -231,15 +220,19 @@ Iterator
 
 Type: ``ITERATOR``
 
+**Extractor type**: *Own extractor. See placeholder below*
+
 Returns a generated list of numbers from ``A`` to ``B``. Useful for generating an exact number of items from a template.
 
 Has three parameters:
 
-:start: Number. Start value (inclusive)
-:end: Number. The final value (inclusive)
-:desc: [Optional]. Boolean. If true, numbers will be generated in reverse order. That is if ``start`` is 1, and ``end`` is 10, then it will generate ``10, 9, 8, ..., 1``
+:start: *Number*. Start value (inclusive)
+:end: *Number*. The final value (inclusive)
+:desc: [Optional]. *Boolean*. If true, numbers will be generated in reverse order. That is if ``start`` is 1, and ``end`` is 10, then it will generate ``10, 9, 8, ..., 1``
 
 Standard placeholders (not catalog placeholders) can be used for these parameters. This means that you can use, for example, the value of a variable.
+
+This catalog uses own extractor with that placeholders:
 
 .. csv-table::
 	:header: "Placeholder", "Type", "Description"

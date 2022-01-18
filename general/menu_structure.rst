@@ -100,7 +100,6 @@ The table below contains all the properties of menu which you can specify in men
 	"items", |t_list_obj|, "No", "Menu items (buttons)"
 	"activators", |t_obj|, "No", "An :doc:`activators` to open menu"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
-	"iRules", |t_list_obj|, "No", "(**Deprecated!** Use :ref:`operator 'NOT' <logical-not>` for regular rules) Inverted rules to open menu. If even one of those rule is ``true`` then menu won't be opened. This can be combined with ``rules`` block to make specific logic"
 	"openActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **before** the menu opened, but **after** open rules successfully checked"
 	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will be executed if at least one rule is ``false``"
 	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **after** menu closed"
@@ -141,9 +140,7 @@ The button in the menu is an ordinary item (see :doc:`item_format`) with advance
 
 	"slot", |t_mult|, "Yes", "Set position of an item"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to display buttons in the menu"
-	"iRules", |t_list_obj|, "No", "An inverted :doc:`rules` to display buttons in the menu"
 	"mrules", |t_list_obj|, "No", "Additional :doc:`rules` block, existing only inside the button. These rules have no effect on whether the button is displayed. They are needed only for independent checks and performing actions"
-	"imrules", |t_list_obj|, "No", "(**Deprecated!** Use :ref:`operator 'NOT' <logical-not>` inside ``mrules`` to achieve the same) Additional **inverted** :doc:`rules`. Similar to ``mrules``"
 	"click", |t_obj|, "No", "Contains actions which will execute when player click on item"
 
 As you can see, only the ``slot`` property required for the button, because the menu item always must be in a specific slot or slots.

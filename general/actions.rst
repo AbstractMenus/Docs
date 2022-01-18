@@ -362,7 +362,7 @@ You can create a temporary variable. A temporary variables automatically removed
 ::
 
 	setVar {
-	  name: "%player_name%"
+	  player: "%player_name%"
 	  name: "my_var"
 	  time: "10m"
 	  value: "Some data"

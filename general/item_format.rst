@@ -22,7 +22,7 @@ All item properties
 	"**Material installers**"
 	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material by name. On MC ``1.12`` and lower, numerical ids are supported"
 	"texture", |t_str|, ``texture: "<texture_id>"``, "Sha-1 hash of the skin from the server ``http://textures.minecraft.net/texture/<texture_id>``. You can find this hash, for example, on the https://minecraft-heads.com"
-	"skullOwner", |t_str|, ``skullOwner: "Notch"``, "Set player's skin on head"
+	"skullOwner", |t_str|, |ex_below| :ref:`prop-skull-owner`, "Set player's skin on head"
 	"hdb", |t_str|, ``hdb: "2853"``, "Set the head by the identifier from the `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_"
 	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
 	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Takes a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
@@ -41,7 +41,8 @@ All item properties
 	"potionData", |t_list_obj|, |ex_below| :ref:`prop-potion`, "Add various potion effects for item, if this item is potion"
 	"fireworkData", |t_obj|, |ex_below| :ref:`prop-firework`, "If material is ``FIREWORK_ROCKET``, or ``FIREWORK``, it sets various settings of the fireworks"
 	"bookData", |t_obj|, |ex_below| :ref:`prop-book`, "Add book's content and metadata (author, title) for writable book"
-	"bannerData", |t_obj|, |ex_below| :ref:`prop-banner`, "Set banner data to item"
+	"bannerData", |t_obj|, |ex_below| :ref:`prop-banner`, "Colorize banner item"
+	"shieldData", |t_obj|, Similar to :ref:`prop-banner`, "Colorie shield item, as banner"
 	"model", |t_int|, ``model: 1234567``, "Custom model data"
 	"enchantStore", |t_obj|, Same as :ref:`prop-ench`, "Allows you to save the enchantment in an item that can later be used to enchant items on the anvil. Need for creating an enchantment book (``1.12+``). Works with ``ENCHANTED_BOOK`` material"
 	"recipes", |t_list_obj|, "Same as recipe format", "Create a book with custom recipes (knowledge book). Works with ``KNOWLEDGE_BOOK`` material"
@@ -147,6 +148,27 @@ And menu will looks like this:
 .. note:: The slots counting in cells matrix always starts from top-left.
 
 .. attention:: Items placed by ranged slots and cells matrix doesn't cloning. This mean that if you change property of some item, changes will apply to other items placed by this slot. So you shouldn't use this slot format for unique items.
+
+.. _prop-skull-owner:
+
+Skull Owner
+-----------
+
+This property can be used to get player's head. It takes player name as argument. For example:
+
+::
+
+	skullOwner: "Notch"
+
+If you need to get head of player who opened menu, use placeholder to get player name first:
+
+::
+
+	skullOwner: "%player_name%"
+
+.. important:: AbstratMenus loads player's skin on join to server. If you use name of player who is not joined to server, plugin will try to load skin data before menu will be opened. If you use static names in skullOwner, more suitable way is to use ``texture`` property.
+
+.. note:: If some skin data cannot be loaded (for example, if player don't have skin), head will be empty (Steve or Alex).
 
 .. _prop-lore:
 
@@ -358,7 +380,8 @@ To create a decorated banner, use the ``bannerData`` property. There are two way
 Way 1. NBT
 ~~~~~~~~~~
 
-You can generate a banner in any banner designer, for example in `this <https://www.needcoolshoes.com/banner>`_, and paste the result NBT as a string parameter. Example:
+You can generate a banner in any banner designer, for example in `this <https://www.planetminecraft.com/banner/>`_, and paste the result NBT as a string parameter. Example:
+
 ::
 
 	bannerData: "{BlockEntityTag: {Base: 12, Patterns: [{Pattern: hh, Color: 6}, {Pattern: vh, Color: 6}, {Pattern: lud, Color: 7}, {Pattern: tts, Color : 6}, {Pattern: vh, Color: 14}, {Pattern: cre, Color: 2}]}}"
@@ -391,7 +414,9 @@ Each element of this list is a banner's pattern. Each pattern has this parameter
 NBT tags
 --------
 
-Using NBT, you can add properties for items that has not yet been added to the plugin. NBT tags can be specified here using HOCON and not a regular string. For example, you can add a name to an item via NBT tag. Example:
+.. attention:: To use this property, you need to install `NBT_API <https://spigotmc.org/resources/7939>`_ plugin first.
+
+Using NBT, you can add properties for items that has not yet been added to the plugin. NBT tags can be specified here using HOCON or a regular string. For example, you can add a name to an item via NBT tag. Example:
 
 ::
 

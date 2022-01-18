@@ -250,7 +250,7 @@ can become this:
 
 	regionJoin: "my_region"
 
-Or if you have list of objects, the this:
+Or if you have list of objects, then this:
 
 ::
 

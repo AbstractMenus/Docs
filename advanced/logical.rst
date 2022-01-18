@@ -11,44 +11,44 @@ Actions block
 Each actions block is a complex object that can contains rules and other actions. Below is a real structure of actions block:
 
 .. csv-table::
-	:header: "Parameter", "Type", "Destination"
-	:widths: 10, 10, 10
+  :header: "Parameter", "Type", "Destination"
+  :widths: 10, 10, 10
 
-	"rules", "Rules block", "Regular rules"
-	"actions", "Actions block", "Actions that performs if player matches all rules"
-	"denyActions", "Actions block", "Actions that performs if player **doesn't matches** all rules"
+  "rules", "Rules block", "Regular rules"
+  "actions", "Actions block", "Actions that performs if player matches all rules"
+  "denyActions", "Actions block", "Actions that performs if player **doesn't matches** all rules"
 
 You can imagine this block as infinite tree where every branch is a rule or actions block.
 
 .. figure:: ../_static/logical_actions.jpg
-	:align: center
+  :align: center
 
-	Actions block structure
+  Actions block structure
 
 Below is an example of using actions block with more complex structure:
 
 ::
 
-	title: "Example"
-	size: 6
-	openActions {
-	  message: "Opening the menu..."
-	  rules {
-	    permission: "super.admin"
-	  }
-	  actions {
-	    message: "You have super.admin permission!"
-	    rules {
-	      money: 1000
-	    }
-	    actions {
-	      takeMoney: 1000
-	    }
-	    denyActions {
-	      giveMoney: 1000
-	    }
-	  }
-	}
+  title: "Example"
+  size: 6
+  openActions {
+    message: "Opening the menu..."
+    rules {
+      permission: "super.admin"
+    }
+    actions {
+      message: "You have super.admin permission!"
+      rules {
+        money: 1000
+      }
+      actions {
+        takeMoney: 1000
+      }
+      denyActions {
+        giveMoney: 1000
+      }
+    }
+  }
 
 Here is an order of all actions that will be performed when player opens the menu:
 
@@ -71,21 +71,21 @@ In each rules block you can specify local actions. This useful in case when you 
 
 ::
 
-	items: [
-	  {
-	    slot: 0
-	    material: STONE
-	    rules {
-	      permission: "am.admin"
-	      actions {
-	        message: "Yes!"
-	      }
-	      denyActions {
-	        message: "Nope"
-	      }
-	    }
-	  }
-	]
+  items: [
+    {
+      slot: 0
+      material: STONE
+      rules {
+        permission: "am.admin"
+        actions {
+          message: "Yes!"
+        }
+        denyActions {
+          message: "Nope"
+        }
+      }
+    }
+  ]
 
 As always, actions described in the ``actions`` block will be executed if the player matches all rules in the ``rules`` block. And ``denyActions`` block will be executed if the player doesn't matches at least one of the rules in the current scope.
 
@@ -100,39 +100,39 @@ Actually, any ``rules`` block is a :ref:`list of objects <hocon-list-obj>`, wher
 
 ::
 
-	rules {
-	  permission: "super.admin"
-	  group: "vip"
-	}
+  rules {
+    permission: "super.admin"
+    group: "vip"
+  }
 
 Since rules block is a list of other rules block, you can specify similar rules and add own local actions to every block.
 
 ::
 
-	click {
-	  message: "You clicked on a pebble"
-	  rules: [
-	    {
-	      permission: "my.perm"
-	      actions {
-	        message: "You have permission"
-	      }
-	    },
-	    {
-	      money: 500
-	      actions {
-	        message: "You have enough money"
-	      }
-	      denyActions {
-	        message: "You don't have enough money. Take it though."
-	        giveMoney: 500
-	      }
-	    }
-	  ]
-	  actions {
-	    message: "You have enough money and the right permission!"
-	  }
-	}
+  click {
+    message: "You clicked on a pebble"
+    rules: [
+      {
+        permission: "my.perm"
+        actions {
+          message: "You have permission"
+        }
+      },
+      {
+        money: 500
+        actions {
+          message: "You have enough money"
+        }
+        denyActions {
+          message: "You don't have enough money. Take it though."
+          giveMoney: 500
+        }
+      }
+    ]
+    actions {
+      message: "You have enough money and the right permission!"
+    }
+  }
 
 In this example we used the rules block as a list. Let see what happens when you click on an item in order:
 
@@ -157,15 +157,15 @@ Example:
 
 ::
 
-	rules {
-	  -permission: "group.admin"
-	}
-	actions {
-	  message: "You are not Admin :("
-	}
-	denyActions {
-	  message: "You are Admin!"
-	}
+  rules {
+    -permission: "group.admin"
+  }
+  actions {
+    message: "You are not Admin :("
+  }
+  denyActions {
+    message: "You are Admin!"
+  }
 
 In this example, ``actions`` block will be executed if player have no permission ``group.admin``. This means that ``permission`` rule result was inverted.
 
@@ -190,12 +190,12 @@ But anyway we will show example of using this wrapper.
 
 ::
 
-	rules {
-	  and {
-	    permission: "group.vip"
-	    gamemode: CREATIVE
-	  }
-	}
+  rules {
+    and {
+      permission: "group.vip"
+      gamemode: CREATIVE
+    }
+  }
 
 In example above, rule ``and`` will return ``true`` if player have permission ``group.vip`` **AND** gamemode CREATIVE.
 
@@ -203,17 +203,17 @@ Another example with using wrapper as list of rules groups. This format similar 
 
 ::
 
-	rules {
-	  and: [
-	    {
-	      permission: "group.vip"
-	      gamemode: CREATIVE
-	    },
-	    {
-	      permission: "group.helper"
-	    }
-	  ]
-	}
+  rules {
+    and: [
+      {
+        permission: "group.vip"
+        gamemode: CREATIVE
+      },
+      {
+        permission: "group.helper"
+      }
+    ]
+  }
 
 In this example, rule ``and`` will return ``true`` if player have permission ``group.vip`` **AND** gamemode CREATIVE **AND** permission ``group.helper``.
 
@@ -226,12 +226,12 @@ This logical wrapper will return true if **at least one** of the rules inside re
 
 ::
 
-	rules {
-	  or {
-	    permission: "group.vip"
-	    gamemode: CREATIVE
-	  }
-	}
+  rules {
+    or {
+      permission: "group.vip"
+      gamemode: CREATIVE
+    }
+  }
 
 In this example, rule ``or`` will return ``true`` if player have permission ``group.vip`` **OR** gamemode CREATIVE.
 
@@ -239,17 +239,17 @@ This behaviour also works when you use ``or`` rule as list of rules groups. Exam
 
 ::
 
-	rules {
-	  or: [
-	    {
-	      permission: "group.vip"
-	      gamemode: CREATIVE
-	    },
-	    {
-	      permission: "group.helper"
-	    }
-	  ]
-	}
+  rules {
+    or: [
+      {
+        permission: "group.vip"
+        gamemode: CREATIVE
+      },
+      {
+        permission: "group.helper"
+      }
+    ]
+  }
 
 In this example, rule ``or`` will return ``true`` if player have permission ``group.vip`` **OR** gamemode CREATIVE **OR** permission ``group.helper``.
 
@@ -260,22 +260,22 @@ You can combine logical wrappers and make more complex conditions. Example:
 
 ::
 
-	rules {
-	  or: [
-	    {
-	      and {
-	        permission: "vip"
-	        gamemode: CREATIVE
-	      }
-	    },
-	    {
-	      and {
-	        permission: "premium"
-	        gamemode: SURVIVAL
-	      }
-	    }
-	  ]
-	}
+  rules {
+    or: [
+      {
+        and {
+          permission: "vip"
+          gamemode: CREATIVE
+        }
+      },
+      {
+        and {
+          permission: "premium"
+          gamemode: SURVIVAL
+        }
+      }
+    ]
+  }
 
 In this example, rule ``or`` will return ``true`` if:
 
@@ -284,3 +284,61 @@ Player have permission ``vip`` AND gamemode CREATIVE
 **OR**
 
 Player have permission ``premium`` AND gamemode SURVIVAL
+
+Using similar commands under one block
+--------------------------------------
+
+As other configuration languages, HOCON doesn't allow to use similar keys in same block multiple times. For example, this block:
+
+::
+
+  click {
+    message: "Hello" // Ok
+    message: "Hello again" // Parsing error
+  }
+
+will cause parsing error, because one block is not able to has several params with same key. It may be inconvenient, for example, when you need to execute several actions with same name. AbstractMenus has ``bulk`` wrapper for this, but this is a bit bulky way. There is another wya to do it.
+
+AbstractMenus has tricky way to solve this problem. To add several similar actions or rules to same block, just add prefix with ``_`` symbol to parameter name. For example:
+
+::
+
+  click {
+    message: "Hello"
+    _message: "Hello again"
+    __message: "Hello again again"
+    ___message: "Hello again again again"
+  }
+
+The code above won't produce parsing errors, because all params has different names. 
+After parsing but before deserializing actions and rules, AbstractMenus removes all ``_`` symbols from parameter name prefix, so all action and rule names will be correct.
+
+.. note:: Removing ``_`` symbol occurs only from prefix. Plugin doesn't touch this symbol in center of parameter name.
+
+This feature also allows to use multimple rules under one logical block. Example:
+
+::
+
+	rules {
+	  or {
+	    gamemode: SURVIVAL
+	    _gamemode: ADVENTURE
+	    __gamemode: SPECTATOR
+	  }
+	}
+
+Since we use ``or`` rule wrapper, it will return ``true`` if atleast one of the rule is ``true`` for player.
+
+In this case multiple ``gamemode`` rules with this prefix will work similar to:
+
+::
+
+	rules {
+	  or: [
+	    { gamemode: SURVIVAL },
+	    { gamemode: ADVENTURE },
+	    { gamemode: SPECTATOR }
+	  ]
+	}
+
+So, using ``_`` prefixes for rules we avoid boilerplate code.

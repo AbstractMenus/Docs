@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Templates" href="templates.html" />
+    <link rel="next" title="User input" href="input.html" />
     <link rel="prev" title="Examples" href="../general/examples.html" /> 
 </head>
 
@@ -28,7 +28,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: #8261BC" >
+        <div class="wy-side-nav-search"  style="background: #F05454" >
             <a href="../index.html" class="icon icon-home"> AbstractMenus
           </a>
 <div role="search">
@@ -73,22 +73,29 @@
 <li class="toctree-l3"><a class="reference internal" href="#combining-logical-wrappers">Combining logical wrappers</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#using-similar-commands-under-one-block">Using similar commands under one block</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generation.html">Menu generator</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/general.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/serializers.html">Types deserializing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/own_types.html">Create own types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/handlers.html">Data Handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/variables.html">Variables API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/utils.html">Utils</a></li>
 </ul>
 
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #8261BC" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #F05454" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
       </nav>
@@ -129,6 +136,7 @@
 <li><p><a class="reference internal" href="#combining-logical-wrappers" id="id11">Combining logical wrappers</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#using-similar-commands-under-one-block" id="id12">Using similar commands under one block</a></p></li>
 </ul>
 </li>
 </ul>
@@ -394,6 +402,54 @@ But anyway we will show example of using this wrapper.</p>
 <p>Player have permission <code class="docutils literal notranslate"><span class="pre">premium</span></code> AND gamemode SURVIVAL</p>
 </div>
 </div>
+<div class="section" id="using-similar-commands-under-one-block">
+<h2><a class="toc-backref" href="#id12">Using similar commands under one block</a><a class="headerlink" href="#using-similar-commands-under-one-block" title="Permalink to this headline"></a></h2>
+<p>As other configuration languages, HOCON doesn’t allow to use similar keys in same block multiple times. For example, this block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">click</span> <span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">//</span> <span class="n">Ok</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello again&quot;</span> <span class="o">//</span> <span class="n">Parsing</span> <span class="n">error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>will cause parsing error, because one block is not able to has several params with same key. It may be inconvenient, for example, when you need to execute several actions with same name. AbstractMenus has <code class="docutils literal notranslate"><span class="pre">bulk</span></code> wrapper for this, but this is a bit bulky way. There is another wya to do it.</p>
+<p>AbstractMenus has tricky way to solve this problem. To add several similar actions or rules to same block, just add prefix with <code class="docutils literal notranslate"><span class="pre">_</span></code> symbol to parameter name. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">click</span> <span class="p">{</span>
+  <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span>
+  <span class="n">_message</span><span class="p">:</span> <span class="s2">&quot;Hello again&quot;</span>
+  <span class="n">__message</span><span class="p">:</span> <span class="s2">&quot;Hello again again&quot;</span>
+  <span class="n">___message</span><span class="p">:</span> <span class="s2">&quot;Hello again again again&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The code above won’t produce parsing errors, because all params has different names.
+After parsing but before deserializing actions and rules, AbstractMenus removes all <code class="docutils literal notranslate"><span class="pre">_</span></code> symbols from parameter name prefix, so all action and rule names will be correct.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Removing <code class="docutils literal notranslate"><span class="pre">_</span></code> symbol occurs only from prefix. Plugin doesn’t touch this symbol in center of parameter name.</p>
+</div>
+<p>This feature also allows to use multimple rules under one logical block. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
+  <span class="ow">or</span> <span class="p">{</span>
+    <span class="n">gamemode</span><span class="p">:</span> <span class="n">SURVIVAL</span>
+    <span class="n">_gamemode</span><span class="p">:</span> <span class="n">ADVENTURE</span>
+    <span class="n">__gamemode</span><span class="p">:</span> <span class="n">SPECTATOR</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Since we use <code class="docutils literal notranslate"><span class="pre">or</span></code> rule wrapper, it will return <code class="docutils literal notranslate"><span class="pre">true</span></code> if atleast one of the rule is <code class="docutils literal notranslate"><span class="pre">true</span></code> for player.</p>
+<p>In this case multiple <code class="docutils literal notranslate"><span class="pre">gamemode</span></code> rules with this prefix will work similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
+  <span class="ow">or</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="n">gamemode</span><span class="p">:</span> <span class="n">SURVIVAL</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">gamemode</span><span class="p">:</span> <span class="n">ADVENTURE</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">gamemode</span><span class="p">:</span> <span class="n">SPECTATOR</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>So, using <code class="docutils literal notranslate"><span class="pre">_</span></code> prefixes for rules we avoid boilerplate code.</p>
+</div>
 </div>
 
 
@@ -401,7 +457,7 @@ But anyway we will show example of using this wrapper.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../general/examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="templates.html" class="btn btn-neutral float-right" title="Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="input.html" class="btn btn-neutral float-right" title="User input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -28,7 +28,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: #8261BC" >
+        <div class="wy-side-nav-search"  style="background: #F05454" >
             <a href="../index.html" class="icon icon-home"> AbstractMenus
           </a>
 <div role="search">
@@ -91,20 +91,26 @@
 <p class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/logical.html">Logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/input.html">User input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/generation.html">Menu generator</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/general.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/serializers.html">Types deserializing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/own_types.html">Create own types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/handlers.html">Data Handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/variables.html">Variables API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/utils.html">Utils</a></li>
 </ul>
 
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #8261BC" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #F05454" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
       </nav>
@@ -188,252 +194,257 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">openMenu:</span> <span class="pre">&quot;my_super_menu&quot;</span></code></p></td>
 <td><p>Open a menu with the specified name</p></td>
 </tr>
-<tr class="row-odd"><td><p>closeMenu</p></td>
+<tr class="row-odd"><td><p>openMenuCtx</p></td>
+<td><p>String</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">openMenuCtx:</span> <span class="pre">&quot;my_super_menu&quot;</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">openMenu</span></code> but forwards <a class="reference internal" href="../advanced/input.html#input-ctx-main"><span class="std std-ref">context</span></a> from activator of previous menu</p></td>
+</tr>
+<tr class="row-even"><td><p>closeMenu</p></td>
 <td><p>Boolean or Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">closeMenu:</span> <span class="pre">true</span></code> <code class="docutils literal notranslate"><span class="pre">closeMenu:</span> <span class="pre">30</span></code></p></td>
 <td><p>Close current menu. If there is number instead of boolean, menu will be closed after delay in specified ticks</p></td>
 </tr>
-<tr class="row-even"><td><p>refreshMenu</p></td>
+<tr class="row-odd"><td><p>refreshMenu</p></td>
 <td><p>Boolean or Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">refreshMenu:</span> <span class="pre">true</span></code> <code class="docutils literal notranslate"><span class="pre">refreshMenu:</span> <span class="pre">20</span></code></p></td>
 <td><p>Update all menu content except the title. If there is number instead of boolean, menu will be updated after delay in specified ticks</p></td>
 </tr>
-<tr class="row-odd"><td><p>message</p></td>
+<tr class="row-even"><td><p>message</p></td>
 <td><p>Object or String</p></td>
 <td><p>See example <a class="reference internal" href="#action-msg"><span class="std std-ref">Message</span></a></p></td>
 <td><p>Send message to player. There is ability to send simple text, JSON text, title, etc.</p></td>
 </tr>
-<tr class="row-even"><td><p>broadcast</p></td>
+<tr class="row-odd"><td><p>broadcast</p></td>
 <td><p>Object or String</p></td>
 <td><p>See example <a class="reference internal" href="#action-msg"><span class="std std-ref">Message</span></a></p></td>
 <td><p>Send message to all players on server. Format similar to <code class="docutils literal notranslate"><span class="pre">message</span></code> action</p></td>
 </tr>
-<tr class="row-odd"><td><p>miniMessage</p></td>
+<tr class="row-even"><td><p>miniMessage</p></td>
 <td><p>String</p></td>
 <td><p>See example <a class="reference internal" href="text_colors.html#mini-message"><span class="std std-ref">MiniMessage format</span></a></p></td>
 <td><p>Send message with <a class="reference internal" href="text_colors.html#mini-message"><span class="std std-ref">MiniMessage format</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>playerChat</p></td>
+<tr class="row-odd"><td><p>playerChat</p></td>
 <td><p>Strings list</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">playerChat:</span> <span class="pre">&quot;Hello!&quot;</span></code></p></td>
 <td><p>Send a message on behalf of the player who opened the menu</p></td>
 </tr>
-<tr class="row-odd"><td><p>command</p></td>
+<tr class="row-even"><td><p>command</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-cmd"><span class="std std-ref">Command</span></a></p></td>
 <td><p>Execute a list of commands on behalf of a player or server</p></td>
 </tr>
-<tr class="row-even"><td><p>teleport</p></td>
+<tr class="row-odd"><td><p>teleport</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-tp"><span class="std std-ref">Teleport</span></a></p></td>
 <td><p>Teleport player to location</p></td>
 </tr>
-<tr class="row-odd"><td><p>itemAdd</p></td>
+<tr class="row-even"><td><p>itemAdd</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-itemadd"><span class="std std-ref">Add item</span></a></p></td>
 <td><p>Add any items to player</p></td>
 </tr>
-<tr class="row-even"><td><p>itemRemove</p></td>
+<tr class="row-odd"><td><p>itemRemove</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-itemrem"><span class="std std-ref">Remove item</span></a></p></td>
 <td><p>Remove items from player’s inventory. Items will be compared by specified properties or could be just removed by slot number</p></td>
 </tr>
-<tr class="row-odd"><td><p>itemClear</p></td>
+<tr class="row-even"><td><p>itemClear</p></td>
 <td><p>Objects list</p></td>
 <td><p>Same as <a class="reference internal" href="#action-itemrem"><span class="std std-ref">Remove item</span></a></p></td>
 <td><p>Remove item from player’s inventory with same way as in <code class="docutils literal notranslate"><span class="pre">itemRemove</span></code> action, but independ from itemstack size. So <code class="docutils literal notranslate"><span class="pre">count</span></code> property has no effect on this</p></td>
 </tr>
-<tr class="row-even"><td><p>inventoryClear</p></td>
+<tr class="row-odd"><td><p>inventoryClear</p></td>
 <td><p>Boolean</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">inventoryClear:</span> <span class="pre">true</span></code></p></td>
 <td><p>Fully clear player’s inventory</p></td>
 </tr>
-<tr class="row-odd"><td><p>bungeeConnect</p></td>
+<tr class="row-even"><td><p>bungeeConnect</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">bungeeConnect:</span> <span class="pre">&quot;lobby&quot;</span></code></p></td>
 <td><p>Connect player to another BungeeCord server</p></td>
 </tr>
-<tr class="row-even"><td><p>giveMoney</p></td>
+<tr class="row-odd"><td><p>giveMoney</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">giveMoney:</span> <span class="pre">100</span></code></p></td>
 <td><p>Gives money for player. <strong>Vault</strong> required</p></td>
 </tr>
-<tr class="row-odd"><td><p>takeMoney</p></td>
+<tr class="row-even"><td><p>takeMoney</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">takeMoney:</span> <span class="pre">15.4</span></code></p></td>
 <td><p>Takes money from player. <strong>Vault</strong> required</p></td>
 </tr>
-<tr class="row-even"><td><p>givePermission</p></td>
+<tr class="row-odd"><td><p>givePermission</p></td>
 <td><p>Strings list</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">givePermission:</span> <span class="pre">&quot;some.perm&quot;</span></code></p></td>
 <td><p>Give permission for player. <strong>LuckPerms</strong> required for correct working</p></td>
 </tr>
-<tr class="row-odd"><td><p>removePermission</p></td>
+<tr class="row-even"><td><p>removePermission</p></td>
 <td><p>Strings list</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">removePermission:</span> <span class="pre">&quot;some.perm&quot;</span></code></p></td>
 <td><p>Remove player’s permission. <strong>LuckPerms</strong> required for correct working</p></td>
 </tr>
-<tr class="row-even"><td><p>addGroup</p></td>
+<tr class="row-odd"><td><p>addGroup</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">addGroup:</span> <span class="pre">&quot;vip&quot;</span></code></p></td>
 <td><p>Add player to permission group. <strong>LuckPerms</strong> required</p></td>
 </tr>
-<tr class="row-odd"><td><p>removeGroup</p></td>
+<tr class="row-even"><td><p>removeGroup</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">removeGroup:</span> <span class="pre">&quot;admin&quot;</span></code></p></td>
 <td><p>Remove player from permission group. <strong>LuckPerms</strong> required</p></td>
 </tr>
-<tr class="row-even"><td><p>setGamemode</p></td>
+<tr class="row-odd"><td><p>setGamemode</p></td>
 <td><p>String</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">setGamemode:</span> <span class="pre">CREATIVE</span></code></p></td>
 <td><p>Set new game mode for player. All available modes names can be found <a class="reference external" href="https://hub.spigotmc.org/javadocs/spigot/org/bukkit/GameMode.html">here</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>setHealth</p></td>
+<tr class="row-even"><td><p>setHealth</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">setHealth:</span> <span class="pre">20</span></code></p></td>
 <td><p>Set player health level</p></td>
 </tr>
-<tr class="row-even"><td><p>setFoodLevel</p></td>
+<tr class="row-odd"><td><p>setFoodLevel</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">setFoodLevel:</span> <span class="pre">20</span></code></p></td>
 <td><p>Set player food level</p></td>
 </tr>
-<tr class="row-odd"><td><p>giveXp</p></td>
+<tr class="row-even"><td><p>giveXp</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">giveXp:</span> <span class="pre">1000</span></code></p></td>
 <td><p>Give XP points for player</p></td>
 </tr>
-<tr class="row-even"><td><p>takeXp</p></td>
+<tr class="row-odd"><td><p>takeXp</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">takeXp:</span> <span class="pre">500</span></code></p></td>
 <td><p>Take player’s XP points</p></td>
 </tr>
-<tr class="row-odd"><td><p>giveLevel</p></td>
+<tr class="row-even"><td><p>giveLevel</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">giveLevel:</span> <span class="pre">1</span></code></p></td>
 <td><p>Increase level for player on specified value</p></td>
 </tr>
-<tr class="row-even"><td><p>takeLevel</p></td>
+<tr class="row-odd"><td><p>takeLevel</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">takeLevel:</span> <span class="pre">3</span></code></p></td>
 <td><p>Decrease player’s level on specified value</p></td>
 </tr>
-<tr class="row-odd"><td><p>sound</p></td>
+<tr class="row-even"><td><p>sound</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-sound"><span class="std std-ref">Sound</span></a></p></td>
 <td><p>Play sound</p></td>
 </tr>
-<tr class="row-even"><td><p>potionEffect</p></td>
+<tr class="row-odd"><td><p>potionEffect</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-potion"><span class="std std-ref">Add potion effect</span></a></p></td>
 <td><p>Give potion effect to player</p></td>
 </tr>
-<tr class="row-odd"><td><p>removePotionEffect</p></td>
+<tr class="row-even"><td><p>removePotionEffect</p></td>
 <td><p>Strings list</p></td>
 <td><p>See example <a class="reference internal" href="#action-rempotion"><span class="std std-ref">Remove potion effect</span></a></p></td>
 <td><p>Remove potion effect from player</p></td>
 </tr>
-<tr class="row-even"><td><p>openBook</p></td>
+<tr class="row-odd"><td><p>openBook</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-book"><span class="std std-ref">Open book</span></a></p></td>
 <td><p>Create and open a written book for player</p></td>
 </tr>
-<tr class="row-odd"><td><p>setProperty</p></td>
+<tr class="row-even"><td><p>setProperty</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-setprop"><span class="std std-ref">Set item property</span></a></p></td>
 <td><p>Set new or overwrite existing properties for the menu item</p></td>
 </tr>
-<tr class="row-even"><td><p>remProperty</p></td>
+<tr class="row-odd"><td><p>remProperty</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-remprop"><span class="std std-ref">Remove item property</span></a></p></td>
 <td><p>Remove specified properties from the menu item</p></td>
 </tr>
-<tr class="row-odd"><td><p>refreshItem</p></td>
+<tr class="row-even"><td><p>refreshItem</p></td>
 <td><p>Multiple</p></td>
 <td><p>See example <a class="reference internal" href="#action-refreshitem"><span class="std std-ref">Refresh item</span></a></p></td>
 <td><p>Update only one menu item, without updating the entire menu</p></td>
 </tr>
-<tr class="row-even"><td><p>setSkin</p></td>
+<tr class="row-odd"><td><p>setSkin</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-setskin"><span class="std std-ref">Set skin</span></a></p></td>
 <td><p>Set skin for player using the <strong>SkinsRestorer</strong> plugin</p></td>
 </tr>
-<tr class="row-odd"><td><p>resetSkin</p></td>
+<tr class="row-even"><td><p>resetSkin</p></td>
 <td><p>Boolean</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">resetSkin:</span> <span class="pre">true</span></code></p></td>
 <td><p>Reset player’s skin using the <strong>SkinsRestorer</strong> plugin</p></td>
 </tr>
-<tr class="row-even"><td><p>addRecipe</p></td>
+<tr class="row-odd"><td><p>addRecipe</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-recipe"><span class="std std-ref">Add recipe</span></a></p></td>
 <td><p>Add new custom recipes for crafting</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Variables management</strong></p></td>
+<tr class="row-even"><td><p><strong>Variables management</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>setVar</p></td>
+<tr class="row-odd"><td><p>setVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-setvar"><span class="std std-ref">Set</span></a></p></td>
 <td><p>Create or replace variable</p></td>
 </tr>
-<tr class="row-odd"><td><p>removeVar</p></td>
+<tr class="row-even"><td><p>removeVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-remvar"><span class="std std-ref">Remove</span></a></p></td>
 <td><p>Remove variable</p></td>
 </tr>
-<tr class="row-even"><td><p>incVar</p></td>
+<tr class="row-odd"><td><p>incVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
 <td><p>Increment numeric variable</p></td>
 </tr>
-<tr class="row-odd"><td><p>decVar</p></td>
+<tr class="row-even"><td><p>decVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
 <td><p>Decrement numeric variable</p></td>
 </tr>
-<tr class="row-even"><td><p>mulVar</p></td>
+<tr class="row-odd"><td><p>mulVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
 <td><p>Multiply numeric variable</p></td>
 </tr>
-<tr class="row-odd"><td><p>divVar</p></td>
+<tr class="row-even"><td><p>divVar</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
 <td><p>Divide numeric variable</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Special actions</strong></p></td>
+<tr class="row-odd"><td><p><strong>Special actions</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>delay</p></td>
+<tr class="row-even"><td><p>delay</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-delay"><span class="std std-ref">Delay</span></a></p></td>
 <td><p>Wrap actions block to perform they after some delay</p></td>
 </tr>
-<tr class="row-even"><td><p>bulk</p></td>
+<tr class="row-odd"><td><p>bulk</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-bulk"><span class="std std-ref">Bulk</span></a></p></td>
 <td><p>Perform many actions, even of one type</p></td>
 </tr>
-<tr class="row-odd"><td><p>randActions</p></td>
+<tr class="row-even"><td><p>randActions</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-randactions"><span class="std std-ref">Random actions</span></a></p></td>
 <td><p>Perform random actions block from the list</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>For generated menus</strong></p></td>
+<tr class="row-odd"><td><p><strong>For generated menus</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>pagePrev</p></td>
+<tr class="row-even"><td><p>pagePrev</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pagePrev:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the previous page. Works only with generated menus</p></td>
 </tr>
-<tr class="row-even"><td><p>pageNext</p></td>
+<tr class="row-odd"><td><p>pageNext</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pageNext:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the next page. Works only with generated menus</p></td>
@@ -529,7 +540,7 @@
 </div>
 <p>This block is equivalent to this JSON message:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="p">{</span>
-   <span class="n">json</span><span class="p">:</span> <span class="s2">&quot;{&#39;text&#39;:&#39;&amp;aSome text&#39;, &#39;hoverEvent&#39;:{&#39;action&#39;:100:&#39;show_text&#39;, &#39;value&#39;:&#39;&amp;eSome text&#39;}}&quot;</span>
+   <span class="n">json</span><span class="p">:</span> <span class="s2">&quot;{&#39;text&#39;:&#39;&amp;aSome text&#39;, &#39;hoverEvent&#39;:{&#39;action&#39;:&#39;show_text&#39;, &#39;value&#39;:&#39;&amp;eSome text&#39;}}&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -732,7 +743,7 @@
 </dl>
 <p>You can create a temporary variable. A temporary variables automatically removed after specified time. To set a lifetime for the variable you need to add <code class="docutils literal notranslate"><span class="pre">time</span></code> parameter.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
+  <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
   <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
   <span class="n">time</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span>
   <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;Some data&quot;</span>

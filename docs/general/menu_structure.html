@@ -28,7 +28,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: #8261BC" >
+        <div class="wy-side-nav-search"  style="background: #F05454" >
             <a href="../index.html" class="icon icon-home"> AbstractMenus
           </a>
 <div role="search">
@@ -78,20 +78,26 @@
 <p class="caption" role="heading"><span class="caption-text">Advanced Features</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/logical.html">Logical structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/input.html">User input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/templates.html">Templates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/animations.html">Animations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/generation.html">Menu generator</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">For Developers</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../dev/api.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/general.html">Plugin API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/serializers.html">Types deserializing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/own_types.html">Create own types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/handlers.html">Data Handlers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/variables.html">Variables API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev/utils.html">Utils</a></li>
 </ul>
 
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #8261BC" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #F05454" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
       </nav>
@@ -256,27 +262,22 @@
 <td><p>No</p></td>
 <td><p>A <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a> to open menu. If even one of those rule is <code class="docutils literal notranslate"><span class="pre">false</span></code> then menu won’t be opened</p></td>
 </tr>
-<tr class="row-odd"><td><p>iRules</p></td>
-<td><p>Objects list</p></td>
-<td><p>No</p></td>
-<td><p>(<strong>Deprecated!</strong> Use <a class="reference internal" href="../advanced/logical.html#logical-not"><span class="std std-ref">operator ‘NOT’</span></a> for regular rules) Inverted rules to open menu. If even one of those rule is <code class="docutils literal notranslate"><span class="pre">true</span></code> then menu won’t be opened. This can be combined with <code class="docutils literal notranslate"><span class="pre">rules</span></code> block to make specific logic</p></td>
-</tr>
-<tr class="row-even"><td><p>openActions</p></td>
+<tr class="row-odd"><td><p>openActions</p></td>
 <td><p>Object</p></td>
 <td><p>No</p></td>
 <td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be executed <strong>before</strong> the menu opened, but <strong>after</strong> open rules successfully checked</p></td>
 </tr>
-<tr class="row-odd"><td><p>denyActions</p></td>
+<tr class="row-even"><td><p>denyActions</p></td>
 <td><p>Object</p></td>
 <td><p>No</p></td>
 <td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be executed if at least one rule is <code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>closeActions</p></td>
+<tr class="row-odd"><td><p>closeActions</p></td>
 <td><p>Object</p></td>
 <td><p>No</p></td>
 <td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be executed <strong>after</strong> menu closed</p></td>
 </tr>
-<tr class="row-odd"><td><p>updateInterval</p></td>
+<tr class="row-even"><td><p>updateInterval</p></td>
 <td><p>Number</p></td>
 <td><p>No</p></td>
 <td><p>An interval of menu refreshing in ticks. If not specified, menu won’t update</p></td>
@@ -330,20 +331,10 @@
 <td><p>No</p></td>
 <td><p>A <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a> to display buttons in the menu</p></td>
 </tr>
-<tr class="row-even"><td><p>iRules</p></td>
-<td><p>Objects list</p></td>
-<td><p>No</p></td>
-<td><p>An inverted <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a> to display buttons in the menu</p></td>
-</tr>
-<tr class="row-odd"><td><p>mrules</p></td>
+<tr class="row-even"><td><p>mrules</p></td>
 <td><p>Objects list</p></td>
 <td><p>No</p></td>
 <td><p>Additional <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a> block, existing only inside the button. These rules have no effect on whether the button is displayed. They are needed only for independent checks and performing actions</p></td>
-</tr>
-<tr class="row-even"><td><p>imrules</p></td>
-<td><p>Objects list</p></td>
-<td><p>No</p></td>
-<td><p>(<strong>Deprecated!</strong> Use <a class="reference internal" href="../advanced/logical.html#logical-not"><span class="std std-ref">operator ‘NOT’</span></a> inside <code class="docutils literal notranslate"><span class="pre">mrules</span></code> to achieve the same) Additional <strong>inverted</strong> <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a>. Similar to <code class="docutils literal notranslate"><span class="pre">mrules</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>click</p></td>
 <td><p>Object</p></td>

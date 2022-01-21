@@ -9,7 +9,7 @@ We prepared some examples of menus. They are sorted by difficult:
 :Medium menus: Menus with using some not so difficult features, like variables, or more complex logical structures.
 :Advanced menus: Menus with advanced features using, like templates, animations, etc.
 
-.. attention:: All these examples works only with Spigot 1.13 and higher! So, here we used 1.13+ material names.
+.. attention:: Some material names, used in these examples can not work on your Spigot version. We used materials for MC 1.13.
 
 Simple menus
 ------------
@@ -29,7 +29,6 @@ Simple menus
 Medium menus
 ------------
 
-
 .. |preview-kits| image:: ../_static/examples/kits.gif
 .. |preview-craft| image:: ../_static/examples/craft.gif
 .. |preview-shop| image:: ../_static/examples/shop.gif
@@ -46,9 +45,11 @@ Advanced menus
 --------------
 
 .. |preview-casino| image:: ../_static/examples/casino.gif
+.. |preview-admin| image:: ../_static/examples/padmin.gif
 
 .. csv-table::
 	:header: "Name", "Depends", "Preview"
 	:widths: 5, 5, 10
 
 	"`Casino <https://github.com/AbstractMenus/examples/blob/main/advanced/casino>`_", "Vault and any Economy plugin", |preview-casino|
+	"`Admin panel <https://github.com/AbstractMenus/examples/blob/main/advanced/admin>`_", "Essentials, but you can use any plugin to kick/ban/mute players", |preview-admin|

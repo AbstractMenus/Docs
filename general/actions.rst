@@ -17,6 +17,7 @@ All actions
 	:widths: 5, 5, 10, 30
 
 	"openMenu", |t_str|, ``openMenu: "my_super_menu"``, "Open a menu with the specified name"
+	"openMenuCtx", |t_str|, ``openMenuCtx: "my_super_menu"``, "Same as ``openMenu`` but forwards :ref:`context <input-ctx-main>` from activator of previous menu"
 	"closeMenu", |t_bool| or |t_int|, ``closeMenu: true`` ``closeMenu: 30``, "Close current menu. If there is number instead of boolean, menu will be closed after delay in specified ticks"
 	"refreshMenu", |t_bool| or |t_int|, ``refreshMenu: true`` ``refreshMenu: 20``, "Update all menu content except the title. If there is number instead of boolean, menu will be updated after delay in specified ticks"
 	"message", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to player. There is ability to send simple text, JSON text, title, etc."
@@ -132,7 +133,7 @@ This block is equivalent to this JSON message:
 ::
 
 	message {
-	   json: "{'text':'&aSome text', 'hoverEvent':{'action':100:'show_text', 'value':'&eSome text'}}"
+	   json: "{'text':'&aSome text', 'hoverEvent':{'action':'show_text', 'value':'&eSome text'}}"
 	}
 
 .. tip:: See more information about JSON text `here <https://minecraft.gamepedia.com/Commands#Raw_JSON_text>`_

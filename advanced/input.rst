@@ -7,6 +7,8 @@ User input
 
 This article is about how you can save some user input and use in inside your menus.
 
+.. _input-ctx-main:
+
 Activator context
 -----------------
 

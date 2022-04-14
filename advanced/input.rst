@@ -175,7 +175,8 @@ This object has several required and optional parameters. Below is full structur
 	"aliases", |t_list_str|, "Aliases of base name", "false"
 	"error", |t_str|, "Custom error message", "false"
 	"help", |t_str|, "Custom help message prefix", "false"
-	"args", "|t_list_str|, |t_list_obj|", "Command arguments", "true"
+	"args", "|t_list_str|, |t_list_obj|", "Command arguments", "false"
+	"override", "|t_bool|", "Try to override command from other plugin", "false"
 
 The ``error`` field can contain ``%s`` placeholder to insert error message from specific argument.
 
@@ -425,3 +426,30 @@ We also changed placeholders to fit format, described for Command Extractor. Res
 	:align: center
 
 	How commands work
+
+
+Command overriding
+~~~~~~~~~~~~~~~~~~
+
+Sometimes we need to override command from other plugin. 
+For example, you have third-party plugin with ``/kit`` command.
+
+Suppose we want to create menu which will be opened by the same command and will show list of available kits.
+By default, AbstractMenus register command by regular way. This means that any menu command may be overwritten by other plugins.
+
+To override plugin command, you can add ``override: true`` parameter to the command activator body. Example:
+
+::
+
+	activators {
+	  command {
+	    name: "kit"
+	    aliases: ["kits"]
+	    override: true
+	  }
+	}
+
+Command with ``override: true``, will be registered as chat listener, not only as regular command. 
+This will allow to "override" third-party plugin command, even if AbstarctMenus loaded after this plugin.
+
+When user enter such command, plugin performs it as regular command and cancel next message handling to avoid performing this command by the real "command owner".

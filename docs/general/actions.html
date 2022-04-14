@@ -62,9 +62,24 @@
 <li class="toctree-l2"><a class="reference internal" href="#remove-potion-effect">Remove potion effect</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#open-book">Open book</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#set">Set</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#remove">Remove</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#variables-math">Variables math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global-vars">Global vars</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set">Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temporal-variable">Temporal variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rewriting-safety">Rewriting safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#remove">Remove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#math-actions">Math actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#full-format">Full format</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#personal-vars">Personal vars</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#action-var-pers-set">Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-var-pers-temp">Temporal variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-var-pers-replace">Rewriting safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-var-pers-rem">Remove</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#action-var-pers-math">Math actions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-variables-interaction">Multiple variables interaction</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#delay">Delay</a></li>
@@ -130,41 +145,41 @@
            <div itemprop="articleBody">
              
   <div class="section" id="actions">
-<h1><a class="toc-backref" href="#id4">Actions</a><a class="headerlink" href="#actions" title="Permalink to this headline"></a></h1>
+<h1><a class="toc-backref" href="#id9">Actions</a><a class="headerlink" href="#actions" title="Permalink to this headline"></a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#actions" id="id4">Actions</a></p>
+<li><p><a class="reference internal" href="#actions" id="id9">Actions</a></p>
 <ul>
-<li><p><a class="reference internal" href="#all-actions" id="id5">All actions</a></p></li>
-<li><p><a class="reference internal" href="#message" id="id6">Message</a></p></li>
-<li><p><a class="reference internal" href="#command" id="id7">Command</a></p></li>
-<li><p><a class="reference internal" href="#teleport" id="id8">Teleport</a></p></li>
-<li><p><a class="reference internal" href="#add-item" id="id9">Add item</a></p></li>
-<li><p><a class="reference internal" href="#remove-item" id="id10">Remove item</a></p></li>
-<li><p><a class="reference internal" href="#sound" id="id11">Sound</a></p></li>
-<li><p><a class="reference internal" href="#add-potion-effect" id="id12">Add potion effect</a></p></li>
-<li><p><a class="reference internal" href="#remove-potion-effect" id="id13">Remove potion effect</a></p></li>
-<li><p><a class="reference internal" href="#open-book" id="id14">Open book</a></p></li>
-<li><p><a class="reference internal" href="#variables" id="id15">Variables</a></p>
+<li><p><a class="reference internal" href="#all-actions" id="id10">All actions</a></p></li>
+<li><p><a class="reference internal" href="#message" id="id11">Message</a></p></li>
+<li><p><a class="reference internal" href="#command" id="id12">Command</a></p></li>
+<li><p><a class="reference internal" href="#teleport" id="id13">Teleport</a></p></li>
+<li><p><a class="reference internal" href="#add-item" id="id14">Add item</a></p></li>
+<li><p><a class="reference internal" href="#remove-item" id="id15">Remove item</a></p></li>
+<li><p><a class="reference internal" href="#sound" id="id16">Sound</a></p></li>
+<li><p><a class="reference internal" href="#add-potion-effect" id="id17">Add potion effect</a></p></li>
+<li><p><a class="reference internal" href="#remove-potion-effect" id="id18">Remove potion effect</a></p></li>
+<li><p><a class="reference internal" href="#open-book" id="id19">Open book</a></p></li>
+<li><p><a class="reference internal" href="#variables" id="id20">Variables</a></p>
 <ul>
-<li><p><a class="reference internal" href="#set" id="id16">Set</a></p></li>
-<li><p><a class="reference internal" href="#remove" id="id17">Remove</a></p></li>
-<li><p><a class="reference internal" href="#variables-math" id="id18">Variables math</a></p></li>
+<li><p><a class="reference internal" href="#global-vars" id="id21">Global vars</a></p></li>
+<li><p><a class="reference internal" href="#personal-vars" id="id22">Personal vars</a></p></li>
+<li><p><a class="reference internal" href="#multiple-variables-interaction" id="id23">Multiple variables interaction</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#delay" id="id19">Delay</a></p></li>
-<li><p><a class="reference internal" href="#bulk" id="id20">Bulk</a></p></li>
-<li><p><a class="reference internal" href="#random-actions" id="id21">Random actions</a></p></li>
-<li><p><a class="reference internal" href="#set-skin" id="id22">Set skin</a></p></li>
-<li><p><a class="reference internal" href="#add-recipe" id="id23">Add recipe</a></p></li>
-<li><p><a class="reference internal" href="#set-item-property" id="id24">Set item property</a></p></li>
-<li><p><a class="reference internal" href="#remove-item-property" id="id25">Remove item property</a></p></li>
-<li><p><a class="reference internal" href="#refresh-item" id="id26">Refresh item</a></p>
+<li><p><a class="reference internal" href="#delay" id="id24">Delay</a></p></li>
+<li><p><a class="reference internal" href="#bulk" id="id25">Bulk</a></p></li>
+<li><p><a class="reference internal" href="#random-actions" id="id26">Random actions</a></p></li>
+<li><p><a class="reference internal" href="#set-skin" id="id27">Set skin</a></p></li>
+<li><p><a class="reference internal" href="#add-recipe" id="id28">Add recipe</a></p></li>
+<li><p><a class="reference internal" href="#set-item-property" id="id29">Set item property</a></p></li>
+<li><p><a class="reference internal" href="#remove-item-property" id="id30">Remove item property</a></p></li>
+<li><p><a class="reference internal" href="#refresh-item" id="id31">Refresh item</a></p>
 <ul>
-<li><p><a class="reference internal" href="#mode-1-refresh-current" id="id27">Mode 1. Refresh current</a></p></li>
-<li><p><a class="reference internal" href="#mode-1-delayed-refresh" id="id28">Mode 1. Delayed refresh</a></p></li>
-<li><p><a class="reference internal" href="#mode-1-refresh-another-item" id="id29">Mode 1. Refresh another item</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-refresh-current" id="id32">Mode 1. Refresh current</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-delayed-refresh" id="id33">Mode 1. Delayed refresh</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-refresh-another-item" id="id34">Mode 1. Refresh another item</a></p></li>
 </ul>
 </li>
 </ul>
@@ -173,7 +188,7 @@
 </div>
 <p>Action is something that happens after specific event (for example item click or menu opening). The plugin has a lot of actions. Below is a full list of actions.</p>
 <div class="section" id="all-actions">
-<h2><a class="toc-backref" href="#id5">All actions</a><a class="headerlink" href="#all-actions" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id10">All actions</a><a class="headerlink" href="#all-actions" title="Permalink to this headline"></a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -379,72 +394,107 @@
 <td><p>See example <a class="reference internal" href="#action-recipe"><span class="std std-ref">Add recipe</span></a></p></td>
 <td><p>Add new custom recipes for crafting</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Variables management</strong></p></td>
+<tr class="row-even"><td><p><strong>Global variables</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>setVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-setvar"><span class="std std-ref">Set</span></a></p></td>
-<td><p>Create or replace variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-set"><span class="std std-ref">Set</span></a></p></td>
+<td><p>Create or replace global variable</p></td>
 </tr>
 <tr class="row-even"><td><p>removeVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-remvar"><span class="std std-ref">Remove</span></a></p></td>
-<td><p>Remove variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-rem"><span class="std std-ref">Remove</span></a></p></td>
+<td><p>Remove global variable</p></td>
 </tr>
 <tr class="row-odd"><td><p>incVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
-<td><p>Increment numeric variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Increment global numeric variable</p></td>
 </tr>
 <tr class="row-even"><td><p>decVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
-<td><p>Decrement numeric variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Decrement global numeric variable</p></td>
 </tr>
 <tr class="row-odd"><td><p>mulVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
-<td><p>Multiply numeric variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Multiply global numeric variable</p></td>
 </tr>
 <tr class="row-even"><td><p>divVar</p></td>
-<td><p>Objects list</p></td>
-<td><p>See example <a class="reference internal" href="#action-varmath"><span class="std std-ref">Variables math</span></a></p></td>
-<td><p>Divide numeric variable</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-glob-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Divide global numeric variable</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Special actions</strong></p></td>
+<tr class="row-odd"><td><p><strong>Personal variables</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>delay</p></td>
+<tr class="row-even"><td><p>setVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-set"><span class="std std-ref">Set</span></a></p></td>
+<td><p>Create or replace personal variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>removeVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-rem"><span class="std std-ref">Remove</span></a></p></td>
+<td><p>Remove personal variable</p></td>
+</tr>
+<tr class="row-even"><td><p>incVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Increment personal numeric variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>decVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Decrement personal numeric variable</p></td>
+</tr>
+<tr class="row-even"><td><p>mulVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Multiply personal numeric variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>divVarp</p></td>
+<td><p>Objects list, Strings list</p></td>
+<td><p>See example <a class="reference internal" href="#action-var-pers-math"><span class="std std-ref">Math actions</span></a></p></td>
+<td><p>Divide personal numeric variable</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Special actions</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>delay</p></td>
 <td><p>Object</p></td>
 <td><p>See example <a class="reference internal" href="#action-delay"><span class="std std-ref">Delay</span></a></p></td>
 <td><p>Wrap actions block to perform they after some delay</p></td>
 </tr>
-<tr class="row-odd"><td><p>bulk</p></td>
+<tr class="row-even"><td><p>bulk</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-bulk"><span class="std std-ref">Bulk</span></a></p></td>
 <td><p>Perform many actions, even of one type</p></td>
 </tr>
-<tr class="row-even"><td><p>randActions</p></td>
+<tr class="row-odd"><td><p>randActions</p></td>
 <td><p>Objects list</p></td>
 <td><p>See example <a class="reference internal" href="#action-randactions"><span class="std std-ref">Random actions</span></a></p></td>
 <td><p>Perform random actions block from the list</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>For generated menus</strong></p></td>
+<tr class="row-even"><td><p><strong>For generated menus</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>pagePrev</p></td>
+<tr class="row-odd"><td><p>pagePrev</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pagePrev:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the previous page. Works only with generated menus</p></td>
 </tr>
-<tr class="row-odd"><td><p>pageNext</p></td>
+<tr class="row-even"><td><p>pageNext</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pageNext:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the next page. Works only with generated menus</p></td>
@@ -453,7 +503,7 @@
 </table>
 </div>
 <div class="section" id="message">
-<span id="action-msg"></span><h2><a class="toc-backref" href="#id6">Message</a><a class="headerlink" href="#message" title="Permalink to this headline"></a></h2>
+<span id="action-msg"></span><h2><a class="toc-backref" href="#id11">Message</a><a class="headerlink" href="#message" title="Permalink to this headline"></a></h2>
 <p>Action for send various text information to player. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="p">{</span>
     <span class="n">chat</span><span class="p">:</span> <span class="p">[</span>
@@ -550,7 +600,7 @@
 </div>
 </div>
 <div class="section" id="command">
-<span id="action-cmd"></span><h2><a class="toc-backref" href="#id7">Command</a><a class="headerlink" href="#command" title="Permalink to this headline"></a></h2>
+<span id="action-cmd"></span><h2><a class="toc-backref" href="#id12">Command</a><a class="headerlink" href="#command" title="Permalink to this headline"></a></h2>
 <p>Action to execute command on behalf of player or server. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="p">{</span>
     <span class="n">player</span><span class="p">:</span> <span class="p">[</span>
@@ -572,7 +622,7 @@
 <p>And same with <code class="docutils literal notranslate"><span class="pre">console</span></code> block.</p>
 </div>
 <div class="section" id="teleport">
-<span id="action-tp"></span><h2><a class="toc-backref" href="#id8">Teleport</a><a class="headerlink" href="#teleport" title="Permalink to this headline"></a></h2>
+<span id="action-tp"></span><h2><a class="toc-backref" href="#id13">Teleport</a><a class="headerlink" href="#teleport" title="Permalink to this headline"></a></h2>
 <p>Teleport player to specified location. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">teleport</span> <span class="p">{</span>
     <span class="n">world</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span>
@@ -590,7 +640,7 @@
 </div>
 </div>
 <div class="section" id="add-item">
-<span id="action-itemadd"></span><h2><a class="toc-backref" href="#id9">Add item</a><a class="headerlink" href="#add-item" title="Permalink to this headline"></a></h2>
+<span id="action-itemadd"></span><h2><a class="toc-backref" href="#id14">Add item</a><a class="headerlink" href="#add-item" title="Permalink to this headline"></a></h2>
 <p>Add item or items to player’s inventory. Item has format described on <a class="reference internal" href="item_format.html"><span class="doc">Item format</span></a> page. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">itemAdd</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -612,7 +662,7 @@
 </div>
 </div>
 <div class="section" id="remove-item">
-<span id="action-itemrem"></span><h2><a class="toc-backref" href="#id10">Remove item</a><a class="headerlink" href="#remove-item" title="Permalink to this headline"></a></h2>
+<span id="action-itemrem"></span><h2><a class="toc-backref" href="#id15">Remove item</a><a class="headerlink" href="#remove-item" title="Permalink to this headline"></a></h2>
 <p>This action same as <code class="docutils literal notranslate"><span class="pre">itemAdd</span></code>. But items will be removed in specified slot. If <code class="docutils literal notranslate"><span class="pre">slot</span></code> is not specified, item will be removed by comparing with specified parameters. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">itemRemove</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -629,7 +679,7 @@
 </div>
 </div>
 <div class="section" id="sound">
-<span id="action-sound"></span><h2><a class="toc-backref" href="#id11">Sound</a><a class="headerlink" href="#sound" title="Permalink to this headline"></a></h2>
+<span id="action-sound"></span><h2><a class="toc-backref" href="#id16">Sound</a><a class="headerlink" href="#sound" title="Permalink to this headline"></a></h2>
 <p>Action to play sound. Below all parameters that can be specified:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sound</span> <span class="p">{</span>
     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;SOUND_NAME&quot;</span>
@@ -670,7 +720,7 @@
 <p>In this case, the sound will play only for player in player’s location.</p>
 </div>
 <div class="section" id="add-potion-effect">
-<span id="action-potion"></span><h2><a class="toc-backref" href="#id12">Add potion effect</a><a class="headerlink" href="#add-potion-effect" title="Permalink to this headline"></a></h2>
+<span id="action-potion"></span><h2><a class="toc-backref" href="#id17">Add potion effect</a><a class="headerlink" href="#add-potion-effect" title="Permalink to this headline"></a></h2>
 <p>Action to add a potion effect to player.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">potionEffect</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -684,7 +734,7 @@
 <p>The format of this action is similar to <a class="reference internal" href="item_format.html#prop-potion"><span class="std std-ref">Potion effect</span></a> item property.</p>
 </div>
 <div class="section" id="remove-potion-effect">
-<span id="action-rempotion"></span><h2><a class="toc-backref" href="#id13">Remove potion effect</a><a class="headerlink" href="#remove-potion-effect" title="Permalink to this headline"></a></h2>
+<span id="action-rempotion"></span><h2><a class="toc-backref" href="#id18">Remove potion effect</a><a class="headerlink" href="#remove-potion-effect" title="Permalink to this headline"></a></h2>
 <p>Action to remove potion effects from player. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removePotionEffect</span><span class="p">:</span> <span class="p">[</span>
     <span class="n">FAST_DIGGING</span><span class="p">,</span>
@@ -695,7 +745,7 @@
 <p>Action above will remove two potion effects from player.</p>
 </div>
 <div class="section" id="open-book">
-<span id="action-book"></span><h2><a class="toc-backref" href="#id14">Open book</a><a class="headerlink" href="#open-book" title="Permalink to this headline"></a></h2>
+<span id="action-book"></span><h2><a class="toc-backref" href="#id19">Open book</a><a class="headerlink" href="#open-book" title="Permalink to this headline"></a></h2>
 <p>Action to open written book. Format of this action similar to <a class="reference internal" href="item_format.html#prop-book"><span class="std std-ref">Book</span></a> item property.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openBook</span> <span class="p">{</span>
   <span class="n">author</span><span class="p">:</span> <span class="s2">&quot;Peter Piper&quot;</span>
@@ -710,50 +760,60 @@
 </div>
 </div>
 <div class="section" id="variables">
-<span id="action-vars"></span><h2><a class="toc-backref" href="#id15">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline"></a></h2>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>More about variables see on <a class="reference internal" href="variables.html"><span class="doc">Variables</span></a> page.</p>
+<span id="action-var"></span><h2><a class="toc-backref" href="#id20">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline"></a></h2>
+<p>These actions for create, update, delete, and do some math with variables.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More about what variables are and how use them, read on <a class="reference internal" href="variables.html"><span class="doc">Variables</span></a> page.</p>
 </div>
+<p>There are two version of each variable-related action - <strong>global</strong> and <strong>personal</strong>.
+For example there is <code class="docutils literal notranslate"><span class="pre">setVar</span></code> and <code class="docutils literal notranslate"><span class="pre">setVarp</span></code> actions for global and personal variables, respectively.</p>
+<div class="section" id="global-vars">
+<span id="action-var-glob"></span><h3><a class="toc-backref" href="#id21">Global vars</a><a class="headerlink" href="#global-vars" title="Permalink to this headline"></a></h3>
+<p>Actions to interact with global variabes.</p>
 <div class="section" id="set">
-<span id="action-setvar"></span><h3><a class="toc-backref" href="#id16">Set</a><a class="headerlink" href="#set" title="Permalink to this headline"></a></h3>
-<p>Action to create new or rewrite exists variable.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
-  <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;Some data&quot;</span>
-<span class="p">}</span>
+<span id="action-var-glob-set"></span><h4>Set<a class="headerlink" href="#set" title="Permalink to this headline"></a></h4>
+<p>Action to create or update global variable. It can be specified in one of the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;time&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;replace&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;time&gt;:&lt;replace&gt;&quot;</span>
 </pre></div>
 </div>
+<p>Where:</p>
 <dl class="field-list simple">
-<dt class="field-odd">name</dt>
-<dd class="field-odd"><p>Unique name of the variable.</p>
+<dt class="field-odd">&lt;var_name&gt;</dt>
+<dd class="field-odd"><p>Name of the variable</p>
 </dd>
-<dt class="field-even">value</dt>
-<dd class="field-even"><p>Value of the variable.</p>
+<dt class="field-even">&lt;value&gt;</dt>
+<dd class="field-even"><p>Any value of variable. String or numeric.</p>
 </dd>
-<dt class="field-odd">player</dt>
-<dd class="field-odd"><p><strong>[Optional]</strong> Use this to create personal variable. Placeholders supported.</p>
+<dt class="field-odd">&lt;time&gt;</dt>
+<dd class="field-odd"><p>Optional. Variable lifetime.</p>
 </dd>
-<dt class="field-even">time</dt>
-<dd class="field-even"><p><strong>[Optional]</strong> Variable lifetime.</p>
-</dd>
-<dt class="field-odd">replace</dt>
-<dd class="field-odd"><p><strong>[Optional]</strong> If <code class="docutils literal notranslate"><span class="pre">false</span></code> and variable with this name exists then it won’t be replaced with new value. By default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<dt class="field-even">&lt;replace&gt;</dt>
+<dd class="field-even"><p>Optional. If <code class="docutils literal notranslate"><span class="pre">false</span></code> and variable with this name exists then it won’t be replaced with new value. By default is <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
 </dl>
-<p>You can create a temporary variable. A temporary variables automatically removed after specified time. To set a lifetime for the variable you need to add <code class="docutils literal notranslate"><span class="pre">time</span></code> parameter.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span> <span class="p">{</span>
-  <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
-  <span class="n">time</span><span class="p">:</span> <span class="s2">&quot;10m&quot;</span>
-  <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;Some data&quot;</span>
-<span class="p">}</span>
+<p>Simple example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data&quot;</span>
 </pre></div>
 </div>
-<p>In example above we set 10 minutes lifetime for personal variable <code class="docutils literal notranslate"><span class="pre">my_var</span></code>. You can specify time by seconds, minutes, hours and days. Also you can combine it. For example:</p>
+<p>This action will create global variable with name <code class="docutils literal notranslate"><span class="pre">my_var</span></code> and string value <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">data</span></code>.</p>
+</div>
+<div class="section" id="temporal-variable">
+<span id="action-var-glob-temp"></span><h4>Temporal variable<a class="headerlink" href="#temporal-variable" title="Permalink to this headline"></a></h4>
+<p>You can create a temporary variable. A temporary variables will be automatically removed after specified time.
+To set a lifetime for the variable you need to add <code class="docutils literal notranslate"><span class="pre">time</span></code> parameter. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data:10m&quot;</span>
+</pre></div>
+</div>
+<p>Here, we created and set lifetime in 10 minutes for the variable <code class="docutils literal notranslate"><span class="pre">my_var</span></code>.
+You can specify lifetime by seconds (<code class="docutils literal notranslate"><span class="pre">s</span></code>), minutes (<code class="docutils literal notranslate"><span class="pre">m</span></code>), hours (<code class="docutils literal notranslate"><span class="pre">h</span></code>) and days (<code class="docutils literal notranslate"><span class="pre">d</span></code>).
+Also you can combine it. For example:</p>
 <dl class="field-list simple">
 <dt class="field-odd">1d 12h</dt>
-<dd class="field-odd"><p>1 day and 12 hours (by day we means 24 hours)</p>
+<dd class="field-odd"><p>1 day (24 hours) and 12 hours</p>
 </dd>
 <dt class="field-even">2h 30m</dt>
 <dd class="field-even"><p>2 hours and 30 minutes</p>
@@ -762,104 +822,197 @@
 <dd class="field-odd"><p>10 hours and 10 seconds</p>
 </dd>
 </dl>
-<p>If you want to protect created variable from rewriting, just add <code class="docutils literal notranslate"><span class="pre">replace:</span> <span class="pre">false</span></code> parameter:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span> <span class="p">{</span>
-  <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;PeterPiper&quot;</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
-  <span class="n">replace</span><span class="p">:</span> <span class="n">false</span>
-  <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;Some data&quot;</span>
-<span class="p">}</span>
+</div>
+<div class="section" id="rewriting-safety">
+<span id="action-var-glob-replace"></span><h4>Rewriting safety<a class="headerlink" href="#rewriting-safety" title="Permalink to this headline"></a></h4>
+<p>If you want to protect a created variable from rewriting, you can use the last <code class="docutils literal notranslate"><span class="pre">&lt;replace&gt;</span></code> argument:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data:false&quot;</span>
 </pre></div>
 </div>
-<p>If you want to set several variables at once, you can specify them as an <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">objects list</span></a>, where each object is a block, similar to single <code class="docutils literal notranslate"><span class="pre">setVar</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="p">[</span>
-   <span class="p">{</span>
-     <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;PeterPiper&quot;</span>
-     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;var1&quot;</span>
-     <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span>
-     <span class="n">replace</span><span class="p">:</span> <span class="n">false</span>
-   <span class="p">},</span>
-   <span class="p">{</span>
-     <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;PeterPiper&quot;</span>
-     <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;var2&quot;</span>
-     <span class="n">value</span><span class="p">:</span> <span class="mi">58</span>
-   <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">false</span></code> is a <code class="docutils literal notranslate"><span class="pre">&lt;replace&gt;</span></code> argument, not <code class="docutils literal notranslate"><span class="pre">&lt;time&gt;</span></code>.
+If we use boolean in third argument, and there is only 3 arguments, plugin suppose this is a <code class="docutils literal notranslate"><span class="pre">&lt;replace&gt;</span></code>.
+Note, that this is not protects variable from rewriting by other action, where <code class="docutils literal notranslate"><span class="pre">replace</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </div>
 <div class="section" id="remove">
-<span id="action-remvar"></span><h3><a class="toc-backref" href="#id17">Remove</a><a class="headerlink" href="#remove" title="Permalink to this headline"></a></h3>
-<p>Action to remove personal or global variable. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removeVar</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;myvar&quot;</span>
-  <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
-<span class="p">}</span>
+<span id="action-var-glob-rem"></span><h4>Remove<a class="headerlink" href="#remove" title="Permalink to this headline"></a></h4>
+<p>Action to remove global variable. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removeVar</span><span class="p">:</span> <span class="s2">&quot;my_var_name&quot;</span>
 </pre></div>
 </div>
-<p>There is only two parameters:</p>
-<dl class="field-list simple">
-<dt class="field-odd">name</dt>
-<dd class="field-odd"><p>Name of the variable</p>
-</dd>
-<dt class="field-even">player</dt>
-<dd class="field-even"><p><strong>[Optional]</strong> For personal variables</p>
-</dd>
-</dl>
-<p>This action also support multiple variables removing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removeVar</span><span class="p">:</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;myvar&quot;</span>
-        <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_global_var&quot;</span>
-  <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
+<p>This action has only one argument - name of the global variable.</p>
 </div>
-</div>
-<div class="section" id="variables-math">
-<span id="action-varmath"></span><h3><a class="toc-backref" href="#id18">Variables math</a><a class="headerlink" href="#variables-math" title="Permalink to this headline"></a></h3>
+<div class="section" id="math-actions">
+<span id="action-var-glob-math"></span><h4>Math actions<a class="headerlink" href="#math-actions" title="Permalink to this headline"></a></h4>
 <p>There is several actions to do math operations with variables:</p>
 <dl class="field-list simple">
 <dt class="field-odd">incVar</dt>
-<dd class="field-odd"><p>Increment variable on some value.</p>
+<dd class="field-odd"><p>Increment variable</p>
 </dd>
 <dt class="field-even">decVar</dt>
-<dd class="field-even"><p>Decrement variable on some value.</p>
+<dd class="field-even"><p>Decrement variable</p>
 </dd>
 <dt class="field-odd">mulVar</dt>
-<dd class="field-odd"><p>Multiply variable by some value.</p>
+<dd class="field-odd"><p>Multiply variable</p>
 </dd>
 <dt class="field-even">divVar</dt>
-<dd class="field-even"><p>Divide variable by some value.</p>
+<dd class="field-even"><p>Divide variable</p>
 </dd>
 </dl>
-<p>If variable with specified name doesn’t exists it will create a new one with specified value.</p>
-<p>Below is the example of using <code class="docutils literal notranslate"><span class="pre">incVar</span></code> action. All other math actions has same format.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVar</span> <span class="p">{</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
-  <span class="n">value</span><span class="p">:</span> <span class="mi">2</span>
+<p>If variable with specified name doesn’t exists, plugin will create a new one with specified value.</p>
+<p>Below is the example of using <code class="docutils literal notranslate"><span class="pre">incVar</span></code> action.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVar</span><span class="p">:</span> <span class="s2">&quot;my_var:2&quot;</span>
+</pre></div>
+</div>
+<p>This action will increment variable <code class="docutils literal notranslate"><span class="pre">my_var</span></code> on 2.</p>
+<p>Other math actions has the same format. Some examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decVar</span><span class="p">:</span> <span class="s2">&quot;my_var:10&quot;</span>
+
+<span class="n">mulVar</span><span class="p">:</span> <span class="s2">&quot;my_var:3&quot;</span>
+
+<span class="n">divVar</span><span class="p">:</span> <span class="s2">&quot;my_var:2&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="full-format">
+<h4>Full format<a class="headerlink" href="#full-format" title="Permalink to this headline"></a></h4>
+<p>All variable-related actions has full format.
+These actions can be specified as objects.
+For example, this is format of <code class="docutils literal notranslate"><span class="pre">setVar</span></code> action:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 32%" />
+<col style="width: 32%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>Unique name of the variable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>String</p></td>
+<td><p>Value of the variable</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>time</p></td>
+<td><p>String</p></td>
+<td><p>Variable lifetime</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p>replace</p></td>
+<td><p>Boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">false</span></code> and variable with this name exists then it won’t be replaced with new value. By default is <code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p>player</p></td>
+<td><p>String</p></td>
+<td><p>Create personal variable for specific player. This is legacy part of this action. Use special actions for personal variables instead</p></td>
+<td><p>false</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;myvar&quot;</span>
+  <span class="n">value</span><span class="p">:</span> <span class="s2">&quot;Hello, world&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Or increment personal variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVar</span> <span class="p">{</span>
-  <span class="n">player</span><span class="p">:</span> <span class="s2">&quot;%player_name%&quot;</span>
-  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;my_var&quot;</span>
-  <span class="n">value</span><span class="p">:</span> <span class="mi">2</span>
-<span class="p">}</span>
+<p>The same for other actions, like <code class="docutils literal notranslate"><span class="pre">removeVar</span></code> and all math actions.</p>
+<p>This format is still works for backward compatibility, but is not preffered.</p>
+</div>
+</div>
+<div class="section" id="personal-vars">
+<span id="action-var-pers"></span><h3><a class="toc-backref" href="#id22">Personal vars</a><a class="headerlink" href="#personal-vars" title="Permalink to this headline"></a></h3>
+<p>Actions to interact with personal variabes.</p>
+<div class="section" id="action-var-pers-set">
+<span id="id3"></span><h4>Set<a class="headerlink" href="#action-var-pers-set" title="Permalink to this headline"></a></h4>
+<p>Action <code class="docutils literal notranslate"><span class="pre">setVarp</span></code> used to create personal variable for player who opened menu.
+This action has same format as <a class="reference internal" href="#action-var-glob-set"><span class="std std-ref">Set</span></a> action for global variables.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVarp</span><span class="p">:</span> <span class="s2">&quot;myvar:Hello, world&quot;</span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This actions also can change many variables at once. The format is the same as described for <code class="docutils literal notranslate"><span class="pre">setVar</span></code> action.</p>
+</div>
+<div class="section" id="action-var-pers-temp">
+<span id="id4"></span><h4>Temporal variable<a class="headerlink" href="#action-var-pers-temp" title="Permalink to this headline"></a></h4>
+<p>Same as with <a class="reference internal" href="#action-var-glob-temp"><span class="std std-ref">Temporal variable</span></a> of global variables, but using <code class="docutils literal notranslate"><span class="pre">setVarp</span></code> action.</p>
+</div>
+<div class="section" id="action-var-pers-replace">
+<span id="id5"></span><h4>Rewriting safety<a class="headerlink" href="#action-var-pers-replace" title="Permalink to this headline"></a></h4>
+<p>Same as with <a class="reference internal" href="#action-var-glob-replace"><span class="std std-ref">Rewriting safety</span></a> of global variables, but using <code class="docutils literal notranslate"><span class="pre">setVarp</span></code> action.</p>
+</div>
+<div class="section" id="action-var-pers-rem">
+<span id="id6"></span><h4>Remove<a class="headerlink" href="#action-var-pers-rem" title="Permalink to this headline"></a></h4>
+<p>To remove personal variable, use the <code class="docutils literal notranslate"><span class="pre">removeVarp</span></code> action. This action has same format as for global variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removeVarp</span><span class="p">:</span> <span class="s2">&quot;my_var_name&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="action-var-pers-math">
+<span id="id7"></span><h4>Math actions<a class="headerlink" href="#action-var-pers-math" title="Permalink to this headline"></a></h4>
+<p>There is several actions to do math operations with personal variables:</p>
+<dl class="field-list simple">
+<dt class="field-odd">incVarp</dt>
+<dd class="field-odd"><p>Increment personal variable</p>
+</dd>
+<dt class="field-even">decVarp</dt>
+<dd class="field-even"><p>Decrement personal variable</p>
+</dd>
+<dt class="field-odd">mulVarp</dt>
+<dd class="field-odd"><p>Multiply personal variable</p>
+</dd>
+<dt class="field-even">divVarp</dt>
+<dd class="field-even"><p>Divide personal variable</p>
+</dd>
+</dl>
+<p>All arguments and usage similar to <a class="reference internal" href="#action-var-glob-math"><span class="std std-ref">Math actions</span></a> of global variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVarp</span><span class="p">:</span> <span class="s2">&quot;myvar:2&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="multiple-variables-interaction">
+<h3><a class="toc-backref" href="#id23">Multiple variables interaction</a><a class="headerlink" href="#multiple-variables-interaction" title="Permalink to this headline"></a></h3>
+<p>In some cases you need to set, remove, or change multiple variables.
+For this, you can use any variable action as list. Example:</p>
+<p><strong>Example 1</strong>. Set multiple global variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;variable_1:Value of variable 1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3:Value of variable 2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3:Value of variable 3&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example 2</strong>. Remove multiple global variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">removeVar</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;variable_1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example 3</strong>. Increment multiple personal variables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVarp</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">&quot;var_1:2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;var_3:5&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;var_3:8&quot;</span>
+<span class="p">]</span>
+</pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="delay">
-<span id="action-delay"></span><h2><a class="toc-backref" href="#id19">Delay</a><a class="headerlink" href="#delay" title="Permalink to this headline"></a></h2>
+<span id="action-delay"></span><h2><a class="toc-backref" href="#id24">Delay</a><a class="headerlink" href="#delay" title="Permalink to this headline"></a></h2>
 <p>This action is a kind of wrapper for other actions. It has two parameters:</p>
 <dl class="field-list simple">
 <dt class="field-odd">delay</dt>
@@ -893,7 +1046,7 @@
 </ol>
 </div>
 <div class="section" id="bulk">
-<span id="action-bulk"></span><h2><a class="toc-backref" href="#id20">Bulk</a><a class="headerlink" href="#bulk" title="Permalink to this headline"></a></h2>
+<span id="action-bulk"></span><h2><a class="toc-backref" href="#id25">Bulk</a><a class="headerlink" href="#bulk" title="Permalink to this headline"></a></h2>
 <p>Actions wrapper to perform many actions with similar names in a certain sequence. It takes a list of individual actions groups.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bulk</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -912,7 +1065,7 @@
 <p>Each element of the list is a separate group of actions, the same as in the usual <code class="docutils literal notranslate"><span class="pre">actions</span></code> block. This division into groups allows you to perform similar actions several times.</p>
 </div>
 <div class="section" id="random-actions">
-<span id="action-randactions"></span><h2><a class="toc-backref" href="#id21">Random actions</a><a class="headerlink" href="#random-actions" title="Permalink to this headline"></a></h2>
+<span id="action-randactions"></span><h2><a class="toc-backref" href="#id26">Random actions</a><a class="headerlink" href="#random-actions" title="Permalink to this headline"></a></h2>
 <p>Actions wrapper to perform one, randomly selected actions block. When the time comes to execute the <code class="docutils literal notranslate"><span class="pre">randActions</span></code> action, this will execute random actions block from list. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">randActions</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -930,7 +1083,7 @@
 <p>After performing this action several times player will see different messages.</p>
 </div>
 <div class="section" id="set-skin">
-<span id="action-setskin"></span><h2><a class="toc-backref" href="#id22">Set skin</a><a class="headerlink" href="#set-skin" title="Permalink to this headline"></a></h2>
+<span id="action-setskin"></span><h2><a class="toc-backref" href="#id27">Set skin</a><a class="headerlink" href="#set-skin" title="Permalink to this headline"></a></h2>
 <p>To manipulate skins, AbstractMenus uses the <a class="reference external" href="https://www.spigotmc.org/resources/2124/">SkinsRestorer</a> plugin.</p>
 <p>To set the skin to the player, you need to have its <strong>texture</strong> and <strong>signature</strong>. You can get them, for example, by uploading an image to <a class="reference external" href="https://mineskin.org">MineSkin</a>. Next, copy the data from the fields “Texture Data” and “Texture Signature” into the corresponding parameters of <code class="docutils literal notranslate"><span class="pre">setSkin</span></code> action.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setSkin</span> <span class="p">{</span>
@@ -945,7 +1098,7 @@
 </div>
 </div>
 <div class="section" id="add-recipe">
-<span id="action-recipe"></span><h2><a class="toc-backref" href="#id23">Add recipe</a><a class="headerlink" href="#add-recipe" title="Permalink to this headline"></a></h2>
+<span id="action-recipe"></span><h2><a class="toc-backref" href="#id28">Add recipe</a><a class="headerlink" href="#add-recipe" title="Permalink to this headline"></a></h2>
 <p>Action to add recipe to player. This is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a> where each object is a recipe.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addRecipe</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -983,13 +1136,13 @@
 </dd>
 </dl>
 <p>As a result, in order to craft our item, you need to put the corresponding items in the desired cells, as shown in the picture.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id8">
 <img alt="../_images/actions_recipe.png" src="../_images/actions_recipe.png" />
-<p class="caption"><span class="caption-text">Workbench content</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Workbench content</span><a class="headerlink" href="#id8" title="Permalink to this image"></a></p>
 </div>
 </div>
 <div class="section" id="set-item-property">
-<span id="action-setprop"></span><h2><a class="toc-backref" href="#id24">Set item property</a><a class="headerlink" href="#set-item-property" title="Permalink to this headline"></a></h2>
+<span id="action-setprop"></span><h2><a class="toc-backref" href="#id29">Set item property</a><a class="headerlink" href="#set-item-property" title="Permalink to this headline"></a></h2>
 <p>Action to add property to the menu item. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1030,7 +1183,7 @@
 </div>
 </div>
 <div class="section" id="remove-item-property">
-<span id="action-remprop"></span><h2><a class="toc-backref" href="#id25">Remove item property</a><a class="headerlink" href="#remove-item-property" title="Permalink to this headline"></a></h2>
+<span id="action-remprop"></span><h2><a class="toc-backref" href="#id30">Remove item property</a><a class="headerlink" href="#remove-item-property" title="Permalink to this headline"></a></h2>
 <p>Action to remove the specified properties from the menu item. To do this, you must specify a list of names for these properties. This action, like <code class="docutils literal notranslate"><span class="pre">setProperty</span></code>, only affects the copy of the menu that the player has opened. It does not change the properties of items globally.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1080,11 +1233,11 @@
 <p>Now when you click on <strong>Button 1</strong> you will remove the <code class="docutils literal notranslate"><span class="pre">glow</span></code> and <code class="docutils literal notranslate"><span class="pre">lore</span></code> properties of <strong>Button 2</strong>.</p>
 </div>
 <div class="section" id="refresh-item">
-<span id="action-refreshitem"></span><h2><a class="toc-backref" href="#id26">Refresh item</a><a class="headerlink" href="#refresh-item" title="Permalink to this headline"></a></h2>
+<span id="action-refreshitem"></span><h2><a class="toc-backref" href="#id31">Refresh item</a><a class="headerlink" href="#refresh-item" title="Permalink to this headline"></a></h2>
 <p>Refresh only one item from the whole menu. This is very useful for optimizing your menus because instead of updating the entire menu with all items, you just update one item, which makes it work faster and reduces the server load.</p>
 <p>This action has three modes.</p>
 <div class="section" id="mode-1-refresh-current">
-<h3><a class="toc-backref" href="#id27">Mode 1. Refresh current</a><a class="headerlink" href="#mode-1-refresh-current" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id32">Mode 1. Refresh current</a><a class="headerlink" href="#mode-1-refresh-current" title="Permalink to this headline"></a></h3>
 <p>Refreshes the current menu item. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1101,7 +1254,7 @@
 </div>
 </div>
 <div class="section" id="mode-1-delayed-refresh">
-<h3><a class="toc-backref" href="#id28">Mode 1. Delayed refresh</a><a class="headerlink" href="#mode-1-delayed-refresh" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id33">Mode 1. Delayed refresh</a><a class="headerlink" href="#mode-1-delayed-refresh" title="Permalink to this headline"></a></h3>
 <p>Refresh the current menu item with a delay specified in ticks.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1118,7 +1271,7 @@
 </div>
 </div>
 <div class="section" id="mode-1-refresh-another-item">
-<h3><a class="toc-backref" href="#id29">Mode 1. Refresh another item</a><a class="headerlink" href="#mode-1-refresh-another-item" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id34">Mode 1. Refresh another item</a><a class="headerlink" href="#mode-1-refresh-another-item" title="Permalink to this headline"></a></h3>
 <p>Update item in the specified slot. Optionally, you can specify a delay.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>

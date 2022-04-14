@@ -3,27 +3,30 @@ Variables
 
 .. include:: ../_includes/contents.rst
 
-Variable in AbstractMenus is any data stored in memory and can be accessed through placeholders.
+Variable in AbstractMenus is any data, stored in memory and can be accessed through placeholders.
 
 Plugin allows you to save and edit variables through actions or admin commands. Variables can be **global** or **personal**.
 
-:Global variable: Variables accessible from any place.
-:Personal variable: Variable binded to player. Variable with same name may has different values for different players.
+:Global variable: Variables accessible from any place. This variable belongs to the global space.
+:Personal variable: Variable related to player. Personal variable may has different values for different players.
 
 Variables naming
 ----------------
 
-You should only use Latin symbols and ``_`` when you naming variables, because using any other symbols may call an errors when using in placeholder.
+You should only use Latin symbols and ``_`` when you declaring variables, because using any other symbols may call an errors when using in placeholder.
 
 Variable operations
 -------------------
 
-You can create, edit, remove and do math operations(if variable is integer). These operations described in details :ref:`here <action-vars>`.
+You can create, edit, remove and do math operations with variables (if it's numeric). 
+These operations described in details :ref:`here <action-var>`.
 
 Temporal variables
 ------------------
 
-By default, variable exists infinite time, while not be deleted by some action. But you can also create a temporal variables. Temporal variables will be deleted automatically after some time. Read :ref:`this <action-setvar>` topic to know how to create temporal variables.
+By default, variable exists, until delete manually. But you can also create a temporal variables. 
+Temporal variables will be deleted automatically after some time. 
+Read :ref:`this <action-var-glob-temp>` topic to know how to create temporal variables.
 
 Also you can get a remain lifetime of the variable. For this you have to use special placeholders, more information about this in table below.
 
@@ -32,7 +35,9 @@ Also you can get a remain lifetime of the variable. For this you have to use spe
 Access to variables
 -------------------
 
-To get value of variable you need to use a :doc:`../general/placeholders`. You can use it even without PlaceholderAPI, but we recommend you to use it. The list of variable placeholders :ref:`below <vars-pls-table>`.
+To get value of variable you need to use a :doc:`../general/placeholders`. 
+You can use it even without PlaceholderAPI, but we recommend you to use it. 
+The list of variable placeholders :ref:`below <vars-pls-table>`.
 
 :< >: Required argument.
 :[ ]: Optional argument.

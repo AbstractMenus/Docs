@@ -16,7 +16,9 @@ In general, HOCON is a JSON, but modified and optimized for configs. So if you k
 Key-value
 ~~~~~~~~~
 
-All data in HOCON has this format: ::
+All data in HOCON has this format:
+
+.. code-block:: hocon
 
 	<key>: <value>
 
@@ -27,11 +29,11 @@ where:
 
 A few examples:
 
-::
+.. code-block:: hocon
 
 	name: "AbstractMenus"
 
-::
+.. code-block:: hocon
 
 	age: 20
 
@@ -42,7 +44,7 @@ Comments
 
 Comments are invisible for plugin. So you can comment some lines for yourself. Comments can start with ``//`` or ``#`` symbols.
 
-::
+.. code-block:: hocon
 
 	# This is my first comment
 	// This is my another comment
@@ -59,7 +61,7 @@ String
 
 The ``String`` format is simple. Below is example how you can specify this.
 
-::
+.. code-block:: hocon
 
 	param_name: "Some text"
 

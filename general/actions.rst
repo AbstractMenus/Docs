@@ -54,13 +54,20 @@ All actions
 	"setSkin", |t_obj|, |ex_below| :ref:`action-setskin`, "Set skin for player using the **SkinsRestorer** plugin"
 	"resetSkin", |t_bool|, ``resetSkin: true``, "Reset player’s skin using the **SkinsRestorer** plugin"
 	"addRecipe", |t_list_obj|, |ex_below| :ref:`action-recipe`, "Add new custom recipes for crafting"
-	"**Variables management**"
-	"setVar", |t_list_obj|, |ex_below| :ref:`action-setvar`, "Create or replace variable"
-	"removeVar", |t_list_obj|, |ex_below| :ref:`action-remvar`, "Remove variable"
-	"incVar", |t_list_obj|, |ex_below| :ref:`action-varmath`, "Increment numeric variable"
-	"decVar", |t_list_obj|, |ex_below| :ref:`action-varmath`, "Decrement numeric variable"
-	"mulVar", |t_list_obj|, |ex_below| :ref:`action-varmath`, "Multiply numeric variable"
-	"divVar", |t_list_obj|, |ex_below| :ref:`action-varmath`, "Divide numeric variable"
+	"**Global variables**"
+	"setVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-set`, "Create or replace global variable"
+	"removeVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-rem`, "Remove global variable"
+	"incVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-math`, "Increment global numeric variable"
+	"decVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-math`, "Decrement global numeric variable"
+	"mulVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-math`, "Multiply global numeric variable"
+	"divVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-math`, "Divide global numeric variable"
+	"**Personal variables**"
+	"setVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-set`, "Create or replace personal variable"
+	"removeVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-rem`, "Remove personal variable"
+	"incVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-math`, "Increment personal numeric variable"
+	"decVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-math`, "Decrement personal numeric variable"
+	"mulVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-math`, "Multiply personal numeric variable"
+	"divVarp", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-pers-math`, "Divide personal numeric variable"
 	"**Special actions**"
 	"delay", |t_obj|, |ex_below| :ref:`action-delay`, "Wrap actions block to perform they after some delay"
 	"bulk", |t_list_obj|, |ex_below| :ref:`action-bulk`, "Perform many actions, even of one type"
@@ -331,147 +338,263 @@ Action to open written book. Format of this action similar to :ref:`prop-book` i
 	  ]
 	}
 
-.. _action-vars:
+.. _action-var:
 
 Variables
 ---------
 
-.. seealso:: More about variables see on :doc:`variables` page.
+These actions for create, update, delete, and do some math with variables.
 
-.. _action-setvar:
+.. note:: More about what variables are and how use them, read on :doc:`variables` page.
+
+There are two version of each variable-related action - **global** and **personal**. 
+For example there is ``setVar`` and ``setVarp`` actions for global and personal variables, respectively.
+
+.. _action-var-glob:
+
+Global vars
+~~~~~~~~~~~
+
+Actions to interact with global variabes.
+
+.. _action-var-glob-set:
 
 Set
-~~~
+"""
 
-Action to create new or rewrite exists variable.
-
-::
-
-	setVar {
-	  name: "my_var"
-	  value: "Some data"
-	}
-
-:name: Unique name of the variable.
-:value: Value of the variable.
-:player: **[Optional]** Use this to create personal variable. Placeholders supported.
-:time: **[Optional]** Variable lifetime.
-:replace: **[Optional]** If ``false`` and variable with this name exists then it won't be replaced with new value. By default is ``true``.
-
-You can create a temporary variable. A temporary variables automatically removed after specified time. To set a lifetime for the variable you need to add ``time`` parameter.
+Action to create or update global variable. It can be specified in one of the following format:
 
 ::
 
-	setVar {
-	  player: "%player_name%"
-	  name: "my_var"
-	  time: "10m"
-	  value: "Some data"
-	}
+	setVar: "<var_name>:<value>"
+	setVar: "<var_name>:<value>:<time>"
+	setVar: "<var_name>:<value>:<replace>"
+	setVar: "<var_name>:<value>:<time>:<replace>"
 
-In example above we set 10 minutes lifetime for personal variable ``my_var``. You can specify time by seconds, minutes, hours and days. Also you can combine it. For example:
+Where:
 
-:1d 12h: 1 day and 12 hours (by day we means 24 hours)
+:<var_name>: Name of the variable
+:<value>: Any value of variable. String or numeric.
+:<time>: Optional. Variable lifetime.
+:<replace>: Optional. If ``false`` and variable with this name exists then it won't be replaced with new value. By default is ``true``
+
+Simple example:
+
+::
+
+	setVar: "my_var:Some data"
+
+This action will create global variable with name ``my_var`` and string value ``Some data``.
+
+.. _action-var-glob-temp:
+
+Temporal variable
+"""""""""""""""""
+
+You can create a temporary variable. A temporary variables will be automatically removed after specified time. 
+To set a lifetime for the variable you need to add ``time`` parameter. Example:
+
+::
+
+	setVar: "my_var:Some data:10m"
+
+Here, we created and set lifetime in 10 minutes for the variable ``my_var``. 
+You can specify lifetime by seconds (``s``), minutes (``m``), hours (``h``) and days (``d``). 
+Also you can combine it. For example:
+
+:1d 12h: 1 day (24 hours) and 12 hours
 :2h 30m: 2 hours and 30 minutes
 :10s 10h: 10 hours and 10 seconds
 
-If you want to protect created variable from rewriting, just add ``replace: false`` parameter:
+.. _action-var-glob-replace:
+
+Rewriting safety
+""""""""""""""""
+
+If you want to protect a created variable from rewriting, you can use the last ``<replace>`` argument:
+
+::
+
+	setVar: "my_var:Some data:false"
+
+Here, the ``false`` is a ``<replace>`` argument, not ``<time>``. 
+If we use boolean in third argument, and there is only 3 arguments, plugin suppose this is a ``<replace>``.
+Note, that this is not protects variable from rewriting by other action, where ``replace`` is ``true``.
+
+.. _action-var-glob-rem:
+
+Remove
+""""""
+
+Action to remove global variable. Example:
+
+::
+
+	removeVar: "my_var_name"
+
+This action has only one argument - name of the global variable.
+
+.. _action-var-glob-math:
+
+Math actions
+""""""""""""
+
+There is several actions to do math operations with variables:
+
+:incVar: Increment variable
+:decVar: Decrement variable
+:mulVar: Multiply variable
+:divVar: Divide variable
+
+If variable with specified name doesn't exists, plugin will create a new one with specified value.
+
+Below is the example of using ``incVar`` action.
+
+::
+
+	incVar: "my_var:2"
+
+This action will increment variable ``my_var`` on 2. 
+
+Other math actions has the same format. Some examples:
+
+::
+
+	decVar: "my_var:10"
+
+	mulVar: "my_var:3"
+
+	divVar: "my_var:2"
+
+Full format
+"""""""""""
+
+All variable-related actions has full format. 
+These actions can be specified as objects. 
+For example, this is format of ``setVar`` action:
+
+.. csv-table::
+	:header: "Parameter", "Type", "Description", "Required"
+	:widths: 10, 10, 10, 1
+
+	"name", "|t_str|", "Unique name of the variable", "true"
+	"value", "|t_str|", "Value of the variable", "true"
+	"time", "|t_str|", "Variable lifetime", "false"
+	"replace", "|t_bool|", "If ``false`` and variable with this name exists then it won't be replaced with new value. By default is ``true``", "false"
+	"player", "|t_str|", "Create personal variable for specific player. This is legacy part of this action. Use special actions for personal variables instead", "false"
+
+Example:
 
 ::
 
 	setVar {
-	  player: "PeterPiper"
-	  name: "my_var"
-	  replace: false
-	  value: "Some data"
+	  name: "myvar"
+	  value: "Hello, world"
 	}
 
-If you want to set several variables at once, you can specify them as an :ref:`objects list <hocon-list-obj>`, where each object is a block, similar to single ``setVar``.
+The same for other actions, like ``removeVar`` and all math actions.
+
+This format is still works for backward compatibility, but is not preffered.
+
+.. _action-var-pers:
+
+Personal vars
+~~~~~~~~~~~~~
+
+Actions to interact with personal variabes.
+
+.. _action-var-pers-set:
+
+Set
+"""
+
+Action ``setVarp`` used to create personal variable for player who opened menu.
+This action has same format as :ref:`action-var-glob-set` action for global variables.
+
+Example:
+
+::
+
+	setVarp: "myvar:Hello, world"
+
+.. _action-var-pers-temp:
+
+Temporal variable
+"""""""""""""""""
+
+Same as with :ref:`action-var-glob-temp` of global variables, but using ``setVarp`` action.
+
+.. _action-var-pers-replace:
+
+Rewriting safety
+""""""""""""""""
+
+Same as with :ref:`action-var-glob-replace` of global variables, but using ``setVarp`` action.
+
+.. _action-var-pers-rem:
+
+Remove
+""""""
+
+To remove personal variable, use the ``removeVarp`` action. This action has same format as for global variables:
+
+::
+
+	removeVarp: "my_var_name"
+
+.. _action-var-pers-math:
+
+Math actions
+""""""""""""
+
+There is several actions to do math operations with personal variables:
+
+:incVarp: Increment personal variable
+:decVarp: Decrement personal variable
+:mulVarp: Multiply personal variable
+:divVarp: Divide personal variable
+
+All arguments and usage similar to :ref:`action-var-glob-math` of global variables.
+
+::
+
+	incVarp: "myvar:2"
+
+Multiple variables interaction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In some cases you need to set, remove, or change multiple variables. 
+For this, you can use any variable action as list. Example:
+
+**Example 1**. Set multiple global variables.
 
 ::
 
 	setVar: [
-	   {
-	     player: "PeterPiper"
-	     name: "var1"
-	     value: "value1"
-	     replace: false
-	   },
-	   {
-	     player: "PeterPiper"
-	     name: "var2"
-	     value: 58
-	   }
+	  "variable_1:Value of variable 1",
+	  "variable_3:Value of variable 2",
+	  "variable_3:Value of variable 3"
 	]
 
-
-.. _action-remvar:
-
-Remove
-~~~~~~
-
-Action to remove personal or global variable. Example:
-
-::
-
-	removeVar {
-	  name: "myvar"
-	  player: "%player_name%"
-	}
-
-There is only two parameters:
-
-:name: Name of the variable
-:player: **[Optional]** For personal variables
-
-This action also support multiple variables removing:
+**Example 2**. Remove multiple global variables.
 
 ::
 
 	removeVar: [
-	  {
-	    name: "myvar"
-		player: "%player_name%" 
-	  },
-	  {
-	    name: "my_global_var"
-	  }
+	  "variable_1",
+	  "variable_3",
+	  "variable_3"
 	]
 
-.. _action-varmath:
-
-Variables math
-~~~~~~~~~~~~~~
-
-There is several actions to do math operations with variables:
-
-:incVar: Increment variable on some value.
-:decVar: Decrement variable on some value.
-:mulVar: Multiply variable by some value.
-:divVar: Divide variable by some value.
-
-If variable with specified name doesn't exists it will create a new one with specified value.
-
-Below is the example of using ``incVar`` action. All other math actions has same format.
+**Example 3**. Increment multiple personal variables.
 
 ::
 
-	incVar {
-	  name: "my_var"
-	  value: 2
-	}
-
-Or increment personal variable:
-
-::
-
-	incVar {
-	  player: "%player_name%"
-	  name: "my_var"
-	  value: 2
-	}
-
-.. note:: This actions also can change many variables at once. The format is the same as described for ``setVar`` action.
+	incVarp: [
+	  "var_1:2",
+	  "var_3:5",
+	  "var_3:8"
+	]
 
 .. _action-delay:
 

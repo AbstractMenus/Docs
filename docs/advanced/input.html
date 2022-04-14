@@ -80,6 +80,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#using-regular-placeholders-for-player-argument">Using regular placeholders for player argument</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#default-arguments">Default arguments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#final-example-open-profile-menu-by-command">Final example. Open profile menu by command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-overriding">Command overriding</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +145,7 @@
 <li><p><a class="reference internal" href="#using-regular-placeholders-for-player-argument" id="id14">Using regular placeholders for player argument</a></p></li>
 <li><p><a class="reference internal" href="#default-arguments" id="id15">Default arguments</a></p></li>
 <li><p><a class="reference internal" href="#final-example-open-profile-menu-by-command" id="id16">Final example. Open profile menu by command</a></p></li>
+<li><p><a class="reference internal" href="#command-overriding" id="id17">Command overriding</a></p></li>
 </ul>
 </li>
 </ul>
@@ -317,7 +319,12 @@ This object has several required and optional parameters. Below is full structur
 <tr class="row-even"><td><p>args</p></td>
 <td><p>Strings list, Objects list</p></td>
 <td><p>Command arguments</p></td>
-<td><p>true</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p>override</p></td>
+<td><p>Boolean</p></td>
+<td><p>Try to override command from other plugin</p></td>
+<td><p>false</p></td>
 </tr>
 </tbody>
 </table>
@@ -560,6 +567,26 @@ AbstractMenus saves entered player and provides access to their regular placehol
 <img alt="../_images/input_example.gif" src="../_images/input_example.gif" />
 <p class="caption"><span class="caption-text">How commands work</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </div>
+</div>
+<div class="section" id="command-overriding">
+<h3><a class="toc-backref" href="#id17">Command overriding</a><a class="headerlink" href="#command-overriding" title="Permalink to this headline"></a></h3>
+<p>Sometimes we need to override command from other plugin.
+For example, you have third-party plugin with <code class="docutils literal notranslate"><span class="pre">/kit</span></code> command.</p>
+<p>Suppose we want to create menu which will be opened by the same command and will show list of available kits.
+By default, AbstractMenus register command by regular way. This means that any menu command may be overwritten by other plugins.</p>
+<p>To override plugin command, you can add <code class="docutils literal notranslate"><span class="pre">override:</span> <span class="pre">true</span></code> parameter to the command activator body. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activators</span> <span class="p">{</span>
+  <span class="n">command</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;kit&quot;</span>
+    <span class="n">aliases</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kits&quot;</span><span class="p">]</span>
+    <span class="n">override</span><span class="p">:</span> <span class="n">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Command with <code class="docutils literal notranslate"><span class="pre">override:</span> <span class="pre">true</span></code>, will be registered as chat listener, not only as regular command.
+This will allow to “override” third-party plugin command, even if AbstarctMenus loaded after this plugin.</p>
+<p>When user enter such command, plugin performs it as regular command and cancel next message handling to avoid performing this command by the real “command owner”.</p>
 </div>
 </div>
 </div>

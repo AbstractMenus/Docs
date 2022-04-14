@@ -71,3 +71,44 @@ html_favicon = './_static/favicon.ico'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+from pygments.lexers.data import JsonLexer
+from pygments.lexer import bygroups
+from pygments.token import *
+from sphinx.highlighting import lexers
+
+class HoconLexer(JsonLexer):
+    name = 'HOCON'
+    tag = 'hocon'
+    aliases = ['hocon']
+    filenames = ['*.hocon']
+
+    tokens = {
+        'root': [
+            (r'//.*?$', Comment.Single),
+            (r'#.*?$', Comment.Single),
+            (r'/[$][{][?]?/', Literal.String.Interpol, 'interpolation'),
+            (r'/"""/', Literal.String.Double, 'multiline_string'),
+            (r'/\b(?:include|url|file|classpath)\b/', Keyword),
+            (r'/[()=]/', Punctuation),
+            (r'/([\w\-\.]+? *)([{:=]|\+=)/', bygroups(Name.Attribute, Punctuation.Indicator)),
+            (r'/[()=]/', Punctuation),
+            (r'/\d+\.(\d+\.?){3,}/', Literal),
+            (r'/[^\$\"{}\[\]:=,\+#`\^\?!@\*&]+?/', Literal),
+        ],
+        'string': [
+        	(r'/[$][{][?]?/', Literal.String.Interpol, 'interpolation'),
+            (r'/[^\\"\${]+/', Literal.String.Double),
+        ],
+        'multiline_string': [
+        	(r'/"[^"]{1,2}/', Literal.String.Double),
+            (r'/"""/', Literal.String.Double, '#pop'),
+        ],
+        'interpolation': [
+        	(r'/[\w\-\.]+?/', Name.Variable),
+            (r'/}/', Literal.String.Interpol, '#pop'),
+        ]
+    }
+
+
+lexers['hocon'] = HoconLexer(startinline=True)

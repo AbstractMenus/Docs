@@ -49,9 +49,10 @@ All rules
 	"online", |t_int|, ``online: 17``, "Is there required players count on the server"
 	"inventoryItems", |t_list_obj|, |ex_below| :ref:`rule-items`, "Does player has a items, specified in the list"
 	"heldItem", |t_obj|, |ex_below| :ref:`rule-held`, "Does the item in the player's main hand match the specified item"
-	"existVar", |t_obj|, |ex_below| :ref:`rule-var`, "Check is there exists personal or global variable"
 	"freeSlot", |t_int|, ``freeSlot: -1`` ``freeSlot: 3``, "Checks player inventory for free slot. If number is greater that ``-1`` it will check specified slot. If number lesser than ``0`` it will check inventory for any free slot"
 	"freeSlotCount", |t_int|, ``freeSlotCount: 2``, "Checks player inventory for specify free slots count. If player has a same or more free slots it will return true"
+	"existVar", "|t_str|, |t_obj|", |ex_below| :ref:`rule-var`, "Check is there exists global variable"
+	"existVarp", |t_str|, |ex_below| :ref:`rule-var`, "Check is there exists personal variable"
 	"**WorldGuard**"
 	"region", |t_list_str|, ``region: "myregion"``, "Checks player is in one of the specified **WorldGuard** regions"
 	"**BungeeCord**"
@@ -103,7 +104,22 @@ Rule to check a held item.
 Var existing
 ------------
 
-Rule to check is there exists some variable.
+Rules to check is there exists some variable.
+
+For global variables:
+
+::
+
+	existVar: "global_var_name"
+
+For personal variables:
+
+::
+
+	existVarp: "personal_var_name"
+
+Rule ``existVar`` also has legacy format. It can be specified as object with variable 
+name and optional name of player - variable owner.
 
 ::
 
@@ -114,6 +130,8 @@ Rule to check is there exists some variable.
 
 :name: Variable name.
 :player: **[Optional]** Specify if you need to check personal variable.
+
+However, we recommend you to use brief format of ``existVar`` rule where this possible.
 
 .. _rule-bungee:
 

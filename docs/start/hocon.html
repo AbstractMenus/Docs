@@ -158,7 +158,7 @@
 <div class="section" id="key-value">
 <h3><a class="toc-backref" href="#id3">Key-value</a><a class="headerlink" href="#key-value" title="Permalink to this headline"></a></h3>
 <p>All data in HOCON has this format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
+<div class="highlight-hocon notranslate"><div class="highlight"><pre><span></span><span class="err">&lt;key&gt;</span><span class="p">:</span> <span class="err">&lt;value&gt;</span>
 </pre></div>
 </div>
 <p>where:</p>
@@ -171,10 +171,10 @@
 </dd>
 </dl>
 <p>A few examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span> <span class="s2">&quot;AbstractMenus&quot;</span>
+<div class="highlight-hocon notranslate"><div class="highlight"><pre><span></span><span class="kc">na</span><span class="err">me</span><span class="p">:</span> <span class="s2">&quot;AbstractMenus&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">age</span><span class="p">:</span> <span class="mi">20</span>
+<div class="highlight-hocon notranslate"><div class="highlight"><pre><span></span><span class="err">age</span><span class="p">:</span> <span class="mi">20</span>
 </pre></div>
 </div>
 <p>In this examples <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code> are <strong>keys</strong>. <code class="docutils literal notranslate"><span class="pre">&quot;AbstractMenus&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">20</span></code> are <strong>values</strong>. More about data types see topic <a class="reference internal" href="#data-types"><span class="std std-ref">HOCON data types</span></a></p>
@@ -182,8 +182,8 @@
 <div class="section" id="comments">
 <h3><a class="toc-backref" href="#id4">Comments</a><a class="headerlink" href="#comments" title="Permalink to this headline"></a></h3>
 <p>Comments are invisible for plugin. So you can comment some lines for yourself. Comments can start with <code class="docutils literal notranslate"><span class="pre">//</span></code> or <code class="docutils literal notranslate"><span class="pre">#</span></code> symbols.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is my first comment</span>
-<span class="o">//</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">another</span> <span class="n">comment</span>
+<div class="highlight-hocon notranslate"><div class="highlight"><pre><span></span><span class="err">#</span> <span class="err">This</span> <span class="err">is</span> <span class="err">my</span> <span class="kc">f</span><span class="err">irs</span><span class="kc">t</span> <span class="err">comme</span><span class="kc">nt</span>
+<span class="err">//</span> <span class="err">This</span> <span class="err">is</span> <span class="err">my</span> <span class="err">a</span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="err">her</span> <span class="err">comme</span><span class="kc">nt</span>
 </pre></div>
 </div>
 </div>
@@ -194,7 +194,7 @@
 <div class="section" id="string">
 <h3><a class="toc-backref" href="#id6">String</a><a class="headerlink" href="#string" title="Permalink to this headline"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">String</span></code> format is simple. Below is example how you can specify this.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">param_name</span><span class="p">:</span> <span class="s2">&quot;Some text&quot;</span>
+<div class="highlight-hocon notranslate"><div class="highlight"><pre><span></span><span class="err">param_</span><span class="kc">na</span><span class="err">me</span><span class="p">:</span> <span class="s2">&quot;Some text&quot;</span>
 </pre></div>
 </div>
 <p>In HOCON, the text is enclose between double quotes <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, for example:</p>

@@ -100,9 +100,10 @@ The table below contains all the properties of menu which you can specify in men
 	"items", |t_list_obj|, "No", "Menu items (buttons)"
 	"activators", |t_obj|, "No", "An :doc:`activators` to open menu"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
-	"openActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **before** the menu opened, but **after** open rules successfully checked"
-	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will be executed if at least one rule is ``false``"
-	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will be executed **after** menu closed"
+	"openActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **before** the menu opened, but **after** open rules successfully checked"
+	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will be performed if at least one rule is ``false``"
+	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **after** menu closed"
+	"updateActions", |t_obj|, "No", "An :doc:`actions` that will be performed when menu updated by ``updateInterval``"
 	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu won't update"
 
 .. _struct-auto-refresh:
@@ -128,6 +129,21 @@ A bit more detailed about the ``updateInterval`` property. If you want to create
 The menu above will be refreshed every 2 seconds. Along with this, the item that display the number of players on the server will be refreshed along with the placeholder ``%server_players%``.
 
 In the example above we used the default placeholders. More about placeholders you can find on :doc:`placeholders` page.
+
+If you want to do some job when menu updated by ``updateInterval``, you can use ``updateActions`` block.
+
+::
+
+	title: "Timer"
+	size: 1
+	updateInterval: 20
+	updateActions {
+	  incVar: "counter:1"
+	}
+
+In this example, global variable ``counter`` will be incremented every time menu updated. In our case, with a period of 1 second (20 ticks).
+
+.. note:: Actions inside ``updateActions`` will be performed before items updates, so if you change some variable inside, the result will be seen immediately.
 
 Buttons
 -------

@@ -5,7 +5,7 @@ User input
 
 .. include:: ../_includes/contents.rst
 
-This article is about how you can save some user input and use in inside your menus.
+This article is about how you can save some user input and use it inside your menus.
 
 .. _input-ctx-main:
 
@@ -453,3 +453,119 @@ Command with ``override: true``, will be registered as chat listener, not only a
 This will allow to "override" third-party plugin command, even if AbstarctMenus loaded after this plugin.
 
 When user enter such command, plugin performs it as regular command and cancel next message handling to avoid performing this command by the real "command owner".
+
+.. _input-chat:
+
+Chat Input
+----------
+
+Action ``inputChat`` allows you to request some text input to player. 
+Below is the structure of this action.
+
+.. csv-table::
+	:header: "Parameter", "Type", "Note", "Required"
+	:widths: 3, 4, 10, 2
+
+	"into", |t_str|, "Name of variable in which data will be saved", "true"
+	"global", |t_bool|, "If ``true``, data will be saved in the global variable. By default is ``false``", "false"
+	"cancelOn", |t_str|, "A 'stop word' or phrase that will cancel waiting for input. If input cancelled, actions inside ``onCancel`` will be executed instead of ``onInput``", "false"
+	"onInput", |t_obj|, "Actions for completed input", "false"
+	"onCancel", |t_obj|, "Actions for cancelled by stop word input", "false"
+
+The only required paramater is a ``into``. This is the name of :doc:`variable <../general/variables>`. 
+When player enter a text in the chat, plugin save this text into variable with specified name. 
+After this, you can get value if this variable anywhere through :ref:`variable placeholder <vars-access>`.
+
+Basic example:
+
+::
+
+	slot: 0
+	material: STONE
+	click {
+	  message: "Enter player name"
+	  inputChat {
+	    into: "input_username"
+	  }
+	}
+
+If player clicked on this item, menu will be closed with message. 
+After this, player must write something in chat.
+
+If you want to perform some action, after text entered, you need to use ``onInput`` actions block. Example:
+
+::
+
+	slot: 0
+	material: STONE
+	click {
+	  message: "Enter player name"
+	  inputChat {
+	    into: "input_username"
+	    onInput {
+	      command: {
+	        console: "say Hello, %varp_:input_username%!"
+	      }
+	    }
+	  }
+	}
+
+Result:
+
+.. figure:: ../_static/input_chat_1.png
+
+	Waiting for input
+
+Here, when player entered something in the chat, all players will 
+see ``Hello, <text>!`` where ``<text>`` is a text, entered by player.
+
+.. figure:: ../_static/input_chat_2.png
+
+	Input completed
+
+.. note:: After performing ``inputChat``, menu will be closed automatically. **Do not** close it manually by ``closeMenu`` action.
+
+Input Cancelling
+~~~~~~~~~~~~~~~~
+
+If you want to add ability to cancel text input, you can add ``cancelOn`` parameter to the action. 
+Example:
+
+::
+
+	slot: 0
+	material: STONE
+	click {
+	  message: "Enter player name"
+	  inputChat {
+	    into: "input_username"
+	    cancelOn: "cancel"
+	    onInput {
+	      command: {
+	        console: "say Hello, %varp_:input_username%"
+	      }
+	    }
+	    onCancel {
+	      message: "Ok, do not write anything"
+	    }
+	  }
+	}
+
+
+Here we also added ``onCancel`` block to send message to player if input cancelled.
+If player entered ``cancel`` in the chat, plugin will not wait for input anymore, and performs action inside ``onCancel`` if it specified.
+
+.. figure:: ../_static/input_chat_3.png
+
+	Input cancelled by stop-word
+
+Restrictions
+~~~~~~~~~~~~
+
+Note, that not all stuff, that available in menu, allowed inside ``onInput`` and ``onCancel`` blocks.
+
+Since menu is closed while waiting for input, you can only use actions which are not interacts with menu inventory. 
+**Do not use** actions like ``refreshMenu``, ``closeMenu``, ``openMenu``, etc.
+
+Context placeholder also won't work inside these action blocks. 
+This is not possible due menu lifecycle, so you can use only common placeholders and variables.

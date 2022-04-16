@@ -25,6 +25,7 @@ All actions
 	"miniMessage", |t_str|, |ex_below| :ref:`mini-message`, "Send message with :ref:`mini-message`"
 	"playerChat", |t_list_str|, ``playerChat: "Hello!"``, "Send a message on behalf of the player who opened the menu"
 	"command", |t_obj|, |ex_below| :ref:`action-cmd`, "Execute a list of commands on behalf of a player or server"
+	"inputChat", |t_obj|, |ex_below| :ref:`action-input-chat`, "Request player for enter text in chat and save result in variable"
 	"teleport", |t_obj|, |ex_below| :ref:`action-tp`, "Teleport player to location"
 	"itemAdd", |t_list_obj|, |ex_below| :ref:`action-itemadd`, "Add any items to player"
 	"itemRemove", |t_list_obj|, |ex_below| :ref:`action-itemrem`, "Remove items from player's inventory. Items will be compared by specified properties or could be just removed by slot number"
@@ -174,6 +175,16 @@ You can also execute commands only by player or server:
 	command { player: "command 1" }
 
 And same with ``console`` block.
+
+.. _action-input-chat:
+
+Chat Input
+----------
+
+This action will close menu and ask player to enter some text in the chat. 
+After text entered, plugin will save it into variable.
+
+All about chat input feature read on :ref:`input-chat` page.
 
 .. _action-tp:
 

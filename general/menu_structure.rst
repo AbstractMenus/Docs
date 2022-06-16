@@ -97,6 +97,7 @@ The table below contains all the properties of menu which you can specify in men
 
 	"title", |t_str|, "Yes", "Set the title of a menu"
 	"size", |t_int|, "Yes", "Set the vertical size of a menu (rows count)"
+	"type", |t_str|, "No", ":ref:`struct-inventory-type`"
 	"items", |t_list_obj|, "No", "Menu items (buttons)"
 	"activators", |t_obj|, "No", "An :doc:`activators` to open menu"
 	"rules", |t_list_obj|, "No", "A :doc:`rules` to open menu. If even one of those rule is ``false`` then menu won't be opened"
@@ -238,6 +239,60 @@ Any of these types can be used inside ``click`` block either individually or tog
 	    }
 	  }
 	]
+
+.. _struct-inventory-type:
+
+Inventory type
+--------------
+
+You can use other types of inventorym not only chest. 
+For this use ``type`` property of menu. This property accepts type name of inventory. 
+All type names you can find `here <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/event/inventory/InventoryType.html>` (for latest Spigot version).
+
+If you use custom inventory type, you can omit a ``slot`` property.
+
+.. warning:: Not every type of invenotry will work. A ``HOPPER`` and ``DISPENSER`` types will work on all supported MC versions. Other types may work incorrectly.
+
+
+Below is example of menu with custom inventory type.
+
+Hopper
+~~~~~~
+
+Code:
+::
+
+	title: "Menu"
+	type: HOPPER
+	activators {
+	  command: "menu"
+	}
+	items: []
+
+Result:
+
+.. figure:: ../_static/struct_hopper.png
+
+	Hopper inventory
+
+Dispenser
+~~~~~~~~~
+
+Code:
+::
+
+	title: "Menu"
+	type: DISPENSER
+	activators {
+	  command: "menu"
+	}
+	items: []
+
+Result:
+
+.. figure:: ../_static/struct_dispenser.png
+
+	Dispenser inventory
 
 .. _struct-bindings:
 

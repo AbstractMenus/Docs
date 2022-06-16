@@ -1,36 +1,78 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>How to create menu &mdash; AbstractMenus  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
+
+  
+  
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/js/links.js"></script>
-    <script src="../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="HOCON format" href="hocon.html" />
     <link rel="prev" title="AbstractMenus Docs" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F05454" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> AbstractMenus
+          
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -38,7 +80,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to create menu</a><ul>
@@ -86,31 +139,71 @@
 <li class="toctree-l1"><a class="reference internal" href="../dev/utils.html">Utils</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #F05454" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
       <li>How to create menu</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   <div class="section" id="how-to-create-menu">
-<h1><a class="toc-backref" href="#id3">How to create menu</a><a class="headerlink" href="#how-to-create-menu" title="Permalink to this headline"></a></h1>
+<h1><a class="toc-backref" href="#id3">How to create menu</a><a class="headerlink" href="#how-to-create-menu" title="Permalink to this heading">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -136,7 +229,7 @@
 <p>Many peoples have problems with menu writing through bad and not smart text editor. We recommend to use the <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a> or any other smart text editor to convenient edit menu files. This will greatly facilitate your work with the configuration in the HOCON format. Optionally, you can install <a class="reference external" href="https://packagecontrol.io/packages/HOCON%20Syntax%20Highlighting">plugin for HOCON syntax highlighting</a>.</p>
 </div>
 <div class="section" id="create-a-header">
-<h2><a class="toc-backref" href="#id4">Create a header</a><a class="headerlink" href="#create-a-header" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id4">Create a header</a><a class="headerlink" href="#create-a-header" title="Permalink to this heading">¶</a></h2>
 <p>Each menu is a file with <code class="docutils literal notranslate"><span class="pre">.conf</span></code> extension. All menu files must be located in the <code class="docutils literal notranslate"><span class="pre">plugins/AbstractMenus/menus</span></code> folder. When you run plugin first time, this folder will be created automatically. This folder will also contain the simple menu in <code class="docutils literal notranslate"><span class="pre">menu.conf</span></code> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -163,7 +256,7 @@
 <p>Now menu cannot be opened without a special administrator command. To allow players to open the menu, you need to add an activator for this menu.</p>
 </div>
 <div class="section" id="add-an-activator">
-<h2><a class="toc-backref" href="#id5">Add an activator</a><a class="headerlink" href="#add-an-activator" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id5">Add an activator</a><a class="headerlink" href="#add-an-activator" title="Permalink to this heading">¶</a></h2>
 <p>An activator is an event that must happen to open menu. To add an activator, you need specify the <code class="docutils literal notranslate"><span class="pre">activators</span></code> block in the menu root.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
@@ -183,12 +276,12 @@
 <p>After plugin reloading (<code class="docutils literal notranslate"><span class="pre">/am</span> <span class="pre">reload</span></code>), try to enter the <code class="docutils literal notranslate"><span class="pre">/mymenu</span></code> command in the chat. You will see an empty menu with a given size and <strong>My first menu</strong> title.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/howto_empty.png" src="../_images/howto_empty.png" />
-<p class="caption"><span class="caption-text">Empty menu we created</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Empty menu we created</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>If all works for you, that’s great! Now we have an empty menu that does nothing. Let’s add some simple functionality.</p>
 </div>
 <div class="section" id="add-a-button">
-<h2><a class="toc-backref" href="#id6">Add a button</a><a class="headerlink" href="#add-a-button" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id6">Add a button</a><a class="headerlink" href="#add-a-button" title="Permalink to this heading">¶</a></h2>
 <p>A button is just an item, placed in the menu’s inventory. You can learn about all features of the buttons on <a class="reference internal" href="../general/item_format.html"><span class="doc">Item format</span></a> page. In this lesson we will just show the simplest buttons usage.</p>
 <p>So, to add buttons, we need to add a special list of the menu items (buttons).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
@@ -229,11 +322,11 @@
 <p>Okay, we have a button. If you reload the plugin and open the menu, you will see the created button inside.</p>
 <div class="figure align-center" id="id2">
 <img alt="../_images/howto_excalibur.png" src="../_images/howto_excalibur.png" />
-<p class="caption"><span class="caption-text">Menu with button we created</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p class="caption"><span class="caption-text">Menu with button we created</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Now it does nothing if we click it. Let’s add some action for our button.</p>
 <div class="section" id="add-actions-to-button">
-<h3><a class="toc-backref" href="#id7">Add actions to button</a><a class="headerlink" href="#add-actions-to-button" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id7">Add actions to button</a><a class="headerlink" href="#add-actions-to-button" title="Permalink to this heading">¶</a></h3>
 <p>To make our button perform some action, there is special <code class="docutils literal notranslate"><span class="pre">click</span></code> block for buttons. Now we will show its simplest use. More details about button click processing written on <a class="reference internal" href="../general/menu_structure.html"><span class="doc">Menu structure</span></a> page.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
@@ -255,7 +348,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">click</span></code> block is an actions block. We’ve added one simple <code class="docutils literal notranslate"><span class="pre">closeMenu</span></code> action that just closes the menu. This action will work for any type of click on the button. If you want to add different actions for different types of click, you can add them. All types of clicks are described on <a class="reference internal" href="../general/menu_structure.html"><span class="doc">Menu structure</span></a> page.</p>
 </div>
 <div class="section" id="add-rules-to-display-a-button">
-<h3><a class="toc-backref" href="#id8">Add rules to display a button</a><a class="headerlink" href="#add-rules-to-display-a-button" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id8">Add rules to display a button</a><a class="headerlink" href="#add-rules-to-display-a-button" title="Permalink to this heading">¶</a></h3>
 <p>You can add the display rules for any button. If player who opened the menu match the rules, the button will be showed in inventory. Otherwise, it will be ignored. Suppose we want our Excalibur to look different for different players. It will depend on the player’s level. Then our menu file will looks like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
@@ -287,7 +380,7 @@
 </div>
 </div>
 <div class="section" id="add-actions-for-button-click">
-<h3><a class="toc-backref" href="#id9">Add actions for button click</a><a class="headerlink" href="#add-actions-for-button-click" title="Permalink to this headline"></a></h3>
+<h3><a class="toc-backref" href="#id9">Add actions for button click</a><a class="headerlink" href="#add-actions-for-button-click" title="Permalink to this heading">¶</a></h3>
 <p>Rules can be used at the time of clicking on the button. Suppose we want to sell our sword. Then we can add the following code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
@@ -328,7 +421,7 @@
 </div>
 </div>
 <div class="section" id="add-a-rule-for-menu-opening">
-<h2><a class="toc-backref" href="#id10">Add a rule for menu opening</a><a class="headerlink" href="#add-a-rule-for-menu-opening" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id10">Add a rule for menu opening</a><a class="headerlink" href="#add-a-rule-for-menu-opening" title="Permalink to this heading">¶</a></h2>
 <p>The last thing we want to talk about in this lesson is how to add rules to open a menu. If you specify the rules in the menu’s root, on the same level of parameters such as <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>, the following will happen:</p>
 <ol class="arabic simple">
 <li><p>Before opening the menu, the player will be checked for compliance with the rules.</p></li>
@@ -364,30 +457,42 @@
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="AbstractMenus Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="hocon.html" class="btn btn-neutral float-right" title="HOCON format" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="AbstractMenus Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Nanit.</p>
-  </div>
+    <p>
+        &#169; Copyright 2021, Nanit.
 
-   
+    </p>
+  </div> 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

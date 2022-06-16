@@ -1,36 +1,78 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Create own types &mdash; AbstractMenus  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/overrides.css" type="text/css" />
+
+  
+  
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/js/links.js"></script>
-    <script src="../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data Handlers" href="handlers.html" />
     <link rel="prev" title="Types deserializing" href="serializers.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F05454" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> AbstractMenus
+          
+
+          
           </a>
+
+          
+            
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -38,7 +80,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../start/how_to.html">How to create menu</a></li>
@@ -86,31 +139,71 @@
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #F05454" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">AbstractMenus</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
       <li>Create own types</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   <div class="section" id="create-own-types">
-<h1><a class="toc-backref" href="#id1">Create own types</a><a class="headerlink" href="#create-own-types" title="Permalink to this headline"></a></h1>
+<h1><a class="toc-backref" href="#id1">Create own types</a><a class="headerlink" href="#create-own-types" title="Permalink to this heading">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
@@ -136,7 +229,7 @@
 </div>
 <p>AbstractMenus gives access to create own Action, Rule, Item property, and Catalog.</p>
 <div class="section" id="create-action">
-<h2><a class="toc-backref" href="#id2">Create Action</a><a class="headerlink" href="#create-action" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id2">Create Action</a><a class="headerlink" href="#create-action" title="Permalink to this heading">¶</a></h2>
 <p>Each action class must implement the <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/Action.html">Action</a> interface.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAction</span> <span class="kd">implements</span> <span class="n">Action</span> <span class="p">{</span>
     <span class="nd">@Override</span>
@@ -195,7 +288,7 @@
 </div>
 </div>
 <div class="section" id="create-rule">
-<h2><a class="toc-backref" href="#id3">Create Rule</a><a class="headerlink" href="#create-rule" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id3">Create Rule</a><a class="headerlink" href="#create-rule" title="Permalink to this heading">¶</a></h2>
 <p>Each rule implements the <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/Rule.html">Rule</a> interface. It contains one method, which, depending on the check, can return <code class="docutils literal notranslate"><span class="pre">true</span></code> (the player matches the rule) or <code class="docutils literal notranslate"><span class="pre">false</span></code> (the player doesn’t matches the rule).</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyRule</span> <span class="kd">implements</span> <span class="n">Rule</span> <span class="p">{</span>
     <span class="nd">@Override</span>
@@ -237,7 +330,7 @@
 <p>This applies to all registered actions, rules, etc., which have no parameters.</p>
 </div>
 <div class="section" id="create-value-extractor">
-<span id="api-extractor"></span><h2><a class="toc-backref" href="#id4">Create Value Extractor</a><a class="headerlink" href="#create-value-extractor" title="Permalink to this headline"></a></h2>
+<span id="api-extractor"></span><h2><a class="toc-backref" href="#id4">Create Value Extractor</a><a class="headerlink" href="#create-value-extractor" title="Permalink to this heading">¶</a></h2>
 <p>Value extractors used by Activators and Catalogs, so before learn how to make them, you need to know how to make extractor.</p>
 <p>Value extractor is an object that takes some object and placeholder. By provided placeholder extractor returns some values from provided object.</p>
 <p>Each value extractor should implement <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/ValueExtractor.html">ValueExtractor</a> interface. This interface has single method with two arguments:</p>
@@ -277,7 +370,7 @@
 <p>Value exractors are not registered, like actions or rules. Each menu element whoch uses it, should provide extractor instance. You will understood how it works after reading next parts of this page.</p>
 </div>
 <div class="section" id="create-activator">
-<h2><a class="toc-backref" href="#id5">Create Activator</a><a class="headerlink" href="#create-activator" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id5">Create Activator</a><a class="headerlink" href="#create-activator" title="Permalink to this heading">¶</a></h2>
 <p>Each activator extends from the abstract class <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/Activator.html">Activator</a>. It has no abstract methods to implement. This class is implemented from the Bukkit’s <code class="docutils literal notranslate"><span class="pre">Listener</span></code> interface, so inside you can listen for events, the calling of which will open the menu.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -317,7 +410,7 @@
 </pre></div>
 </div>
 <div class="section" id="activator-with-context">
-<span id="api-types-ctx"></span><h3><a class="toc-backref" href="#id6">Activator with context</a><a class="headerlink" href="#activator-with-context" title="Permalink to this headline"></a></h3>
+<span id="api-types-ctx"></span><h3><a class="toc-backref" href="#id6">Activator with context</a><a class="headerlink" href="#activator-with-context" title="Permalink to this heading">¶</a></h3>
 <p>Activator’s context is any object that saves before opening menu. After menu opened, you can get access to some context value through value extractor’s placeholders.</p>
 <p>To create activator with context, you need to specify required object when you call <code class="docutils literal notranslate"><span class="pre">openMenu</span></code> method.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyActivator</span> <span class="kd">extends</span> <span class="n">Activator</span> <span class="p">{</span>
@@ -391,7 +484,7 @@ We will create simple extractor for <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="create-item-property">
-<h2><a class="toc-backref" href="#id7">Create Item Property</a><a class="headerlink" href="#create-item-property" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id7">Create Item Property</a><a class="headerlink" href="#create-item-property" title="Permalink to this heading">¶</a></h2>
 <p>An item property is an object that modify item appearance.</p>
 <p>To create new item property, you need to implement <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/inventory/ItemProperty.html">ItemProperty</a> interface. There is several methods to implement:</p>
 <dl class="field-list simple">
@@ -473,7 +566,7 @@ We will create simple extractor for <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="create-catalog">
-<h2><a class="toc-backref" href="#id8">Create Catalog</a><a class="headerlink" href="#create-catalog" title="Permalink to this headline"></a></h2>
+<h2><a class="toc-backref" href="#id8">Create Catalog</a><a class="headerlink" href="#create-catalog" title="Permalink to this heading">¶</a></h2>
 <p>When menu opens, catalog provides collection of objects. Also catalog must return <a class="reference internal" href="#api-extractor"><span class="std std-ref">Value Extractor</span></a> to provide access to object properties through placeholders.</p>
 <p>To create catalog you need:</p>
 <ol class="arabic simple">
@@ -575,30 +668,42 @@ We will create simple extractor for <code class="docutils literal notranslate"><
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="serializers.html" class="btn btn-neutral float-left" title="Types deserializing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="handlers.html" class="btn btn-neutral float-right" title="Data Handlers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="serializers.html" class="btn btn-neutral float-left" title="Types deserializing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Nanit.</p>
-  </div>
+    <p>
+        &#169; Copyright 2021, Nanit.
 
-   
+    </p>
+  </div> 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

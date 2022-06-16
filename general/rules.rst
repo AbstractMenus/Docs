@@ -47,6 +47,7 @@ All rules
 	"foodLevel", |t_int|, ``foodLevel: 5``, "Does the player has required food level"
 	"chance", |t_int|, ``chance: 50``, "A random chance to complete this rule in percentages"
 	"online", |t_int|, ``online: 17``, "Is there required players count on the server"
+	"playerIsOnline", |t_str|, ``playerIsOnline: "Notch"``, "Chck is required player on the server"
 	"inventoryItems", |t_list_obj|, |ex_below| :ref:`rule-items`, "Does player has a items, specified in the list"
 	"heldItem", |t_obj|, |ex_below| :ref:`rule-held`, "Does the item in the player's main hand match the specified item"
 	"freeSlot", |t_int|, ``freeSlot: -1`` ``freeSlot: 3``, "Checks player inventory for free slot. If number is greater that ``-1`` it will check specified slot. If number lesser than ``0`` it will check inventory for any free slot"

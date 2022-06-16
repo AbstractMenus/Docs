@@ -21,12 +21,13 @@ All item properties
 	"slot", |t_mult|, |ex_below| :ref:`prop-slot`, "Set slot for item. Not a regular item's property. Can be used only for menu items or in some actions and rules"
 	"**Material installers**"
 	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material by name. On MC ``1.12`` and lower, numerical ids are supported"
-	"texture", |t_str|, ``texture: "<texture_id>"``, "Sha-1 hash of the skin from the server ``http://textures.minecraft.net/texture/<texture_id>``. You can find this hash, for example, on the https://minecraft-heads.com"
+	"texture", |t_str|, |ex_below| :ref:`prop-texture`, "Using custom head texture by texture id, url, or base64 encoded. You can find many heads on the https://minecraft-heads.com"
 	"skullOwner", |t_str|, |ex_below| :ref:`prop-skull-owner`, "Set player's skin on head"
 	"hdb", |t_str|, ``hdb: "2853"``, "Set the head by the identifier from the `HeadDatabase <https://www.spigotmc.org/resources/14280/>`_"
-	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Takes an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
-	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Takes a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
-	"oraxen", |t_str|, ``oraxen: "my_sword"``, "Takes a custom stack defined in `Oraxen <https://www.spigotmc.org/resources/72448/>`_ plugin"
+	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Take an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
+	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Take a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
+	"oraxen", |t_str|, ``oraxen: "my_sword"``, "Take a custom stack defined in `Oraxen <https://www.spigotmc.org/resources/72448/>`_ plugin"
+	"equipItem", |t_str|, ``equipItem: "HAND"``, "Take item from inventory of player who opened menu. See all slot types `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html>`_"
 	"**Other properties**"
 	"name", |t_str|, ``name: "Peter Piper"``, "Set display name"
 	"data", |t_int|, ``data: 2``, "Material data (deprecated since MC ``1.13``, full material names are used instead)"
@@ -169,6 +170,46 @@ If you need to get head of player who opened menu, use placeholder to get player
 .. important:: AbstratMenus loads player's skin on join to server. If you use name of player who is not joined to server, plugin will try to load skin data before menu will be opened. If you use static names in skullOwner, more suitable way is to use ``texture`` property.
 
 .. note:: If some skin data cannot be loaded (for example, if player don't have skin), head will be empty (Steve or Alex).
+
+.. _prop-texture:
+
+Texture
+-------
+
+You can specify texture using one of the following formats.
+
+Texture URL
+~~~~~~~~~~~
+
+Direct link to the texture image. Example:
+
+::
+
+	texture: "https://textures.minecraft.net/texture/a45d68aea87cc3fd20b96b21e18255db298b2eac986526473116bd3b5750b787"
+
+Texture Hash
+~~~~~~~~~~~~
+
+Texture hash is a sha-1 hash of skin image. 
+This hash you can find in the end of each texture url, avoiding static ``https://textures.minecraft.net/texture/`` prefix. 
+Example:
+
+::
+
+	texture: "a45d68aea87cc3fd20b96b21e18255db298b2eac986526473116bd3b5750b787"
+
+Using this way, the plugin will add the static prefix and a final url will be ``https://textures.minecraft.net/texture/a45d68aea87cc3fd20b96b21e18255db298b2eac986526473116bd3b5750b787``
+
+Base64 encoded
+~~~~~~~~~~~~~~
+
+Also often called "Texture value". 
+This is a url to texture, included in JSON and encoded using Base64 encoder.
+You can use such value with ``base64:`` prefix. Example:
+
+::
+
+	texture: "base64:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQ1ZDY4YWVhODdjYzNmZDIwYjk2YjIxZTE4MjU1ZGIyOThiMmVhYzk4NjUyNjQ3MzExNmJkM2I1NzUwYjc4NyJ9fX0="
 
 .. _prop-lore:
 

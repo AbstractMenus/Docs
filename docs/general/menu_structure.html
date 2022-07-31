@@ -371,10 +371,20 @@
 <td><p>No</p></td>
 <td><p>A <a class="reference internal" href="rules.html"><span class="doc">Rules</span></a> to open menu. If even one of those rule is <code class="docutils literal notranslate"><span class="pre">false</span></code> then menu won’t be opened</p></td>
 </tr>
-<tr class="row-even"><td><p>openActions</p></td>
+<tr class="row-even"><td><p>preOpenActions</p></td>
 <td><p>Object</p></td>
 <td><p>No</p></td>
-<td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be performed <strong>before</strong> the menu opened, but <strong>after</strong> open rules successfully checked</p></td>
+<td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be performed <strong>before</strong> inventory creation and menu opening</p></td>
+</tr>
+<tr class="row-odd"><td><p>openActions</p></td>
+<td><p>Object</p></td>
+<td><p>No</p></td>
+<td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be performed <strong>before</strong> the menu opened, but <strong>after</strong> open rules successfully checked and inventory created</p></td>
+</tr>
+<tr class="row-even"><td><p>postOpenActions</p></td>
+<td><p>Object</p></td>
+<td><p>No</p></td>
+<td><p>An <a class="reference internal" href="actions.html"><span class="doc">Actions</span></a>, that will be performed <strong>after</strong> the menu opened</p></td>
 </tr>
 <tr class="row-odd"><td><p>denyActions</p></td>
 <td><p>Object</p></td>

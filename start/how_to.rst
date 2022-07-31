@@ -13,32 +13,32 @@ Create a header
 
 Each menu is a file with ``.conf`` extension. All menu files must be located in the ``plugins/AbstractMenus/menus`` folder. When you run plugin first time, this folder will be created automatically. This folder will also contain the simple menu in ``menu.conf`` file.
 
-.. note:: You can create additional folders in the ``plugins/AbstractMenus/menus`` folder and put menu files in them. No matter how many folders are nested, the plugin will find and load all menus from them. This will allow you to sort related menus.
+.. note:: You can create additional folders in the ``plugins/AbstractMenus/menus`` folder and put menu files inside. No matter how many folders are nested, the plugin will find and load all menus from them. This will allow you to sort related menus.
 
-To create your first menu, create a file with any name but ``.conf`` extension. Note that file name is an unique name of your menu. In our case this is ``menu.conf``, so menu name is just ``menu``. To create a menu header, you need to specify only two parameters - ``title`` and ``size``.
+To create your first menu, create a file with any name and ``.conf`` extension. Note that file name is an unique name of your menu. In our case this is ``menu.conf``, so menu name is just ``menu``. To create a menu header, you need to set only 2 parameters - ``title`` and ``size``.
 
 ::
 
 	title: "My first menu"
 	size: 6
 
-These two parameters mean the following:
+These 2 parameters mean the following:
 
 :title: Menu title.
-:size: The number of inventory rows. The horizontal size cannot be changed without mods, so it's ignored.
+:size: The number of inventory rows. The horizontal size cannot be changed without mods yet, so it's ignored.
 
-This is the base header of any menu. If you reload the plugin using the ``/am reload`` command, you will see message like that:
+This is the base header of any menu. If you reload the plugin using the ``/am reload`` command, you will see message like this:
 
 ::
 
 	[AbstractMenus] Loaded 1 menus
 
-Now menu cannot be opened without a special administrator command. To allow players to open the menu, you need to add an activator for this menu.
+But now menu cannot be opened without a special admin command. To allow players to open the menu, you need to add an activator for this menu.
 
 Add an activator
 ----------------
 
-An activator is an event that must happen to open menu. To add an activator, you need specify the ``activators`` block in the menu root.
+An activator is an event that must happen to open menu. To add an activator, you need to set the ``activators`` block in the menu root.
 
 ::
 
@@ -117,8 +117,8 @@ Now it does nothing if we click it. Let's add some action for our button.
 
 Add actions to button
 ~~~~~~~~~~~~~~~~~~~~~
- 
-To make our button perform some action, there is special ``click`` block for buttons. Now we will show its simplest use. More details about button click processing written on :doc:`../general/menu_structure` page.
+
+To make our button perform some action, there is special ``click`` block for buttons. We will show a simplest use. More details about button click processing written on :doc:`../general/menu_structure` page.
 
 ::
 
@@ -168,7 +168,7 @@ You can add the display rules for any button. If player who opened the menu matc
 	  }
 	]
 
-Now there are two buttons was added in ``items`` list. The first will display always. The second one will only if the player's level greater than or equal to 10. We specified ``level`` rule in the special ``rules`` block. If the button has a ``rules`` block, before opening the menu the player will be checked for compliance with the specified rules first.
+Now there are two buttons was added in ``items`` list. The first will display always. The second one will only if the player's level greater than or equal to 10. We specified ``level`` rule in the special ``rules`` block. If the button has a ``rules`` block, the player will be checked with these rules before placing item.
 
 In our case, if player have level 9 or lower, he will see only an iron sword in slot 0. If a player with a level 10 or higher, he will see only a diamond sword, since the previous item in the slot 0 will be replaced with a new.
 

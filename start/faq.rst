@@ -92,4 +92,4 @@ Yes. AbstractMenus has logical wrappers and notation to invert any rule result. 
 Can I save some state somewhere to use it inside menus?
 -------------------------------------------------------
 
-Yes. AbstractMenus has variables system for this. You can :ref:`create, edit and delete <action-setvar>` them. To display them, AbstarctMenus has special :ref:`placeholders <vars-access>`.
+Yes. AbstractMenus has variables system for this. You can :ref:`create, edit and delete <action-var-glob-set>` them. To display them, AbstarctMenus has special :ref:`placeholders <vars-access>`.

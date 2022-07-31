@@ -116,6 +116,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#javascript">JavaScript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#player-scope-rules">Player scope rules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
@@ -223,6 +224,7 @@
 </ul>
 </li>
 <li><p><a class="reference internal" href="#javascript" id="id10">JavaScript</a></p></li>
+<li><p><a class="reference internal" href="#player-scope-rules" id="id11">Player scope rules</a></p></li>
 </ul>
 </li>
 </ul>
@@ -405,6 +407,11 @@
 <td><p>See example <a class="reference internal" href="../advanced/logical.html#logical-or"><span class="std std-ref">here</span></a></p></td>
 <td><p>Logical wrapper for rules implemented with ‘OR’ operator</p></td>
 </tr>
+<tr class="row-odd"><td><p>playerScope</p></td>
+<td><p>Object</p></td>
+<td><p>See example <a class="reference internal" href="#rule-player-scope"><span class="std std-ref">here</span></a></p></td>
+<td><p>Rules wrapper to check another player found by name</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -465,6 +472,10 @@ name and optional name of player - variable owner.</p>
 </div>
 <div class="section" id="bungeecord-online">
 <span id="rule-bungee"></span><h2><a class="toc-backref" href="#id6">BungeeCord online</a><a class="headerlink" href="#bungeecord-online" title="Permalink to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you enabled <code class="docutils literal notranslate"><span class="pre">bungeecord</span></code> in plugin config. If not, this rule will not work.</p>
+</div>
 <p>Rule to check players count on some BungeeCord server. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bungeeOnline</span> <span class="p">{</span>
   <span class="n">server</span><span class="p">:</span> <span class="s2">&quot;lobby&quot;</span>
@@ -627,6 +638,29 @@ name and optional name of player - variable owner.</p>
   <span class="n">js</span><span class="p">:</span> <span class="s2">&quot;&#39;%player_name%&#39;.length &lt; 5&quot;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="player-scope-rules">
+<span id="rule-player-scope"></span><h2><a class="toc-backref" href="#id11">Player scope rules</a><a class="headerlink" href="#player-scope-rules" title="Permalink to this heading">¶</a></h2>
+<p>If you need to check another player, you can use special rules wrapper called <code class="docutils literal notranslate"><span class="pre">playerScope</span></code>. Example with item display rules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="n">material</span><span class="p">:</span> <span class="n">cake</span>
+  <span class="n">rules</span> <span class="p">{</span>
+    <span class="n">playerScope</span> <span class="p">{</span>
+      <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;%player_name_placeholder%&quot;</span>
+      <span class="n">rules</span> <span class="p">{</span>
+        <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;perm.name&quot;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The rules inside <code class="docutils literal notranslate"><span class="pre">rules</span></code> block will be executed for player who found by name, entered in <code class="docutils literal notranslate"><span class="pre">name</span></code> field. In our case, item will be shown if player found by placeholder has <code class="docutils literal notranslate"><span class="pre">perm.name</span></code> permission.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If player not found, this rule just will return false, without throwing error.</p>
 </div>
 </div>
 </div>

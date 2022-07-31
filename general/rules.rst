@@ -65,6 +65,7 @@ All rules
 	"**Special rules**"
 	"and", |t_list_obj|, |ex_below| :ref:`here <logical-and>`, "Logical wrapper for rules implemented with 'AND' operator"
 	"or", |t_list_obj|, |ex_below| :ref:`here <logical-or>`, "Logical wrapper for rules implemented with 'OR' operator"
+	"playerScope", |t_obj|, |ex_below| :ref:`here <rule-player-scope>`, "Rules wrapper to check another player found by name"
 
 .. _rule-items:
 
@@ -138,6 +139,8 @@ However, we recommend you to use brief format of ``existVar`` rule where this po
 
 BungeeCord online
 -----------------
+
+.. note:: Make sure you enabled ``bungeecord`` in plugin config. If not, this rule will not work.
 
 Rule to check players count on some BungeeCord server. Example:
 
@@ -250,3 +253,30 @@ The ``js`` rule supports placeholders. This will allow you to compare them, and 
 	rules {
 	  js: "'%player_name%'.length < 5"
 	}
+
+.. _rule-player-scope:
+
+Player scope rules
+------------------
+
+If you need to check another player, you can use special rules wrapper called ``playerScope``. Example with item display rules:
+
+::
+
+	{
+	  slot: 0
+	  material: cake
+	  rules {
+	    playerScope {
+	      name: "%player_name_placeholder%"
+	      rules {
+	        permission: "perm.name"
+	      }
+	    }
+	  }
+	}
+
+
+The rules inside ``rules`` block will be executed for player who found by name, entered in ``name`` field. In our case, item will be shown if player found by placeholder has ``perm.name`` permission.
+
+.. note:: If player not found, this rule just will return false, without throwing error.

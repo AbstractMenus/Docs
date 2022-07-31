@@ -233,31 +233,31 @@
 <p>Each menu is a file with <code class="docutils literal notranslate"><span class="pre">.conf</span></code> extension. All menu files must be located in the <code class="docutils literal notranslate"><span class="pre">plugins/AbstractMenus/menus</span></code> folder. When you run plugin first time, this folder will be created automatically. This folder will also contain the simple menu in <code class="docutils literal notranslate"><span class="pre">menu.conf</span></code> file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can create additional folders in the <code class="docutils literal notranslate"><span class="pre">plugins/AbstractMenus/menus</span></code> folder and put menu files in them. No matter how many folders are nested, the plugin will find and load all menus from them. This will allow you to sort related menus.</p>
+<p>You can create additional folders in the <code class="docutils literal notranslate"><span class="pre">plugins/AbstractMenus/menus</span></code> folder and put menu files inside. No matter how many folders are nested, the plugin will find and load all menus from them. This will allow you to sort related menus.</p>
 </div>
-<p>To create your first menu, create a file with any name but <code class="docutils literal notranslate"><span class="pre">.conf</span></code> extension. Note that file name is an unique name of your menu. In our case this is <code class="docutils literal notranslate"><span class="pre">menu.conf</span></code>, so menu name is just <code class="docutils literal notranslate"><span class="pre">menu</span></code>. To create a menu header, you need to specify only two parameters - <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
+<p>To create your first menu, create a file with any name and <code class="docutils literal notranslate"><span class="pre">.conf</span></code> extension. Note that file name is an unique name of your menu. In our case this is <code class="docutils literal notranslate"><span class="pre">menu.conf</span></code>, so menu name is just <code class="docutils literal notranslate"><span class="pre">menu</span></code>. To create a menu header, you need to set only 2 parameters - <code class="docutils literal notranslate"><span class="pre">title</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
 </pre></div>
 </div>
-<p>These two parameters mean the following:</p>
+<p>These 2 parameters mean the following:</p>
 <dl class="field-list simple">
 <dt class="field-odd">title</dt>
 <dd class="field-odd"><p>Menu title.</p>
 </dd>
 <dt class="field-even">size</dt>
-<dd class="field-even"><p>The number of inventory rows. The horizontal size cannot be changed without mods, so it’s ignored.</p>
+<dd class="field-even"><p>The number of inventory rows. The horizontal size cannot be changed without mods yet, so it’s ignored.</p>
 </dd>
 </dl>
-<p>This is the base header of any menu. If you reload the plugin using the <code class="docutils literal notranslate"><span class="pre">/am</span> <span class="pre">reload</span></code> command, you will see message like that:</p>
+<p>This is the base header of any menu. If you reload the plugin using the <code class="docutils literal notranslate"><span class="pre">/am</span> <span class="pre">reload</span></code> command, you will see message like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">AbstractMenus</span><span class="p">]</span> <span class="n">Loaded</span> <span class="mi">1</span> <span class="n">menus</span>
 </pre></div>
 </div>
-<p>Now menu cannot be opened without a special administrator command. To allow players to open the menu, you need to add an activator for this menu.</p>
+<p>But now menu cannot be opened without a special admin command. To allow players to open the menu, you need to add an activator for this menu.</p>
 </div>
 <div class="section" id="add-an-activator">
 <h2><a class="toc-backref" href="#id5">Add an activator</a><a class="headerlink" href="#add-an-activator" title="Permalink to this heading">¶</a></h2>
-<p>An activator is an event that must happen to open menu. To add an activator, you need specify the <code class="docutils literal notranslate"><span class="pre">activators</span></code> block in the menu root.</p>
+<p>An activator is an event that must happen to open menu. To add an activator, you need to set the <code class="docutils literal notranslate"><span class="pre">activators</span></code> block in the menu root.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
 <span class="n">activators</span> <span class="p">{</span> <span class="o">//</span> <span class="n">Activators</span> <span class="n">block</span>
@@ -327,7 +327,7 @@
 <p>Now it does nothing if we click it. Let’s add some action for our button.</p>
 <div class="section" id="add-actions-to-button">
 <h3><a class="toc-backref" href="#id7">Add actions to button</a><a class="headerlink" href="#add-actions-to-button" title="Permalink to this heading">¶</a></h3>
-<p>To make our button perform some action, there is special <code class="docutils literal notranslate"><span class="pre">click</span></code> block for buttons. Now we will show its simplest use. More details about button click processing written on <a class="reference internal" href="../general/menu_structure.html"><span class="doc">Menu structure</span></a> page.</p>
+<p>To make our button perform some action, there is special <code class="docutils literal notranslate"><span class="pre">click</span></code> block for buttons. We will show a simplest use. More details about button click processing written on <a class="reference internal" href="../general/menu_structure.html"><span class="doc">Menu structure</span></a> page.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;My first menu&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">6</span>
 <span class="n">activators</span> <span class="p">{</span>
@@ -372,7 +372,7 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>Now there are two buttons was added in <code class="docutils literal notranslate"><span class="pre">items</span></code> list. The first will display always. The second one will only if the player’s level greater than or equal to 10. We specified <code class="docutils literal notranslate"><span class="pre">level</span></code> rule in the special <code class="docutils literal notranslate"><span class="pre">rules</span></code> block. If the button has a <code class="docutils literal notranslate"><span class="pre">rules</span></code> block, before opening the menu the player will be checked for compliance with the specified rules first.</p>
+<p>Now there are two buttons was added in <code class="docutils literal notranslate"><span class="pre">items</span></code> list. The first will display always. The second one will only if the player’s level greater than or equal to 10. We specified <code class="docutils literal notranslate"><span class="pre">level</span></code> rule in the special <code class="docutils literal notranslate"><span class="pre">rules</span></code> block. If the button has a <code class="docutils literal notranslate"><span class="pre">rules</span></code> block, the player will be checked with these rules before placing item.</p>
 <p>In our case, if player have level 9 or lower, he will see only an iron sword in slot 0. If a player with a level 10 or higher, he will see only a diamond sword, since the previous item in the slot 0 will be replaced with a new.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

@@ -145,6 +145,8 @@ Each catalog provides own palceholders due one of the :ref:`Value Extractor <val
 
 .. tip:: You can create your own catalogs, using an API.
 
+.. note:: Catalog's placeholders will not work for static items inside ``items`` list. Because these items created and placed to inventory once before generating dynamic items.
+
 Players
 ~~~~~~~
 

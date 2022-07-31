@@ -285,8 +285,8 @@ Player have permission ``vip`` AND gamemode CREATIVE
 
 Player have permission ``premium`` AND gamemode SURVIVAL
 
-Using similar commands under one block
---------------------------------------
+Using same actions and rules inside one block
+---------------------------------------------
 
 As other configuration languages, HOCON doesn't allow to use similar keys in same block multiple times. For example, this block:
 
@@ -297,9 +297,9 @@ As other configuration languages, HOCON doesn't allow to use similar keys in sam
     message: "Hello again" // Parsing error
   }
 
-will cause parsing error, because one block is not able to has several params with same key. It may be inconvenient, for example, when you need to execute several actions with same name. AbstractMenus has ``bulk`` wrapper for this, but this is a bit bulky way. There is another wya to do it.
+will cause parsing error, because one block is not able to has several params with same key. It may be inconvenient, for example, when you need to execute several actions with same name. AbstractMenus has ``bulk`` wrapper for this, but this is a hard readable way. AbstractMenus has tricky way to solve this problem.
 
-AbstractMenus has tricky way to solve this problem. To add several similar actions or rules to same block, just add prefix with ``_`` symbol to parameter name. For example:
+To add several similar actions or rules inside same block, just add prefix with ``_`` char to parameter name. For example:
 
 ::
 
@@ -311,11 +311,11 @@ AbstractMenus has tricky way to solve this problem. To add several similar actio
   }
 
 The code above won't produce parsing errors, because all params has different names. 
-After parsing but before deserializing actions and rules, AbstractMenus removes all ``_`` symbols from parameter name prefix, so all action and rule names will be correct.
+After parsing but before deserializing actions and rules, plugin removes all ``_`` chars from parameter name prefix, so all action and rule names will be correct.
 
 .. note:: Removing ``_`` symbol occurs only from prefix. Plugin doesn't touch this symbol in center of parameter name.
 
-This feature also allows to use multimple rules under one logical block. Example:
+This feature also allows to use multiple rules under one logical block. Example:
 
 ::
 
@@ -341,4 +341,4 @@ In this case multiple ``gamemode`` rules with this prefix will work similar to:
 	  ]
 	}
 
-So, using ``_`` prefixes for rules we avoid boilerplate code.
+So, using ``_`` prefix for rules we avoiding boilerplate code.

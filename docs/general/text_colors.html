@@ -109,22 +109,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Text formatting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#colors-codes">Colors codes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rgb-colors">RGB colors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#minimessage-format">MiniMessage format</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#color">Color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#color-verbose">Color (verbose)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#decoration">Decoration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reset">Reset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#click">Click</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hover">Hover</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#keybind">Keybind</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#translatable">Translatable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#insertion">Insertion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pre">Pre</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rainbow">Rainbow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gradient">Gradient</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#font">Font</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#minimessage-format">MiniMessage format</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="placeholders.html">Placeholders</a></li>
@@ -212,49 +197,33 @@
            <div itemprop="articleBody">
             
   <div class="section" id="text-formatting">
-<h1><a class="toc-backref" href="#id6">Text formatting</a><a class="headerlink" href="#text-formatting" title="Permalink to this heading">¶</a></h1>
+<h1><a class="toc-backref" href="#id3">Text formatting</a><a class="headerlink" href="#text-formatting" title="Permalink to this heading">¶</a></h1>
 <div class="contents topic" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#text-formatting" id="id6">Text formatting</a></p>
+<li><p><a class="reference internal" href="#text-formatting" id="id3">Text formatting</a></p>
 <ul>
-<li><p><a class="reference internal" href="#colors-codes" id="id7">Colors codes</a></p></li>
-<li><p><a class="reference internal" href="#rgb-colors" id="id8">RGB colors</a></p></li>
-<li><p><a class="reference internal" href="#minimessage-format" id="id9">MiniMessage format</a></p>
-<ul>
-<li><p><a class="reference internal" href="#color" id="id10">Color</a></p></li>
-<li><p><a class="reference internal" href="#color-verbose" id="id11">Color (verbose)</a></p></li>
-<li><p><a class="reference internal" href="#decoration" id="id12">Decoration</a></p></li>
-<li><p><a class="reference internal" href="#reset" id="id13">Reset</a></p></li>
-<li><p><a class="reference internal" href="#click" id="id14">Click</a></p></li>
-<li><p><a class="reference internal" href="#hover" id="id15">Hover</a></p></li>
-<li><p><a class="reference internal" href="#keybind" id="id16">Keybind</a></p></li>
-<li><p><a class="reference internal" href="#translatable" id="id17">Translatable</a></p></li>
-<li><p><a class="reference internal" href="#insertion" id="id18">Insertion</a></p></li>
-<li><p><a class="reference internal" href="#pre" id="id19">Pre</a></p></li>
-<li><p><a class="reference internal" href="#rainbow" id="id20">Rainbow</a></p></li>
-<li><p><a class="reference internal" href="#gradient" id="id21">Gradient</a></p></li>
-<li><p><a class="reference internal" href="#font" id="id22">Font</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#colors-codes" id="id4">Colors codes</a></p></li>
+<li><p><a class="reference internal" href="#rgb-colors" id="id5">RGB colors</a></p></li>
+<li><p><a class="reference internal" href="#minimessage-format" id="id6">MiniMessage format</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="colors-codes">
-<h2><a class="toc-backref" href="#id7">Colors codes</a><a class="headerlink" href="#colors-codes" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4">Colors codes</a><a class="headerlink" href="#colors-codes" title="Permalink to this heading">¶</a></h2>
 <p>As in most plugins, AM replaces <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> char to native Minecraft <code class="docutils literal notranslate"><span class="pre">§</span></code> color prefix. All text can be colorized. There is some examples below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">:</span> <span class="s2">&quot;&amp;aSome &amp;etext&quot;</span>
 </pre></div>
 </div>
 <p>You can use this cheat sheet to get required color code.</p>
-<div class="figure align-center" id="id3">
+<div class="figure align-center" id="id1">
 <img alt="../_images/colors.png" src="../_images/colors.png" />
-<p class="caption"><span class="caption-text">Default color codes</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Default color codes</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="rgb-colors">
-<h2><a class="toc-backref" href="#id8">RGB colors</a><a class="headerlink" href="#rgb-colors" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">RGB colors</a><a class="headerlink" href="#rgb-colors" title="Permalink to this heading">¶</a></h2>
 <p>Since Spigot 1.14 text can be colorized with RGB colors via hex code. All RGB colors must be concluded between <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> brackets. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">:</span> <span class="s2">&quot;&lt;#00FF00&gt;Some text&quot;</span>
 </pre></div>
@@ -266,334 +235,33 @@
 </div>
 </div>
 <div class="section" id="minimessage-format">
-<span id="mini-message"></span><h2><a class="toc-backref" href="#id9">MiniMessage format</a><a class="headerlink" href="#minimessage-format" title="Permalink to this heading">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>MiniMessage is a third-party library. To describe their format in out docs, we used content from MiniMessage documentation, whih located <a class="reference external" href="https://docs.adventure.kyori.net/minimessage">here</a>. All rights for this library belongs to KyoriPowered.</p>
+<span id="mini-message"></span><h2><a class="toc-backref" href="#id6">MiniMessage format</a><a class="headerlink" href="#minimessage-format" title="Permalink to this heading">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To use this format, you need to enable parsing in plugin config. Set <code class="docutils literal notranslate"><span class="pre">useMiniMessage</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 </div>
-<p>To send message, formatted with MiniMessage, you need to use <code class="docutils literal notranslate"><span class="pre">miniMessage</span></code> action.</p>
 <p>MiniMessage is a string based format to represent Minecraft chat components in a human-readable format that is easy to edit.</p>
-<p>MiniMessage uses tags. Everything you do will be defined with tags. Tags have a start tag and an end tag (the <code class="docutils literal notranslate"><span class="pre">&lt;reset&gt;</span></code> tag is an exception here).
-Start tags are mandatory (obviously), end tags aren’t.
-<code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;yellow&gt;!</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;/blue&gt;!</span></code> and even <code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;/yellow&gt;&lt;blue&gt;World&lt;/blue&gt;&lt;yellow&gt;!&lt;/yellow&gt;</span></code> all do the same.</p>
-<p>Some tags have inner tags. Those look like this: <code class="docutils literal notranslate"><span class="pre">&lt;tag:inner&gt;stuff&lt;/tag&gt;</span></code>. For example: <code class="docutils literal notranslate"><span class="pre">&lt;hover:show_text:&quot;&lt;red&gt;test:TEST&quot;&gt;TEST</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;click:run_command:test&gt;TEST</span></code>
-As you can see, those sometimes contain components, sometimes just strings. Refer to the detailed docs below.</p>
-<p>Single (<code class="docutils literal notranslate"><span class="pre">'</span></code>) and double (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>) quotes can be used interchangeably, but for your own sanity, please stay consistent, choose one for all your messages. MiniMessage <em>should</em> handle mismatched quotes nicely tho.</p>
-<p>The components try to represent vanilla as closely as possible.
-It might to helpful to use <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a> as a reference, especially for stuff like the actions and values of click and hover events.</p>
-<div class="section" id="color">
-<h3><a class="toc-backref" href="#id10">Color</a><a class="headerlink" href="#color" title="Permalink to this heading">¶</a></h3>
-<p>Color the next parts</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;_colorname_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_colorname_</span></code>, all minecraft color constants, or hex colors</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Hello</span> <span class="pre">&lt;blue&gt;World&lt;/blue&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;red&gt;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">&lt;green&gt;test!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;#00ff00&gt;R</span> <span class="pre">G</span> <span class="pre">B!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/wB32YpZ.png" src="https://i.imgur.com/wB32YpZ.png" />
-<img alt="https://i.imgur.com/vsN3OHa.png" src="https://i.imgur.com/vsN3OHa.png" />
-<p>List of available colors</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">black</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_blue</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_green</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_aqua</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_red</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_purple</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gold</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gray</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dark_gray</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">blue</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">green</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">aqua</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">red</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">light_purple</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">yellow</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">white</span></code></p></li>
-</ul>
+<p>This format described in official <a class="reference external" href="https://docs.adventure.kyori.net/minimessage/format.html">MiniMessage documentation</a>.</p>
+<p>AbstractMenus supports MiniMessage formatting in messages and item properties like <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">lore</span></code>. It also works in books. Note, that items supports only colorizing features like colors, rgb colors, gradients, etc. Other MiniMessage features like translatable strings are supported in chat messages only.</p>
+<p>Example of using MiniMessage in <code class="docutils literal notranslate"><span class="pre">message</span></code> action:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="p">:</span> <span class="s2">&quot;&lt;hover:show_text:&#39;&lt;red&gt;test&#39;&gt;TEST&quot;</span>
+</pre></div>
 </div>
-<div class="section" id="color-verbose">
-<h3><a class="toc-backref" href="#id11">Color (verbose)</a><a class="headerlink" href="#color-verbose" title="Permalink to this heading">¶</a></h3>
-<p>A more verbose way of defining colors</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;color:_colorNameOrHex_&gt;</span></code></p>
-</dd>
-<dt>Aliases</dt><dd><p><code class="docutils literal notranslate"><span class="pre">colour</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_colorNameOrHex_</span></code>, can be all the values from above (so named colors or hex colors)</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;color:yellow&gt;Hello</span> <span class="pre">&lt;color:blue&gt;World&lt;/color:blue&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;color:#FF5555&gt;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">&lt;color:#55FF55&gt;test!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/wB32YpZ.png" src="https://i.imgur.com/wB32YpZ.png" />
-<img alt="https://i.imgur.com/vsN3OHa.png" src="https://i.imgur.com/vsN3OHa.png" />
+<p>Example of using MiniMessage in item’s name and lore:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
+   <span class="n">material</span><span class="p">:</span> <span class="n">cake</span>
+   <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;&lt;rainbow&gt;Super Cake!&lt;/rainbow&gt;&quot;</span>
+   <span class="n">lore</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;&lt;yellow&gt;Eat &lt;blue&gt;me!&quot;</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="decoration">
-<h3><a class="toc-backref" href="#id12">Decoration</a><a class="headerlink" href="#decoration" title="Permalink to this heading">¶</a></h3>
-<p>Decorate the next parts</p>
-<dl>
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;_decorationname_&gt;</span></code></p>
-</dd>
-<dt>Arguments:</dt><dd><ul>
-<li><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">_decorationname_</span></code> , all minecraft decorations</div>
-<div class="line">Aliases for <code class="docutils literal notranslate"><span class="pre">strikethrough</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">st</span></code>, <code class="docutils literal notranslate"><span class="pre">obfuscated</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">obf</span></code>, <code class="docutils literal notranslate"><span class="pre">italic</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">em</span></code> or <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">bold</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">b</span></code> exist</div>
-</div>
-</li>
-</ul>
-</dd>
-<dt>Examples:</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;underlined&gt;This</span> <span class="pre">is</span> <span class="pre">&lt;bold&gt;important&lt;/bold&gt;!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/hREGXQy.png" src="https://i.imgur.com/hREGXQy.png" />
-</div>
-<div class="section" id="reset">
-<h3><a class="toc-backref" href="#id13">Reset</a><a class="headerlink" href="#reset" title="Permalink to this heading">¶</a></h3>
-<p>Reset all colors, decorations, hovers etc. Doesn’t have a close tag</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;reset&gt;</span></code></p>
-</dd>
-<dt>Aliases</dt><dd><p><code class="docutils literal notranslate"><span class="pre">r</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><p>non</p>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;&lt;bold&gt;Hello</span> <span class="pre">&lt;reset&gt;world!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/bjInUhj.png" src="https://i.imgur.com/bjInUhj.png" />
-</div>
-<div class="section" id="click">
-<h3><a class="toc-backref" href="#id14">Click</a><a class="headerlink" href="#click" title="Permalink to this heading">¶</a></h3>
-<p>Allows doing multiple things when clicking on the component.</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;click:_action_:_value_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_action_</span></code>, the type of click event, one of the list below</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_value_</span></code>, the argument for that particular event, refer to <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a></p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;click:run_command:/say</span> <span class="pre">hello&gt;Click&lt;/click&gt;</span> <span class="pre">to</span> <span class="pre">say</span> <span class="pre">hello</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">&lt;click:copy_to_clipboard:Haha</span> <span class="pre">you</span> <span class="pre">suck&gt;</span> <span class="pre">this</span> <span class="pre">&lt;/click&gt;to</span> <span class="pre">copy</span> <span class="pre">your</span> <span class="pre">score!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/J82qOHn.png" src="https://i.imgur.com/J82qOHn.png" />
-<table class="colwidths-given docutils align-default" id="id4">
-<caption><span class="caption-text">Available click actions</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Note</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>open_url</p></td>
-<td><p>Opens a url when clicked.</p></td>
-</tr>
-<tr class="row-odd"><td><p>open_file</p></td>
-<td><p>Opens a file when clicked.</p></td>
-</tr>
-<tr class="row-even"><td><p>run_command</p></td>
-<td><p>Runs a command when clicked.</p></td>
-</tr>
-<tr class="row-odd"><td><p>suggest_command</p></td>
-<td><p>Suggests a command into the chat box.</p></td>
-</tr>
-<tr class="row-even"><td><p>change_page</p></td>
-<td><p>Changes the page of a book.</p></td>
-</tr>
-<tr class="row-odd"><td><p>copy_to_clipboard</p></td>
-<td><p>Copies text to the clipboard. <strong>MC 1.15+</strong></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="hover">
-<h3><a class="toc-backref" href="#id15">Hover</a><a class="headerlink" href="#hover" title="Permalink to this heading">¶</a></h3>
-<p>Allows doing multiple things when hovering on the component.</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;hover:_action_:_value_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_action_</span></code>, the type of hover event, one of this below</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_value_</span></code>, the argument for that particular event, refer to <a class="reference external" href="https://minecraft.gamepedia.com/Raw_JSON_text_format">the minecraft wiki</a></p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;hover:show_text:'&lt;red&gt;test'&gt;TEST</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/VsHDPTI.png" src="https://i.imgur.com/VsHDPTI.png" />
-<table class="colwidths-given docutils align-default" id="id5">
-<caption><span class="caption-text">Available hover events</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Note</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>show_text</p></td>
-<td><p>Shows a text component when hovered over</p></td>
-</tr>
-<tr class="row-odd"><td><p>show_item</p></td>
-<td><p>Shows an item instance when hovered over</p></td>
-</tr>
-<tr class="row-even"><td><p>show_entity</p></td>
-<td><p>Shows an entity when hovered over</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="keybind">
-<h3><a class="toc-backref" href="#id16">Keybind</a><a class="headerlink" href="#keybind" title="Permalink to this heading">¶</a></h3>
-<p>Allows displaying the configured key for actions</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;key:_key_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_key_</span></code>, the keybind identifier of the action</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Press</span> <span class="pre">&lt;red&gt;&lt;key:key.jump&gt;</span> <span class="pre">to</span> <span class="pre">jump!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/iQmNDF6.png" src="https://i.imgur.com/iQmNDF6.png" />
-</div>
-<div class="section" id="translatable">
-<h3><a class="toc-backref" href="#id17">Translatable</a><a class="headerlink" href="#translatable" title="Permalink to this heading">¶</a></h3>
-<p>Allows displaying minecraft messages using the player locale</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;lang:_key_:_value1_:_value2_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_key_</span></code>, the translation key</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">_valueX_</span></code>, optional values that are used for placeholders in the key (they will end up in the <code class="docutils literal notranslate"><span class="pre">with</span></code> tag in the json)</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">You</span> <span class="pre">should</span> <span class="pre">get</span> <span class="pre">a</span> <span class="pre">&lt;lang:block.minecraft.diamond_block&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;lang:commands.drop.success.single:'&lt;red&gt;1':'&lt;blue&gt;Stone'&gt;!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/mpdDMF6.png" src="https://i.imgur.com/mpdDMF6.png" />
-<img alt="https://i.imgur.com/esWpnxm.png" src="https://i.imgur.com/esWpnxm.png" />
-</div>
-<div class="section" id="insertion">
-<h3><a class="toc-backref" href="#id18">Insertion</a><a class="headerlink" href="#insertion" title="Permalink to this heading">¶</a></h3>
-<p>Allow insertion of text into chat via shift click</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;insertion:_text_&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">_text_</span></code>, the text to insert</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">&lt;insert:test&gt;this&lt;/insert&gt;</span> <span class="pre">to</span> <span class="pre">insert!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/Imhom84.png" src="https://i.imgur.com/Imhom84.png" />
-</div>
-<div class="section" id="pre">
-<h3><a class="toc-backref" href="#id19">Pre</a><a class="headerlink" href="#pre" title="Permalink to this heading">¶</a></h3>
-<p>Tags within this tag will not be parsed, useful for player input for example</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><p>non</p>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;gray&gt;&lt;&lt;yellow&gt;&lt;player&gt;&lt;gray&gt;&gt;</span> <span class="pre">&lt;reset&gt;&lt;pre&gt;&lt;message&gt;&lt;/pre&gt;</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/pQqaJnD.png" src="https://i.imgur.com/pQqaJnD.png" />
-</div>
-<div class="section" id="rainbow">
-<h3><a class="toc-backref" href="#id20">Rainbow</a><a class="headerlink" href="#rainbow" title="Permalink to this heading">¶</a></h3>
-<p>Rainbow colored text?!</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;rainbow:[!][phase]&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><ul class="simple">
-<li><p>phase, optional</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!</span></code>, literal value which reverses the rainbow, optional</p></li>
-</ul>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow:!&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow:2&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;rainbow:!2&gt;||||||||||||||||||||||||&lt;/rainbow&gt;!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/Ertlk2G.png" src="https://i.imgur.com/Ertlk2G.png" />
-</div>
-<div class="section" id="gradient">
-<h3><a class="toc-backref" href="#id21">Gradient</a><a class="headerlink" href="#gradient" title="Permalink to this heading">¶</a></h3>
-<p>Gradient colored text</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;gradient:[color1]:[color...]:[phase]&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><p>a list of 1 to n colors, either hex or named colors and an optional phase param (range -1 to 1) allows you to shift the gradient around, creating animations.</p>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient:#5e4fa2:#f79459&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient:#5e4fa2:#f79459:red&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;yellow&gt;Woo:</span> <span class="pre">&lt;gradient:green:blue&gt;||||||||||||||||||||||||&lt;/gradient&gt;!</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/8qYHCWk.png" src="https://i.imgur.com/8qYHCWk.png" />
-</div>
-<div class="section" id="font">
-<h3><a class="toc-backref" href="#id22">Font</a><a class="headerlink" href="#font" title="Permalink to this heading">¶</a></h3>
-<p>Allows to change the font of the text</p>
-<dl class="simple">
-<dt>Tag</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&lt;font:key&gt;</span></code></p>
-</dd>
-<dt>Arguments</dt><dd><p>the namespaced key of the font, defaulting to <code class="docutils literal notranslate"><span class="pre">minecraft</span></code></p>
-</dd>
-<dt>Examples</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Nothing</span> <span class="pre">&lt;font:uniform&gt;Uniform</span> <span class="pre">&lt;font:alt&gt;Alt</span>&#160; <span class="pre">&lt;/font&gt;</span> <span class="pre">Uniform</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;font:myfont:custom_font&gt;Uses</span> <span class="pre">a</span> <span class="pre">custom</span> <span class="pre">font</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">resource</span> <span class="pre">pack&lt;/font&gt;</span></code></p></li>
-</ul>
-</dd>
-</dl>
-<img alt="https://i.imgur.com/0SjeMQm.png" src="https://i.imgur.com/0SjeMQm.png" />
+<div class="figure align-default" id="id2">
+<img alt="MiniMessage in item" src="../_images/minimessage_item.png" />
+<p class="caption"><span class="caption-text">Result</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

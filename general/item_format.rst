@@ -19,6 +19,7 @@ All item properties
 	:widths: 5, 5, 10, 30
 
 	"slot", |t_mult|, |ex_below| :ref:`prop-slot`, "Set slot for item. Not a regular item's property. Can be used only for menu items or in some actions and rules"
+	"clickCooldown", |t_int|, ``clickCooldown: 20``, "Set click cooldown in ticks (1 second = 20 ticks). Will be reset after menu closed or refreshed with ``refreshMenu`` action"
 	"**Material installers**"
 	"material", |t_str|, ``material: "DIAMOND_SWORD"``, "Set the item material by name. On MC ``1.12`` and lower, numerical ids are supported"
 	"texture", |t_str|, |ex_below| :ref:`prop-texture`, "Using custom head texture by texture id, url, or base64 encoded. You can find many heads on the https://minecraft-heads.com"
@@ -27,7 +28,7 @@ All item properties
 	"mmoitem", |t_str|, ``mmoitem: "WEAPON:MY_SWORD"``, "Take an item by type and id from the `MMOItems <https://www.spigotmc.org/resources/39267/>`_"
 	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Take a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
 	"oraxen", |t_str|, ``oraxen: "my_sword"``, "Take a custom stack defined in `Oraxen <https://www.spigotmc.org/resources/72448/>`_ plugin"
-	"equipItem", |t_str|, ``equipItem: "HAND"``, "Take item from inventory of player who opened menu. See all slot types `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html>`_"
+	"equipItem", |t_str| or |t_obj|, |ex_below| :ref:`prop-equip-item`, "Take item from player's inventory. See all slot types"
 	"**Other properties**"
 	"name", |t_str|, ``name: "Peter Piper"``, "Set display name"
 	"data", |t_int|, ``data: 2``, "Material data (deprecated since MC ``1.13``, full material names are used instead)"
@@ -210,6 +211,28 @@ You can use such value with ``base64:`` prefix. Example:
 ::
 
 	texture: "base64:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQ1ZDY4YWVhODdjYzNmZDIwYjk2YjIxZTE4MjU1ZGIyOThiMmVhYzk4NjUyNjQ3MzExNmJkM2I1NzUwYjc4NyJ9fX0="
+
+.. _prop-equip-item:
+
+Equiped Item
+------------
+
+Item property to get item from player's inventory. By default it takes item from inventory of player who opened menu. Example:
+
+::
+
+	equipItem: HEAD
+
+.. tip:: All slot types you can find `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html>`_
+
+But you also can take item from another player's inventory. For this you need to transform this property to object and set player name. Placeholders are supported. Example:
+
+::
+
+	equipItem {
+	  player: "%player_name_placeholder%"
+	  slot: HEAD
+	}
 
 .. _prop-lore:
 

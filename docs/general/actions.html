@@ -139,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#delay">Delay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bulk">Bulk</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#random-actions">Random actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#player-scope-actions">Player scope actions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-skin">Set skin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#add-recipe">Add recipe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#set-item-property">Set item property</a></li>
@@ -266,15 +267,16 @@
 <li><p><a class="reference internal" href="#delay" id="id25">Delay</a></p></li>
 <li><p><a class="reference internal" href="#bulk" id="id26">Bulk</a></p></li>
 <li><p><a class="reference internal" href="#random-actions" id="id27">Random actions</a></p></li>
-<li><p><a class="reference internal" href="#set-skin" id="id28">Set skin</a></p></li>
-<li><p><a class="reference internal" href="#add-recipe" id="id29">Add recipe</a></p></li>
-<li><p><a class="reference internal" href="#set-item-property" id="id30">Set item property</a></p></li>
-<li><p><a class="reference internal" href="#remove-item-property" id="id31">Remove item property</a></p></li>
-<li><p><a class="reference internal" href="#refresh-item" id="id32">Refresh item</a></p>
+<li><p><a class="reference internal" href="#player-scope-actions" id="id28">Player scope actions</a></p></li>
+<li><p><a class="reference internal" href="#set-skin" id="id29">Set skin</a></p></li>
+<li><p><a class="reference internal" href="#add-recipe" id="id30">Add recipe</a></p></li>
+<li><p><a class="reference internal" href="#set-item-property" id="id31">Set item property</a></p></li>
+<li><p><a class="reference internal" href="#remove-item-property" id="id32">Remove item property</a></p></li>
+<li><p><a class="reference internal" href="#refresh-item" id="id33">Refresh item</a></p>
 <ul>
-<li><p><a class="reference internal" href="#mode-1-refresh-current" id="id33">Mode 1. Refresh current</a></p></li>
-<li><p><a class="reference internal" href="#mode-1-delayed-refresh" id="id34">Mode 1. Delayed refresh</a></p></li>
-<li><p><a class="reference internal" href="#mode-1-refresh-another-item" id="id35">Mode 1. Refresh another item</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-refresh-current" id="id34">Mode 1. Refresh current</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-delayed-refresh" id="id35">Mode 1. Delayed refresh</a></p></li>
+<li><p><a class="reference internal" href="#mode-1-refresh-another-item" id="id36">Mode 1. Refresh another item</a></p></li>
 </ul>
 </li>
 </ul>
@@ -332,7 +334,7 @@
 <tr class="row-even"><td><p>miniMessage</p></td>
 <td><p>String</p></td>
 <td><p>See example <a class="reference internal" href="text_colors.html#mini-message"><span class="std std-ref">MiniMessage format</span></a></p></td>
-<td><p>Send message with <a class="reference internal" href="text_colors.html#mini-message"><span class="std std-ref">MiniMessage format</span></a></p></td>
+<td><p><strong>(Deprecated. MiniMessage now supported by default message actions)</strong> Send message with <a class="reference internal" href="text_colors.html#mini-message"><span class="std std-ref">MiniMessage format</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>playerChat</p></td>
 <td><p>Strings list</p></td>
@@ -584,17 +586,22 @@
 <td><p>See example <a class="reference internal" href="#action-randactions"><span class="std std-ref">Random actions</span></a></p></td>
 <td><p>Perform random actions block from the list</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>For generated menus</strong></p></td>
+<tr class="row-odd"><td><p>playerScope</p></td>
+<td><p>Object</p></td>
+<td><p>See example <a class="reference internal" href="#action-player-scope"><span class="std std-ref">Player scope actions</span></a></p></td>
+<td><p>Perform actions for other player</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>For generated menus</strong></p></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>pagePrev</p></td>
+<tr class="row-odd"><td><p>pagePrev</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pagePrev:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the previous page. Works only with generated menus</p></td>
 </tr>
-<tr class="row-odd"><td><p>pageNext</p></td>
+<tr class="row-even"><td><p>pageNext</p></td>
 <td><p>Number</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pageNext:</span> <span class="pre">1</span></code></p></td>
 <td><p>Switch to one of the next page. Works only with generated menus</p></td>
@@ -880,10 +887,10 @@ For example there is <code class="docutils literal notranslate"><span class="pre
 <div class="section" id="set">
 <span id="action-var-glob-set"></span><h4>Set<a class="headerlink" href="#set" title="Permalink to this heading">¶</a></h4>
 <p>Action to create or update global variable. It can be specified in one of the following format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;&quot;</span>
-<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;time&gt;&quot;</span>
-<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;replace&gt;&quot;</span>
-<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;:&lt;value&gt;:&lt;time&gt;:&lt;replace&gt;&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;::&lt;value&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;::&lt;value&gt;::&lt;time&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;::&lt;value&gt;::&lt;replace&gt;&quot;</span>
+<span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;&lt;var_name&gt;::&lt;value&gt;::&lt;time&gt;::&lt;replace&gt;&quot;</span>
 </pre></div>
 </div>
 <p>Where:</p>
@@ -902,7 +909,7 @@ For example there is <code class="docutils literal notranslate"><span class="pre
 </dd>
 </dl>
 <p>Simple example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var::Some data&quot;</span>
 </pre></div>
 </div>
 <p>This action will create global variable with name <code class="docutils literal notranslate"><span class="pre">my_var</span></code> and string value <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">data</span></code>.</p>
@@ -911,7 +918,7 @@ For example there is <code class="docutils literal notranslate"><span class="pre
 <span id="action-var-glob-temp"></span><h4>Temporal variable<a class="headerlink" href="#temporal-variable" title="Permalink to this heading">¶</a></h4>
 <p>You can create a temporary variable. A temporary variables will be automatically removed after specified time.
 To set a lifetime for the variable you need to add <code class="docutils literal notranslate"><span class="pre">time</span></code> parameter. Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data:10m&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var::Some data::10m&quot;</span>
 </pre></div>
 </div>
 <p>Here, we created and set lifetime in 10 minutes for the variable <code class="docutils literal notranslate"><span class="pre">my_var</span></code>.
@@ -932,7 +939,7 @@ Also you can combine it. For example:</p>
 <div class="section" id="rewriting-safety">
 <span id="action-var-glob-replace"></span><h4>Rewriting safety<a class="headerlink" href="#rewriting-safety" title="Permalink to this heading">¶</a></h4>
 <p>If you want to protect a created variable from rewriting, you can use the last <code class="docutils literal notranslate"><span class="pre">&lt;replace&gt;</span></code> argument:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var:Some data:false&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="s2">&quot;my_var::Some data::false&quot;</span>
 </pre></div>
 </div>
 <p>Here, the <code class="docutils literal notranslate"><span class="pre">false</span></code> is a <code class="docutils literal notranslate"><span class="pre">&lt;replace&gt;</span></code> argument, not <code class="docutils literal notranslate"><span class="pre">&lt;time&gt;</span></code>.
@@ -966,16 +973,16 @@ Note, that this is not protects variable from rewriting by other action, where <
 </dl>
 <p>If variable with specified name doesn’t exists, plugin will create a new one with specified value.</p>
 <p>Below is the example of using <code class="docutils literal notranslate"><span class="pre">incVar</span></code> action.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVar</span><span class="p">:</span> <span class="s2">&quot;my_var:2&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVar</span><span class="p">:</span> <span class="s2">&quot;my_var::2&quot;</span>
 </pre></div>
 </div>
 <p>This action will increment variable <code class="docutils literal notranslate"><span class="pre">my_var</span></code> on 2.</p>
 <p>Other math actions has the same format. Some examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decVar</span><span class="p">:</span> <span class="s2">&quot;my_var:10&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decVar</span><span class="p">:</span> <span class="s2">&quot;my_var::10&quot;</span>
 
-<span class="n">mulVar</span><span class="p">:</span> <span class="s2">&quot;my_var:3&quot;</span>
+<span class="n">mulVar</span><span class="p">:</span> <span class="s2">&quot;my_var::3&quot;</span>
 
-<span class="n">divVar</span><span class="p">:</span> <span class="s2">&quot;my_var:2&quot;</span>
+<span class="n">divVar</span><span class="p">:</span> <span class="s2">&quot;my_var::2&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1034,7 +1041,7 @@ For example, this is format of <code class="docutils literal notranslate"><span 
 </pre></div>
 </div>
 <p>The same for other actions, like <code class="docutils literal notranslate"><span class="pre">removeVar</span></code> and all math actions.</p>
-<p>This format is still works for backward compatibility, but is not preffered.</p>
+<p>This format is still works for backward compatibility or in cases when you have big and complex string to save.</p>
 </div>
 </div>
 <div class="section" id="personal-vars">
@@ -1045,7 +1052,7 @@ For example, this is format of <code class="docutils literal notranslate"><span 
 <p>Action <code class="docutils literal notranslate"><span class="pre">setVarp</span></code> used to create personal variable for player who opened menu.
 This action has same format as <a class="reference internal" href="#action-var-glob-set"><span class="std std-ref">Set</span></a> action for global variables.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVarp</span><span class="p">:</span> <span class="s2">&quot;myvar:Hello, world&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVarp</span><span class="p">:</span> <span class="s2">&quot;myvar::Hello, world&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1093,9 +1100,9 @@ This action has same format as <a class="reference internal" href="#action-var-g
 For this, you can use any variable action as list. Example:</p>
 <p><strong>Example 1</strong>. Set multiple global variables.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setVar</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">&quot;variable_1:Value of variable 1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;variable_3:Value of variable 2&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;variable_3:Value of variable 3&quot;</span>
+  <span class="s2">&quot;variable_1::Value of variable 1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3::Value of variable 2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;variable_3::Value of variable 3&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -1109,9 +1116,9 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 <p><strong>Example 3</strong>. Increment multiple personal variables.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">incVarp</span><span class="p">:</span> <span class="p">[</span>
-  <span class="s2">&quot;var_1:2&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;var_3:5&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;var_3:8&quot;</span>
+  <span class="s2">&quot;var_1::2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;var_3::5&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;var_3::8&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -1188,8 +1195,40 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 <p>After performing this action several times player will see different messages.</p>
 </div>
+<div class="section" id="player-scope-actions">
+<span id="action-player-scope"></span><h2><a class="toc-backref" href="#id28">Player scope actions</a><a class="headerlink" href="#player-scope-actions" title="Permalink to this heading">¶</a></h2>
+<p>If you need to execute some actions for another player, you can use special actions wrapper called <code class="docutils literal notranslate"><span class="pre">playerScope</span></code>. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playerScope</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;%player_name_placeholder%&quot;</span>
+  <span class="n">actions</span> <span class="p">{</span>
+    <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello, %player_name_placeholder%&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The message inside <code class="docutils literal notranslate"><span class="pre">actions</span></code> block will be executed for player who found by name, entered in <code class="docutils literal notranslate"><span class="pre">name</span></code> field.</p>
+<p>Here <code class="docutils literal notranslate"><span class="pre">actions</span></code> is a simple actions block. But all actions or rules inside will be related to found player. Example with additional rules:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playerScope</span> <span class="p">{</span>
+  <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;%player_name_placeholder%&quot;</span>
+  <span class="n">actions</span> <span class="p">{</span>
+    <span class="n">rules</span> <span class="p">{</span>
+      <span class="n">gamemode</span><span class="p">:</span> <span class="n">SURVIVAL</span>
+    <span class="p">}</span>
+    <span class="n">actions</span> <span class="p">{</span>
+      <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello, %player_name_placeholder%&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">rules</span></code> block will check found player, not player who opened menu.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If player not found, this action just will not be executed, without throwing error.</p>
+</div>
+</div>
 <div class="section" id="set-skin">
-<span id="action-setskin"></span><h2><a class="toc-backref" href="#id28">Set skin</a><a class="headerlink" href="#set-skin" title="Permalink to this heading">¶</a></h2>
+<span id="action-setskin"></span><h2><a class="toc-backref" href="#id29">Set skin</a><a class="headerlink" href="#set-skin" title="Permalink to this heading">¶</a></h2>
 <p>To manipulate skins, AbstractMenus uses the <a class="reference external" href="https://www.spigotmc.org/resources/2124/">SkinsRestorer</a> plugin.</p>
 <p>To set the skin to the player, you need to have its <strong>texture</strong> and <strong>signature</strong>. You can get them, for example, by uploading an image to <a class="reference external" href="https://mineskin.org">MineSkin</a>. Next, copy the data from the fields “Texture Data” and “Texture Signature” into the corresponding parameters of <code class="docutils literal notranslate"><span class="pre">setSkin</span></code> action.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setSkin</span> <span class="p">{</span>
@@ -1204,7 +1243,7 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 </div>
 <div class="section" id="add-recipe">
-<span id="action-recipe"></span><h2><a class="toc-backref" href="#id29">Add recipe</a><a class="headerlink" href="#add-recipe" title="Permalink to this heading">¶</a></h2>
+<span id="action-recipe"></span><h2><a class="toc-backref" href="#id30">Add recipe</a><a class="headerlink" href="#add-recipe" title="Permalink to this heading">¶</a></h2>
 <p>Action to add recipe to player. This is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a> where each object is a recipe.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">addRecipe</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1248,7 +1287,7 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 </div>
 <div class="section" id="set-item-property">
-<span id="action-setprop"></span><h2><a class="toc-backref" href="#id30">Set item property</a><a class="headerlink" href="#set-item-property" title="Permalink to this heading">¶</a></h2>
+<span id="action-setprop"></span><h2><a class="toc-backref" href="#id31">Set item property</a><a class="headerlink" href="#set-item-property" title="Permalink to this heading">¶</a></h2>
 <p>Action to add property to the menu item. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1265,6 +1304,10 @@ For this, you can use any variable action as list. Example:</p>
 </pre></div>
 </div>
 <p>After click the item will glow.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use this action in display rules. While rules checking, the item is not yet created so it cannot be changed. Use <a class="reference internal" href="menu_structure.html#struct-bindings"><span class="std std-ref">bindings</span></a> instead.</p>
+</div>
 <p>This action also allows you to change the properties of other items in the opened menu. To do this, you need to specify the slot in which it is located. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1289,7 +1332,7 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 </div>
 <div class="section" id="remove-item-property">
-<span id="action-remprop"></span><h2><a class="toc-backref" href="#id31">Remove item property</a><a class="headerlink" href="#remove-item-property" title="Permalink to this heading">¶</a></h2>
+<span id="action-remprop"></span><h2><a class="toc-backref" href="#id32">Remove item property</a><a class="headerlink" href="#remove-item-property" title="Permalink to this heading">¶</a></h2>
 <p>Action to remove the specified properties from the menu item. To do this, you must specify a list of names for these properties. This action, like <code class="docutils literal notranslate"><span class="pre">setProperty</span></code>, only affects the copy of the menu that the player has opened. It does not change the properties of items globally.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1339,11 +1382,11 @@ For this, you can use any variable action as list. Example:</p>
 <p>Now when you click on <strong>Button 1</strong> you will remove the <code class="docutils literal notranslate"><span class="pre">glow</span></code> and <code class="docutils literal notranslate"><span class="pre">lore</span></code> properties of <strong>Button 2</strong>.</p>
 </div>
 <div class="section" id="refresh-item">
-<span id="action-refreshitem"></span><h2><a class="toc-backref" href="#id32">Refresh item</a><a class="headerlink" href="#refresh-item" title="Permalink to this heading">¶</a></h2>
+<span id="action-refreshitem"></span><h2><a class="toc-backref" href="#id33">Refresh item</a><a class="headerlink" href="#refresh-item" title="Permalink to this heading">¶</a></h2>
 <p>Refresh only one item from the whole menu. This is very useful for optimizing your menus because instead of updating the entire menu with all items, you just update one item, which makes it work faster and reduces the server load.</p>
 <p>This action has three modes.</p>
 <div class="section" id="mode-1-refresh-current">
-<h3><a class="toc-backref" href="#id33">Mode 1. Refresh current</a><a class="headerlink" href="#mode-1-refresh-current" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">Mode 1. Refresh current</a><a class="headerlink" href="#mode-1-refresh-current" title="Permalink to this heading">¶</a></h3>
 <p>Refreshes the current menu item. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1360,7 +1403,7 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 </div>
 <div class="section" id="mode-1-delayed-refresh">
-<h3><a class="toc-backref" href="#id34">Mode 1. Delayed refresh</a><a class="headerlink" href="#mode-1-delayed-refresh" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">Mode 1. Delayed refresh</a><a class="headerlink" href="#mode-1-delayed-refresh" title="Permalink to this heading">¶</a></h3>
 <p>Refresh the current menu item with a delay specified in ticks.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -1377,7 +1420,7 @@ For this, you can use any variable action as list. Example:</p>
 </div>
 </div>
 <div class="section" id="mode-1-refresh-another-item">
-<h3><a class="toc-backref" href="#id35">Mode 1. Refresh another item</a><a class="headerlink" href="#mode-1-refresh-another-item" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">Mode 1. Refresh another item</a><a class="headerlink" href="#mode-1-refresh-another-item" title="Permalink to this heading">¶</a></h3>
 <p>Update item in the specified slot. Optionally, you can specify a delay.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>

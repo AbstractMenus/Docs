@@ -22,7 +22,7 @@ All actions
 	"refreshMenu", |t_bool| or |t_int|, ``refreshMenu: true`` ``refreshMenu: 20``, "Update all menu content except the title. If there is number instead of boolean, menu will be updated after delay in specified ticks"
 	"message", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to player. There is ability to send simple text, JSON text, title, etc."
 	"broadcast", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to all players on server. Format similar to ``message`` action"
-	"miniMessage", |t_str|, |ex_below| :ref:`mini-message`, "Send message with :ref:`mini-message`"
+	"miniMessage", |t_str|, |ex_below| :ref:`mini-message`, "**(Deprecated. MiniMessage now supported by default message actions)** Send message with :ref:`mini-message`"
 	"playerChat", |t_list_str|, ``playerChat: "Hello!"``, "Send a message on behalf of the player who opened the menu"
 	"command", |t_obj|, |ex_below| :ref:`action-cmd`, "Execute a list of commands on behalf of a player or server"
 	"inputChat", |t_obj|, |ex_below| :ref:`action-input-chat`, "Request player for enter text in chat and save result in variable"
@@ -73,6 +73,7 @@ All actions
 	"delay", |t_obj|, |ex_below| :ref:`action-delay`, "Wrap actions block to perform they after some delay"
 	"bulk", |t_list_obj|, |ex_below| :ref:`action-bulk`, "Perform many actions, even of one type"
 	"randActions", |t_list_obj|, |ex_below| :ref:`action-randactions`, "Perform random actions block from the list"
+	"playerScope", |t_obj|, |ex_below| :ref:`action-player-scope`, "Perform actions for other player"
 	"**For generated menus**"
 	"pagePrev", |t_int|, ``pagePrev: 1``, "Switch to one of the previous page. Works only with generated menus"
 	"pageNext", |t_int|, ``pageNext: 1``, "Switch to one of the next page. Works only with generated menus"
@@ -377,10 +378,10 @@ Action to create or update global variable. It can be specified in one of the fo
 
 ::
 
-	setVar: "<var_name>:<value>"
-	setVar: "<var_name>:<value>:<time>"
-	setVar: "<var_name>:<value>:<replace>"
-	setVar: "<var_name>:<value>:<time>:<replace>"
+	setVar: "<var_name>::<value>"
+	setVar: "<var_name>::<value>::<time>"
+	setVar: "<var_name>::<value>::<replace>"
+	setVar: "<var_name>::<value>::<time>::<replace>"
 
 Where:
 
@@ -393,7 +394,7 @@ Simple example:
 
 ::
 
-	setVar: "my_var:Some data"
+	setVar: "my_var::Some data"
 
 This action will create global variable with name ``my_var`` and string value ``Some data``.
 
@@ -407,7 +408,7 @@ To set a lifetime for the variable you need to add ``time`` parameter. Example:
 
 ::
 
-	setVar: "my_var:Some data:10m"
+	setVar: "my_var::Some data::10m"
 
 Here, we created and set lifetime in 10 minutes for the variable ``my_var``. 
 You can specify lifetime by seconds (``s``), minutes (``m``), hours (``h``) and days (``d``). 
@@ -426,7 +427,7 @@ If you want to protect a created variable from rewriting, you can use the last `
 
 ::
 
-	setVar: "my_var:Some data:false"
+	setVar: "my_var::Some data::false"
 
 Here, the ``false`` is a ``<replace>`` argument, not ``<time>``. 
 If we use boolean in third argument, and there is only 3 arguments, plugin suppose this is a ``<replace>``.
@@ -463,7 +464,7 @@ Below is the example of using ``incVar`` action.
 
 ::
 
-	incVar: "my_var:2"
+	incVar: "my_var::2"
 
 This action will increment variable ``my_var`` on 2. 
 
@@ -471,11 +472,11 @@ Other math actions has the same format. Some examples:
 
 ::
 
-	decVar: "my_var:10"
+	decVar: "my_var::10"
 
-	mulVar: "my_var:3"
+	mulVar: "my_var::3"
 
-	divVar: "my_var:2"
+	divVar: "my_var::2"
 
 Full format
 """""""""""
@@ -505,7 +506,7 @@ Example:
 
 The same for other actions, like ``removeVar`` and all math actions.
 
-This format is still works for backward compatibility, but is not preffered.
+This format is still works for backward compatibility or in cases when you have big and complex string to save.
 
 .. _action-var-pers:
 
@@ -526,7 +527,7 @@ Example:
 
 ::
 
-	setVarp: "myvar:Hello, world"
+	setVarp: "myvar::Hello, world"
 
 .. _action-var-pers-temp:
 
@@ -582,9 +583,9 @@ For this, you can use any variable action as list. Example:
 ::
 
 	setVar: [
-	  "variable_1:Value of variable 1",
-	  "variable_3:Value of variable 2",
-	  "variable_3:Value of variable 3"
+	  "variable_1::Value of variable 1",
+	  "variable_3::Value of variable 2",
+	  "variable_3::Value of variable 3"
 	]
 
 **Example 2**. Remove multiple global variables.
@@ -602,9 +603,9 @@ For this, you can use any variable action as list. Example:
 ::
 
 	incVarp: [
-	  "var_1:2",
-	  "var_3:5",
-	  "var_3:8"
+	  "var_1::2",
+	  "var_3::5",
+	  "var_3::8"
 	]
 
 .. _action-delay:
@@ -687,6 +688,44 @@ Actions wrapper to perform one, randomly selected actions block. When the time c
 	]
 
 After performing this action several times player will see different messages.
+
+.. _action-player-scope:
+
+Player scope actions
+--------------------
+
+If you need to execute some actions for another player, you can use special actions wrapper called ``playerScope``. Example:
+
+::
+
+	playerScope {
+	  name: "%player_name_placeholder%"
+	  actions {
+	    message: "Hello, %player_name_placeholder%"
+	  }
+	}
+
+The message inside ``actions`` block will be executed for player who found by name, entered in ``name`` field.
+
+Here ``actions`` is a simple actions block. But all actions or rules inside will be related to found player. Example with additional rules:
+
+::
+
+	playerScope {
+	  name: "%player_name_placeholder%"
+	  actions {
+	    rules {
+	      gamemode: SURVIVAL
+	    }
+	    actions {
+	      message: "Hello, %player_name_placeholder%"
+	    }
+	  }
+	}
+
+Here, the ``rules`` block will check found player, not player who opened menu.
+
+.. note:: If player not found, this action just will not be executed, without throwing error.
 
 .. _action-setskin:
 
@@ -771,6 +810,8 @@ Action to add property to the menu item. Example:
 	]
 
 After click the item will glow.
+
+.. warning:: Do not use this action in display rules. While rules checking, the item is not yet created so it cannot be changed. Use :ref:`bindings <struct-bindings>` instead.
 
 This action also allows you to change the properties of other items in the opened menu. To do this, you need to specify the slot in which it is located. Example:
 

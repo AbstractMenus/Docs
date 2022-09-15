@@ -152,26 +152,29 @@ This action similar to ``setButton``, but it places item which can be taken or c
 
 	title: "Menu"
 	size: 1
+	activators {
+	  command: "menu"
+	}
 	draggable: [ // Slots 2 and 6
 	  "--x---x--",
 	]
 	onDragItem {
 	  rules {
 	    placedItem {
-	      slot: 11
+	      slot: 2
 	      material: COBBLESTONE
 	      count: 32
 	    }
 	  }
 	  actions {
 	    placeItem {
-	      slot: 15
+	      slot: 6
 	      material: COAL_ORE
 	      count: "%changed_item_amount%"
 	    }
 	  }
 	  denyActions {
-	    removePlaced: 15
+	    removePlaced: 6
 	  }
 	}
 	items: [

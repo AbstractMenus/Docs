@@ -104,10 +104,17 @@ The table below contains all the properties of menu which you can specify in men
 	"preOpenActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **before** inventory creation and menu opening"
 	"openActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **before** the menu opened, but **after** open rules successfully checked and inventory created"
 	"postOpenActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **after** the menu opened"
-	"denyActions", |t_obj|, "No", "An :doc:`actions`, that will be performed if at least one rule is ``false``"
-	"closeActions", |t_obj|, "No", "An :doc:`actions`, that will be performed **after** menu closed"
+	"denyActions", |t_obj|, "No", "An :doc:`actions` that will be performed if at least one rule is ``false``"
+	"closeActions", |t_obj|, "No", "An :doc:`actions` that will be performed **after** menu closed"
 	"updateActions", |t_obj|, "No", "An :doc:`actions` that will be performed when menu updated by ``updateInterval``"
-	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu won't update"
+	"updateInterval", |t_int|, "No", "An interval of menu refreshing in ticks. If not specified, menu will not be updated automatically"
+	"**For drag-and-drop**", "", "", ""
+	"draggable", :ref:`prop-slot`, "No", "Define allowed slots for placing and taking items"
+	"onPlaceItem", |t_obj|, "No", "An :doc:`actions` that will be performed if player place item in allowed slot"
+	"onTakeItem", |t_obj|, "No", "An :doc:`actions` that will be performed if player take item from allowed slot"
+	"onDragItem", |t_obj|, "No", "An :doc:`actions` that will be performed if player place or take item using allowed slots"
+
+To learn drag-and-drop feature, go to the :doc:`../advanced/drag-and-drop` page (**for advanced users**).
 
 .. _struct-auto-refresh:
 

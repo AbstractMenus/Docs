@@ -46,6 +46,7 @@ All actions
 	"giveLevel", |t_int|, ``giveLevel: 1``, "Increase level for player on specified value"
 	"takeLevel", |t_int|, ``takeLevel: 3``, "Decrease player's level on specified value"
 	"sound", |t_obj|, |ex_below| :ref:`action-sound`, "Play sound"
+	"customSound", |t_obj|, |ex_below| :ref:`action-custom-sound`, "Play custom sound from resource pack"
 	"potionEffect", |t_list_obj|, |ex_below| :ref:`action-potion`, "Give potion effect to player"
 	"removePotionEffect", |t_list_str|, |ex_below| :ref:`action-rempotion`, "Remove potion effect from player"
 	"openBook", |t_obj|, |ex_below| :ref:`action-book`, "Create and open a written book for player"
@@ -55,6 +56,10 @@ All actions
 	"setSkin", |t_obj|, |ex_below| :ref:`action-setskin`, "Set skin for player using the **SkinsRestorer** plugin"
 	"resetSkin", |t_bool|, ``resetSkin: true``, "Reset player’s skin using the **SkinsRestorer** plugin"
 	"addRecipe", |t_list_obj|, |ex_below| :ref:`action-recipe`, "Add new custom recipes for crafting"
+	"setButton", |t_list_obj|, |ex_below| :ref:`action-setbtn`, "Set the new button to displayed menu"
+	"removeButton", :ref:`prop-slot`, |ex_below| :ref:`action-rembtn`, "Remove button from displayed menu"
+	"placeItem", |t_list_obj|, |ex_below| :ref:`action-place-item`, "For drag-and-drop. Place draggable item into draggable slot"
+	"removePlaced", :ref:`prop-slot` or |t_obj|, |ex_below| :ref:`action-remove-placed`, "Remove draggable item from displayed menu"
 	"**Global variables**"
 	"setVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-set`, "Create or replace global variable"
 	"removeVar", "|t_list_obj|, |t_list_str|", |ex_below| :ref:`action-var-glob-rem`, "Remove global variable"
@@ -295,6 +300,27 @@ You can also use short format:
 	sound: "SOUND_NAME"
 
 In this case, the sound will play only for player in player's location.
+
+.. _action-custom-sound:
+
+Custom sound
+------------
+
+Same as :ref:`action-sound` action, but accepts sound name from resource pack. Example:
+
+::
+
+	customSound: "name.songs_sound"
+
+This action also has optional parameter ``category`` if use as object. 
+This parameter accept one of the values defined `here <https://hub.spigotmc.org/javadocs/spigot/org/bukkit/SoundCategory.html>`_. Example:
+
+::
+
+	customSound: {
+	  name: "name.songs_sound"
+	  category: RECORDS
+	}
 
 .. _action-potion:
 
@@ -971,3 +997,46 @@ Update item in the specified slot. Optionally, you can specify a delay.
 	    name: "Xp is: %player_xp%"
 	  },
 	]
+
+.. _action-setbtn:
+
+Set menu button
+---------------
+
+This action will add interactable item to the menu. Example:
+
+::
+
+	setButton {
+	  slot: 4
+	  material: CAKE
+	  name: "New button"
+	  click {
+	    message: "&aHello!"
+	  }
+	}
+
+After executing this action, specified button will be added to the slot 4. If some button already was in this slot, it will be replaced.
+
+.. note:: Button added by this action will be removed after menu reopened or refreshed. This action works with current menu session only.
+
+.. _action-rembtn:
+
+Remove menu button
+------------------
+
+This action will remove displayed button from opened menu. This action accepts slot in any available format. Example:
+
+::
+
+	removeButton: 4
+
+This action will remove menu item from slot 4 if it exists. You can also use other slot formats:
+
+::
+
+	removeButton: "0-8"
+
+This action will remove items from slots ``0, 1, 2, ..., 8``
+
+.. note:: Button removed by this action will may appear after menu reopened or refreshed. This action works with current menu session only.

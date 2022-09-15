@@ -50,6 +50,11 @@ Built-in placeholders
 	"%ctg_<extractor placeholder>%", "Depends on Extractor", "Get value by some extractor from Catalog context"
 	"%activator_name%", |t_str|, "Name of activator which opened menu"
 	"%activator_<extractor placeholder>%", "Depends on Extractor", "Get value by some extractor from Activator context"
+	"%placed_<item_extractor_placeholder>%", "Depends on Extractor", "Get info about last placed item"
+	"%placed_slot%", |t_int|, "Get slot index in which last item was placed"
+	"%taken_<item_extractor_placeholder>%", "Depends on Extractor", "Get info about last taken item"
+	"%taken_slot%", |t_int|, "Get slot index from which last item was taken"
+	"%changed_<item_extractor_placeholder>%", "Depends on Extractor", "Get info about final item after placing/taking"
 
 If you have installed `PlaceholderAPI <https://www.spigotmc.org/resources/6245/>`_, some of this placeholder won't work and will be replaced by big variety of placeholders from third party plugin instead. **Special placeholders** always works both with PAPI and without it.
 
@@ -190,6 +195,7 @@ Get data from ItemStack.
 	"item_display_name", "Formatted name"
 	"item_localized_name", "Localized name"
 	"item_model", "Custom model data (MC 1.14+)"
+	"item_serialized", "The whole item serialized into base64 string. Can be used with :ref:`serialized <prop-serialized>` item property"
 
 .. _extractor-region:
 

@@ -29,6 +29,7 @@ All item properties
 	"itemsAdder", |t_str|, ``itemsAdder: "<namespaced id>"``, "Take a custom stack defined in `ItemsAdder <https://www.spigotmc.org/resources/73355/>`_ registry by their namespaced id"
 	"oraxen", |t_str|, ``oraxen: "my_sword"``, "Take a custom stack defined in `Oraxen <https://www.spigotmc.org/resources/72448/>`_ plugin"
 	"equipItem", |t_str| or |t_obj|, |ex_below| :ref:`prop-equip-item`, "Take item from player's inventory. See all slot types"
+	"serialized", |t_str|, |ex_below| :ref:`prop-serialized`, "Deserialize item from base64 string"
 	"**Other properties**"
 	"name", |t_str|, ``name: "Peter Piper"``, "Set display name"
 	"data", |t_int|, ``data: 2``, "Material data (deprecated since MC ``1.13``, full material names are used instead)"
@@ -233,6 +234,26 @@ But you also can take item from another player's inventory. For this you need to
 	  player: "%player_name_placeholder%"
 	  slot: HEAD
 	}
+
+.. _prop-serialized:
+
+Deserialize from base64 string
+------------------------------
+
+The ``serialized`` item property allow to deserialize item from base64 string. Such string usually can be retrieved using :ref:`extractor-item` placeholder, for example, when you use drag-and-drop feature. Example:
+
+::
+
+	{
+	  slot: 0
+	  serialized: "%moved_item_serialized%" // Placehodler returns base64 string
+	  name: "New item name"
+	  lore: "New item lore"
+	}
+
+If add other item properties, like ``name`` they will replace present properties from deserialized item.
+
+.. note:: If you save such string into variable and then use it after server update or downgrade, item may be not compatible with different server version.
 
 .. _prop-lore:
 

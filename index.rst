@@ -14,6 +14,7 @@ The original version of AbstractMenus you can buy `here <https://www.spigotmc.or
   start/how_to
   start/hocon
   start/faq
+  start/tips
 
 .. toctree::
   :maxdepth: 1
@@ -38,6 +39,7 @@ The original version of AbstractMenus you can buy `here <https://www.spigotmc.or
   advanced/templates
   advanced/animations
   advanced/generation
+  advanced/drag-and-drop
 
 .. toctree::
   :maxdepth: 1
@@ -95,6 +97,8 @@ Commands
   Open menu for some player without activators.
 ``/am reload``
   Reload every menu from menus folder. For full plugin reloading we advice you reload server.
+``/am serve``
+  Listen for files updates and reload menu automatically. Use it only while you developing menus.
 ``/var get <name>``
   Display value of global variable.
 ``/var set <name> <value>``

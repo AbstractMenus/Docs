@@ -54,6 +54,7 @@ All rules
 	"freeSlotCount", |t_int|, ``freeSlotCount: 2``, "Checks player inventory for specify free slots count. If player has a same or more free slots it will return true"
 	"existVar", "|t_str|, |t_obj|", |ex_below| :ref:`rule-var`, "Check is there exists global variable"
 	"existVarp", |t_str|, |ex_below| :ref:`rule-var`, "Check is there exists personal variable"
+	"placedItem", |t_obj|, |ex_below| :ref:`rule-placed-item`, "For drag-and-drop. Check is there placed some item in menu by player"
 	"**WorldGuard**"
 	"region", |t_list_str|, ``region: "myregion"``, "Checks player is in one of the specified **WorldGuard** regions"
 	"**BungeeCord**"
@@ -65,6 +66,7 @@ All rules
 	"**Special rules**"
 	"and", |t_list_obj|, |ex_below| :ref:`here <logical-and>`, "Logical wrapper for rules implemented with 'AND' operator"
 	"or", |t_list_obj|, |ex_below| :ref:`here <logical-or>`, "Logical wrapper for rules implemented with 'OR' operator"
+	"oneof", |t_list_obj|, |ex_below| :ref:`here <logical-oneof>`, "Works as ``and`` wrapper but will be stopped if some rule in the list will be ``true``"
 	"playerScope", |t_obj|, |ex_below| :ref:`here <rule-player-scope>`, "Rules wrapper to check another player found by name"
 
 .. _rule-items:
@@ -86,6 +88,38 @@ Rule to check player's inventory for some items. This is an :ref:`objects list <
 	    amount: 2
 	  }
 	]
+
+You can also use it as a single object. Example:
+
+::
+
+	inventoryItems {
+	  material: CAKE
+	  amount: 5
+	}
+
+If you add ``slot`` parameter, this rule will check item in specified slot or slots:
+
+::
+
+	inventoryItems {
+	  slot: 0
+	  material: CAKE
+	  amount: 5
+	}
+
+The rule above will be ``true`` for player if it has at least 5 cakes in slot 0.
+You can also use other slot formats, for example:
+
+::
+
+	inventoryItems {
+	  slot: "0-8"
+	  material: CAKE
+	  amount: 5
+	}
+
+The rule above will be ``true`` for player if it has at least 5 cakes in each slot ``0, 1, 2, ..., 8``
 
 .. _rule-held:
 

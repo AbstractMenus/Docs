@@ -253,6 +253,82 @@ This behaviour also works when you use ``or`` rule as list of rules groups. Exam
 
 In this example, rule ``or`` will return ``true`` if player have permission ``group.vip`` **OR** gamemode CREATIVE **OR** permission ``group.helper``.
 
+.. _logical-oneof:
+
+Wrapper ``oneof``
+~~~~~~~~~~~~~~~~~
+
+The ``oneof`` wrapper useful if use it as list with local actions. It works like ``and``, but with one feature.
+If use ``and`` rule as list of individual rules like:
+
+::
+
+  rules {
+    and: [
+      {
+        permission: "perm1"
+        actions {
+          message: "You have perm1"
+        }
+      },
+      {
+        permission: "perm2"
+        actions {
+          message: "You have perm2"
+        }
+      }
+    ]
+  }
+
+then if player has permission from first block (``perm1``), then local actions will be executed, **but** each next rules also will be checked, and player will receive unwanted messages. In the end, the whole rule ``and`` will return ``false`` if at least one of the rules inside returned ``false``.
+
+In some cases this behavior is not preferable, so ``oneof`` wrapper can help. If you write same rule but using ``oneof`` wrapper:
+
+::
+
+  rules {
+    oneof: [
+      {
+        permission: "perm1"
+        actions {
+          message: "You have perm1"
+        }
+      },
+      {
+        permission: "perm2"
+        actions {
+          message: "You have perm2"
+        }
+      }
+    ]
+  }
+
+then if player has permission ``perm1`` local actions also will be executed, **but** the whole ``oneof`` block will be stopped and return ``true``. If player has no any of the specified permissions, the ``oneof`` rule will return ``false``.
+
+So with ``oneof`` you can use local actions and be sure that they will be executed only if at least **one of** the rules block returned ``true``. Example:
+
+::
+
+  rules {
+    oneof: [
+      {
+        permission: "perm1"
+        actions {
+          message: "You have perm1"
+        }
+      },
+      {
+        permission: "perm2"
+        actions {
+          message: "You have perm2"
+        }
+      }
+    ]
+    denyActions { // Will be executed only if all rules in list failed
+      message: "You have no any of required rules"
+    }
+  }
+
 Combining logical wrappers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

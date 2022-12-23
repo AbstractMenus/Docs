@@ -43,6 +43,7 @@ Maven
 	        <groupId>com.github.AbstractMenus</groupId>
 	        <artifactId>api</artifactId>
 	        <version>1.14</version>
+	        <scope>provided</scope>
 	    </dependency>
 	</dependencies>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Logical structures &mdash; AbstractMenus  documentation</title>
@@ -13,11 +13,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/js/links.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F05454" >
-            <a href="../index.html" class="icon icon-home"> AbstractMenus
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AbstractMenus
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -109,8 +112,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Logical structures</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Logical structures</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -120,8 +123,8 @@
            <div itemprop="articleBody">
              
   <section id="logical-structures">
-<h1><a class="toc-backref" href="#id2">Logical structures</a><a class="headerlink" href="#logical-structures" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Logical structures</a><a class="headerlink" href="#logical-structures" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#logical-structures" id="id2">Logical structures</a></p>
@@ -146,12 +149,12 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>In general, all logical structures in AbstractMenus works as <strong>if -&gt; then -&gt; else</strong>. These structures can be nested.</p>
 <section id="actions-block">
-<h2><a class="toc-backref" href="#id3">Actions block</a><a class="headerlink" href="#actions-block" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Actions block</a><a class="headerlink" href="#actions-block" title="Permalink to this heading"></a></h2>
 <p>Each actions block is a complex object that can contains rules and other actions. Below is a real structure of actions block:</p>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -223,9 +226,9 @@
 </div>
 </section>
 <section id="rules-block">
-<h2><a class="toc-backref" href="#id4">Rules block</a><a class="headerlink" href="#rules-block" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Rules block</a><a class="headerlink" href="#rules-block" title="Permalink to this heading"></a></h2>
 <section id="local-actions">
-<h3><a class="toc-backref" href="#id5">Local actions</a><a class="headerlink" href="#local-actions" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Local actions</a><a class="headerlink" href="#local-actions" title="Permalink to this heading"></a></h3>
 <p>In each rules block you can specify local actions. This useful in case when you cannot use <code class="docutils literal notranslate"><span class="pre">actions</span></code> and <code class="docutils literal notranslate"><span class="pre">denyActions</span></code> blocks outside. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span><span class="p">:</span> <span class="p">[</span>
   <span class="p">{</span>
@@ -248,7 +251,7 @@
 <p>In the example above, the message “Nope” will send to the player if the player doesn’t have the <code class="docutils literal notranslate"><span class="pre">am.admin</span></code> permission. The <code class="docutils literal notranslate"><span class="pre">actions</span></code> block, if it specified, will work oppositely, that is, if the player matches the rules.</p>
 </section>
 <section id="rules-block-as-list">
-<h3><a class="toc-backref" href="#id6">Rules block as list</a><a class="headerlink" href="#rules-block-as-list" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Rules block as list</a><a class="headerlink" href="#rules-block-as-list" title="Permalink to this heading"></a></h3>
 <p>Actually, any <code class="docutils literal notranslate"><span class="pre">rules</span></code> block is a <a class="reference internal" href="../start/hocon.html#hocon-list-obj"><span class="std std-ref">list of objects</span></a>, where each object is a rules block. Before that, always when we described the rules, we just opened the <code class="docutils literal notranslate"><span class="pre">rules</span></code> block and wrote the rules there like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
   <span class="n">permission</span><span class="p">:</span> <span class="s2">&quot;super.admin&quot;</span>
@@ -300,7 +303,7 @@
 </section>
 </section>
 <section id="inverting-rule-operator-not">
-<span id="logical-not"></span><h2><a class="toc-backref" href="#id7">Inverting rule (operator “NOT”)</a><a class="headerlink" href="#inverting-rule-operator-not" title="Permalink to this heading"></a></h2>
+<span id="logical-not"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Inverting rule (operator “NOT”)</a><a class="headerlink" href="#inverting-rule-operator-not" title="Permalink to this heading"></a></h2>
 <p>You can invert result of any rule. For this, just add <code class="docutils literal notranslate"><span class="pre">-</span></code> before the rule name. Char <code class="docutils literal notranslate"><span class="pre">-</span></code> means “NOT”. When you added this “NOT” char before rule name, result of rule will be inverted. If rule returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, it will return <code class="docutils literal notranslate"><span class="pre">false</span></code> and vice versa.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
@@ -322,12 +325,12 @@
 <p>You can use this notation for any rule, even for logical wrappers. About logical wrappers in the next part.</p>
 </section>
 <section id="logical-rule-wrappers">
-<h2><a class="toc-backref" href="#id8">Logical rule wrappers</a><a class="headerlink" href="#logical-rule-wrappers" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Logical rule wrappers</a><a class="headerlink" href="#logical-rule-wrappers" title="Permalink to this heading"></a></h2>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">rules</span></code> block works with “AND” condition. Even when you use <code class="docutils literal notranslate"><span class="pre">rules</span></code> block as list, this rules works with “AND” condition.
 Logical wrappers created to add ability to create more complex conditions. You can combine rules <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, and operator “NOT”.
 Technically, logical wrappers is just a rules which can contain other rules. So this wrappers must be specified inside <code class="docutils literal notranslate"><span class="pre">rules</span></code> block.</p>
 <section id="wrapper-and">
-<span id="logical-and"></span><h3><a class="toc-backref" href="#id9">Wrapper “AND”</a><a class="headerlink" href="#wrapper-and" title="Permalink to this heading"></a></h3>
+<span id="logical-and"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Wrapper “AND”</a><a class="headerlink" href="#wrapper-and" title="Permalink to this heading"></a></h3>
 <p>Since <code class="docutils literal notranslate"><span class="pre">rules</span></code> block works with “AND” condition, this wrapper exists to use it inside <code class="docutils literal notranslate"><span class="pre">or</span></code> wrapper.
 But anyway we will show example of using this wrapper.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
@@ -356,7 +359,7 @@ But anyway we will show example of using this wrapper.</p>
 <p>In this example, rule <code class="docutils literal notranslate"><span class="pre">and</span></code> will return <code class="docutils literal notranslate"><span class="pre">true</span></code> if player have permission <code class="docutils literal notranslate"><span class="pre">group.vip</span></code> <strong>AND</strong> gamemode CREATIVE <strong>AND</strong> permission <code class="docutils literal notranslate"><span class="pre">group.helper</span></code>.</p>
 </section>
 <section id="wrapper-or">
-<span id="logical-or"></span><h3><a class="toc-backref" href="#id10">Wrapper “OR”</a><a class="headerlink" href="#wrapper-or" title="Permalink to this heading"></a></h3>
+<span id="logical-or"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Wrapper “OR”</a><a class="headerlink" href="#wrapper-or" title="Permalink to this heading"></a></h3>
 <p>This logical wrapper will return true if <strong>at least one</strong> of the rules inside return true.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
   <span class="ow">or</span> <span class="p">{</span>
@@ -384,7 +387,7 @@ But anyway we will show example of using this wrapper.</p>
 <p>In this example, rule <code class="docutils literal notranslate"><span class="pre">or</span></code> will return <code class="docutils literal notranslate"><span class="pre">true</span></code> if player have permission <code class="docutils literal notranslate"><span class="pre">group.vip</span></code> <strong>OR</strong> gamemode CREATIVE <strong>OR</strong> permission <code class="docutils literal notranslate"><span class="pre">group.helper</span></code>.</p>
 </section>
 <section id="wrapper-oneof">
-<span id="logical-oneof"></span><h3><a class="toc-backref" href="#id11">Wrapper <code class="docutils literal notranslate"><span class="pre">oneof</span></code></a><a class="headerlink" href="#wrapper-oneof" title="Permalink to this heading"></a></h3>
+<span id="logical-oneof"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Wrapper <code class="docutils literal notranslate"><span class="pre">oneof</span></code></a><a class="headerlink" href="#wrapper-oneof" title="Permalink to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">oneof</span></code> wrapper useful if use it as list with local actions. It works like <code class="docutils literal notranslate"><span class="pre">and</span></code>, but with one feature.
 If use <code class="docutils literal notranslate"><span class="pre">and</span></code> rule as list of individual rules like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
@@ -450,7 +453,7 @@ If use <code class="docutils literal notranslate"><span class="pre">and</span></
 </div>
 </section>
 <section id="combining-logical-wrappers">
-<h3><a class="toc-backref" href="#id12">Combining logical wrappers</a><a class="headerlink" href="#combining-logical-wrappers" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Combining logical wrappers</a><a class="headerlink" href="#combining-logical-wrappers" title="Permalink to this heading"></a></h3>
 <p>You can combine logical wrappers and make more complex conditions. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rules</span> <span class="p">{</span>
   <span class="ow">or</span><span class="p">:</span> <span class="p">[</span>
@@ -477,7 +480,7 @@ If use <code class="docutils literal notranslate"><span class="pre">and</span></
 </section>
 </section>
 <section id="using-same-actions-and-rules-inside-one-block">
-<h2><a class="toc-backref" href="#id13">Using same actions and rules inside one block</a><a class="headerlink" href="#using-same-actions-and-rules-inside-one-block" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Using same actions and rules inside one block</a><a class="headerlink" href="#using-same-actions-and-rules-inside-one-block" title="Permalink to this heading"></a></h2>
 <p>As other configuration languages, HOCON doesn’t allow to use similar keys in same block multiple times. For example, this block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">click</span> <span class="p">{</span>
   <span class="n">message</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span> <span class="o">//</span> <span class="n">Ok</span>

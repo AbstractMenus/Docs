@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Types deserializing &mdash; AbstractMenus  documentation</title>
@@ -13,11 +13,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/js/links.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F05454" >
-            <a href="../index.html" class="icon icon-home"> AbstractMenus
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AbstractMenus
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -99,8 +102,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Types deserializing</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Types deserializing</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -110,8 +113,8 @@
            <div itemprop="articleBody">
              
   <section id="types-deserializing">
-<h1><a class="toc-backref" href="#id1">Types deserializing</a><a class="headerlink" href="#types-deserializing" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Types deserializing</a><a class="headerlink" href="#types-deserializing" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#types-deserializing" id="id1">Types deserializing</a></p>
@@ -124,7 +127,7 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In many examples we do not adhere to some Java conventions and common code style to avoid boilerplate code. We want to show how to use API, and not how to write the proper code in Java.</p>
@@ -134,11 +137,11 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 <p>Each menu type in AbstractMenus has own Deserializer. Deserializer is a simple <a class="reference external" href="https://en.wikipedia.org/wiki/Factory_method_pattern">factory</a> that accepts some <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/hocon/api/ConfigNode.html">ConfigNode</a> object and returns native Java type.</p>
 <p>Each serializer should implement <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/hocon/api/serialize/NodeSerializer.html">NodeSerializer</a> interface. This interface has only method to deserialize object from provided configuration node.</p>
 <section id="types-registration">
-<span id="api-registration"></span><h2><a class="toc-backref" href="#id2">Types registration</a><a class="headerlink" href="#types-registration" title="Permalink to this heading"></a></h2>
+<span id="api-registration"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Types registration</a><a class="headerlink" href="#types-registration" title="Permalink to this heading"></a></h2>
 <p>To register own serializer, you need to use <a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/api/Types.html">Types</a> manager. There are many methods to register and get serializer for some menu types, like action, rule, etc. But you also can register serializer for any type that you will use in future.</p>
 <p>For this, you need to call <code class="docutils literal notranslate"><span class="pre">serializers()</span></code> method to get common serializers collection (<a class="reference external" href="https://abstractmenus.github.io/api/ru/abstractmenus/hocon/api/serialize/NodeSerializers.html">NodeSerializers</a> class) that will be used in AbstractMenus.</p>
 <p>To register your type serializer, you need to call method <code class="docutils literal notranslate"><span class="pre">register</span></code> of given <code class="docutils literal notranslate"><span class="pre">NodeSerializers</span></code> object. Example:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Types</span><span class="p">.</span><span class="na">serializers</span><span class="p">().</span><span class="na">register</span><span class="p">(</span><span class="n">MyType</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyTypeSerializer</span><span class="p">());</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Types</span><span class="p">.</span><span class="na">serializers</span><span class="p">().</span><span class="na">register</span><span class="p">(</span><span class="n">MyType</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyTypeSerializer</span><span class="p">());</span>
 </pre></div>
 </div>
 <p>How to register own menu types, like actions, rules, etc, you can read on <a class="reference internal" href="own_types.html"><span class="doc">Create own types</span></a> page.</p>
@@ -148,7 +151,7 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 </div>
 </section>
 <section id="default-serializers">
-<h2><a class="toc-backref" href="#id3">Default serializers</a><a class="headerlink" href="#default-serializers" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Default serializers</a><a class="headerlink" href="#default-serializers" title="Permalink to this heading"></a></h2>
 <p>AbstactMenus already has serializers for Java primitives and some most used objects:</p>
 <ul class="simple">
 <li><p>Boolean</p></li>
@@ -161,12 +164,12 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 </ul>
 </section>
 <section id="example-1-deserialize-simple-object">
-<h2><a class="toc-backref" href="#id4">Example 1. Deserialize simple object</a><a class="headerlink" href="#example-1-deserialize-simple-object" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Example 1. Deserialize simple object</a><a class="headerlink" href="#example-1-deserialize-simple-object" title="Permalink to this heading"></a></h2>
 <p>Lets try to deserialize simple object of class, called <code class="docutils literal notranslate"><span class="pre">User</span></code>.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>And we have HOCON object like this:</p>
@@ -177,22 +180,22 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 </pre></div>
 </div>
 <p>Now we need to create serializer for our type.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ConfigNode</span></code> provides access to parsed configuration structure. The only task when we create serializer is to read values from provided config node and write these values to our object.</p>
 </section>
 <section id="example-2-deserialize-objects">
-<h2><a class="toc-backref" href="#id5">Example 2. Deserialize objects</a><a class="headerlink" href="#example-2-deserialize-objects" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Example 2. Deserialize objects</a><a class="headerlink" href="#example-2-deserialize-objects" title="Permalink to this heading"></a></h2>
 <p>Lets say we have such HOCON object:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="p">{</span>
   <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;Notch&quot;</span>
@@ -206,25 +209,25 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 </div>
 <p>We do not need to ask access to each child object and deserialize it manually. We already have serializer for <code class="docutils literal notranslate"><span class="pre">User</span></code> type. So lets use modify it to get <code class="docutils literal notranslate"><span class="pre">User</span></code> object from config node by calling one method.</p>
 <p>First, we need to modify <code class="docutils literal notranslate"><span class="pre">User</span></code> class.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">friend</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="n">friend</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Then our <code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code> will looks like this:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">friend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;friend&quot;</span><span class="p">).</span><span class="na">getValue</span><span class="p">(</span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">friend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;friend&quot;</span><span class="p">).</span><span class="na">getValue</span><span class="p">(</span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Now when we call <code class="docutils literal notranslate"><span class="pre">getValue(User.class)</span></code> configuration api will find registered <code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code> by <code class="docutils literal notranslate"><span class="pre">User</span></code> type and deserialize inner type.</p>
@@ -234,7 +237,7 @@ Javadocs for Configuration API, provided by AbstractMenus, you can find <a class
 </div>
 </section>
 <section id="example-3-deserialize-collections">
-<h2><a class="toc-backref" href="#id6">Example 3. Deserialize collections</a><a class="headerlink" href="#example-3-deserialize-collections" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example 3. Deserialize collections</a><a class="headerlink" href="#example-3-deserialize-collections" title="Permalink to this heading"></a></h2>
 <p>HOCON supports lists of any type. In AbstractMenus API you also can get list of any type.
 In this example we will deserialize list of <code class="docutils literal notranslate"><span class="pre">User</span></code> objects.</p>
 <p>Lets say we have such HOCON list:</p>
@@ -255,25 +258,25 @@ In this example we will deserialize list of <code class="docutils literal notran
 </pre></div>
 </div>
 <p>First, lets modify our <code class="docutils literal notranslate"><span class="pre">User</span></code> class. Now it should has friends list.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">friends</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">friends</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Then our serializer will looks like this:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserSerializer</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">NodeSerializer</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">friends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;friends&quot;</span><span class="p">).</span><span class="na">getList</span><span class="p">(</span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">deserialize</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigNode</span><span class="w"> </span><span class="n">node</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">NodeSerializeException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">User</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">getString</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;age&quot;</span><span class="p">).</span><span class="na">getInt</span><span class="p">();</span>
+<span class="w">        </span><span class="n">user</span><span class="p">.</span><span class="na">friends</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="na">node</span><span class="p">(</span><span class="s">&quot;friends&quot;</span><span class="p">).</span><span class="na">getList</span><span class="p">(</span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">user</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Now we called <code class="docutils literal notranslate"><span class="pre">getList(User.class)</span></code> method to get list of <code class="docutils literal notranslate"><span class="pre">User</span></code> objects.</p>

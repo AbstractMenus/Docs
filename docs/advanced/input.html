@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User input &mdash; AbstractMenus  documentation</title>
@@ -13,11 +13,10 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/js/links.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -31,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F05454" >
-            <a href="../index.html" class="icon icon-home"> AbstractMenus
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AbstractMenus
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -121,8 +124,8 @@
         <div class="rst-content style-external-links">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>User input</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User input</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -132,8 +135,8 @@
            <div itemprop="articleBody">
              
   <section id="user-input">
-<h1><a class="toc-backref" href="#id7">User input</a><a class="headerlink" href="#user-input" title="Permalink to this heading"></a></h1>
-<div class="contents topic" id="contents">
+<h1><a class="toc-backref" href="#id7" role="doc-backlink">User input</a><a class="headerlink" href="#user-input" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#user-input" id="id7">User input</a></p>
@@ -166,10 +169,10 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>This article is about how you can save some user input and use it inside your menus.</p>
 <section id="activator-context">
-<span id="input-ctx-main"></span><h2><a class="toc-backref" href="#id8">Activator context</a><a class="headerlink" href="#activator-context" title="Permalink to this heading"></a></h2>
+<span id="input-ctx-main"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Activator context</a><a class="headerlink" href="#activator-context" title="Permalink to this heading"></a></h2>
 <p>Almost all activators saves own state for each player. We called this state as <code class="docutils literal notranslate"><span class="pre">Context</span></code>. Context is any object such a:</p>
 <ul class="simple">
 <li><p>Command which player entered</p></li>
@@ -181,7 +184,7 @@
 <p>Each newly opened (through activator) menu has own context. AbstractMenus allows to get some values from this context just through placeholders.</p>
 </section>
 <section id="context-placeholders">
-<span id="input-ctx-placeholder"></span><h2><a class="toc-backref" href="#id9">Context placeholders</a><a class="headerlink" href="#context-placeholders" title="Permalink to this heading"></a></h2>
+<span id="input-ctx-placeholder"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Context placeholders</a><a class="headerlink" href="#context-placeholders" title="Permalink to this heading"></a></h2>
 <p>Access to context’s data via placeholders possible due Value Extractors. More about value extractors you can read in <a class="reference internal" href="../general/placeholders.html#value-extractors"><span class="std std-ref">Value extractors</span></a> topic. Here is just described way <strong>how to use spefic extractor as placeholder</strong>.</p>
 <p>Each activator uses one of the predefined extractors to provide placeholders for own context.</p>
 <p>To get access to activator context’s placeholders, you can use placeholder in next format:</p>
@@ -190,7 +193,7 @@
 </div>
 <p>Each activator’s placeholder start with <code class="docutils literal notranslate"><span class="pre">activator_</span></code> prefix. The <code class="docutils literal notranslate"><span class="pre">&lt;extractor</span> <span class="pre">placeholder&gt;</span></code> is a placeholder which <a class="reference internal" href="../general/placeholders.html#extractor-block"><span class="std std-ref">defined</span></a> for specific extractor.</p>
 <section id="how-to-use-context-placeholer-of-activator">
-<span id="input-how-to"></span><h3><a class="toc-backref" href="#id10">How to use context placeholer of activator</a><a class="headerlink" href="#how-to-use-context-placeholer-of-activator" title="Permalink to this heading"></a></h3>
+<span id="input-how-to"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">How to use context placeholer of activator</a><a class="headerlink" href="#how-to-use-context-placeholer-of-activator" title="Permalink to this heading"></a></h3>
 <p>The algorithm of using context placeholder for activators is simple:</p>
 <ol class="arabic simple">
 <li><p>Go to <a class="reference internal" href="../general/activators.html"><span class="doc">Activators</span></a> page.</p></li>
@@ -211,7 +214,7 @@
 </ol>
 </section>
 <section id="example-1-using-context-placeholders">
-<h3><a class="toc-backref" href="#id11">Example 1. Using context placeholders</a><a class="headerlink" href="#example-1-using-context-placeholders" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Example 1. Using context placeholders</a><a class="headerlink" href="#example-1-using-context-placeholders" title="Permalink to this heading"></a></h3>
 <p>For example, let’s say you use <code class="docutils literal notranslate"><span class="pre">clickEntity</span></code> activator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">activators</span> <span class="p">{</span>
   <span class="n">clickEntity</span> <span class="p">{</span>
@@ -243,7 +246,7 @@
 <p>Here we used <code class="docutils literal notranslate"><span class="pre">entity_custom_name</span></code>, <code class="docutils literal notranslate"><span class="pre">entity_loc_x</span></code>, <code class="docutils literal notranslate"><span class="pre">entity_loc_y</span></code> and <code class="docutils literal notranslate"><span class="pre">entity_loc_z</span></code> extractor placeholders, which defined <a class="reference internal" href="../general/placeholders.html#extractor-entity"><span class="std std-ref">in this place</span></a></p>
 </section>
 <section id="example-2-personal-profile-menu">
-<span id="input-prof-ex"></span><h3><a class="toc-backref" href="#id12">Example 2. Personal profile menu</a><a class="headerlink" href="#example-2-personal-profile-menu" title="Permalink to this heading"></a></h3>
+<span id="input-prof-ex"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Example 2. Personal profile menu</a><a class="headerlink" href="#example-2-personal-profile-menu" title="Permalink to this heading"></a></h3>
 <p>Let’s create some more interesting menu. We want to make profile menu. When player shift-clicks on other player, we want to open menu with clicked player stats. For this we will use <code class="docutils literal notranslate"><span class="pre">shiftClickEntity</span></code> activator.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;&amp;b</span><span class="si">%a</span><span class="s2">ctivator_player_name%&#39;s&#39; profile&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">1</span>
@@ -292,15 +295,15 @@ We also used PlaceholderAPI placeholders, but with <code class="docutils literal
 </section>
 </section>
 <section id="commands-building">
-<span id="building-commands"></span><h2><a class="toc-backref" href="#id13">Commands building</a><a class="headerlink" href="#commands-building" title="Permalink to this heading"></a></h2>
+<span id="building-commands"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Commands building</a><a class="headerlink" href="#commands-building" title="Permalink to this heading"></a></h2>
 <p>AbstractMenus has powerful system to build commands and use entered arguments in menus.</p>
 <p>In this topic we will talk about more complex format of the <code class="docutils literal notranslate"><span class="pre">command</span></code> activator with taking arguments.
 Other information about this activator you can find in <a class="reference internal" href="../general/activators.html"><span class="doc">Activators</span></a> article.</p>
 <section id="command-format">
-<h3><a class="toc-backref" href="#id14">Command format</a><a class="headerlink" href="#command-format" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Command format</a><a class="headerlink" href="#command-format" title="Permalink to this heading"></a></h3>
 <p>To build command with arguments, you need to make <code class="docutils literal notranslate"><span class="pre">command</span></code> activator as an <a class="reference internal" href="../start/hocon.html#hocon-obj"><span class="std std-ref">Object</span></a>.
 This object has several required and optional parameters. Below is full structure of <code class="docutils literal notranslate"><span class="pre">commands</span></code> activator.</p>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 21%" />
@@ -361,7 +364,7 @@ This object has several required and optional parameters. Below is full structur
 <p>As described in <a class="reference internal" href="../general/placeholders.html#extractor-cmd"><span class="std std-ref">Command extractor</span></a> topic, <code class="docutils literal notranslate"><span class="pre">commands</span></code> activator uses Command Extractor to get paraed values from entered command. Example of using this extractor you can see in topic below.</p>
 </section>
 <section id="simple-arguments">
-<h3><a class="toc-backref" href="#id15">Simple arguments</a><a class="headerlink" href="#simple-arguments" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Simple arguments</a><a class="headerlink" href="#simple-arguments" title="Permalink to this heading"></a></h3>
 <p>Simple arguments is just list of argument keys. Every argument is a string, so user can enter anything. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="p">{</span>
   <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;mycmd&quot;</span>
@@ -380,28 +383,28 @@ This object has several required and optional parameters. Below is full structur
 </div>
 </section>
 <section id="typed-arguments">
-<h3><a class="toc-backref" href="#id16">Typed arguments</a><a class="headerlink" href="#typed-arguments" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Typed arguments</a><a class="headerlink" href="#typed-arguments" title="Permalink to this heading"></a></h3>
 <p>Typed arguments allows you to expect players to enter arguments of a certain type. If player entered something wrong, he will get error message.</p>
 <p>There are several types of arguments.</p>
 <dl class="field-list simple">
-<dt class="field-odd">string</dt>
+<dt class="field-odd">string<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Simple string argument. Player can enter anything, without space symbol.</p>
 </dd>
-<dt class="field-even">number</dt>
+<dt class="field-even">number<span class="colon">:</span></dt>
 <dd class="field-even"><p>Any number: float or integer. Fails if number cannot be parsed from user input.</p>
 </dd>
-<dt class="field-odd">integer</dt>
+<dt class="field-odd">integer<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Integers only. Fails if number cannot be parsed to integer from user input.</p>
 </dd>
-<dt class="field-even">player</dt>
+<dt class="field-even">player<span class="colon">:</span></dt>
 <dd class="field-even"><p>Online player name. Will suggest all players on tab complete, and fails if player not found.</p>
 </dd>
-<dt class="field-odd">choice</dt>
+<dt class="field-odd">choice<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Predefined string options. Will be suggested on tab complete. Player must select one of the suggested options.</p>
 </dd>
 </dl>
 <p>Each typed argument is an object with parameters. All they has general fields which described below:</p>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 21%" />
@@ -497,7 +500,7 @@ This object has several required and optional parameters. Below is full structur
 </section>
 </section>
 <section id="using-regular-placeholders-for-player-argument">
-<h3><a class="toc-backref" href="#id17">Using regular placeholders for player argument</a><a class="headerlink" href="#using-regular-placeholders-for-player-argument" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Using regular placeholders for player argument</a><a class="headerlink" href="#using-regular-placeholders-for-player-argument" title="Permalink to this heading"></a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">player</span></code> argument has one cool feature. In cases when you use <code class="docutils literal notranslate"><span class="pre">player</span></code> argument,
 AbstractMenus saves entered player and provides access to their regular placeholders. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="p">{</span>
@@ -523,7 +526,7 @@ AbstractMenus saves entered player and provides access to their regular placehol
 </div>
 </section>
 <section id="default-arguments">
-<h3><a class="toc-backref" href="#id18">Default arguments</a><a class="headerlink" href="#default-arguments" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Default arguments</a><a class="headerlink" href="#default-arguments" title="Permalink to this heading"></a></h3>
 <p>Let’s talk more about <code class="docutils literal notranslate"><span class="pre">default</span></code> argument’s field. In some cases you need to make some argument optional. For example, you want to make profile menu. If player entered username, then profile of other player will be opened. If no, then will be opened profile of player who entered command.</p>
 <p>For logic like this, you can add default value to some argument. You can use regular placeholders in default values. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="p">{</span>
@@ -543,7 +546,7 @@ AbstractMenus saves entered player and provides access to their regular placehol
 <p>Currently, AbstractMenus has some resctiction for optional arguments. You can make only one optional argument and put it only in the end of arguments list. This due arguments parsing algorithm, which can’t know which argument you entered, if there are more than one optional argument.</p>
 </section>
 <section id="final-example-open-profile-menu-by-command">
-<h3><a class="toc-backref" href="#id19">Final example. Open profile menu by command</a><a class="headerlink" href="#final-example-open-profile-menu-by-command" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Final example. Open profile menu by command</a><a class="headerlink" href="#final-example-open-profile-menu-by-command" title="Permalink to this heading"></a></h3>
 <p>Let’s modify our example, which we made <a class="reference internal" href="#input-prof-ex"><span class="std std-ref">before</span></a>. We will replace <code class="docutils literal notranslate"><span class="pre">shiftClickEntity</span></code> activator to <code class="docutils literal notranslate"><span class="pre">command</span></code> and make command take player name:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2">ctivator_user:player_name%&#39;s profile&quot;</span>
 <span class="n">size</span><span class="p">:</span> <span class="mi">1</span>
@@ -590,7 +593,7 @@ AbstractMenus saves entered player and provides access to their regular placehol
 </figure>
 </section>
 <section id="command-overriding">
-<h3><a class="toc-backref" href="#id20">Command overriding</a><a class="headerlink" href="#command-overriding" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Command overriding</a><a class="headerlink" href="#command-overriding" title="Permalink to this heading"></a></h3>
 <p>Sometimes we need to override command from other plugin.
 For example, you have third-party plugin with <code class="docutils literal notranslate"><span class="pre">/kit</span></code> command.</p>
 <p>Suppose we want to create menu which will be opened by the same command and will show list of available kits.
@@ -611,10 +614,10 @@ This will allow to “override” third-party plugin command, even if AbstarctMe
 </section>
 </section>
 <section id="chat-input">
-<span id="input-chat"></span><h2><a class="toc-backref" href="#id21">Chat Input</a><a class="headerlink" href="#chat-input" title="Permalink to this heading"></a></h2>
+<span id="input-chat"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink">Chat Input</a><a class="headerlink" href="#chat-input" title="Permalink to this heading"></a></h2>
 <p>Action <code class="docutils literal notranslate"><span class="pre">inputChat</span></code> allows you to request some text input to player.
 Below is the structure of this action.</p>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 21%" />
@@ -708,7 +711,7 @@ see <code class="docutils literal notranslate"><span class="pre">Hello,</span> <
 <p>After performing <code class="docutils literal notranslate"><span class="pre">inputChat</span></code>, menu will be closed automatically. <strong>Do not</strong> close it manually by <code class="docutils literal notranslate"><span class="pre">closeMenu</span></code> action.</p>
 </div>
 <section id="input-cancelling">
-<h3><a class="toc-backref" href="#id22">Input Cancelling</a><a class="headerlink" href="#input-cancelling" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Input Cancelling</a><a class="headerlink" href="#input-cancelling" title="Permalink to this heading"></a></h3>
 <p>If you want to add ability to cancel text input, you can add <code class="docutils literal notranslate"><span class="pre">cancelOn</span></code> parameter to the action.
 Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">slot</span><span class="p">:</span> <span class="mi">0</span>
@@ -740,7 +743,7 @@ If player entered <code class="docutils literal notranslate"><span class="pre">c
 </figure>
 </section>
 <section id="restrictions">
-<h3><a class="toc-backref" href="#id23">Restrictions</a><a class="headerlink" href="#restrictions" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Restrictions</a><a class="headerlink" href="#restrictions" title="Permalink to this heading"></a></h3>
 <p>Note, that not all stuff, that available in menu, allowed inside <code class="docutils literal notranslate"><span class="pre">onInput</span></code> and <code class="docutils literal notranslate"><span class="pre">onCancel</span></code> blocks.</p>
 <p>Since menu is closed while waiting for input, you can only use actions which are not interacts with menu inventory.
 <strong>Do not use</strong> actions like <code class="docutils literal notranslate"><span class="pre">refreshMenu</span></code>, <code class="docutils literal notranslate"><span class="pre">closeMenu</span></code>, <code class="docutils literal notranslate"><span class="pre">openMenu</span></code>, etc.</p>

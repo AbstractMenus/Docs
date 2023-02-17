@@ -24,6 +24,7 @@ All actions
 	"broadcast", |t_obj| or |t_str|, |ex_below| :ref:`action-msg`, "Send message to all players on server. Format similar to ``message`` action"
 	"miniMessage", |t_str|, |ex_below| :ref:`mini-message`, "**(Deprecated. MiniMessage now supported by default message actions)** Send message with :ref:`mini-message`"
 	"playerChat", |t_list_str|, ``playerChat: "Hello!"``, "Send a message on behalf of the player who opened the menu"
+	"print", |t_str|, ``print: "Hello world!"``, "Print message in console. Useful for debugging"
 	"command", |t_obj|, |ex_below| :ref:`action-cmd`, "Execute a list of commands on behalf of a player or server"
 	"inputChat", |t_obj|, |ex_below| :ref:`action-input-chat`, "Request player for enter text in chat and save result in variable"
 	"teleport", |t_obj|, |ex_below| :ref:`action-tp`, "Teleport player to location"

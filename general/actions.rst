@@ -597,7 +597,7 @@ All arguments and usage similar to :ref:`action-var-glob-math` of global variabl
 
 ::
 
-	incVarp: "myvar:2"
+	incVarp: "myvar::2"
 
 Multiple variables interaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -491,8 +491,8 @@ After this, we can use our catalog in menu.
 	  templates {
 	    "x" {
 	      material: CAKE
-	      name: "%activator_user_name%"
-	      lore: "&7Age: &e%activator_user_age%"
+	      name: "%ctg_user_name%"
+	      lore: "&7Age: &e%ctg_user_age%"
 	    }
 	  }
 	}
